@@ -146,6 +146,15 @@ nav {
   display: flex;
 }
 
+.product-list:hover {
+  background-color: #b88e2f;
+  transition: all 0.9s ease-out;
+  -webkit-transition: all 0.9s ease-out;
+  -moz-transition: all 0.9s ease-out;
+  -ms-transition: all 0.9s ease-out;
+  -o-transition: all 0.9s ease-out;
+}
+
 .product-list {
   background-color: #f4f5f7;
   margin-left: 80px;
