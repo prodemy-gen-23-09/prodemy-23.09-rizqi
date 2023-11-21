@@ -43,12 +43,12 @@ nav {
 }
 
 .menu-navbar :hover{
-  color: tomato;
-  transition: all 0.8s ease-out;
-  -webkit-transition: all 0.8s ease-out;
-  -moz-transition: all 0.8s ease-out;
-  -ms-transition: all 0.8s ease-out;
-  -o-transition: all 0.8s ease-out;
+  color: #b88e2f;
+  transition: all 0.7s ease-out;
+  -webkit-transition: all 0.7s ease-out;
+  -moz-transition: all 0.7s ease-out;
+  -ms-transition: all 0.7s ease-out;
+  -o-transition: all 0.7s ease-out;
 }
 
 .icon-navbar {
