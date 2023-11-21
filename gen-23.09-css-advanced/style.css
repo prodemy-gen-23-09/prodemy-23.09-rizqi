@@ -164,9 +164,16 @@ nav {
   margin-left: 80px;
   margin-top: 63px;
   width: 285px;
+  border-radius: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
 }
 
 .product-list img {
+  border-radius: 20px;
   width: 285px;
   height: 301px;
 }
