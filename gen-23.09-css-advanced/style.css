@@ -162,6 +162,7 @@ nav {
 }
 
 .product-list {
+  text-align: center;
   background-color: #f4f5f7;
   margin-left: 80px;
   margin-top: 63px;
