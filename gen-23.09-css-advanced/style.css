@@ -155,6 +155,10 @@ nav {
   -o-transition: all 0.9s ease-out;
 }
 
+.product-list:hover img {
+  opacity: 0.8;
+}
+
 .product-list {
   background-color: #f4f5f7;
   margin-left: 80px;
