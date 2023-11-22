@@ -3,7 +3,7 @@
 body {
   font-family: Poppins;
 }
-@media (max-width: 500px) {
+@media screen and (max-width: 600px) {
   nav {
     height: 30px;
     margin-left: 2px;
@@ -123,7 +123,9 @@ body {
     display: flex;
   }
   .product {
+    margin-left: 30px;
     display: flex;
+    flex-wrap: wrap;
   }
 
   .product-list:hover {
@@ -143,7 +145,7 @@ body {
     background-color: #f4f5f7;
     width: calc(30% - 40px);
     margin-right: 20px;
-    margin-left: 10px;
+    margin-left: 20px;
     margin-top: 20px;
     border-radius: 5px;
     -webkit-border-radius: 5px;
@@ -457,6 +459,8 @@ body {
 
   .product {
     display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
   }
 
   .product-list:hover {
@@ -478,7 +482,7 @@ body {
     background-color: #f4f5f7;
     margin-left: 80px;
     margin-top: 63px;
-    width: 285px;
+    width: 15%;
     border-radius: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     -webkit-border-radius: 20px;
