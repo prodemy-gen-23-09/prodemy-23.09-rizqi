@@ -88,8 +88,8 @@ body {
     max-width: 25px;
     height: 25px;
   }
-
   .function-tools {
+    margin-left: 25px;
     display: flex;
     align-items: center;
   }
@@ -100,12 +100,13 @@ body {
   }
 
   .function-tools p {
-    margin-right: 30px;
+    margin-right: 10px;
     display: flex;
     align-items: center;
   }
 
   .function-tools-filter {
+    margin-right: 20px;
     display: flex;
     align-items: center;
   }
