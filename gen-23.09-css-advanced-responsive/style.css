@@ -139,6 +139,7 @@ body {
   }
 
   .product-list {
+    background-color: #f4f5f7;
     width: calc(30% - 40px);
     margin-right: 20px;
     margin-left: 10px;
