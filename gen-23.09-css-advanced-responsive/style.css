@@ -3,7 +3,54 @@
 body {
   font-family: Poppins;
 }
+@media (max-width: 400px) {
+  nav{
+    height: 30px;
+    margin-left: 2px;
+    margin-right: 2px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    background-color: #ffffff;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+    border-radius: 10px;
+  }
+  .imglogo{
+    width: 70px;
+  }
+  .menu-navbar{
+    margin-left: 15px;
+    margin-right: 10px;
+    display: flex;
+    font-size: 12px;
+  }
+  .menu-navbar :hover{
+    color: #b88e2f;
+    transition: all 0.7s ease-out;
+    -webkit-transition: all 0.7s ease-out;
+    -moz-transition: all 0.7s ease-out;
+    -ms-transition: all 0.7s ease-out;
+    -o-transition: all 0.7s ease-out;
+  }
+  .menu-navbar a {
+    margin-right: 5px;
+    text-decoration: none;
+    color: black;
+    font-weight: 500;
+  }
+  .icon-navbar{
+    display: flex;
+  }
+  .icon-navbar img{
+    width: 70%;
+  }
+}
 
+@media (min-width: 1080px) {
 nav {
   margin-left: 54px;
   margin-right: 54px;
@@ -337,4 +384,5 @@ footer {
 
 .footer-text {
   padding-left: 100px;
+}
 }
