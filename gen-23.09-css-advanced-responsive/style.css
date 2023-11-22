@@ -321,7 +321,7 @@ body {
   }
 }
 
-@media screen and (min-width: 420px) {
+@media screen and (min-width: 420px) and (max-width: 600px){
   nav {
     height: 30px;
     margin-left: 2px;
@@ -637,7 +637,7 @@ body {
   }
 }
 
-@media (min-width: 1080px) {
+@media (min-width: 800px) {
   nav {
     margin-left: 54px;
     margin-right: 54px;
