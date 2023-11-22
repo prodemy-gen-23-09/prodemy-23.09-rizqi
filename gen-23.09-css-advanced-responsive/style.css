@@ -183,7 +183,7 @@ body {
     -o-border-radius: 10px;
   }
 
-  .container :hover {
+  .container:hover {
     background-color: #b88e2f;
     transition: all 0.8s ease-in-out;
     -webkit-transition: all 0.8s ease-in-out;
