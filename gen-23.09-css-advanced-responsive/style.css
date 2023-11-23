@@ -283,7 +283,7 @@ body {
     color: black;
   }
 
-  .menu-navbar-link :hover {
+  .menu-navbar-link a :hover {
     color: #b88e2f;
     transition: all 0.7s ease-out;
     -webkit-transition: all 0.7s ease-out;
@@ -599,7 +599,7 @@ body {
     color: black;
   }
 
-  .menu-navbar-link :hover {
+  .menu-navbar-link a :hover{
     color: #b88e2f;
     transition: all 0.7s ease-out;
     -webkit-transition: all 0.7s ease-out;
