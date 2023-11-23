@@ -283,15 +283,6 @@ body {
     color: black;
   }
 
-  .menu-navbar-link a :hover {
-    color: #b88e2f;
-    transition: all 0.7s ease-out;
-    -webkit-transition: all 0.7s ease-out;
-    -moz-transition: all 0.7s ease-out;
-    -ms-transition: all 0.7s ease-out;
-    -o-transition: all 0.7s ease-out;
-  }
-
   .menu-navbar-link h3 {
     font-weight: 200;
     margin-bottom: 50px;
@@ -597,15 +588,6 @@ body {
     font-weight: 700;
     text-decoration: none;
     color: black;
-  }
-
-  .menu-navbar-link a :hover{
-    color: #b88e2f;
-    transition: all 0.7s ease-out;
-    -webkit-transition: all 0.7s ease-out;
-    -moz-transition: all 0.7s ease-out;
-    -ms-transition: all 0.7s ease-out;
-    -o-transition: all 0.7s ease-out;
   }
 
   .menu-navbar-link h3 {
@@ -920,15 +902,6 @@ body {
     font-weight: 700;
     text-decoration: none;
     color: black;
-  }
-
-  .menu-navbar-link a :hover  {
-    color: #b88e2f;
-    transition: all 0.7s ease-out;
-    -webkit-transition: all 0.7s ease-out;
-    -moz-transition: all 0.7s ease-out;
-    -ms-transition: all 0.7s ease-out;
-    -o-transition: all 0.7s ease-out;
   }
 
   .menu-navbar-link h3 {
