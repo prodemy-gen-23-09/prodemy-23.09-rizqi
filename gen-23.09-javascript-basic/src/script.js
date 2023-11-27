@@ -20,6 +20,14 @@ function changeMainImage(newImagePath) {
   document.getElementById("mainImage").src = newImagePath;
 }
 
+function changeColor(button) {
+  document.querySelectorAll('.button button').forEach(function(btn) {
+    btn.classList.remove('bg-color_selected');
+  });
+
+  button.classList.add('bg-color_selected');
+}
+
 var urlParams = new URLSearchParams(window.location.search);
 var productId = urlParams.get("id");
 var productName = urlParams.get("name");
