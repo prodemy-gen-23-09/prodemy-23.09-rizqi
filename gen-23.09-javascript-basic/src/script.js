@@ -1,5 +1,18 @@
-function redirectToProductDetail(productId, productName, productPrice, productImage) {
-  var productDetailUrl = "detail_product.html?id=" + productId + "&name=" + encodeURIComponent(productName) + "&price=" + encodeURIComponent(productPrice) + "&image=" + encodeURIComponent(productImage);
+function redirectToProductDetail(
+  productId,
+  productName,
+  productPrice,
+  productImage
+) {
+  var productDetailUrl =
+    "detail_product.html?id=" +
+    productId +
+    "&name=" +
+    encodeURIComponent(productName) +
+    "&price=" +
+    encodeURIComponent(productPrice) +
+    "&image=" +
+    encodeURIComponent(productImage);
   window.location.href = productDetailUrl;
 }
 
@@ -8,13 +21,12 @@ function changeMainImage(newImagePath) {
 }
 
 function changeColor(button) {
-  document.querySelectorAll('.button button').forEach(function(btn) {
-    btn.classList.remove('bg-color_selected');
+  document.querySelectorAll(".button button").forEach(function (btn) {
+    btn.classList.remove("bg-color_selected");
   });
 
-  button.classList.add('bg-color_selected');
+  button.classList.add("bg-color_selected");
 }
-
 
 //Function Untuk Menangkap Data Dari Halaman List Product
 var urlParams = new URLSearchParams(window.location.search);
