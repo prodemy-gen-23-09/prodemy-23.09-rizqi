@@ -28,7 +28,7 @@ function changeColor(button) {
   button.classList.add("bg-color_selected");
 }
 
-//Function Untuk Menangkap Data Dari Halaman List Product
+//Function Untuk GET Data Dari Halaman List Product
 var urlParams = new URLSearchParams(window.location.search);
 var productId = urlParams.get("id");
 var productName = urlParams.get("name");
