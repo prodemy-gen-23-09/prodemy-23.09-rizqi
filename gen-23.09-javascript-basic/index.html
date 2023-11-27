@@ -14,316 +14,263 @@
               color1_selected: "#B88E2F",
               color2: "#816DFA",
               color3: "#F4F5F7",
+              color_selected: "#B88E2F",
             },
           },
         },
       };
     </script>
+    <title>Furniro | Shop</title>
   </head>
   <body>
-    <!-- NAVBAR -->
-    <nav
-      class="flex bg-white justify-between mt-2 rounded-md shadow-md h-15 sticky top-0 items-center"
-    >
-      <img src="assets/logo.png" alt="imglogo" class="m-5 w-52" />
-      <div class="flex gap-20 font-semibold cursor-pointer">
-        <div class="text-black hover:text-color1_selected">Home</div>
-        <div class="text-black hover:text-color1_selected">Shop</div>
-        <div class="text-black hover:text-color1_selected">About</div>
-        <div class="text-black hover:text-color1_selected">Contact</div>
-      </div>
-      <div class="flex m-5 gap-4">
-        <div><img src="assets/search.png" alt="imgperson" class="w-6" /></div>
-        <div><img src="assets/person.png" alt="imgperson" class="w-6" /></div>
-        <div><img src="assets/love.png" alt="imgperson" class="w-6" /></div>
-        <div><img src="assets/cart.png" alt="imgperson" class="w-6" /></div>
-      </div>
-    </nav>
-    <!-- NAVBAR -->
+    <!-- HEADER -->
+    <header>
+      <nav
+        class="flex bg-white justify-between mt-2 rounded-md shadow-md h-20 sticky top-0 items-center mx-[54px] p-[10px]"
+      >
+        <img src="assets/logo.png" alt="imglogo" class="m-5 w-52" />
+        <div class="flex gap-20 cursor-pointer">
+          <a href="/index.html"
+            ><div class="text-black hover:text-color1_selected">Home</div></a
+          >
+          <a href="/detail.html"
+            ><div class="text-black hover:text-color1_selected">Shop</div></a
+          >
+          <div class="text-black hover:text-color1_selected">About</div>
+          <div class="text-black hover:text-color1_selected">Contact</div>
+        </div>
+        <div class="flex m-5 gap-4">
+          <div><img src="assets/search.png" alt="imgperson" class="w-6" /></div>
+          <div><img src="assets/person.png" alt="imgperson" class="w-6" /></div>
+          <div><img src="assets/love.png" alt="imgperson" class="w-6" /></div>
+          <div><img src="assets/cart.png" alt="imgperson" class="w-6" /></div>
+        </div>
+      </nav>
+    </header>
+    <!-- HEADER -->
 
-    <!-- BREADCRUMB -->
+    <!-- IMAGE BANNER -->
     <section>
-      <div class="flex bg-color1 mt-2 items-center">
-        <div class="flex justify-center items-center ml-20">
-          <nav class="text-sm sm:text-base p-4 md:p-6 lg:p-6">
-            <ol class="list-none p-0 inline-flex space-x-2">
-              <li class="flex items-center">
-                <a
-                  href="#"
-                  class="text-gray-600 hover:text-blue-500 transition-colors duration-300"
-                  >Home</a
-                >
-                <span class="mx-2"> > </span>
-              </li>
-              <li class="flex items-center">
-                <a
-                  href="#"
-                  class="text-gray-600 hover:text-blue-500 transition-colors duration-300"
-                  >Shop</a
-                >
-                <span class="mx-2"> > </span>
-              </li>
-              <li class="flex items-center">
-                <span class="text-gray-800">Asgaard sofa</span>
-              </li>
-            </ol>
-          </nav>
-        </div>
-      </div>
-    </section>
-    <!-- BREADCRUMB -->
-
-    <!-- DETAIL PRODUCT -->
-    <section class="flex bg-white mt-8 mb-10">
-      <!-- PRODUCT SMALL IMAGE -->
-      <div class="flex flex-col gap-8 ml-24">
-        <div class="bg-color1 w-32 h-28 rounded-lg transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300">
-          <img src="/assets/detailproduct/sofa1.png" alt="imgproduct1" />
-        </div>
-        <div class="bg-color1 w-32 h-28 rounded-lg transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300">
-          <img src="/assets/detailproduct/sofa2.png" alt="imgproduct1" />
-        </div>
-        <div class="bg-color1 w-32 h-28 rounded-lg transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300">
-          <img src="/assets/detailproduct/sofa3.png" alt="imgproduct1" />
-        </div>
-        <div class="bg-color1 w-32 h-28 rounded-lg transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300">
-          <img src="/assets/detailproduct/sofa4.png" alt="imgproduct1" />
-        </div>
-      </div>
-      <!-- PRODUCT SMALL IMAGE -->
-
-      <!-- PRODUCT IMAGE -->
-      <div class="flex mx-24">
-        <div class="bg-color1 w-96 h-80 rounded-lg transition ease-in-out delay-150 hover:translate-y-[60px] hover:translate-x-[200px] hover:scale-150 duration-200">
-          <img src="/assets/detailproduct/sofa.png" alt="imgproduct1" />
-        </div>
-      </div>
-      <!-- PRODUCT IMAGE -->
-
-      <!-- PRODUCT DETAIL -->
-      <div class="flex flex-col gap-4 w-5/12">
-        <h1 class="text-5xl font-semibold">Asgaard sofa</h1>
-        <p class="text-3xl text-gray-400">Rp. 2.500.000</p>
-        <div class="flex">
-          <img
-            src="assets/detailproduct/rating.png"
-            alt="rating"
-            class="w-32"
-          />
-          <p class="text-gray-400">| 5 Customer Review</p>
-        </div>
-        <p class="w-6/12">
-          Setting the bar as one of the loudest speakers in its class, the
-          Kilburn is a compact, stout-hearted hero with a well-balanced audio
-          which boasts a clear midrange and extended highs for a sound.
-        </p>
-        <p>Size</p>
-        <div class="flex gap-4">
-          <button
-            class="flex transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 bg-color1_selected hover:bg-color1 w-10 h-10 rounded-lg justify-center items-center"
-          >
-            <p>L</p>
-          </button>
-          <button
-            class="flex transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 bg-color1 hover:bg-color1_selected w-10 h-10 rounded-lg justify-center items-center"
-          >
-            <p>XL</p>
-          </button>
-          <div
-            class="flex transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 bg-color1 hover:bg-color1_selected w-10 h-10 rounded-lg justify-center items-center"
-          >
-            <p>XS</p>
-          </div>
-        </div>
-        <p>Color</p>
-        <div class="flex gap-4">
-          <button
-            class="flex bg-color2 hover:opacity-60 w-10 h-10 rounded-full justify-center items-center"
-          ></button>
-          <button
-            class="flex bg-black hover:opacity-60 w-10 h-10 rounded-full justify-center items-center"
-          ></button>
-          <button
-            class="flex bg-color1_selected hover:opacity-60 w-10 h-10 rounded-full justify-center items-center"
-          ></button>
-        </div>
-
-        <!-- BUTTON -->
-        <div class="flex gap-10">
-          <div
-            class="flex flex-row h-16 w-36 rounded-xl relative bg-transparent mt-1 border-2"
-          >
-            <button class="h-full w-20 rounded-3xl cursor-pointer">
-              <span
-                class="m-auto text-2xl font-thin text-black hover:text-color1_selected"
-              >
-                -
-              </span>
-            </button>
-            <input
-              type="text"
-              class="text-center w-full bg-white font-semibold text-md hover:text-black focus:text-black md:text-basecursor-default flex items-center text-gray-700 outline-none"
-              value="0"
-            />
-            <button class="h-full w-20 cursor-pointer">
-              <span
-                class="m-auto text-2xl font-thin text-black hover:text-color1_selected"
-              >
-                +
-              </span>
-            </button>
-          </div>
-          <button
-            class="transition ease-in-out delay-150 bg-white hover:bg-color1_selected hover:-translate-y-1 hover:scale-110 duration-300 h-16 w-48 rounded-3xl cursor-pointer border-2 border-black"
-            >
-            <span class="m-auto text-xl font-thin">Add To Cart</span>
-          </button>
-        </div>
-        <!-- BUTTON -->
-
-        <hr />
-        <div class="flex flex-col">
-          <p class="text-gray-400 mt-6">SKU : SS001</p>
-          <p class="text-gray-400 mt-6">Category : Sofas</p>
-          <p class="text-gray-400 mt-6">Tags : Sofa, Chair, Home, Shop</p>
-          <p class="text-gray-400 mt-6">Share</p>
-        </div>
-      </div>
-      <!-- PRODUCT DETAIL -->
-    </section>
-    <!-- DETAIL PRODUCT -->
-
-    <hr />
-
-    <!-- DESCRIPTION-->
-    <section class="description">
-      <!-- DESCRIPTION NAVBAR -->
-      <div class="flex my-16 justify-center items-center gap-16 text-2xl">
-        <h1 class="font-semibold hover:text-color1_selected cursor-pointer">
-          Description
-        </h1>
-        <h1 class="hover:text-color1_selected cursor-pointer">
-          Additional Information
-        </h1>
-        <h1 class="hover:text-color1_selected cursor-pointer">Reviews 5</h1>
-      </div>
-      <!-- DESCRIPTION NAVBAR -->
-
-      <!-- DESCRIPTION TEXT -->
-      <div class="flex flex-col mx-72 gap-10 my-20">
-        <p>
-          Embodying the raw, wayward spirit of rock 'n' roll, the Kilburn
-          portable active stereo speaker takes the unmistakable look and sound
-          of Marshall, unplugs the chords, and takes the show on the road.
-        </p>
-        <p>
-          Weighing in under 7 pounds, the Kilburn is a lightweight piece of
-          vintage styled engineering. Setting the bar as one of the loudest
-          speakers in its class, the Kilburn is a compact, stout-hearted hero
-          with a well-balanced audio which boasts a clear midrange and extended
-          highs for a sound that is both articulate and pronounced. The analogue
-          knobs allow you to fine tune the controls to your personal preferences
-          while the guitar-influenced leather strap enables easy and stylish
-          travel.
-        </p>
-      </div>
-      <!-- DESCRIPTION TEXT -->
-
-      <!-- DESCRIPTION IMAGE -->
-      <div class="flex justify-center items-center gap-16 mb-12">
-        <div class="bg-color1 w-5/12 h-[400px] rounded-lg">
-          <img src="/assets/detailproduct/sofadesc.png" alt="imgproduct1" />
-        </div>
-        <div class="bg-color1 w-5/12 h-[400px] rounded-lg">
-          <img src="/assets/detailproduct/sofadesc.png" alt="imgproduct1" />
-        </div>
-      </div>
-      <!-- DESCRIPTION IMAGE -->
-    </section>
-    <!-- DESCRIPTION-->
-
-    <hr />
-
-    <!-- RELATED PRODUCT -->
-    <section>
-      <div class="flex my-16 justify-center items-center gap-16 text-2xl">
-        <h1 class="font-semibold hover:text-color1_selected cursor-pointer">
-          Related Products
-        </h1>
-      </div>
-      <div class="flex mx-24 gap-16 justify-center">
-        <div class="flex-col w-[285px] h-[446px] bg-color3">
-          <img
-            src="assets/product3.png"
-            alt="img1"
-            class="h-[301px] w-[285px] mb-4"
-          />
-          <div class="flex-col ml-4">
-            <h3 class="font-semibold text-2xl mb-2">Syltherine</h3>
-            <p class="text-gray-400 mb-2">Stylish cafe chair</p>
-            <div class="flex gap-4">
-              <p class="text-lg font-semibold mb-2">Rp. 2.500.000</p>
-              <p class="text-lg text-gray-400 mb-2 line-through">
-                Rp. 3.500.000
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="flex-col w-[285px] h-[446px] bg-color3">
-          <img
-            src="assets/product3.png"
-            alt="img1"
-            class="h-[301px] w-[285px] mb-4"
-          />
-          <div class="flex-col ml-4">
-            <h3 class="font-semibold text-2xl mb-2">Syltherine</h3>
-            <p class="text-gray-400 mb-2">Stylish cafe chair</p>
-            <p class="text-lg font-semibold mb-2">Rp. 2.500.000</p>
-          </div>
-        </div>
-        <div class="flex-col w-[285px] h-[446px] bg-color3">
-          <img
-            src="assets/product3.png"
-            alt="img1"
-            class="h-[301px] w-[285px] mb-4"
-          />
-          <div class="flex-col ml-4">
-            <h3 class="font-semibold text-2xl mb-2">Syltherine</h3>
-            <p class="text-gray-400 mb-2">Stylish cafe chair</p>
-            <div class="flex gap-4">
-              <p class="text-lg font-semibold mb-2">Rp. 7.000.000</p>
-              <p class="text-lg text-gray-400 mb-2 line-through">
-                Rp. 14.000.000
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="flex-col w-[285px] h-[446px] bg-color3">
-          <img
-            src="assets/product3.png"
-            alt="img1"
-            class="h-[301px] w-[285px] mb-4"
-          />
-          <div class="flex-col ml-4">
-            <h3 class="font-semibold text-2xl mb-2">Syltherine</h3>
-            <p class="text-gray-400 mb-2">Stylish cafe chair</p>
-            <p class="text-lg font-semibold mb-2">Rp. 2.500.000</p>
-          </div>
-        </div>
-      </div>
-      <div class="flex justify-center items-center my-16">
-        <button
-          class="hover:bg-gray-200 h-16 w-48 cursor-pointer border-2 border-color1_selected"
+      <div class="relative">
+        <img class="w-full min-h-min" src="assets/shop/imgshop.png" />
+        <h1
+          class="absolute text-5xl top-48 left-1/2 -translate-x-1/2 -translate-y-1/2 font-bold"
         >
-          <span class="text-xl font-semibold text-color1_selected"
-            >Show More</span
-          >
+          Shop
+        </h1>
+        <p
+          class="absolute text-2xl top-64 left-1/2 -translate-x-1/2 -translate-y-1/2"
+        >
+          Home > Shop
+        </p>
+      </div>
+    </section>
+    <!-- IMAGE BANNER -->
+
+    <!-- FILTER AND SORT BY -->
+    <section>
+      <div
+        class="bg-color1 justify-between items-center flex bg-color1 w-auto h-16"
+      >
+        <div class="function-tools flex items-center mx-24">
+          <img
+            src="assets/shop/filter.png"
+            alt="filter"
+            class="mr-10 max-w-8 max-h-8"
+          />
+          <p class="mr-10">Filters</p>
+          <img
+            src="assets/shop/grid.png"
+            alt="grid"
+            class="mr-10 max-w-8 max-h-8"
+          />
+          <img
+            src="assets/shop/viewlist.png"
+            alt="viewlist"
+            class="mr-10 max-w-8 max-h-8"
+          />
+          <img
+            src="assets/shop/line.png"
+            alt="line"
+            class="mr-10 max-w-8 max-h-8"
+          />
+          <p>Showing 1-16 of 32 results</p>
+        </div>
+        <div class="px-88 function-tools-filter flex items-center mx-24">
+          <p class="mr-2">Show</p>
+          <input
+            type="text"
+            name="inputData"
+            id="inputData"
+            placeholder="16"
+            class="mr-8 w-40 h-8"
+          />
+          <p class="mr-2">Sort By</p>
+          <input
+            type="text"
+            name="inputData"
+            id="inputData"
+            placeholder="Default"
+            class="w-40 h-8 rounde-xl"
+          />
+        </div>
+      </div>
+    </section>
+    <!-- FILTER AND SORT BY -->
+
+    <!-- LIST PRODUCT -->
+    <section>
+      <div class="grid grid-cols-4 mr-6">
+        <div
+          class="hover:bg-color1_selected transition-all duration-900 ease-out transform hover:opacity-80 text-center mx-16 mt-12 w-80 cursor-pointer rounded-md shadow-md"
+          onclick="redirectToProductDetail('product1')"
+        >
+        <img src="/assets/detailproduct/sofa.png" alt="imgproduct1" class="rounded-md w-full h-3/4"/>
+          <h1 class="my-2 text-3xl font-semibold">Asgard Sofa</h1>
+          <p class="desc">Stylish cafe chair</p>
+          <p class="mb-2">Rp 2.500.000</p>
+        </div>
+        <div
+          class="hover:bg-color1_selected transition-all duration-900 ease-out transform hover:opacity-80 text-center mx-16 mt-12 w-80 cursor-pointer rounded-md shadow-md"
+        >
+          <img
+            src="assets/shop/product2.png"
+            alt=""
+            class="rounded-md w-full h-3/4"
+          />
+          <h1 class="my-2 text-3xl font-semibold">Syltherine</h1>
+          <p class="desc">Stylish cafe chair</p>
+          <p class="mb-2">Rp 2.500.000</p>
+        </div>
+        <div
+          class="hover:bg-color1_selected transition-all duration-900 ease-out transform hover:opacity-80 text-center mx-16 mt-12 w-80 cursor-pointer rounded-md shadow-md"
+        >
+          <img
+            src="assets/shop/product3.png"
+            alt=""
+            class="rounded-md w-full h-3/4"
+          />
+          <h1 class="my-2 text-3xl font-semibold">Syltherine</h1>
+          <p class="desc">Stylish cafe chair</p>
+          <p class="mb-2">Rp 2.500.000</p>
+        </div>
+        <div
+          class="hover:bg-color1_selected transition-all duration-900 ease-out transform hover:opacity-80 text-center mx-16 mt-12 w-80 cursor-pointer rounded-md shadow-md"
+        >
+          <img
+            src="assets/shop/product4.png"
+            alt=""
+            class="rounded-md w-full h-3/4"
+          />
+          <h1 class="my-2 text-3xl font-semibold">Syltherine</h1>
+          <p class="desc">Stylish cafe chair</p>
+          <p class="mb-2">Rp 2.500.000</p>
+        </div>
+        <div
+          class="hover:bg-color1_selected transition-all duration-900 ease-out transform hover:opacity-80 text-center mx-16 mt-12 w-80 cursor-pointer rounded-md shadow-md"
+        >
+          <img
+            src="assets/shop/product5.png"
+            alt=""
+            class="rounded-md w-full h-3/4"
+          />
+          <h1 class="my-2 text-3xl font-semibold">Syltherine</h1>
+          <p class="desc">Stylish cafe chair</p>
+          <p class="mb-2">Rp 2.500.000</p>
+        </div>
+        <div
+          class="hover:bg-color1_selected transition-all duration-900 ease-out transform hover:opacity-80 text-center mx-16 mt-12 w-80 cursor-pointer rounded-md shadow-md"
+        >
+          <img
+            src="assets/shop/product6.png"
+            alt=""
+            class="rounded-md w-full h-3/4"
+          />
+          <h1 class="my-2 text-3xl font-semibold">Syltherine</h1>
+          <p class="desc">Stylish cafe chair</p>
+          <p class="mb-2">Rp 2.500.000</p>
+        </div>
+        <div
+          class="hover:bg-color1_selected transition-all duration-900 ease-out transform hover:opacity-80 text-center mx-16 mt-12 w-80 cursor-pointer rounded-md shadow-md"
+        >
+          <img
+            src="assets/shop/product7.png"
+            alt=""
+            class="rounded-md w-full h-3/4"
+          />
+          <h1 class="my-2 text-3xl font-semibold">Syltherine</h1>
+          <p class="desc">Stylish cafe chair</p>
+          <p class="mb-2">Rp 2.500.000</p>
+        </div>
+        <div
+          class="hover:bg-color1_selected transition-all duration-900 ease-out transform hover:opacity-80 text-center mx-16 mt-12 w-80 cursor-pointer rounded-md shadow-md"
+        >
+          <img
+            src="assets/shop/product8.png"
+            alt=""
+            class="rounded-md w-full h-3/4"
+          />
+          <h1 class="my-2 text-3xl font-semibold">Syltherine</h1>
+          <p class="desc">Stylish cafe chair</p>
+          <p class="mb-2">Rp 2.500.000</p>
+        </div>
+      </div>
+    </section>
+    <!-- LIST PRODUCT -->
+
+    <!-- PAGE NUMBER -->
+    <section>
+      <div class="flex justify-center items-center my-14 gap-10">
+        <button
+          class="bg-color1_selected w-12 h-14 text-center flex items-center justify-center rounded-md"
+        >
+          <p>1</p>
+        </button>
+        <button
+          class="bg-color1 w-12 h-14 text-center flex items-center justify-center rounded-md"
+        >
+          <p>2</p>
+        </button>
+        <button
+          class="bg-color1 w-12 h-14 text-center flex items-center justify-center rounded-md"
+        >
+          <p>3</p>
+        </button>
+        <button
+          class="bg-color1 w-12 h-14 text-center flex items-center justify-center rounded-md"
+        >
+          <p>Next</p>
         </button>
       </div>
     </section>
-    <!-- RELATED PRODUCT -->
+    <!-- PAGE NUMBER -->
 
-    <hr />
+    <!-- BANNER SERVICE -->
+    <section>
+      <div class="flex gap-40 bg-color1 justify-center items-center p-16">
+        <div class="grid grid-flow-col gap-4 bg-color1 justify-center">
+          <div class="row-span-3"><img src="assets/shop/trophy.png" alt="trophy" class="w-12 h-12"/></div>
+          <div class="col-span-2 font-bold">High Quality</div>
+          <div class="row-span-2 col-span-2">crafted from top materials</div>
+        </div>
+        <div class="grid grid-flow-col gap-4 bg-color1 justify-center">
+          <div class="row-span-3"><img src="assets/shop/guarantee.png" alt="trophy" class="w-12 h-12" ></div>
+          <div class="col-span-2 font-bold">Warranty Protection</div>
+          <div class="row-span-2 col-span-2">Over 2 years</div>
+        </div>
+        <div class="grid grid-flow-col gap-4 bg-color1 justify-center">
+          <div class="row-span-3"><img src="assets/shop/shipping.png" alt="trophy" class="w-12 h-12"/></div>
+          <div class="col-span-2 font-bold">Free Shipping</div>
+          <div class="row-span-2 col-span-2">Order over 150 $</div>
+        </div>
+        <div class="grid grid-flow-col gap-4 bg-color1 justify-center">
+          <div class="row-span-3"><img src="assets/shop/cs.png" alt="trophy" class="w-12 h-12"/></div>
+          <div class="col-span-2 font-bold">24 / 7 Support</div>
+          <div class="row-span-2 col-span-2">Dedicated support</div>
+        </div>
+      </div>
+    </section>
+    <!-- BANNER SERVICE -->
 
     <!-- FOOTER -->
     <footer>
@@ -385,4 +332,5 @@
     </footer>
     <!-- FOOTER -->
   </body>
+  <script src="script.js"></script>
 </html>
