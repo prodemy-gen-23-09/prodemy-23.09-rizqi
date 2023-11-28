@@ -51,6 +51,13 @@ const FurnitureProduct = [
     }
 ]
 
+const filteredFurnitureProduct = FurnitureProduct.filter(FurnitureProduct => FurnitureProduct.price > 2500000);
+const result = filteredFurnitureProduct.map(FurnitureProduct => FurnitureProduct.name);
+console.log(result)
+
+
+
+// Tugas 2
 function updateProduct() {
     const rl = readline.createInterface({
       input: process.stdin,
