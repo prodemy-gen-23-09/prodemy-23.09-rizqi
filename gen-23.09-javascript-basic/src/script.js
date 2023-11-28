@@ -2,7 +2,8 @@ function redirectToProductDetail(
   productId,
   productName,
   productPrice,
-  productImage
+  productImage,
+  productDescription
 ) {
   var productDetailUrl =
     "detail_product.html?id=" +
@@ -12,7 +13,9 @@ function redirectToProductDetail(
     "&price=" +
     encodeURIComponent(productPrice) +
     "&image=" +
-    encodeURIComponent(productImage);
+    encodeURIComponent(productImage) +
+    "&desc=" +
+    encodeURIComponent(productDescription);
   window.location.href = productDetailUrl;
 }
 
@@ -34,7 +37,9 @@ var productId = urlParams.get("id");
 var productName = urlParams.get("name");
 var productPrice = urlParams.get("price");
 var productImage = urlParams.get("image");
+var productDescription = urlParams.get("desc");
 
 document.getElementById("productName").innerText = productName;
 document.getElementById("productPrice").innerText = productPrice;
+document.getElementById("productDescription").innerText = productDescription;
 document.getElementById("mainImage").src = productImage;
