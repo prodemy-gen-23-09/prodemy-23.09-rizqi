@@ -24,11 +24,12 @@ function changeMainImage(newImagePath) {
 }
 
 function changeColor(button) {
-  document.querySelectorAll(".button button").forEach(function (btn) {
-    btn.classList.remove("bg-color_selected");
+  var buttons = document.getElementById('button').querySelectorAll('button');
+  buttons.forEach(function (btn) {
+    btn.classList.remove('bg-color_selected');
   });
 
-  button.classList.add("bg-color_selected");
+  button.classList.add('bg-color_selected');
 }
 
 //Function Untuk GET Data Dari Halaman List Product
