@@ -50,5 +50,5 @@ const FurnitureProduct = [
 ]
 
 const filteredFurnitureProduct = FurnitureProduct.filter(FurnitureProduct => FurnitureProduct.price > 2500000);
-const result = filteredFurnitureProduct.map(FurnitureProduct => FurnitureProduct.price);
+const result = filteredFurnitureProduct.map(FurnitureProduct => FurnitureProduct.name);
 console.log(result)
