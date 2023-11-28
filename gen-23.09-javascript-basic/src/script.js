@@ -23,6 +23,12 @@ function changeMainImage(newImagePath) {
   document.getElementById("mainImage").src = newImagePath;
 }
 
+function changeMainImage2(productImage) {
+  var urlParams = new URLSearchParams(window.location.search);
+  productImage = urlParams.get("image")
+  document.getElementById("mainImage").src = productImage;
+}
+
 function changeColor(button) {
   var buttons = document.getElementById('button').querySelectorAll('button');
   buttons.forEach(function (btn) {
@@ -44,3 +50,5 @@ document.getElementById("productName").innerText = productName;
 document.getElementById("productPrice").innerText = productPrice;
 document.getElementById("productDescription").innerText = productDescription;
 document.getElementById("mainImage").src = productImage;
+document.getElementById("mainImage2").src = productImage;
+
