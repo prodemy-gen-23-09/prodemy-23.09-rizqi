@@ -10,7 +10,7 @@ function BannerImage() {
         <p
           className="absolute text-2xl top-64 left-1/2 -translate-x-1/2 -translate-y-1/2"
         >
-          Home  Shop
+          Home {">"} Shop
         </p>
       </div>
   )

@@ -3,7 +3,7 @@ function Card(props) {
   return (
     <div>
       <div
-        className="hover:bg-color1_selected transition-all duration-900 ease-out transform hover:opacity-80 text-center mx-16 mt-12 w-80 cursor-pointer rounded-md shadow-md"
+        className="hover:bg-color1_selected transition-all duration-1000 ease-out transform hover:opacity-80 text-center mx-16 mt-12 w-80 cursor-pointer rounded-md shadow-md"
         id={props.id}
       >
         <img
