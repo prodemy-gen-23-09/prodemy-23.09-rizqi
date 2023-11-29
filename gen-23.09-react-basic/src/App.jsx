@@ -14,7 +14,7 @@ function App() {
       id: 2,
       image: "/src/assets/shop/product2.png",
       title: "Asgard Sofa",
-      desc: "Stylish cafe sofa",
+      desc: "Stylish sofa",
       price: "Rp 2.500.000",
     },
     {
