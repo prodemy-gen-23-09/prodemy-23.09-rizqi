@@ -1,3 +1,7 @@
+import { CiSearch, CiHeart   } from "react-icons/ci";
+import { MdPerson } from "react-icons/md";
+import { IoCartSharp } from "react-icons/io5";
+
 function Header() {
   return (
     <div>
@@ -11,26 +15,10 @@ function Header() {
             <div className="text-black hover:text-color1_selected">Contact</div>
           </div>
           <div className="flex m-5 gap-4">
-            <div>
-              <img
-                src="/src/assets/search.png"
-                alt="imgperson"
-                className="w-6"
-              />
-            </div>
-            <div>
-              <img
-                src="/src/assets/person.png"
-                alt="imgperson"
-                className="w-6"
-              />
-            </div>
-            <div>
-              <img src="/src/assets/love.png" alt="imgperson" className="w-6" />
-            </div>
-            <div>
-              <img src="/src/assets/cart.png" alt="imgperson" className="w-6" />
-            </div>
+            <CiSearch size={26}/>
+            <MdPerson size={26}/>
+            <CiHeart size={26}/>
+            <IoCartSharp size={26}/>
           </div>
         </nav>
       </header>
