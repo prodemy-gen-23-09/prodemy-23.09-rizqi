@@ -15,7 +15,7 @@ function Header() {
             <div className="text-black hover:text-color1_selected">Contact</div>
           </div>
           <div className="flex m-5 gap-4">
-            <CiSearch size={26}/>
+            <CiSearch size={26} />
             <MdPerson size={26}/>
             <CiHeart size={26}/>
             <IoCartSharp size={26}/>
