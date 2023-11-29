@@ -12,7 +12,7 @@ function Card(props) {
           className="rounded-md w-full h-3/4"
         />
         <h1 className="my-2 text-3xl font-semibold">{props.title}</h1>
-        <p>{props.desc}</p>
+        <p className="mt-2">{props.desc}</p>
         <p className="mb-2">{props.price}</p>
       </div>
     </div>

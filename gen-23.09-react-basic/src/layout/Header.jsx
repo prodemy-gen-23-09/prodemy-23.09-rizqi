@@ -14,11 +14,11 @@ function Header() {
             <div className="text-black hover:text-color1_selected">About</div>
             <div className="text-black hover:text-color1_selected">Contact</div>
           </div>
-          <div className="flex m-5 gap-4">
-            <CiSearch size={26} />
-            <MdPerson size={26}/>
-            <CiHeart size={26}/>
-            <IoCartSharp size={26}/>
+          <div className="flex m-5 gap-5">
+            <CiSearch size={30} />
+            <MdPerson size={30}/>
+            <CiHeart size={30}/>
+            <IoCartSharp size={30}/>
           </div>
         </nav>
       </header>
