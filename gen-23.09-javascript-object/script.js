@@ -1,5 +1,3 @@
-const readline = require('readline');
-
 const FurnitureProduct = [
     {
         id : 1,

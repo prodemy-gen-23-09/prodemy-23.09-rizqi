@@ -80,4 +80,4 @@ function updateProduct() {
     });
   }
 
-updateProduct();
+updateProduct(); 
