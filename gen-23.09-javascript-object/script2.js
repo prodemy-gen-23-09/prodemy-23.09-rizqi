@@ -51,8 +51,6 @@ const FurnitureProduct = [
     }
 ]
 
-
-// Tugas 2
 function updateProduct() {
     const rl = readline.createInterface({
       input: process.stdin,
