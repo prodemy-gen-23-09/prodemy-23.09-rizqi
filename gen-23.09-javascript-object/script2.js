@@ -51,7 +51,33 @@ const FurnitureProduct = [
     }
 ]
 
-const filteredFurnitureProduct = FurnitureProduct.filter(FurnitureProduct => FurnitureProduct.price > 2500000);
-const result = filteredFurnitureProduct.map(FurnitureProduct => FurnitureProduct.name);
-console.log(result)
 
+// Tugas 2
+function updateProduct() {
+    const rl = readline.createInterface({
+      input: process.stdin,
+      output: process.stdout
+    });
+  
+    rl.question('Masukkan ID produk yang ingin diubah: ', (productId) => {
+      const product = FurnitureProduct.find(p => p.id === parseInt(productId));
+  
+      if (!product) {
+        console.log('Produk tidak ditemukan.');
+        rl.close();
+        return;
+      }
+  
+      rl.question('Masukkan nama properti yang ingin diubah: ', (propertyName) => {
+        rl.question(`Masukkan nilai baru untuk properti '${propertyName}': `, (propertyValue) => {
+          product[propertyName] = propertyValue;
+  
+          console.log('Objek setelah diubah:', FurnitureProduct);
+  
+          rl.close();
+        });
+      });
+    });
+  }
+
+updateProduct();
