@@ -9,6 +9,7 @@ function App() {
       title: "Syltherine",
       desc: "Stylish cafe table",
       price: "Rp 2.500.000",
+      category : "table"
     },
     {
       id: 2,
@@ -16,6 +17,7 @@ function App() {
       title: "Asgard Sofa",
       desc: "Stylish sofa",
       price: "Rp 2.500.000",
+      category : "sofa"
     },
     {
       id: 3,
@@ -23,6 +25,7 @@ function App() {
       title: "Potty",
       desc: "Stylish cafe chair",
       price: "Rp 2.500.000",
+      category : "chair"
     },
     {
       id: 4,
@@ -30,6 +33,7 @@ function App() {
       title: "Respira",
       desc: "Stylish cafe chair",
       price: "Rp 2.500.000",
+      category : "chair"
     },
     {
       id: 5,
@@ -37,6 +41,7 @@ function App() {
       title: "Lolito",
       desc: "Stylish cafe chair",
       price: "Rp 2.500.000",
+      category : "chair"
     },
     {
       id: 6,
@@ -44,6 +49,7 @@ function App() {
       title: "Leviosa",
       desc: "Stylish sofa",
       price: "Rp 2.500.000",
+      category : "sofa"
     },
     {
       id: 7,
@@ -51,6 +57,7 @@ function App() {
       title: "Flowy",
       desc: "Stylish Flower Decoration",
       price: "Rp 2.500.000",
+      category : "decoration"
     },
     {
       id: 8,
@@ -58,6 +65,7 @@ function App() {
       title: "Muggo",
       desc: "Stylish Mug",
       price: "Rp 2.500.000",
+      category : "kitchen"
     },
   ];
   console.log(FurnitureProducts)
