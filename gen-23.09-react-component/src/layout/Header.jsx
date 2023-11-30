@@ -7,7 +7,7 @@ function Header() {
   return (
     <div>
       <header>
-        <nav className="flex bg-white justify-between mt-2 rounded-md shadow-md h-20 sticky top-0 items-center mx-[54px] p-[10px]">
+        <nav className="flex bg-white justify-between mt-2  h-20 sticky top-0 items-center mx-[54px] p-[10px]">
           <img src="/src/assets/logo.png" alt="imglogo" className="m-5 w-52" />
           <div className="flex gap-20 cursor-pointer">
             <Link to="/"><div className="text-black hover:text-color1_selected">Home</div></Link>
