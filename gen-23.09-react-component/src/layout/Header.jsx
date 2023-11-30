@@ -1,6 +1,7 @@
 import { CiSearch, CiHeart   } from "react-icons/ci";
 import { MdPerson } from "react-icons/md";
 import { IoCartSharp } from "react-icons/io5";
+import { Link , Outlet } from "react-router-dom";
 
 function Header() {
   return (
@@ -9,8 +10,8 @@ function Header() {
         <nav className="flex bg-white justify-between mt-2 rounded-md shadow-md h-20 sticky top-0 items-center mx-[54px] p-[10px]">
           <img src="/src/assets/logo.png" alt="imglogo" className="m-5 w-52" />
           <div className="flex gap-20 cursor-pointer">
-            <div className="text-black hover:text-color1_selected">Home</div>
-            <div className="text-black hover:text-color1_selected">Shop</div>
+            <Link to="/"><div className="text-black hover:text-color1_selected">Home</div></Link>
+            <Link to ="/shop"> <div className="text-black hover:text-color1_selected">Shop</div></Link>
             <div className="text-black hover:text-color1_selected">About</div>
             <div className="text-black hover:text-color1_selected">Contact</div>
           </div>
@@ -22,6 +23,7 @@ function Header() {
           </div>
         </nav>
       </header>
+      <Outlet/>
     </div>
   );
 }

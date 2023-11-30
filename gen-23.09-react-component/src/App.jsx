@@ -1,17 +1,22 @@
-import BannerImage from "./components/BannerImage.jsx";
-import FilterAndSort from "./components/FilterAndSort.jsx";
-import BannerService from "./components/BannerService.jsx";
-import ListProduct from "./layout/ListProduct";
+import ReactDOM from "react-dom/client";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Shop from "../src/pages/Shop";
+// import Homepage from "./pages/Homepage";
+import Layout from "./pages/Layout";
+import Homepage from "./pages/Homepage";
 
-function App() {
+export default function App() {
   return (
-    <div>
-      <BannerImage />
-      <FilterAndSort />
-      <ListProduct/>
-      <BannerService />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Homepage />} />
+          <Route path="shop" element={<Shop />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
-export default App;
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<App />);
