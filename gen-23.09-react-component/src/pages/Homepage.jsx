@@ -15,7 +15,9 @@ function Homepage() {
 
       <div className="flex flex-col justify-center items-center my-20 ">
         <h1 className="text-3xl font-bold">Our Products</h1>
-        <ListProduct />{" "}
+        <div className="grid grid-cols-4">
+          <ListProduct />
+        </div>
         <Link to="/shop">
           <button className="bg-white w-[222px] h-20 mt-10 text-color1_selected font-semibold border-2 border-color1_selected hover:bg-color1_selected">
             Show More
