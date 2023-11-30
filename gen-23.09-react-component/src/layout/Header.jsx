@@ -7,18 +7,23 @@ function Header() {
   return (
     <div>
       <header>
-        <nav className="flex bg-white justify-between mt-2  h-20 sticky top-0 items-center mx-[54px] p-[10px]">
+        <nav className="flex font-medium bg-white justify-between mt-2  h-20 sticky top-0 items-center mx-[54px] p-[10px]">
           <img src="/src/assets/logo.png" alt="imglogo" className="m-5 w-52" />
           <div className="flex gap-20 cursor-pointer">
             <Link to="/">
               <div className="text-black hover:text-color1_selected">Home</div>
             </Link>
             <Link to="/shop">
-              {" "}
               <div className="text-black hover:text-color1_selected">Shop</div>
             </Link>
-            <div className="text-black hover:text-color1_selected">About</div>
-            <div className="text-black hover:text-color1_selected">Contact</div>
+            <Link to="/about">
+              <div className="text-black hover:text-color1_selected">About</div>
+            </Link>
+            <Link to="/contact">
+              <div className="text-black hover:text-color1_selected">
+                Contact
+              </div>
+            </Link>
           </div>
           <div className="flex m-5 gap-5">
             <CiSearch size={30} />
