@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 function Footer() {
   return (
     <div>
@@ -10,32 +12,32 @@ function Footer() {
         <div className="flex-col w-80 ml-64">
           <h1 className="text-md">Link</h1>
           <div className="flex flex-col gap-8 mt-20">
-            <a href="/" className="font-semibold hover:text-color1_selected"
-              >Home</a
-            >
-            <a href="/" className="font-semibold hover:text-color1_selected"
-              >Shop</a
-            >
-            <a href="/" className="font-semibold hover:text-color1_selected"
-              >About</a
-            >
-            <a href="/" className="font-semibold hover:text-color1_selected"
-              >Contact</a
-            >
+            <Link to="/">
+              <div className="text-black font-semibold hover:text-color1_selected">Home</div>
+            </Link>
+            <Link to="/shop">
+              <div className="text-black font-semibold hover:text-color1_selected">Shop</div>
+            </Link>
+            <div className="font-semibold hover:text-color1_selected">
+              About
+            </div>
+            <div className="font-semibold hover:text-color1_selected">
+              Contact
+            </div>
           </div>
         </div>
         <div className="flex-col w-80 ml-24">
           <h1 className="text-md">Help</h1>
           <div className="flex flex-col gap-8 mt-20">
-            <a href="/" className="font-semibold hover:text-color1_selected"
-              >Payment Options</a
-            >
-            <a href="/" className="font-semibold hover:text-color1_selected"
-              >Returns</a
-            >
-            <a href="/" className="font-semibold hover:text-color1_selected"
-              >Privacy Policies</a
-            >
+            <a href="/" className="font-semibold hover:text-color1_selected">
+              Payment Options
+            </a>
+            <a href="/" className="font-semibold hover:text-color1_selected">
+              Returns
+            </a>
+            <a href="/" className="font-semibold hover:text-color1_selected">
+              Privacy Policies
+            </a>
           </div>
         </div>
         <div className="flex-col w-80 ml-36">
@@ -56,8 +58,8 @@ function Footer() {
       </div>
       <hr />
       <p className="ml-[100px] my-6">2023 furniro. All rights reverved</p>
-      </div>
-  )
+    </div>
+  );
 }
 
-export default Footer
+export default Footer;

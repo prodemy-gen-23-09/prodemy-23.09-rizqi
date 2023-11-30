@@ -12,6 +12,7 @@ export default {
         color2: "#816DFA",
         color3: "#F4F5F7",
         color_selected: "#B88E2F",
+        color_home : "#FFF3E3"
       },
     },
   },
