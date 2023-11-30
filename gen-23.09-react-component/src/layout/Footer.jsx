@@ -13,10 +13,14 @@ function Footer() {
           <h1 className="text-md">Link</h1>
           <div className="flex flex-col gap-8 mt-20">
             <Link to="/">
-              <div className="text-black font-semibold hover:text-color1_selected">Home</div>
+              <div className="text-black font-semibold hover:text-color1_selected">
+                Home
+              </div>
             </Link>
             <Link to="/shop">
-              <div className="text-black font-semibold hover:text-color1_selected">Shop</div>
+              <div className="text-black font-semibold hover:text-color1_selected">
+                Shop
+              </div>
             </Link>
             <div className="font-semibold hover:text-color1_selected">
               About

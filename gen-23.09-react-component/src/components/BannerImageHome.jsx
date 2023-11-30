@@ -16,10 +16,10 @@ function BannerImageHome() {
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit
               tellus, luctus nec ullamcorper mattis.
             </p>
-            <Link to ="/shop">
-            <button className="bg-color1_selected w-[222px] h-20 mt-10 text-white rounded-md shadow-lg hover:bg-color_home hover:text-black">
+            <Link to="/shop">
+              <button className="bg-color1_selected w-[222px] h-20 mt-10 text-white rounded-md shadow-lg hover:bg-color_home hover:text-black">
                 BUY NOW
-            </button>
+              </button>
             </Link>
           </div>
         </div>

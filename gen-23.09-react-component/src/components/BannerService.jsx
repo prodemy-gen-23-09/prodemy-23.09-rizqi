@@ -39,7 +39,11 @@ function BannerService() {
         </div>
         <div className="grid grid-flow-col gap-4 bg-color1 justify-center">
           <div className="row-span-3">
-            <img src="/src/assets/shop/cs.png" alt="trophy" className="w-12 h-12" />
+            <img
+              src="/src/assets/shop/cs.png"
+              alt="trophy"
+              className="w-12 h-12"
+            />
           </div>
           <div className="col-span-2 font-bold">24 / 7 Support</div>
           <div className="row-span-2 col-span-2">Dedicated support</div>

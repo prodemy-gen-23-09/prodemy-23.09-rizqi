@@ -1,5 +1,4 @@
 import Card from "../components/Card";
-import PageNumber from "../components/PageNumber";
 
 function ListProduct() {
   const FurnitureProducts = [
@@ -80,12 +79,6 @@ function ListProduct() {
             price={product.price}
           />
         ))}
-      </div>
-      <div className="flex justify-center items-center my-14 gap-10">
-        <PageNumber pageNumber="1" />
-        <PageNumber pageNumber="2" />
-        <PageNumber pageNumber="3" />
-        <PageNumber pageNumber="Next" />
       </div>
     </div>
   );

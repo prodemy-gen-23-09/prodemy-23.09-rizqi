@@ -1,13 +1,13 @@
-import Header from "../layout/Header"
-import Footer from "../layout/Footer"
+import Header from "../layout/Header";
+import Footer from "../layout/Footer";
 
 function Layout() {
   return (
     <>
-        <Header/>
-        <Footer/>
-        </>
-  )
+      <Header />
+      <Footer />
+    </>
+  );
 }
 
-export default Layout
+export default Layout;
