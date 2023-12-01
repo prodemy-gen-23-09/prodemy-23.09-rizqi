@@ -1,11 +1,10 @@
-import BannerImageContact from "../components/BannerImageContact"
 import BannerService from "../components/BannerService"
+import BannerImage from "../components/BannerImage"
 
 function Contact() {
   return (
     <div>
-        <BannerImageContact/>
-
+        <BannerImage title="Contact" title2="Home > Contact"/>
         <BannerService/>
     </div>
   )

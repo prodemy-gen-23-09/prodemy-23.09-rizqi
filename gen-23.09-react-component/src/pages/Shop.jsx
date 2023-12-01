@@ -7,7 +7,7 @@ import PageNumber from "../components/PageNumber";
 function Shop() {
   return (
     <>
-      <BannerImage />
+      <BannerImage title="Shop" title2="Home > Shop"/>
       <FilterAndSort />
       <div className="grid grid-cols-4">
         <ListProduct />

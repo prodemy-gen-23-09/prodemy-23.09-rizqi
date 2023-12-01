@@ -22,12 +22,16 @@ function Footer() {
                 Shop
               </div>
             </Link>
+            <Link to="/about">
             <div className="font-semibold hover:text-color1_selected">
               About
             </div>
+            </Link>
+            <Link to="/contact">
             <div className="font-semibold hover:text-color1_selected">
               Contact
             </div>
+            </Link>
           </div>
         </div>
         <div className="flex-col w-80 ml-24">

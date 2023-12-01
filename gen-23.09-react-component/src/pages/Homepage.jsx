@@ -19,7 +19,7 @@ function Homepage() {
           <ListProduct />
         </div>
         <Link to="/shop">
-          <button className="bg-white w-[222px] h-20 mt-10 text-color1_selected font-semibold border-2 border-color1_selected hover:bg-color1_selected">
+          <button className="bg-white w-[222px] h-20 mt-10 text-color1_selected font-semibold border-2 border-color1_selected hover:bg-color1_selected hover:text-white">
             Show More
           </button>
         </Link>

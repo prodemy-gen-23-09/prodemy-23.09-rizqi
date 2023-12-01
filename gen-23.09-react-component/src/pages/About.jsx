@@ -1,11 +1,11 @@
-
+import BannerImage from "../components/BannerImage";
 
 function About() {
   return (
     <div>
-        About Page
+      <BannerImage title="About" title2="Home > About" />
     </div>
-  )
+  );
 }
 
-export default About
+export default About;
