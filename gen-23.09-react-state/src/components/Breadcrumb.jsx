@@ -16,9 +16,11 @@ function Breadcrumb(props) {
               <span className="mx-2"> {">"} </span>
             </li>
             <li className="flex items-center">
+            <Link to="/shop">
               <div className="text-gray-600 hover:text-color1_selected transition-colors duration-300">
                 Shop
               </div>
+              </Link>
               <span className="mx-2"> {">"} </span>
             </li>
             <li className="flex items-center">

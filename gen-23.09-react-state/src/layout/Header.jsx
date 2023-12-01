@@ -9,7 +9,11 @@ function Header() {
       <header>
         <nav className="flex font-medium bg-white justify-between mt-2  h-20 sticky top-0 items-center mx-[54px] p-[10px]">
           <Link to="/">
-          <img src="/src/assets/logo.png" alt="imglogo" className="m-5 w-52" />
+            <img
+              src="/src/assets/logo.png"
+              alt="imglogo"
+              className="m-5 w-52"
+            />
           </Link>
           <div className="flex gap-20 cursor-pointer">
             <Link to="/">
@@ -31,7 +35,10 @@ function Header() {
             <CiSearch size={30} />
             <MdPerson size={30} />
             <CiHeart size={30} />
-            <IoCartSharp size={30} />
+            <IoCartSharp
+              size={30}
+              className="cursor-pointer"
+            />
           </div>
         </nav>
       </header>

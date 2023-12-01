@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import Card from "../components/Card";
+import CardProduct from "../components/CardProduct";
 import FurnitureProducts from "../data/data"
 function ListProduct() {
   return (
@@ -7,7 +7,7 @@ function ListProduct() {
       {FurnitureProducts.map((product) => (
         <div key={product.id}>
         <Link to = {{pathname:`/detailproduct/${product.id}`, state :{product}}}>
-          <Card
+          <CardProduct
             image={product.image}
             title={product.title}
             desc={product.desc}
