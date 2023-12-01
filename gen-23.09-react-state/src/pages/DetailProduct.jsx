@@ -15,7 +15,7 @@ function DetailProduct() {
     setMainImage(newImage);
   };
   return (
-    <>
+    <div>
       <Breadcrumb title={product.title}/>
       <div className="flex bg-white mt-8 mb-10">
         <div className="flex flex-col gap-10 ml-24">
@@ -35,7 +35,7 @@ function DetailProduct() {
       <hr/>
       <Information image1={product.image} image2={product.image}/>
       <hr/>
-    </>
+    </div>
   );
 }
 
