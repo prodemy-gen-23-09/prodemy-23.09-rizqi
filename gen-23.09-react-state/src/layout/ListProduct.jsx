@@ -10,7 +10,7 @@ function ListProduct() {
           <CardProduct
             image={product.image}
             title={product.title}
-            desc={product.desc}
+            desc={product.category}
             price={product.price}
           />
           </Link>

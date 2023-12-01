@@ -5,6 +5,7 @@ import { useState } from "react";
 import FurnitureProducts from "../data/data"
 import ImageThumbnail from "../components/DetailProduct/ImageThumbnail"
 import Product from "../components/DetailProduct/Product";
+import Information from "../components/DetailProduct/Information";
 
 function DetailProduct() {
   const {id} = useParams()
@@ -31,6 +32,8 @@ function DetailProduct() {
         </div>
       <Product title={product.title} price={product.price} desc={product.desc} category={product.category}/> 
       </div>
+      <hr/>
+      <Information image1={product.image} image2={product.image}/>
       <hr/>
     </>
   );
