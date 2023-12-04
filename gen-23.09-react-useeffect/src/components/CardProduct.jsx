@@ -1,5 +1,11 @@
 /* eslint-disable react/prop-types */
 function CardProduct(props) {
+  const formatPrice = (price) => {
+    return price.toLocaleString("id-ID", {
+      style: "currency",
+      currency: "IDR",
+    });
+  };
   return (
     <div>
       <div
@@ -13,7 +19,7 @@ function CardProduct(props) {
         />
         <h1 className="my-2 text-3xl font-semibold">{props.title}</h1>
         <p className="mt-2">{props.desc}</p>
-        <p className="mb-2">Rp. {props.price}</p>
+        <p className="mb-2">{formatPrice(props.price)}</p>
       </div>
     </div>
   );
