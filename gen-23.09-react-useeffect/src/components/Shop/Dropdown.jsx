@@ -1,4 +1,9 @@
-function Dropdown() {
+/* eslint-disable react/prop-types */
+function Dropdown({ onSort }) {
+  const handleSortClick = (sortOption) => {
+    onSort(sortOption);
+  };
+
   return (
     <div className="dropdown dropdown-end">
       <div tabIndex={0} role="button" className="btn m-1">
@@ -9,16 +14,20 @@ function Dropdown() {
         className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
       >
         <li>
-          <a>Price : Low To High</a>
+          <a onClick={() => handleSortClick("lowToHigh")}>
+            Price : Low To High
+          </a>
         </li>
         <li>
-          <a>Price : High To Low</a>
+          <a onClick={() => handleSortClick("highToLow")}>
+            Price : High To Low
+          </a>
         </li>
         <li>
-          <a>Newest Products</a>
+          <a onClick={() => handleSortClick("newest")}>Newest Products</a>
         </li>
         <li>
-          <a>Oldest Products</a>
+          <a onClick={() => handleSortClick("oldest")}>Oldest Products</a>
         </li>
       </ul>
     </div>

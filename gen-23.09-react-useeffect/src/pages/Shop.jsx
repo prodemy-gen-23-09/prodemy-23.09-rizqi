@@ -1,7 +1,6 @@
 import BannerImage from "../components/BannerImage.jsx";
 import FilterAndSort from "../components/Shop/FilterAndSort.jsx";
 import BannerService from "../components/BannerService.jsx";
-import ListProduct from "../layout/ListProduct";
 import PageNumber from "../components/Shop/PageNumber";
 
 function Shop() {
@@ -9,9 +8,6 @@ function Shop() {
     <>
       <BannerImage title="Shop" title2="Home > Shop" />
       <FilterAndSort />
-      <div className="grid grid-cols-4">
-        <ListProduct />
-      </div>
       <div className="flex justify-center items-center my-14 gap-10">
         <PageNumber pageNumber="1" />
         <PageNumber pageNumber="2" />

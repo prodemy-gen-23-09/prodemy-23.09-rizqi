@@ -1,8 +1,44 @@
+/* eslint-disable no-unused-vars */
+import React, { useState, useEffect } from "react";
 import FurnitureProducts from "../../data/data";
 import Dropdown from "./Dropdown";
+import ListProduct from "../../layout/ListProduct";
 function FilterAndSort() {
+  const [sortedProducts, setSortedProducts] = useState(FurnitureProducts);
+
+  const handleSort = (sortOption) => {
+    let sorted;
+
+    switch (sortOption) {
+      case "lowToHigh":
+        sorted = [...FurnitureProducts].sort((a, b) => a.price - b.price);
+        break;
+      case "highToLow":
+        sorted = [...FurnitureProducts].sort((a, b) => b.price - a.price);
+        break;
+      case "newest":
+        sorted = [...FurnitureProducts].sort(
+          (a, b) => b.release_date - a.release_date
+        );
+        break;
+      case "oldest":
+        sorted = [...FurnitureProducts].sort(
+          (a, b) => a.release_date - b.release_date
+        );
+        break;
+      default:
+        [...FurnitureProducts].sort((a, b) => b.release_date - a.release_date);
+        break;
+    }
+
+    setSortedProducts(sorted);
+    console.log(sorted);
+  };
+  useEffect(() => {
+    console.log("Products Berubah :", sortedProducts);
+  }, [sortedProducts]);
   return (
-    <div>
+    <>
       <div className="bg-color1 justify-between items-center flex w-auto h-16">
         <div className="function-tools flex items-center mx-24">
           <img
@@ -40,10 +76,13 @@ function FilterAndSort() {
             placeholder="16"
             className="mr-8 w-40 h-8"
           />
-          <Dropdown />
+          <Dropdown onSort={handleSort} />
         </div>
       </div>
-    </div>
+      <div className="grid grid-cols-4">
+        <ListProduct products={sortedProducts} />
+      </div>
+    </>
   );
 }
 
