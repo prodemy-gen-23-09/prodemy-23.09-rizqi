@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import { useState } from "react";
 import FurnitureProducts from "../data/data";
 import ImageThumbnail from "../components/DetailProduct/ImageThumbnail";
-import Product from "../components/DetailProduct/Product";
+import ProductContent from "../components/DetailProduct/ProductContent";
 import Information from "../components/DetailProduct/Information";
 
 function DetailProduct() {
@@ -31,7 +31,7 @@ function DetailProduct() {
             <img src={mainImage} alt="imgproductMain" id="mainImage" />
           </div>
         </div>
-        <Product
+        <ProductContent
           title={product.title}
           price={product.price}
           desc={product.desc}

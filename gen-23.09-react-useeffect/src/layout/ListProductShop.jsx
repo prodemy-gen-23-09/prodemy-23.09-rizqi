@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import { Link } from "react-router-dom";
 import CardProduct from "../components/CardProduct";
-function ListProduct({ products }) {
+function ListProductShop({ products }) {
   return (
     <>
       {products &&
@@ -21,4 +21,4 @@ function ListProduct({ products }) {
   );
 }
 
-export default ListProduct;
+export default ListProductShop;

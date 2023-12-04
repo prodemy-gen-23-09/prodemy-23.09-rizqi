@@ -2,11 +2,15 @@
 import React, { useState, useEffect } from "react";
 import FurnitureProducts from "../../data/data";
 import Dropdown from "./Dropdown";
-import ListProduct from "../../layout/ListProduct";
-function FilterAndSort() {
+import ListProductShop from "../../layout/ListProductShop";
+function Products() {
+  const [sortOption, setSortOption] = useState("newest");
   const [sortedProducts, setSortedProducts] = useState(FurnitureProducts);
 
-  const handleSort = (sortOption) => {
+  const handleSort = (newSortOption) => {
+    setSortOption(newSortOption);
+  };
+  useEffect(() => {
     let sorted;
 
     switch (sortOption) {
@@ -16,26 +20,21 @@ function FilterAndSort() {
       case "highToLow":
         sorted = [...FurnitureProducts].sort((a, b) => b.price - a.price);
         break;
-      case "newest":
-        sorted = [...FurnitureProducts].sort(
-          (a, b) => b.release_date - a.release_date
-        );
-        break;
       case "oldest":
         sorted = [...FurnitureProducts].sort(
           (a, b) => a.release_date - b.release_date
         );
         break;
       default:
-        [...FurnitureProducts].sort((a, b) => b.release_date - a.release_date);
+      case "newest":
+        sorted = [...FurnitureProducts].sort(
+          (a, b) => b.release_date - a.release_date
+        );
         break;
     }
     setSortedProducts(sorted);
     console.log(sorted);
-  };
-  useEffect(() => {
-    console.log("Products Berubah :", sortedProducts);
-  }, [sortedProducts]);
+  }, [sortOption]);
   return (
     <>
       <div className="bg-color1 justify-between items-center flex w-auto h-16">
@@ -79,10 +78,10 @@ function FilterAndSort() {
         </div>
       </div>
       <div className="grid grid-cols-4">
-        <ListProduct products={sortedProducts} />
+        <ListProductShop products={sortedProducts} />
       </div>
     </>
   );
 }
 
-export default FilterAndSort;
+export default Products;
