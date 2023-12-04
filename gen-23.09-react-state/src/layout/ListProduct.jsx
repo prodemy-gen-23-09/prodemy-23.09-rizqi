@@ -6,7 +6,7 @@ function ListProduct() {
     <>
       {FurnitureProducts.map((product) => (
         <div key={product.id}>
-        <Link to = {{pathname:`/detailproduct/${product.id}`, state :{product}}}>
+        <Link to = {{pathname:`/detailproduct/${product.id}`}}>
           <CardProduct
             image={product.image}
             title={product.title}
