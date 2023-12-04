@@ -1,8 +1,12 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 function ImageThumbnail(props) {
   const handleImageClick = (image) => {
     props.onThumbnailClick(image);
   };
+  const image = [
+    
+  ]
   return (
     <>
       <div className="bg-color1 w-32 h-28 rounded-lg transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 cursor-pointer"
