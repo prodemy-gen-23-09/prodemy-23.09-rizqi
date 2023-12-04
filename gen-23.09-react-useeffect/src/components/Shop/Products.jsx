@@ -1,5 +1,4 @@
-/* eslint-disable no-unused-vars */
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import FurnitureProducts from "../../data/data";
 import Dropdown from "./Dropdown";
 import ListProductShop from "../../layout/ListProductShop";

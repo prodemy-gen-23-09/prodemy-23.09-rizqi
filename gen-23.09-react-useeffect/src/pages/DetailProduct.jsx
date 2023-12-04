@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import Breadcrumb from "../components/Shop/Breadcrumb";
 import { useParams } from "react-router-dom";
 import { useState } from "react";
