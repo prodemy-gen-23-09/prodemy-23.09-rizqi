@@ -23,14 +23,14 @@ function Footer() {
               </div>
             </Link>
             <Link to="/about">
-            <div className="font-semibold hover:text-color1_selected">
-              About
-            </div>
+              <div className="font-semibold hover:text-color1_selected">
+                About
+              </div>
             </Link>
             <Link to="/contact">
-            <div className="font-semibold hover:text-color1_selected">
-              Contact
-            </div>
+              <div className="font-semibold hover:text-color1_selected">
+                Contact
+              </div>
             </Link>
           </div>
         </div>
@@ -53,8 +53,6 @@ function Footer() {
           <div className="flex gap-8 mt-20">
             <input
               type="text"
-              name="email"
-              id="email"
               placeholder="Enter your email address"
               className="border-b-2 border-black"
             />

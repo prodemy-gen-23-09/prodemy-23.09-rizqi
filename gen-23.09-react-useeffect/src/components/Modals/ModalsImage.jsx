@@ -3,7 +3,7 @@
 import Overlay from "./OverlayProduct";
 import React, { useState } from "react";
 
-function ModalsCart({ closeModal }) {
+function ModalsImage({ closeModal, image }) {
   return (
     <>
       <div className="modal-box">
@@ -15,11 +15,10 @@ function ModalsCart({ closeModal }) {
             ✕
           </button>
         </form>
-        <h3 className="font-bold text-lg">Success!</h3>
-        <p className="py-4">Successfully Add Product To Cart !</p>
+        <img src={image} className="w-full h-full" />
       </div>
     </>
   );
 }
 
-export default ModalsCart;
+export default ModalsImage;

@@ -1,16 +1,16 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 import { useState } from "react";
-import ModalsCart from "./ModalsCart";
+import ModalsImage from "./ModalsImage";
 
-function Overlay({ closeModal }) {
+function OverlayImage({ closeModal, image }) {
   return (
     <>
       <div className="flex max-w-full min-h-screen justify-center items-center overlay">
-        <ModalsCart closeModal={closeModal} />
+        <ModalsImage closeModal={closeModal} image={image} />
       </div>
     </>
   );
 }
 
-export default Overlay;
+export default OverlayImage;

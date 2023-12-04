@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 import { useState } from "react";
-import Overlay from "../Modals/Overlay";
+import OverlayProduct from "../Modals/OverlayProduct";
 import ModalsCart from "../Modals/ModalsCart";
 
 function ButtonCart({ count }) {
@@ -24,7 +24,7 @@ function ButtonCart({ count }) {
       >
         <span className="m-auto text-xl font-thin">Add To Cart</span>
       </button>
-      {isModalOpen && <Overlay closeModal={closeModal} />}
+      {isModalOpen && <OverlayProduct closeModal={closeModal} />}
     </>
   );
 }
