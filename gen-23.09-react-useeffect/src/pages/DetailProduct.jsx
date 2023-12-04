@@ -16,6 +16,12 @@ function DetailProduct() {
   const handleThumbnailClick = (newImage) => {
     setMainImage(newImage);
   };
+  const formatPrice = (price) => {
+    return price.toLocaleString("id-ID", {
+      style: "currency",
+      currency: "IDR",
+    });
+  };
   return (
     <div>
       <Breadcrumb title={product.title} />
@@ -33,7 +39,7 @@ function DetailProduct() {
         </div>
         <ProductContent
           title={product.title}
-          price={product.price}
+          price={formatPrice(product.price)}
           desc={product.desc}
           category={product.category}
         />

@@ -2,6 +2,12 @@
 import { Link } from "react-router-dom";
 import CardProduct from "../components/CardProduct";
 function ListProductShop({ products }) {
+  const formatPrice = (price) => {
+    return price.toLocaleString("id-ID", {
+      style: "currency",
+      currency: "IDR",
+    });
+  };
   return (
     <>
       {products &&
@@ -12,7 +18,7 @@ function ListProductShop({ products }) {
                 image={product.image}
                 title={product.title}
                 desc={product.category}
-                price={product.price}
+                price={formatPrice(product.price)}
               />
             </Link>
           </div>
