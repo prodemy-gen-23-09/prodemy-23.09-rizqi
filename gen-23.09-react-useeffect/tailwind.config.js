@@ -1,9 +1,7 @@
+/* eslint-disable no-undef */
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
-  ],
+  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
       colors: {
@@ -12,10 +10,12 @@ export default {
         color2: "#816DFA",
         color3: "#F4F5F7",
         color_selected: "#B88E2F",
-        color_home : "#FFF3E3"
+        color_home: "#FFF3E3",
       },
     },
   },
-  plugins: [],
-}
-
+  plugins: [require("daisyui")],
+  daisyui: {
+    themes: ["light"],
+  },
+};

@@ -1,3 +1,5 @@
+import FurnitureProducts from "../../data/data";
+import Dropdown from "./Dropdown";
 function FilterAndSort() {
   return (
     <div>
@@ -24,7 +26,10 @@ function FilterAndSort() {
             alt="line"
             className="mr-10 max-w-8 max-h-8"
           />
-          <p>Showing 1-8 of 32 results</p>
+          <p>
+            Showing 1-{FurnitureProducts.length} of {FurnitureProducts.length}{" "}
+            results
+          </p>
         </div>
         <div className="px-88 function-tools-filter flex items-center mx-24">
           <p className="mr-2">Show</p>
@@ -35,14 +40,7 @@ function FilterAndSort() {
             placeholder="16"
             className="mr-8 w-40 h-8"
           />
-          <p className="mr-2">Sort By</p>
-          <input
-            type="text"
-            name="inputData"
-            id="inputData"
-            placeholder="Default"
-            className="w-40 h-8 rounde-xl"
-          />
+          <Dropdown />
         </div>
       </div>
     </div>

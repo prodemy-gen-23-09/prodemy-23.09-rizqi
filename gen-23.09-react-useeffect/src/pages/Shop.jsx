@@ -1,13 +1,13 @@
 import BannerImage from "../components/BannerImage.jsx";
-import FilterAndSort from "../components/FilterAndSort.jsx";
+import FilterAndSort from "../components/Shop/FilterAndSort.jsx";
 import BannerService from "../components/BannerService.jsx";
 import ListProduct from "../layout/ListProduct";
-import PageNumber from "../components/PageNumber";
+import PageNumber from "../components/Shop/PageNumber";
 
 function Shop() {
   return (
     <>
-      <BannerImage title="Shop" title2="Home > Shop"/>
+      <BannerImage title="Shop" title2="Home > Shop" />
       <FilterAndSort />
       <div className="grid grid-cols-4">
         <ListProduct />
