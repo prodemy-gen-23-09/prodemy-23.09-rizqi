@@ -18,7 +18,7 @@ function Product(props) {
             />
             <p className="text-gray-400">| 5 Customer Review</p>
           </div>
-          <p className="w-6/12" id="productDescription">
+          <p className="w-4/6" id="productDescription">
             {props.desc}
           </p>
           <p>Size</p>
