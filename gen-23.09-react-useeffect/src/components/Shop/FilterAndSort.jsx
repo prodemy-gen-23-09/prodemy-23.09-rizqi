@@ -30,7 +30,6 @@ function FilterAndSort() {
         [...FurnitureProducts].sort((a, b) => b.release_date - a.release_date);
         break;
     }
-
     setSortedProducts(sorted);
     console.log(sorted);
   };
@@ -73,7 +72,7 @@ function FilterAndSort() {
             type="text"
             name="inputData"
             id="inputData"
-            placeholder="16"
+            placeholder="8"
             className="mr-8 w-40 h-8"
           />
           <Dropdown onSort={handleSort} />
