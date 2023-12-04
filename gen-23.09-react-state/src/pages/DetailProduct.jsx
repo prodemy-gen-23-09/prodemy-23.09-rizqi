@@ -19,7 +19,7 @@ function DetailProduct() {
       <Breadcrumb title={product.title}/>
       <div className="flex bg-white mt-8 mb-10">
         <div className="flex flex-col gap-10 ml-24">
-          <ImageThumbnail image1={product.image} onThumbnailClick={handleThumbnailClick}/>
+          <ImageThumbnail image={product.image} onThumbnailClick={handleThumbnailClick}/>
         </div>
         <div className="flex mx-24">
           <div className="bg-color1 w-96 h-80 rounded-lg transition ease-in-out delay-150 hover:scale-150 duration-200">
