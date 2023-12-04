@@ -9,10 +9,16 @@ function Dropdown() {
         className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
       >
         <li>
-          <a>Item 1</a>
+          <a>Price : Low To High</a>
         </li>
         <li>
-          <a>Item 2</a>
+          <a>Price : High To Low</a>
+        </li>
+        <li>
+          <a>Newest Products</a>
+        </li>
+        <li>
+          <a>Oldest Products</a>
         </li>
       </ul>
     </div>
