@@ -35,10 +35,9 @@ function Header() {
             <CiSearch size={30} />
             <MdPerson size={30} />
             <CiHeart size={30} />
-            <IoCartSharp
-              size={30}
-              className="cursor-pointer"
-            />
+            <Link to="/cart">
+              <IoCartSharp size={30} className="cursor-pointer" />
+            </Link>
           </div>
         </nav>
       </header>
