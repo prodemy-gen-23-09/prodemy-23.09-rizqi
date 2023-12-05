@@ -34,7 +34,9 @@ function Header() {
           <div className="flex m-5 gap-5">
             <CiSearch size={30} />
             <MdPerson size={30} />
-            <CiHeart size={30} />
+            <Link to="/wishlist">
+              <CiHeart size={30} />
+            </Link>
             <Link to="/cart">
               <IoCartSharp size={30} className="cursor-pointer" />
             </Link>
