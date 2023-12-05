@@ -31,6 +31,13 @@ function DetailProduct() {
       currency: "IDR",
     });
   };
+  const formatDate = (date) => {
+    return date.toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    });
+  };
   return (
     <>
       <Breadcrumb title={product.title} />
@@ -54,6 +61,7 @@ function DetailProduct() {
           price={formatPrice(product.price)}
           desc={product.desc}
           category={product.category}
+          date={formatDate(product.release_date)}
         />
       </div>
       <hr />

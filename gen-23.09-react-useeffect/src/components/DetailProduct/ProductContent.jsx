@@ -35,6 +35,7 @@ function ProductContent(props) {
 
       <hr />
       <div className="flex flex-col">
+        <p className="text-gray-400 mt-6">Release Date : {props.date}</p>
         <p className="text-gray-400 mt-6">SKU : SS001</p>
         <p className="text-gray-400 mt-6">Category : {props.category}</p>
         <p className="text-gray-400 mt-6">Tags : Sofa, Chair, Home, Shop</p>

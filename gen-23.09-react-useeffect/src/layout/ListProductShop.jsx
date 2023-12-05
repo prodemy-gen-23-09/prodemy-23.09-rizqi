@@ -8,6 +8,13 @@ function ListProductShop({ products }) {
       currency: "IDR",
     });
   };
+  const formatDate = (date) => {
+    return date.toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    });
+  };
   return (
     <>
       {products &&
@@ -19,6 +26,7 @@ function ListProductShop({ products }) {
                 title={product.title}
                 desc={product.category}
                 price={formatPrice(product.price)}
+                date={formatDate(product.release_date)}
               />
             </Link>
           </div>
