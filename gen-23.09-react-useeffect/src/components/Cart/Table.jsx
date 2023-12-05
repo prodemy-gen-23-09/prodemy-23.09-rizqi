@@ -14,7 +14,7 @@ function Table(props) {
         <tbody>
           <tr className="text-center">
             <td>
-              <div className="flex items-center gap-4">
+              <div className="flex items-center justify-center gap-6">
                 <img src={props.image} width={120} />
                 <p>{props.title}</p>
               </div>
