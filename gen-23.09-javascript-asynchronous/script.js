@@ -23,7 +23,6 @@ const searchProduct = async () => {
     axios.get(url).then((response) => {
       console.log(response.data);
     });
-
     document.getElementById("productTitleList").innerHTML = "";
 
     response.data.products.forEach((product) => {
