@@ -17,8 +17,8 @@ function ListProductShop({ products }) {
   };
   const navigate = useNavigate();
 
-  const onClickCard = (id) => {
-    navigate(`detailproduct/${id}`);
+  const onClickCard = (id, name) => {
+    navigate(`/detailproduct/${id}/${name}`);
   };
   return (
     <>
@@ -31,7 +31,7 @@ function ListProductShop({ products }) {
               desc={product.category}
               price={formatPrice(product.price)}
               date={formatDate(product.release_date)}
-              onClick={() => onClickCard(product.id)}
+              onClick={() => onClickCard(product.id, product.title)}
             />
           </div>
         ))}

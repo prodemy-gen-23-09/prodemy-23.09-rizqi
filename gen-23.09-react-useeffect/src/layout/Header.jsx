@@ -16,16 +16,16 @@ function Header() {
             />
           </Link>
           <div className="flex gap-20 cursor-pointer">
-            <Link to="home">
+            <Link to="/">
               <div className="text-black hover:text-color1_selected">Home</div>
             </Link>
-            <Link to="shop">
+            <Link to="/shop">
               <div className="text-black hover:text-color1_selected">Shop</div>
             </Link>
-            <Link to="about">
+            <Link to="/about">
               <div className="text-black hover:text-color1_selected">About</div>
             </Link>
-            <Link to="contact">
+            <Link to="/contact">
               <div className="text-black hover:text-color1_selected">
                 Contact
               </div>
