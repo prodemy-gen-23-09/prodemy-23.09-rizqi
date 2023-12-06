@@ -15,11 +15,12 @@ function ListProductShop({ products }) {
       day: "numeric",
     });
   };
-  const navigate = useNavigate();
 
+  const navigate = useNavigate();
   const onClickCard = (id, name) => {
     navigate(`/detailproduct/${id}/${name}`);
   };
+
   return (
     <>
       {products &&
