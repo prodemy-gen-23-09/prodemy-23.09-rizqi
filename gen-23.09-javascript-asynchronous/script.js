@@ -1,4 +1,4 @@
-// function searchProduct() {
+// const searchProduct = async () =>  {
 //   var searchTerm = document.getElementById("searchInput").value;
 
 //   var apiUrl = "https://dummyjson.com/products/search?q=" + searchTerm;
@@ -13,7 +13,7 @@
 //     });
 // }
 
-function searchProduct() {
+const searchProduct = async () => {
   var searchTerm = document.getElementById("searchInput").value;
   let url = "https://dummyjson.com/products/search?q=" + searchTerm;
 
@@ -25,7 +25,7 @@ function searchProduct() {
     .catch((error) => {
       console.error(error);
     });
-}
+};
 
 document
   .getElementById("searchInput")
