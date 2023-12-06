@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Shop from "../src/pages/Shop";
-import Layout from "./pages/Layout";
+import HeaderFooter from "./pages/HeaderFooter";
 import Homepage from "./pages/Homepage";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
@@ -12,7 +12,7 @@ export default function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Layout />}>
+        <Route path="/" element={<HeaderFooter />}>
           <Route path="home" element={<Homepage />} />
           <Route path="shop" element={<Shop />} />
           <Route path="about" element={<About />} />
