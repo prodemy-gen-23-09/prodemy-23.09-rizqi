@@ -24,6 +24,8 @@ const searchProduct = async () => {
       console.log(response.data);
     });
 
+    document.getElementById("productTitleList").innerHTML = "";
+
     response.data.products.forEach((product) => {
       const listItem = document.createElement("li");
       listItem.textContent = product.title;
