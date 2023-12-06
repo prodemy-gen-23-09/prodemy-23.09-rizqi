@@ -6,7 +6,7 @@ import Products from "../components/Shop/Products.jsx";
 function Shop() {
   return (
     <>
-      <BannerImage title="Shop" title2="Home > Shop" />
+      <BannerImage title="Shop" />
       <Products />
       <div className="flex justify-center items-center my-14 gap-10">
         <PageNumber pageNumber="1" />

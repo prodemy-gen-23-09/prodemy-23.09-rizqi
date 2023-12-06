@@ -1,13 +1,13 @@
-import BannerService from "../components/BannerService"
-import BannerImage from "../components/BannerImage"
+import BannerService from "../components/BannerService";
+import BannerImage from "../components/BannerImage";
 
 function Contact() {
   return (
     <div>
-        <BannerImage title="Contact" title2="Home > Contact"/>
-        <BannerService/>
+      <BannerImage title="Contact" />
+      <BannerService />
     </div>
-  )
+  );
 }
 
-export default Contact
+export default Contact;
