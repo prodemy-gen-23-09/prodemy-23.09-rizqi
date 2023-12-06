@@ -15,9 +15,9 @@ export default function App() {
         <Route path="/" element={<HeaderFooter />}>
           <Route index element={<Homepage />} />
           <Route path="/shop" element={<Shop />} />
+          <Route path="/detailproduct/:id/:name" element={<DetailProduct />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/detailproduct/:id/:name" element={<DetailProduct />} />
           <Route path="/wishlist" element={<Wishlist />} />
           <Route path="/cart" element={<Cart />} />
         </Route>
