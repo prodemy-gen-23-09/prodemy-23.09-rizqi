@@ -15,27 +15,3 @@ button {
   padding: 10px;
   cursor: pointer;
 }
-
-.product-list {
-  list-style-type: none;
-  padding: 0;
-}
-
-.product-list li {
-  border: 1px solid #ddd;
-  margin: 10px;
-  padding: 10px;
-  border-radius: 5px;
-}
-
-.thumbnail {
-  max-width: 100px;
-  max-height: 100px;
-  margin-right: 10px;
-}
-
-.product-image {
-  max-width: 100px;
-  max-height: 100px;
-  margin-right: 5px;
-}
