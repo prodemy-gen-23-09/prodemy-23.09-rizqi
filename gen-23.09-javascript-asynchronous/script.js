@@ -13,32 +13,16 @@
 //     });
 // }
 
-// const searchProduct = async () => {
-//   var searchTerm = document.getElementById("searchInput").value;
-//   let url = "https://dummyjson.com/products/search?q=" + searchTerm;
-
-//   axios
-//     .get(url)
-//     .then((response) => {
-//       console.log(response.data);
-//     })
-//     .catch((error) => {
-//       console.error(error);
-//     });
-// };
-
 const searchProduct = async () => {
   try {
     var searchTerm = document.getElementById("searchInput").value;
-    var apiUrl = "https://dummyjson.com/products/search?q=" + searchTerm;
-
-    const response = await axios.get(apiUrl);
-
-    document.getElementById("productTitleList").innerHTML = "";
-
+    var url = "https://dummyjson.com/products/search?q=" + searchTerm;
+    const response = await axios.get(url);
     const productTitleList = document.getElementById("productTitleList");
 
-    console.log(response.data.products); //Hasil Di Console
+    axios.get(url).then((response) => {
+      console.log(response.data);
+    });
 
     response.data.products.forEach((product) => {
       const listItem = document.createElement("li");
