@@ -16,16 +16,16 @@ function Header() {
             />
           </Link>
           <div className="flex gap-20 cursor-pointer">
-            <Link to="/">
+            <Link to="home">
               <div className="text-black hover:text-color1_selected">Home</div>
             </Link>
-            <Link to="/shop">
+            <Link to="shop">
               <div className="text-black hover:text-color1_selected">Shop</div>
             </Link>
-            <Link to="/about">
+            <Link to="about">
               <div className="text-black hover:text-color1_selected">About</div>
             </Link>
-            <Link to="/contact">
+            <Link to="contact">
               <div className="text-black hover:text-color1_selected">
                 Contact
               </div>
@@ -34,10 +34,10 @@ function Header() {
           <div className="flex m-5 gap-5">
             <CiSearch size={30} />
             <MdPerson size={30} />
-            <Link to="/wishlist">
+            <Link to="wishlist">
               <CiHeart size={30} />
             </Link>
-            <Link to="/cart">
+            <Link to="cart">
               <IoCartSharp size={30} className="cursor-pointer" />
             </Link>
           </div>

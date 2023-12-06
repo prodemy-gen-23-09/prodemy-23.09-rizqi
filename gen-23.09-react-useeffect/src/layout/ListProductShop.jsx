@@ -18,7 +18,7 @@ function ListProductShop({ products }) {
   const navigate = useNavigate();
 
   const onClickCard = (id) => {
-    navigate(`/detailproduct/${id}`);
+    navigate(`detailproduct/${id}`);
   };
   return (
     <>
