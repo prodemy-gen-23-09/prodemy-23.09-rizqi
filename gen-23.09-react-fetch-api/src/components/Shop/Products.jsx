@@ -1,46 +1,58 @@
 import { useState, useEffect } from "react";
-import FurnitureProducts from "../../data/data";
 import Dropdown from "./Dropdown";
 import ListProductShop from "../../layout/ListProductShop";
+import { getAllProduct } from "../../service/api";
+
 function Products() {
   const [sortOption, setSortOption] = useState("newest");
-  const [sortedProducts, setSortedProducts] = useState(FurnitureProducts);
+  const [products, setProducts] = useState([]);
+  const [sortedProducts, setSortedProducts] = useState([]);
 
   const handleSort = (newSortOption) => {
     setSortOption(newSortOption);
   };
+
   useEffect(() => {
     let sorted;
 
+    const fetchData = async () => {
+      try {
+        const result = await getAllProduct();
+        setProducts(result);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
     switch (sortOption) {
       case "lowToHigh":
-        sorted = [...FurnitureProducts].sort((a, b) => a.price - b.price);
+        sorted = [...products].sort((a, b) => a.price - b.price);
         break;
       case "highToLow":
-        sorted = [...FurnitureProducts].sort((a, b) => b.price - a.price);
+        sorted = [...products].sort((a, b) => b.price - a.price);
         break;
       case "oldest":
-        sorted = [...FurnitureProducts].sort(
-          (a, b) => a.release_date - b.release_date
+        sorted = [...products].sort(
+          (a, b) => new Date(a.release_date) - new Date(b.release_date)
         );
         break;
       default:
       case "newest":
-        sorted = [...FurnitureProducts].sort(
-          (a, b) => b.release_date - a.release_date
+        sorted = [...products].sort(
+          (a, b) => new Date(b.release_date) - new Date(a.release_date)
         );
         break;
     }
+    fetchData();
     setSortedProducts(sorted);
-    console.log(sorted);
-  }, [sortOption]);
+  }, [sortOption, products]);
+
   return (
     <>
       <div className="bg-color1 justify-end items-center flex w-auto h-16">
         <div className="px-88 function-tools-filter flex items-center mx-24 gap-10">
           <p>
-            Showing 1 - {FurnitureProducts.length} of {FurnitureProducts.length}{" "}
-            results
+            Showing 1 - {products.length} of {products.length} results
           </p>
           <Dropdown onSort={handleSort} />
         </div>
