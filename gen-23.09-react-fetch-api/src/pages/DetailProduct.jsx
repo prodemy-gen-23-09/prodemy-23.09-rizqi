@@ -6,12 +6,12 @@ import ImageThumbnail from "../components/DetailProduct/ImageThumbnail";
 import ProductContent from "../components/DetailProduct/ProductContent";
 import Information from "../components/DetailProduct/Information";
 import OverlayImage from "../components/Modals/OverlayImage";
+import { PacmanLoader } from "react-spinners";
 import axios from "axios";
 import useSWR from "swr";
 
 function DetailProduct() {
   const { id } = useParams();
-  const [products, setProducts] = useState([]);
   const [detailProducts, setDetailProducts] = useState(null);
   const [mainImage, setMainImage] = useState("");
   const [isModalImageOpen, setModalImageOpen] = useState(false);
@@ -29,12 +29,9 @@ function DetailProduct() {
   );
 
   useEffect(() => {
-    if (data) {
-      setProducts(data);
-      const detail = data.find((p) => p.id === parseInt(id));
-      setDetailProducts(detail || null);
-      setMainImage(detail?.thumbnail || "");
-    }
+    const detail = data.find((p) => p.id === parseInt(id));
+    setDetailProducts(detail || null);
+    setMainImage(detail?.thumbnail || "");
   }, [id, data]);
 
   const openModalImage = () => {
@@ -57,7 +54,11 @@ function DetailProduct() {
   };
 
   if (!detailProducts) {
-    return <p>Loading...</p>;
+    return (
+      <div className="flex justify-center items-center min-h-screen">
+        <PacmanLoader color="#B88E2F" />
+      </div>
+    );
   }
   return (
     <>
