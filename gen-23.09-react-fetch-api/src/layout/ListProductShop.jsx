@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import { useNavigate } from "react-router-dom";
 import CardProduct from "../components/CardProduct";
+
 function ListProductShop({ products }) {
   const formatPrice = (price) => {
     return price.toLocaleString("id-ID", {
