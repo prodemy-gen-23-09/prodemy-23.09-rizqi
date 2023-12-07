@@ -5,7 +5,6 @@ import ListProductShop from "../../layout/ListProductShop";
 import { PacmanLoader } from "react-spinners";
 import axios from "axios";
 import useSWR from "swr";
-import PageNumber from "../../components/Shop/PageNumber";
 
 function Products() {
   const [sortOption, setSortOption] = useState("newest");
