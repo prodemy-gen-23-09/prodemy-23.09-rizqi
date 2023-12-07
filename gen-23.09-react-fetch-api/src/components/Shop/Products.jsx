@@ -5,6 +5,7 @@ import ListProductShop from "../../layout/ListProductShop";
 import { PacmanLoader } from "react-spinners";
 import axios from "axios";
 import useSWR from "swr";
+import PageNumber from "../../components/Shop/PageNumber";
 
 function Products() {
   const [sortOption, setSortOption] = useState("newest");
@@ -71,8 +72,16 @@ function Products() {
           <PacmanLoader color="#B88E2F" />
         </div>
       ) : (
-        <div className="grid grid-cols-4">
-          <ListProductShop products={sortedProducts} />
+        <div>
+          <div className="grid grid-cols-4">
+            <ListProductShop products={sortedProducts} />
+          </div>
+          <div className="flex justify-center items-center my-14 gap-10">
+            <PageNumber pageNumber="1" />
+            <PageNumber pageNumber="2" />
+            <PageNumber pageNumber="3" />
+            <PageNumber pageNumber="Next" />
+          </div>
         </div>
       )}
     </>
