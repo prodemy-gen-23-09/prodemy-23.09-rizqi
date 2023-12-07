@@ -60,13 +60,14 @@ function DetailProduct() {
     return <p>Loading...</p>;
   }
 
+  console.log(detailProducts.image);
   return (
     <>
       <Breadcrumb title={detailProducts.title} />
       <div className="flex bg-white mt-8 mb-10">
-        <div className="flex flex-col gap-10 ml-24">
+        <div className="flex flex-col gap-20 ml-24">
           <ImageThumbnail
-            image={detailProducts.thumbnail}
+            image={detailProducts.image}
             thumbnail={detailProducts.thumbnail}
             onThumbnailClick={handleThumbnailClick}
           />
