@@ -1,6 +1,5 @@
-/* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
-function ImageThumbnail({ thumbnail, image, onThumbnailClick }) {
+function ImageThumbnail({ image, onThumbnailClick }) {
   const handleThumbnailClick = (clickedImage) => {
     onThumbnailClick(clickedImage);
   };
