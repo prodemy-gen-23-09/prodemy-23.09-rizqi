@@ -2,13 +2,13 @@ import BannerImageHome from "../components/BannerImageHome";
 import ListCategory from "../layout/ListCategory";
 import ListProductShop from "../layout/ListProductShop";
 import { Link } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { getAllProduct } from "../service/api";
 
 function Homepage() {
   const [products, setProducts] = useState([]);
 
-  const fetchData = async () => {
+  const data = async () => {
     try {
       const result = await getAllProduct();
       setProducts(result);
@@ -17,8 +17,8 @@ function Homepage() {
     }
   };
 
-  useEffect(() => {
-    fetchData();
+  useState(() => {
+    data();
   }, []);
 
   return (
