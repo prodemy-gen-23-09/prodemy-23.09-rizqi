@@ -1,25 +1,32 @@
+/* eslint-disable no-unused-vars */
 import BannerImageHome from "../components/BannerImageHome";
 import ListCategory from "../layout/ListCategory";
 import ListProductShop from "../layout/ListProductShop";
 import { Link } from "react-router-dom";
-import { useState } from "react";
-import { getAllProduct } from "../service/api";
+import { useState, useEffect } from "react";
+import axios from "axios";
+import useSWR from "swr";
 
 function Homepage() {
   const [products, setProducts] = useState([]);
 
-  const data = async () => {
-    try {
-      const result = await getAllProduct();
-      setProducts(result);
-    } catch (error) {
-      console.error("Error fetching data:", error);
+  const getProduct = (url) =>
+    axios
+      .get(url, { headers: { "Cache-Control": "no-cache" } })
+      .then((response) => response.data);
+  const { data, isLoading, error, mutate } = useSWR(
+    "http://localhost:3000/products",
+    getProduct,
+    {
+      onSuccess: (data) => data.sort((a, b) => a.name.localeCompare(b.name)),
     }
-  };
+  );
 
-  useState(() => {
-    data();
-  }, []);
+  useEffect(() => {
+    if (data) {
+      setProducts(data);
+    }
+  }, [data]);
 
   return (
     <div>
