@@ -8,18 +8,18 @@ import { getAllProduct } from "../service/api";
 function Homepage() {
   const [products, setProducts] = useState([]);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const result = await getAllProduct();
-        setProducts(result);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    };
+  const fetchData = async () => {
+    try {
+      const result = await getAllProduct();
+      setProducts(result);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
 
+  useEffect(() => {
     fetchData();
-  }, [products]);
+  }, []);
 
   return (
     <div>

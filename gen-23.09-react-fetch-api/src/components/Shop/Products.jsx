@@ -7,22 +7,25 @@ function Products() {
   const [sortOption, setSortOption] = useState("newest");
   const [products, setProducts] = useState([]);
   const [sortedProducts, setSortedProducts] = useState([]);
-
   const handleSort = (newSortOption) => {
     setSortOption(newSortOption);
   };
 
+  const data = async () => {
+    try {
+      const result = await getAllProduct();
+      setProducts(result);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
+
+  useEffect(() => {
+    data();
+  }, []);
+
   useEffect(() => {
     let sorted;
-
-    const fetchData = async () => {
-      try {
-        const result = await getAllProduct();
-        setProducts(result);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    };
 
     switch (sortOption) {
       case "lowToHigh":
@@ -43,7 +46,6 @@ function Products() {
         );
         break;
     }
-    fetchData();
     setSortedProducts(sorted);
   }, [sortOption, products]);
 
