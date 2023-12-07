@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import Dropdown from "./Dropdown";
 import ListProductShop from "../../layout/ListProductShop";
+import { PacmanLoader } from "react-spinners";
 import axios from "axios";
 import useSWR from "swr";
 
@@ -10,7 +11,10 @@ function Products() {
   const [products, setProducts] = useState([]);
   const [sortedProducts, setSortedProducts] = useState([]);
 
-  const getProduct = (url) => axios.get(url).then((response) => response.data);
+  const getProduct = (url) =>
+    axios
+      .get(url, { headers: { "Cache-Control": "no-cache" } })
+      .then((response) => response.data);
   const { data, isLoading, error, mutate } = useSWR(
     "http://localhost:3000/products",
     getProduct,
@@ -62,9 +66,13 @@ function Products() {
           <Dropdown onSort={handleSort} />
         </div>
       </div>
-      <div className="grid grid-cols-4">
-        <ListProductShop products={sortedProducts} />
-      </div>
+      {isLoading ? (
+        <PacmanLoader color="#36d7b7" />
+      ) : (
+        <div className="grid grid-cols-4">
+          <ListProductShop products={sortedProducts} />
+        </div>
+      )}
     </>
   );
 }

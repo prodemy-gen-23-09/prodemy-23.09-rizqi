@@ -16,7 +16,10 @@ function DetailProduct() {
   const [mainImage, setMainImage] = useState("");
   const [isModalImageOpen, setModalImageOpen] = useState(false);
 
-  const getProduct = (url) => axios.get(url).then((response) => response.data);
+  const getProduct = (url) =>
+    axios
+      .get(url, { headers: { "Cache-Control": "no-cache" } })
+      .then((response) => response.data);
   const { data, isLoading, error, mutate } = useSWR(
     "http://localhost:3000/products",
     getProduct,
