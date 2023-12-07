@@ -12,6 +12,7 @@ function DetailProduct() {
   const product = FurnitureProducts.find(
     (product) => product.id === parseInt(id)
   );
+
   const [mainImage, setMainImage] = useState(product.image);
   const [isModalImageOpen, setModalImageOpen] = useState(false);
 

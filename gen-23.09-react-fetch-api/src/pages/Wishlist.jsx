@@ -1,11 +1,11 @@
 import BannerImage from "../components/BannerImage";
 
-function About() {
+function Wishlist() {
   return (
     <div>
-      <BannerImage title="About" />
+      <BannerImage title="Wishlist" />
     </div>
   );
 }
 
-export default About;
+export default Wishlist;

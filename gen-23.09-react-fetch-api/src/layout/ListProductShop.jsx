@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import CardProduct from "../components/CardProduct";
 function ListProductShop({ products }) {
   const formatPrice = (price) => {
@@ -15,20 +15,25 @@ function ListProductShop({ products }) {
       day: "numeric",
     });
   };
+
+  const navigate = useNavigate();
+  const onClickCard = (id, name) => {
+    navigate(`/detailproduct/${id}/${name}`);
+  };
+
   return (
     <>
       {products &&
         products.map((product) => (
           <div key={product.id}>
-            <Link to={{ pathname: `/detailproduct/${product.id}` }}>
-              <CardProduct
-                image={product.image}
-                title={product.title}
-                desc={product.category}
-                price={formatPrice(product.price)}
-                date={formatDate(product.release_date)}
-              />
-            </Link>
+            <CardProduct
+              image={product.image}
+              title={product.title}
+              desc={product.category}
+              price={formatPrice(product.price)}
+              date={formatDate(product.release_date)}
+              onClick={() => onClickCard(product.id, product.title)}
+            />
           </div>
         ))}
     </>

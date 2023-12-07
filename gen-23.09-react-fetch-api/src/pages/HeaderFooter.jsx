@@ -1,7 +1,7 @@
 import Header from "../layout/Header";
 import Footer from "../layout/Footer";
 
-function Layout() {
+function HeaderFooter() {
   return (
     <>
       <Header />
@@ -10,4 +10,4 @@ function Layout() {
   );
 }
 
-export default Layout;
+export default HeaderFooter;

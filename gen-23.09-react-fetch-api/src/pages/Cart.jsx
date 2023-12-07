@@ -14,7 +14,7 @@ function Cart() {
   };
   return (
     <>
-      <BannerImage title="Cart" title2="Home > Cart" />
+      <BannerImage title="Cart" />
       <div className="flex my-20 mx-[100px] justify-between">
         <Table
           image="/src/assets/shop/product1.png"
