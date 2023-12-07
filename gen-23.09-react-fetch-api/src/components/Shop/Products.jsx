@@ -67,7 +67,9 @@ function Products() {
         </div>
       </div>
       {isLoading ? (
-        <PacmanLoader color="#36d7b7" />
+        <div className="flex justify-center items-center min-h-screen">
+          <PacmanLoader color="#B88E2F" />
+        </div>
       ) : (
         <div className="grid grid-cols-4">
           <ListProductShop products={sortedProducts} />

@@ -59,8 +59,6 @@ function DetailProduct() {
   if (!detailProducts) {
     return <p>Loading...</p>;
   }
-
-  console.log(detailProducts.image);
   return (
     <>
       <Breadcrumb title={detailProducts.title} />
