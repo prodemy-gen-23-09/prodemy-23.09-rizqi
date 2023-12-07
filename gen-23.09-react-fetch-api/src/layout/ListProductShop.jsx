@@ -20,7 +20,7 @@ function ListProductShop({ products }) {
         products.map((product) => (
           <div key={product.id}>
             <CardProduct
-              image={product.image}
+              image={product.thumbnail}
               title={product.title}
               desc={product.category}
               price={formatPrice(product.price)}

@@ -53,6 +53,7 @@ function Footer() {
           <div className="flex gap-8 mt-20">
             <input
               id="email"
+              autoComplete="email"
               name="email"
               type="text"
               placeholder="Enter your email address"
