@@ -1,14 +1,15 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 import Button from "./Button";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Overlay from "./Overlay";
-import axios from "axios";
 import { mutate } from "swr";
-import { deleteProduct } from "../service/api";
+import { deleteProduct, getAllProducts } from "../service/api";
 
 function TableAdmin({ products }) {
   const [isModalDataOpen, setModalDataOpen] = useState(false);
+  const { data } = getAllProducts();
+  const [product, setProduct] = useState([]);
 
   const handleDelete = async (id) => {
     try {
@@ -20,9 +21,7 @@ function TableAdmin({ products }) {
   };
 
   const handleDeleteModal = (id) => {
-    openModal();
     handleDelete(id);
-    mutate();
   };
 
   const openModal = () => {
@@ -33,6 +32,12 @@ function TableAdmin({ products }) {
     mutate();
     setModalDataOpen(false);
   };
+
+  useEffect(() => {
+    if (data) {
+      setProduct(data);
+    }
+  }, [data]);
 
   return (
     <>
@@ -51,8 +56,8 @@ function TableAdmin({ products }) {
           </tr>
         </thead>
         <tbody>
-          {products &&
-            products.map((product, index) => (
+          {product &&
+            product.map((product, index) => (
               <tr key={product.id} className="text-center">
                 <td>{index + 1}</td>
                 <td>{product.title}</td>

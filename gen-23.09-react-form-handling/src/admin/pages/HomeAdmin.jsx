@@ -4,12 +4,12 @@ import BannerService from "../../components/BannerService";
 import Button from "../components/Button";
 import Overlay from "../components/Overlay";
 import TableAdmin from "../components/TableAdmin";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { getAllProducts } from "../service/api";
 
 function HomeAdmin() {
   const [isModalDataOpen, setModalDataOpen] = useState(false);
-  const { data, isLoading, isError, mutate } = getAllProducts();
+  const { data, mutate } = getAllProducts();
 
   const openModal = () => {
     setModalDataOpen(true);
@@ -18,14 +18,6 @@ function HomeAdmin() {
   const closeModal = () => {
     setModalDataOpen(false);
   };
-
-  if (isLoading) {
-    return <div className="flex min-h-screen">Loading...</div>;
-  }
-
-  if (isError) {
-    return <div className="flex min-h-screen">Error loading data</div>;
-  }
 
   return (
     <>
@@ -37,7 +29,7 @@ function HomeAdmin() {
         {data?.length === 0 ? (
           <div className="flex">No Data Found</div>
         ) : (
-          <TableAdmin products={data} condition />
+          <TableAdmin products={data} />
         )}
       </div>
       <BannerService />

@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 /* eslint-disable no-undef */
 import axios from "axios";
-import useSWR from "swr";
+import useSWR, { mutate } from "swr";
 
 export const fetchProducts = async (url) => {
   const data = await axios
@@ -13,7 +13,8 @@ export const fetchProducts = async (url) => {
 export const getAllProducts = () => {
   const { data, error } = useSWR(
     "http://localhost:3000/products",
-    fetchProducts
+    fetchProducts,
+    mutate("http://localhost:3000/products")
   );
 
   return {
@@ -26,6 +27,7 @@ export const getAllProducts = () => {
 export const deleteProduct = async (url, id) => {
   try {
     await axios.delete(`${url}/${id}`);
+    mutate("http://localhost:3000/products");
   } catch (error) {
     console.error("Error deleting product", error);
     throw error;
