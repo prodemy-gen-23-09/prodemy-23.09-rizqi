@@ -1,11 +1,11 @@
 /* eslint-disable react/prop-types */
-import ModalsAddData from "./ModalsAddData";
+import Modals from "./Modals";
 
 function Overlay({ closeModal }) {
   return (
     <>
       <div className="flex max-w-full min-h-screen justify-center items-center overlay">
-        <ModalsAddData closeModal={closeModal} />
+        <Modals closeModal={closeModal} title="Edit Data" />
       </div>
     </>
   );

@@ -5,9 +5,11 @@ import Button from "../components/Button";
 import Overlay from "../components/Overlay";
 import TableAdmin from "../components/TableAdmin";
 import { useState } from "react";
+import { getAllProducts } from "../service/api";
 
 function HomeAdmin() {
   const [isModalDataOpen, setModalDataOpen] = useState(false);
+  const { data, isLoading, isError } = getAllProducts();
 
   const openModal = () => {
     setModalDataOpen(true);
@@ -24,7 +26,7 @@ function HomeAdmin() {
         <Button onClick={openModal} title="Add New Data" />
       </div>
       <div className="flex my-10 mx-20 justify-center">
-        <TableAdmin />
+        <TableAdmin products={data} />
       </div>
       <BannerService />
       {isModalDataOpen && <Overlay closeModal={closeModal} />}

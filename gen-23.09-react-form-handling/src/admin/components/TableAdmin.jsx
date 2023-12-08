@@ -1,6 +1,20 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
+import Button from "./Button";
+import { useState } from "react";
+import Overlay from "./Overlay";
 
-function TableAdmin(props) {
+function TableAdmin({ products }) {
+  const [isModalDataOpen, setModalDataOpen] = useState(false);
+
+  const openModal = () => {
+    setModalDataOpen(true);
+  };
+
+  const closeModal = () => {
+    setModalDataOpen(false);
+  };
+
   return (
     <>
       <table className="table-fixed w-full">
@@ -9,27 +23,51 @@ function TableAdmin(props) {
             <th>Title</th>
             <th>Price</th>
             <th>Stock</th>
-            <th>Image</th>
             <th>Thumbnail</th>
+            <th>Image</th>
             <th>Category</th>
-            <th>Desc</th>
             <th>Release_Date</th>
+            <th>Action</th>
           </tr>
         </thead>
         <tbody>
-          <tr className="text-center">
-            <td>
-              <div className="flex items-center justify-center gap-6">
-                <img src={props.image} width={120} />
-              </div>
-            </td>
-            <td>{props.price}</td>
-            <td>{props.quantity}</td>
-            <td>{props.subtotal}</td>
-            <td>{props.title}</td>
-          </tr>
+          {products &&
+            products.map((product) => (
+              <tr key={product.id} className="text-center">
+                <td>{product.title}</td>
+                <td>{product.price}</td>
+                <td>{product.stock}</td>
+                <td>
+                  <img src={product.thumbnail} />
+                </td>
+                <td>
+                  <div className="flex flex-wrap items-center justify-center gap-2">
+                    {product.image.map((imageUrl, index) => (
+                      <img
+                        key={index}
+                        src={imageUrl}
+                        alt={`Product ${index + 1}`}
+                        width={50}
+                      />
+                    ))}
+                  </div>
+                </td>
+                <td>{product.category}</td>
+                <td>{product.release_date}</td>
+                <td>
+                  <div className="flex gap-10 justify-center">
+                    <Button title="Edit" onClick={openModal} />
+                    <Button
+                      title="Hapus "
+                      onClick={() => console.log("Button Click")}
+                    />
+                  </div>
+                </td>
+              </tr>
+            ))}
         </tbody>
       </table>
+      {isModalDataOpen && <Overlay closeModal={closeModal} />}
     </>
   );
 }

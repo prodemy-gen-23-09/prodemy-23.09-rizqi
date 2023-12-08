@@ -2,7 +2,7 @@ import Button from "./Button";
 import InputText from "./InputText";
 
 /* eslint-disable react/prop-types */
-function ModalsAddData({ closeModal }) {
+function Modals({ closeModal, title }) {
   const handleSubmit = () => {
     console.log("Submit Data");
     closeModal();
@@ -19,7 +19,7 @@ function ModalsAddData({ closeModal }) {
             ✕
           </button>
         </form>
-        <h3 className="font-bold text-xl mb-4">Add New Data</h3>
+        <h3 className="font-bold text-xl mb-4">{title}</h3>
         <hr />
         <div className="flex flex-col w-full gap-2">
           <InputText title="Title" placeholder="Input a title of product" />
@@ -38,4 +38,4 @@ function ModalsAddData({ closeModal }) {
   );
 }
 
-export default ModalsAddData;
+export default Modals;
