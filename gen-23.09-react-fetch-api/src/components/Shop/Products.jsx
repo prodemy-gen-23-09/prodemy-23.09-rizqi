@@ -30,7 +30,6 @@ function Products() {
   useEffect(() => {
     if (data) {
       setProducts(data);
-
       let sorted;
 
       switch (sortOption) {
