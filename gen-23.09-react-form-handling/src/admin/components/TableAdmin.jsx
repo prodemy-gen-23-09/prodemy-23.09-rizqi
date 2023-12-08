@@ -3,9 +3,21 @@
 import Button from "./Button";
 import { useState } from "react";
 import Overlay from "./Overlay";
+import axios from "axios";
+import useSWR, { mutate } from "swr";
+import { deleteProduct } from "../service/api";
 
 function TableAdmin({ products }) {
   const [isModalDataOpen, setModalDataOpen] = useState(false);
+
+  const handleDelete = async (id) => {
+    try {
+      await deleteProduct("http://localhost:3000/products", id);
+      mutate();
+    } catch (error) {
+      console.error("Error handling delete", error);
+    }
+  };
 
   const openModal = () => {
     setModalDataOpen(true);
@@ -59,7 +71,7 @@ function TableAdmin({ products }) {
                     <Button title="Edit" onClick={openModal} />
                     <Button
                       title="Delete "
-                      onClick={() => console.log("Button Click")}
+                      onClick={() => handleDelete(product.id)}
                     />
                   </div>
                 </td>

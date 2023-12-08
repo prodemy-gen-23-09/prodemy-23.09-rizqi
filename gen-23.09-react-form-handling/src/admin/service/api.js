@@ -20,3 +20,12 @@ export const getAllProducts = () => {
     isError: error,
   };
 };
+
+export const deleteProduct = async (url, id) => {
+  try {
+    await axios.delete(`${url}/${id}`);
+  } catch (error) {
+    console.error("Error deleting product", error);
+    throw error; // Propagating the error so that SWR can handle it
+  }
+};

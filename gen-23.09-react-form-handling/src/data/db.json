@@ -1,40 +1,6 @@
 {
   "products": [
     {
-      "id": 1,
-      "thumbnail": "/src/assets/shop/product1.png",
-      "image": [
-        "/src/assets/shop/product1.png",
-        "/src/assets/shop/product2.png",
-        "/src/assets/shop/product3.png",
-        "/src/assets/shop/product4.png",
-        "/src/assets/shop/product5.png"
-      ],
-      "title": "Syltherine",
-      "desc": "Incididunt sunt cillum nulla quis aliqua laboris ut aliquip. Minim excepteur elit velit culpa velit laborum. Fugiat ipsum reprehenderit aute consectetur non consectetur ea et magna elit.",
-      "price": 1500000,
-      "category": "Table",
-      "release_date": "2023-12-04",
-      "stock": 10
-    },
-    {
-      "id": 2,
-      "thumbnail": "/src/assets/shop/product2.png",
-      "image": [
-        "/src/assets/shop/product2.png",
-        "/src/assets/shop/product2.png",
-        "/src/assets/shop/product2.png",
-        "/src/assets/shop/product2.png",
-        "/src/assets/shop/product2.png"
-      ],
-      "title": "Asgard Sofa",
-      "desc": "Ipsum nulla esse esse deserunt Lorem eu eiusmod ea in eiusmod. Aute do dolore duis aliquip eu dolor aliqua proident ea Lorem dolor. Sit nostrud exercitation do elit culpa voluptate non culpa Lorem do ut. Ipsum minim qui enim ad reprehenderit est. Duis ex ex tempor elit incididunt incididunt officia eu cupidatat non mollit ad quis. Ullamco proident nisi commodo eiusmod est aute.",
-      "price": 12500000,
-      "category": "Sofa",
-      "release_date": "2023-12-01",
-      "stock": 5
-    },
-    {
       "id": 3,
       "thumbnail": "/src/assets/shop/product3.png",
       "image": [
@@ -118,23 +84,6 @@
       "category": "Decoration",
       "release_date": "2023-02-04",
       "stock": 6
-    },
-    {
-      "id": 8,
-      "thumbnail": "/src/assets/shop/product8.png",
-      "image": [
-        "/src/assets/shop/product8.png",
-        "/src/assets/shop/product8.png",
-        "/src/assets/shop/product8.png",
-        "/src/assets/shop/product8.png",
-        "/src/assets/shop/product8.png"
-      ],
-      "title": "Muggo",
-      "desc": "Ad do cupidatat incididunt ullamco. Incididunt elit occaecat proident pariatur adipisicing. Nostrud in labore qui enim elit ut aliquip ex eu adipisicing sint.",
-      "price": 75000,
-      "category": "Kitchen",
-      "release_date": "2023-01-04",
-      "stock": 9
     }
   ]
 }
