@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 import BannerImage from "../../components/BannerImage";
 import BannerService from "../../components/BannerService";
+import Button from "../components/Button";
 import Overlay from "../components/Overlay";
 import TableAdmin from "../components/TableAdmin";
 import { useState } from "react";
@@ -20,12 +21,7 @@ function HomeAdmin() {
     <>
       <BannerImage title="Admin" />
       <div className="flex justify-end mx-20 mt-10 ">
-        <button
-          className="bg-color1_selected hover:bg-color_home hover:text-color1_selected p-3 rounded-md text-color_home"
-          onClick={openModal}
-        >
-          Add New Data
-        </button>
+        <Button onClick={openModal} title="Add New Data" />
       </div>
       <div className="flex my-10 mx-20 justify-center">
         <TableAdmin />
