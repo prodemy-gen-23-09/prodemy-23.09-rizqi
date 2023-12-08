@@ -4,12 +4,10 @@ import Button from "./Button";
 import { useState, useEffect } from "react";
 import Overlay from "./Overlay";
 import { mutate } from "swr";
-import { deleteProduct, getAllProducts } from "../service/api";
+import { deleteProduct } from "../service/api";
 
 function TableAdmin({ products }) {
   const [isModalDataOpen, setModalDataOpen] = useState(false);
-  const { data } = getAllProducts();
-  const [product, setProduct] = useState([]);
 
   const handleDelete = async (id) => {
     try {
@@ -33,16 +31,10 @@ function TableAdmin({ products }) {
     setModalDataOpen(false);
   };
 
-  useEffect(() => {
-    if (data) {
-      setProduct(data);
-    }
-  }, [data]);
-
   return (
     <>
       <table className="table-fixed w-full">
-        <thead className="bg-color_home h-16">
+        <thead className="bg-color_home h-16 w-full">
           <tr>
             <th>No</th>
             <th>Title</th>
@@ -51,13 +43,13 @@ function TableAdmin({ products }) {
             <th>Thumbnail</th>
             <th>Image</th>
             <th>Category</th>
-            <th>Release_Date</th>
+            <th>Release Date</th>
             <th>Action</th>
           </tr>
         </thead>
         <tbody>
-          {product &&
-            product.map((product, index) => (
+          {products &&
+            products.map((product, index) => (
               <tr key={product.id} className="text-center">
                 <td>{index + 1}</td>
                 <td>{product.title}</td>

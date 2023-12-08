@@ -5,7 +5,7 @@ function Overlay({ closeModal }) {
   return (
     <>
       <div className="flex max-w-full min-h-screen justify-center items-center overlay">
-        <Modals closeModal={closeModal} title="Edit Data" />
+        <Modals closeModal={closeModal} title="Add New Data" />
       </div>
     </>
   );

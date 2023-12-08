@@ -4,8 +4,9 @@ import BannerService from "../../components/BannerService";
 import Button from "../components/Button";
 import Overlay from "../components/Overlay";
 import TableAdmin from "../components/TableAdmin";
-import { useState, useEffect } from "react";
-import { getAllProducts } from "../service/api";
+import { useState } from "react";
+import { addProduct, getAllProducts } from "../service/api";
+import Modals from "../components/Modals";
 
 function HomeAdmin() {
   const [isModalDataOpen, setModalDataOpen] = useState(false);
@@ -19,13 +20,23 @@ function HomeAdmin() {
     setModalDataOpen(false);
   };
 
+  const handleAddProduct = async (newProduct) => {
+    try {
+      await addProduct("http://localhost:3000/products", newProduct);
+      mutate();
+      closeModal();
+    } catch (error) {
+      console.error("Error adding product", error);
+    }
+  };
+
   return (
     <>
       <BannerImage title="Admin" />
       <div className="flex justify-end mx-20 mt-10 ">
         <Button onClick={openModal} title="Add New Data" />
       </div>
-      <div className="flex my-10 mx-20 justify-center">
+      <div className="flex my-10 mx-16 justify-center">
         {data?.length === 0 ? (
           <div className="flex">No Data Found</div>
         ) : (
@@ -33,7 +44,15 @@ function HomeAdmin() {
         )}
       </div>
       <BannerService />
-      {isModalDataOpen && <Overlay closeModal={closeModal} />}
+      {isModalDataOpen && (
+        <Overlay closeModal={closeModal}>
+          <Modals
+            closeModal={closeModal}
+            title="Add New Data"
+            onSubmit={handleAddProduct}
+          />
+        </Overlay>
+      )}
     </>
   );
 }

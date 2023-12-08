@@ -2,9 +2,9 @@ import Button from "./Button";
 import InputText from "./InputText";
 
 /* eslint-disable react/prop-types */
-function Modals({ closeModal, title }) {
-  const handleSubmit = () => {
-    console.log("Submit Data");
+function Modals({ closeModal, title, onSubmit }) {
+  const handleSubmit = (newProduct) => {
+    onSubmit(newProduct);
     closeModal();
   };
 
@@ -23,11 +23,14 @@ function Modals({ closeModal, title }) {
         <hr />
         <div className="flex flex-col w-full gap-2">
           <InputText title="Title" placeholder="Input a title of product" />
-          <InputText title="Title" placeholder="Input a title of product" />
-          <InputText title="Title" placeholder="Input a title of product" />
-          <InputText title="Title" placeholder="Input a title of product" />
-          <InputText title="Title" placeholder="Input a title of product" />
-          <InputText title="Title" placeholder="Input a title of product" />
+          <InputText title="Price" placeholder="Input a title of product" />
+          <InputText title="Stock" placeholder="Input a title of product" />
+
+          <InputText title="Category" placeholder="Input a title of product" />
+          <InputText
+            title="Release Date"
+            placeholder="Input a title of product"
+          />
           <InputText title="Title" placeholder="Input a title of product" />
         </div>
         <div className="flex mt-10 justify-end">
