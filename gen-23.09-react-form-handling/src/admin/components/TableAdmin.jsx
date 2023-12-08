@@ -58,7 +58,7 @@ function TableAdmin({ products }) {
                   <div className="flex gap-10 justify-center">
                     <Button title="Edit" onClick={openModal} />
                     <Button
-                      title="Hapus "
+                      title="Delete "
                       onClick={() => console.log("Button Click")}
                     />
                   </div>
