@@ -4,7 +4,7 @@ import Button from "./Button";
 import { useState } from "react";
 import Overlay from "./Overlay";
 import axios from "axios";
-import useSWR, { mutate } from "swr";
+import { mutate } from "swr";
 import { deleteProduct } from "../service/api";
 
 function TableAdmin({ products }) {
@@ -19,11 +19,18 @@ function TableAdmin({ products }) {
     }
   };
 
+  const handleDeleteModal = (id) => {
+    openModal();
+    handleDelete(id);
+    mutate();
+  };
+
   const openModal = () => {
     setModalDataOpen(true);
   };
 
   const closeModal = () => {
+    mutate();
     setModalDataOpen(false);
   };
 
@@ -32,6 +39,7 @@ function TableAdmin({ products }) {
       <table className="table-fixed w-full">
         <thead className="bg-color_home h-16">
           <tr>
+            <th>No</th>
             <th>Title</th>
             <th>Price</th>
             <th>Stock</th>
@@ -44,8 +52,9 @@ function TableAdmin({ products }) {
         </thead>
         <tbody>
           {products &&
-            products.map((product) => (
+            products.map((product, index) => (
               <tr key={product.id} className="text-center">
+                <td>{index + 1}</td>
                 <td>{product.title}</td>
                 <td>{product.price}</td>
                 <td>{product.stock}</td>
@@ -71,7 +80,7 @@ function TableAdmin({ products }) {
                     <Button title="Edit" onClick={openModal} />
                     <Button
                       title="Delete "
-                      onClick={() => handleDelete(product.id)}
+                      onClick={() => handleDeleteModal(product.id)}
                     />
                   </div>
                 </td>

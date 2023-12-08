@@ -9,7 +9,7 @@ import { getAllProducts } from "../service/api";
 
 function HomeAdmin() {
   const [isModalDataOpen, setModalDataOpen] = useState(false);
-  const { data, isLoading, isError } = getAllProducts();
+  const { data, isLoading, isError, mutate } = getAllProducts();
 
   const openModal = () => {
     setModalDataOpen(true);
@@ -19,6 +19,14 @@ function HomeAdmin() {
     setModalDataOpen(false);
   };
 
+  if (isLoading) {
+    return <div className="flex min-h-screen">Loading...</div>;
+  }
+
+  if (isError) {
+    return <div className="flex min-h-screen">Error loading data</div>;
+  }
+
   return (
     <>
       <BannerImage title="Admin" />
@@ -26,7 +34,11 @@ function HomeAdmin() {
         <Button onClick={openModal} title="Add New Data" />
       </div>
       <div className="flex my-10 mx-20 justify-center">
-        <TableAdmin products={data} />
+        {data?.length === 0 ? (
+          <div className="flex">No Data Found</div>
+        ) : (
+          <TableAdmin products={data} condition />
+        )}
       </div>
       <BannerService />
       {isModalDataOpen && <Overlay closeModal={closeModal} />}

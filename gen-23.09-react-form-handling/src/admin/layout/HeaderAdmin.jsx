@@ -1,7 +1,5 @@
-import { CiSearch, CiHeart } from "react-icons/ci";
-import { MdPerson } from "react-icons/md";
-import { IoCartSharp } from "react-icons/io5";
 import { Link, Outlet } from "react-router-dom";
+import Button from "../components/Button";
 
 function HeaderAdmin() {
   return (
@@ -15,21 +13,7 @@ function HeaderAdmin() {
               className="m-5 w-52"
             />
           </Link>
-          <div className="flex gap-20 cursor-pointer">
-            <Link to="/admin">
-              <div className="text-black hover:text-color1_selected">Home</div>
-            </Link>
-          </div>
-          <div className="flex m-5 gap-5">
-            <CiSearch size={30} />
-            <MdPerson size={30} />
-            <Link to="wishlist">
-              <CiHeart size={30} />
-            </Link>
-            <Link to="cart">
-              <IoCartSharp size={30} className="cursor-pointer" />
-            </Link>
-          </div>
+          <Button onClick={() => console.log("Log Out")} title="Log Out" />
         </nav>
       </header>
       <Outlet />
