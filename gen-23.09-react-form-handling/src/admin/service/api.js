@@ -4,7 +4,9 @@ import axios from "axios";
 import useSWR from "swr";
 
 export const fetchProducts = async (url) => {
-  const data = await axios.get(url).then((res) => res.data);
+  const data = await axios
+    .get(url, { headers: { "Cache-Control": "no-cache" } })
+    .then((res) => res.data);
   return data;
 };
 
