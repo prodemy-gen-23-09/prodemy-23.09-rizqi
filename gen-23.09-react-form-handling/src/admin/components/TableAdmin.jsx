@@ -6,11 +6,14 @@ function TableAdmin(props) {
       <table className="table-fixed w-full">
         <thead className="bg-color_home h-16">
           <tr>
-            <th>Product</th>
+            <th>Title</th>
             <th>Price</th>
-            <th>Quantity</th>
-            <th>Subtotal</th>
-            <th>Subtotal</th>
+            <th>Stock</th>
+            <th>Image</th>
+            <th>Thumbnail</th>
+            <th>Category</th>
+            <th>Desc</th>
+            <th>Release_Date</th>
           </tr>
         </thead>
         <tbody>
@@ -18,12 +21,12 @@ function TableAdmin(props) {
             <td>
               <div className="flex items-center justify-center gap-6">
                 <img src={props.image} width={120} />
-                <p>{props.title}</p>
               </div>
             </td>
             <td>{props.price}</td>
             <td>{props.quantity}</td>
             <td>{props.subtotal}</td>
+            <td>{props.title}</td>
           </tr>
         </tbody>
       </table>
