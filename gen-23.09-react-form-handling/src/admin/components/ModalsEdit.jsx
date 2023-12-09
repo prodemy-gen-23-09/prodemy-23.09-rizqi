@@ -1,53 +1,39 @@
-/* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
-import { useForm } from "react-hook-form";
+/* eslint-disable no-undef */
+import { useEffect } from "react";
 import Button from "./Button";
 import InputText from "./InputText";
-import axios from "axios";
-import { yupResolver } from "@hookform/resolvers/yup";
-import * as yup from "yup";
+import { useForm } from "react-hook-form";
 
-function Modals({ closeModal, title }) {
-  const schema = yup.object().shape({
-    title: yup.string().required("Title is required"),
-    desc: yup.string().required("Description is required"),
-    price: yup.string().required("Price is required"),
-    stock: yup.string().required("Stock is required"),
-    thumbnail: yup.string().required("Thumbnail is required"),
-    category: yup.string().required("Category is required"),
-    date: yup.string().required("Date is required"),
-  });
+function ModalsEdit({ onCancel, onConfirm, closeModal, selectedProduct }) {
+  const { register, handleSubmit, setValue } = useForm();
+  const { title, desc, price, stock, thumbnail, category, date } =
+    selectedProduct || {};
 
-  const {
-    register,
-    handleSubmit,
-    getValues,
-    formState: { errors },
-  } = useForm({
-    resolver: yupResolver(schema),
-  });
+  useEffect(() => {
+    setValue("title", title || "");
+    setValue("desc", desc || "");
+    setValue("price", price || "");
+    setValue("stock", stock || "");
+    setValue("thumbnail", thumbnail || "");
+    setValue("category", category || "");
+    setValue("date", date || "");
+  }, [
+    selectedProduct,
+    setValue,
+    category,
+    date,
+    thumbnail,
+    desc,
+    stock,
+    price,
+    title,
+  ]);
 
-  const submitForm = () => {
-    const newProduct = {
-      title: getValues("title"),
-      desc: getValues("desc"),
-      price: getValues("price"),
-      stock: getValues("stock"),
-      thumbnail: getValues("thumbnail"),
-      category: getValues("category"),
-      date: getValues("date"),
-    };
-
-    axios
-      .post("http://localhost:3000/products", newProduct)
-      .then(() => {
-        console.log("Success Add New Product!");
-      })
-      .catch((error) => console.log(error));
-    console.log(newProduct);
+  const submitForm = (data) => {
+    console.log(data);
     closeModal();
   };
-
   return (
     <>
       <div className="modal-box p-8 h-[800px]">
@@ -58,7 +44,7 @@ function Modals({ closeModal, title }) {
           >
             ✕
           </button>
-          <h3 className="font-bold text-xl mb-4">{title}</h3>
+          <h3 className="font-bold text-xl mb-4">Edit Data</h3>
           <hr />
           <div className="flex flex-col w-full gap-2">
             <InputText
@@ -146,8 +132,19 @@ function Modals({ closeModal, title }) {
           </div>
         </form>
       </div>
+      <div className="flex min-h-screen justify-center items-center promptdelete">
+        <div className="prompt-content bg-white p-10">
+          <p className="text-black">
+            Are you sure you want to delete this item?
+          </p>
+          <div className="flex prompt-buttons gap-10 justify-center mt-10">
+            <Button title="Cancel" onClick={onCancel} />
+            <Button title="Submit" onClick={onConfirm} />
+          </div>
+        </div>
+      </div>
     </>
   );
 }
 
-export default Modals;
+export default ModalsEdit;

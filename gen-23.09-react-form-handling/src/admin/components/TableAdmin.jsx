@@ -7,11 +7,13 @@ import { mutate } from "swr";
 import { deleteProduct } from "../service/api";
 import axios from "axios";
 import PromptDelete from "./PromptDelete";
+import ModalsEdit from "./ModalsEdit";
 
 function TableAdmin({ products }) {
   const [isModalDataOpen, setModalDataOpen] = useState(false);
   const [isPromptDeleteOpen, setPromptDeleteOpen] = useState(false);
   const [deleteProductId, setDeleteProductId] = useState(null);
+  const [selectedProduct, setSelectedProduct] = useState(null);
 
   const handleDelete = async (id) => {
     try {
@@ -29,15 +31,17 @@ function TableAdmin({ products }) {
     setPromptDeleteOpen(true);
   };
 
+  const handleEditModal = (product) => {
+    setSelectedProduct(product);
+    setModalDataOpen(true);
+    console.log(product);
+  };
+
   const handleConfirmDelete = () => {
     if (deleteProductId) {
       handleDelete(deleteProductId);
       setPromptDeleteOpen(false);
     }
-  };
-
-  const openModal = () => {
-    setModalDataOpen(true);
   };
 
   const closeModal = () => {
@@ -56,6 +60,7 @@ function TableAdmin({ products }) {
           <tr>
             <th>No</th>
             <th>Title</th>
+            <th>Description</th>
             <th>Price</th>
             <th>Stock</th>
             <th>Thumbnail</th>
@@ -71,6 +76,11 @@ function TableAdmin({ products }) {
               <tr key={product.id} className="text-center">
                 <td>{index + 1}</td>
                 <td>{product.title}</td>
+                <td>
+                  <div className="flex flex-wrap max-w-xs truncate">
+                    {product.desc}
+                  </div>
+                </td>
                 <td>{product.price}</td>
                 <td>{product.stock}</td>
                 <td>
@@ -92,7 +102,10 @@ function TableAdmin({ products }) {
                 <td>{product.release_date}</td>
                 <td>
                   <div className="flex gap-10 justify-center">
-                    <Button title="Edit" onClick={openModal} />
+                    <Button
+                      title="Edit"
+                      onClick={() => handleEditModal(product)}
+                    />
                     <Button
                       title="Delete "
                       onClick={() => handleDeleteModal(product.id)}
@@ -103,7 +116,17 @@ function TableAdmin({ products }) {
             ))}
         </tbody>
       </table>
-      {isModalDataOpen && <Overlay closeModal={closeModal} />}
+      {isModalDataOpen && (
+        <ModalsEdit
+          onCancel={closeModal}
+          onConfirm={handleConfirmDelete}
+          closeModal={() => {
+            setModalDataOpen(false);
+            setSelectedProduct(null);
+          }}
+          selectedProduct={selectedProduct}
+        />
+      )}
       {isPromptDeleteOpen && (
         <PromptDelete onCancel={closePrompt} onConfirm={handleConfirmDelete} />
       )}
