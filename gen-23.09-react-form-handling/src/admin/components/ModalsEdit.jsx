@@ -36,8 +36,8 @@ function ModalsEdit({ onCancel, closeModal, selectedProduct }) {
   };
   return (
     <>
-      <div className="flex min-h-screen justify-center items-center promptdelete">
-        <div className="modal-box p-8 h-[800px]">
+      <div className="flex max-w-full min-h-screen justify-center items-center modalsedit">
+        <div className="modal-box p-8">
           <form onSubmit={handleSubmit(submitForm)}>
             <button
               className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
@@ -58,13 +58,13 @@ function ModalsEdit({ onCancel, closeModal, selectedProduct }) {
               />
               <div className="flex-col flex justify-start gap-2">
                 <label className="form-control w-full">
-                  <span className="text-sm font-semibold text-left ml-0.5 mt-0.5">
+                  <span className="text-sm font-semibold text-left ml-1 mt-1">
                     Description
                   </span>
                   <textarea
                     id="desc"
                     name="desc"
-                    className="textarea textarea-bordered text-md"
+                    className="textarea textarea-bordered text-sm"
                     placeholder="input Description of product"
                     {...register("desc")}
                   ></textarea>
