@@ -36,7 +36,6 @@ function Modals({ closeModal, title }) {
         console.log("Success Add New Product!");
       })
       .catch((error) => console.log(error));
-    console.log(newProduct);
     closeModal();
   };
 
@@ -80,9 +79,12 @@ function Modals({ closeModal, title }) {
               register={register}
             />
             <p className="error text-red-600">{errors.stock?.message}</p>
-            <input
+            <InputText
               type="file"
-              className="file-input file-input-bordered w-full max-w-xs"
+              id="thumbnail"
+              name="thumbnail"
+              placeholder="Input image for thumbnail of product"
+              register={register}
             />
           </div>
           <div className="flex mt-10 justify-end">

@@ -58,7 +58,7 @@ function TableAdmin({ products }) {
                 <td>{product.title}</td>
                 <td>{product.price}</td>
                 <td>{product.stock}</td>
-                {/* <td>
+                <td>
                   <img src={product.thumbnail} />
                 </td>
                 <td>
@@ -74,7 +74,7 @@ function TableAdmin({ products }) {
                   </div>
                 </td>
                 <td>{product.category}</td>
-                <td>{product.release_date}</td> */}
+                <td>{product.release_date}</td>
                 <td>
                   <div className="flex gap-10 justify-center">
                     <Button title="Edit" onClick={openModal} />
