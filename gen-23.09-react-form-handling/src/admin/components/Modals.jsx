@@ -6,7 +6,7 @@ import InputText from "./InputText";
 import axios from "axios";
 
 function Modals({ closeModal, title }) {
-  const { register, handleSubmit: formSubmit, getValues } = useForm();
+  const { register, handleSubmit, getValues } = useForm();
 
   const submitForm = () => {
     const newProduct = {
@@ -62,6 +62,10 @@ function Modals({ closeModal, title }) {
             title="Stock"
             placeholder="Input a stock of product"
             register={register}
+          />
+          <input
+            type="file"
+            className="file-input file-input-bordered w-full max-w-xs"
           />
         </div>
         <div className="flex mt-10 justify-end">
