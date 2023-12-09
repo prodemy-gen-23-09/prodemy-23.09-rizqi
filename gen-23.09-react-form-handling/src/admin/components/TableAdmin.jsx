@@ -5,14 +5,17 @@ import { useState, useEffect } from "react";
 import Overlay from "./Overlay";
 import { mutate } from "swr";
 import { deleteProduct } from "../service/api";
+import axios from "axios";
 
 function TableAdmin({ products }) {
   const [isModalDataOpen, setModalDataOpen] = useState(false);
 
   const handleDelete = async (id) => {
     try {
-      await deleteProduct("http://localhost:3000/products", id);
-      mutate();
+      await axios.delete(`http://localhost:3000/products/${id}`, {
+        cache: "no-cache",
+      });
+      mutate("http://localhost:3000/products");
     } catch (error) {
       console.error("Error handling delete", error);
     }
@@ -49,18 +52,18 @@ function TableAdmin({ products }) {
         </thead>
         <tbody>
           {products &&
-            products.map((product, index) => (
+            products?.map((product, index) => (
               <tr key={product.id} className="text-center">
                 <td>{index + 1}</td>
                 <td>{product.title}</td>
                 <td>{product.price}</td>
                 <td>{product.stock}</td>
-                <td>
+                {/* <td>
                   <img src={product.thumbnail} />
                 </td>
                 <td>
                   <div className="flex flex-wrap items-center justify-center gap-2">
-                    {product.image.map((imageUrl, index) => (
+                    {product?.image?.map((imageUrl, index) => (
                       <img
                         key={index}
                         src={imageUrl}
@@ -71,7 +74,7 @@ function TableAdmin({ products }) {
                   </div>
                 </td>
                 <td>{product.category}</td>
-                <td>{product.release_date}</td>
+                <td>{product.release_date}</td> */}
                 <td>
                   <div className="flex gap-10 justify-center">
                     <Button title="Edit" onClick={openModal} />

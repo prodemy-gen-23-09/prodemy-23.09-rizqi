@@ -3,16 +3,24 @@
 import { useForm } from "react-hook-form";
 import Button from "./Button";
 import InputText from "./InputText";
+import axios from "axios";
 
-function Modals({ closeModal, title, onSubmit }) {
+function Modals({ closeModal, title }) {
   const { register, handleSubmit: formSubmit, getValues } = useForm();
 
-  const submitForm = async () => {
+  const submitForm = () => {
     const newProduct = {
       title: getValues("title"),
       price: getValues("price"),
       stock: getValues("stock"),
     };
+
+    axios
+      .post("http://localhost:3000/products", newProduct)
+      .then(() => {
+        console.log("Success Add New Product!");
+      })
+      .catch((error) => console.log(error));
     console.log(newProduct);
     closeModal();
   };
@@ -33,6 +41,7 @@ function Modals({ closeModal, title, onSubmit }) {
         <div className="flex flex-col w-full gap-2">
           <InputText
             type="text"
+            name="title"
             id="title"
             title="Title"
             placeholder="Input a title of product"
@@ -40,6 +49,7 @@ function Modals({ closeModal, title, onSubmit }) {
           />
           <InputText
             type="number"
+            name="price"
             id="price"
             title="Price"
             placeholder="Input a price of product"
@@ -47,6 +57,7 @@ function Modals({ closeModal, title, onSubmit }) {
           />
           <InputText
             type="number"
+            name="stock"
             id="stock"
             title="Stock"
             placeholder="Input a stock of product"
