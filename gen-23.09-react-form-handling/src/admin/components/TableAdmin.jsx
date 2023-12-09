@@ -10,7 +10,7 @@ import PromptDelete from "./PromptDelete";
 import ModalsEdit from "./ModalsEdit";
 
 function TableAdmin({ products }) {
-  const [isModalDataOpen, setModalDataOpen] = useState(false);
+  const [isModalEditOpen, setModalEditOpen] = useState(false);
   const [isPromptDeleteOpen, setPromptDeleteOpen] = useState(false);
   const [deleteProductId, setDeleteProductId] = useState(null);
   const [selectedProduct, setSelectedProduct] = useState(null);
@@ -33,7 +33,7 @@ function TableAdmin({ products }) {
 
   const handleEditModal = (product) => {
     setSelectedProduct(product);
-    setModalDataOpen(true);
+    setModalEditOpen(true);
     console.log(product);
   };
 
@@ -46,7 +46,7 @@ function TableAdmin({ products }) {
 
   const closeModal = () => {
     mutate();
-    setModalDataOpen(false);
+    setModalEditOpen(false);
   };
 
   const closePrompt = () => {
@@ -116,16 +116,8 @@ function TableAdmin({ products }) {
             ))}
         </tbody>
       </table>
-      {isModalDataOpen && (
-        <ModalsEdit
-          onCancel={closeModal}
-          onConfirm={handleConfirmDelete}
-          closeModal={() => {
-            setModalDataOpen(false);
-            setSelectedProduct(null);
-          }}
-          selectedProduct={selectedProduct}
-        />
+      {isModalEditOpen && (
+        <ModalsEdit onCancel={closeModal} selectedProduct={selectedProduct} />
       )}
       {isPromptDeleteOpen && (
         <PromptDelete onCancel={closePrompt} onConfirm={handleConfirmDelete} />
