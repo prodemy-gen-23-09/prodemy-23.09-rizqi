@@ -4,9 +4,24 @@ import { useForm } from "react-hook-form";
 import Button from "./Button";
 import InputText from "./InputText";
 import axios from "axios";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
 
 function Modals({ closeModal, title }) {
-  const { register, handleSubmit, getValues } = useForm();
+  const schema = yup.object().shape({
+    title: yup.string().required("Title is required"),
+    price: yup.number().required("Price is required"),
+    stock: yup.number().required("Stock is required"),
+  });
+
+  const {
+    register,
+    handleSubmit,
+    getValues,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(schema),
+  });
 
   const submitForm = () => {
     const newProduct = {
@@ -28,49 +43,52 @@ function Modals({ closeModal, title }) {
   return (
     <>
       <div className="modal-box p-12">
-        <form method="dialog">
+        <form onSubmit={handleSubmit(submitForm)}>
           <button
             className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
             onClick={closeModal}
           >
             ✕
           </button>
+          <h3 className="font-bold text-xl mb-4">{title}</h3>
+          <hr />
+          <div className="flex flex-col w-full gap-2">
+            <InputText
+              type="text"
+              name="title"
+              id="title"
+              title="Title"
+              placeholder="Input a title of product"
+              register={register}
+            />
+            <p className="error text-red-600">{errors.title?.message}</p>
+            <InputText
+              type="number"
+              name="price"
+              id="price"
+              title="Price"
+              placeholder="Input a price of product"
+              register={register}
+            />
+            <p className="error text-red-600">{errors.price?.message}</p>
+            <InputText
+              type="number"
+              name="stock"
+              id="stock"
+              title="Stock"
+              placeholder="Input a stock of product"
+              register={register}
+            />
+            <p className="error text-red-600">{errors.stock?.message}</p>
+            <input
+              type="file"
+              className="file-input file-input-bordered w-full max-w-xs"
+            />
+          </div>
+          <div className="flex mt-10 justify-end">
+            <Button type="submit" title="Submit" />
+          </div>
         </form>
-        <h3 className="font-bold text-xl mb-4">{title}</h3>
-        <hr />
-        <div className="flex flex-col w-full gap-2">
-          <InputText
-            type="text"
-            name="title"
-            id="title"
-            title="Title"
-            placeholder="Input a title of product"
-            register={register}
-          />
-          <InputText
-            type="number"
-            name="price"
-            id="price"
-            title="Price"
-            placeholder="Input a price of product"
-            register={register}
-          />
-          <InputText
-            type="number"
-            name="stock"
-            id="stock"
-            title="Stock"
-            placeholder="Input a stock of product"
-            register={register}
-          />
-          <input
-            type="file"
-            className="file-input file-input-bordered w-full max-w-xs"
-          />
-        </div>
-        <div className="flex mt-10 justify-end">
-          <Button onClick={submitForm} title="Submit" />
-        </div>
       </div>
     </>
   );
