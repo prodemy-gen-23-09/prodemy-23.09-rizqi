@@ -10,6 +10,7 @@ import Wishlist from "./pages/Wishlist";
 import NotFound from "./pages/NotFound";
 import HeaderFooterAdmin from "./admin/layout/HeaderFooterAdmin";
 import HomeAdmin from "./admin/pages/HomeAdmin";
+import PromptDelete from "./admin/components/PromptDelete";
 
 export default function App() {
   return (
@@ -27,6 +28,7 @@ export default function App() {
         </Route>
         <Route path="/admin" element={<HeaderFooterAdmin />}>
           <Route index element={<HomeAdmin />} />
+          <Route path="delete" element={<PromptDelete />} />
         </Route>
       </Routes>
     </BrowserRouter>

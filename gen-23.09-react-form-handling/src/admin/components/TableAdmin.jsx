@@ -6,9 +6,12 @@ import Overlay from "./Overlay";
 import { mutate } from "swr";
 import { deleteProduct } from "../service/api";
 import axios from "axios";
+import PromptDelete from "./PromptDelete";
 
 function TableAdmin({ products }) {
   const [isModalDataOpen, setModalDataOpen] = useState(false);
+  const [isPromptDeleteOpen, setPromptDeleteOpen] = useState(false);
+  const [deleteProductId, setDeleteProductId] = useState(null);
 
   const handleDelete = async (id) => {
     try {
@@ -22,7 +25,15 @@ function TableAdmin({ products }) {
   };
 
   const handleDeleteModal = (id) => {
-    handleDelete(id);
+    setDeleteProductId(id);
+    setPromptDeleteOpen(true);
+  };
+
+  const handleConfirmDelete = () => {
+    if (deleteProductId) {
+      handleDelete(deleteProductId);
+      setPromptDeleteOpen(false);
+    }
   };
 
   const openModal = () => {
@@ -32,6 +43,10 @@ function TableAdmin({ products }) {
   const closeModal = () => {
     mutate();
     setModalDataOpen(false);
+  };
+
+  const closePrompt = () => {
+    setPromptDeleteOpen(false);
   };
 
   return (
@@ -89,6 +104,13 @@ function TableAdmin({ products }) {
         </tbody>
       </table>
       {isModalDataOpen && <Overlay closeModal={closeModal} />}
+      {isPromptDeleteOpen && (
+        <PromptDelete
+          isOpen={isPromptDeleteOpen}
+          onCancel={closePrompt}
+          onConfirm={handleConfirmDelete}
+        />
+      )}
     </>
   );
 }
