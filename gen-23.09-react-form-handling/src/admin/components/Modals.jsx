@@ -1,10 +1,19 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable react/prop-types */
+import { useForm } from "react-hook-form";
 import Button from "./Button";
 import InputText from "./InputText";
 
-/* eslint-disable react/prop-types */
 function Modals({ closeModal, title, onSubmit }) {
-  const handleSubmit = (newProduct) => {
-    onSubmit(newProduct);
+  const { register, handleSubmit: formSubmit, getValues } = useForm();
+
+  const submitForm = async () => {
+    const newProduct = {
+      title: getValues("title"),
+      price: getValues("price"),
+      stock: getValues("stock"),
+    };
+    console.log(newProduct);
     closeModal();
   };
 
@@ -22,19 +31,30 @@ function Modals({ closeModal, title, onSubmit }) {
         <h3 className="font-bold text-xl mb-4">{title}</h3>
         <hr />
         <div className="flex flex-col w-full gap-2">
-          <InputText title="Title" placeholder="Input a title of product" />
-          <InputText title="Price" placeholder="Input a title of product" />
-          <InputText title="Stock" placeholder="Input a title of product" />
-
-          <InputText title="Category" placeholder="Input a title of product" />
           <InputText
-            title="Release Date"
+            type="text"
+            id="title"
+            title="Title"
             placeholder="Input a title of product"
+            register={register}
           />
-          <InputText title="Title" placeholder="Input a title of product" />
+          <InputText
+            type="number"
+            id="price"
+            title="Price"
+            placeholder="Input a price of product"
+            register={register}
+          />
+          <InputText
+            type="number"
+            id="stock"
+            title="Stock"
+            placeholder="Input a stock of product"
+            register={register}
+          />
         </div>
         <div className="flex mt-10 justify-end">
-          <Button onClick={handleSubmit} title="Submit" />
+          <Button onClick={submitForm} title="Submit" />
         </div>
       </div>
     </>

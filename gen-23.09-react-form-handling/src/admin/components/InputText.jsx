@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-function InputText({ title, placeholder }) {
+function InputText({ id, title, placeholder, register, type }) {
   return (
     <>
       <label className="form-control w-full">
@@ -7,9 +7,11 @@ function InputText({ title, placeholder }) {
           <span className="label-text text-md font-semibold">{title}</span>
         </div>
         <input
-          type="text"
+          id={id}
+          type={type}
           placeholder={placeholder}
           className="input input-bordered w-full"
+          {...register(id)}
         />
       </label>
     </>
