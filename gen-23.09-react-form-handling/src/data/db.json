@@ -1,57 +1,6 @@
 {
   "products": [
     {
-      "id": 1,
-      "thumbnail": "/src/assets/shop/product1.png",
-      "image": [
-        "/src/assets/shop/product1.png",
-        "/src/assets/shop/product2.png",
-        "/src/assets/shop/product3.png",
-        "/src/assets/shop/product4.png",
-        "/src/assets/shop/product5.png"
-      ],
-      "title": "Syltherine",
-      "desc": "Incididunt sunt cillum nulla quis aliqua laboris ut aliquip. Minim excepteur elit velit culpa velit laborum. Fugiat ipsum reprehenderit aute consectetur non consectetur ea et magna elit.",
-      "price": 1500000,
-      "category": "Table",
-      "release_date": "2023-12-04",
-      "stock": 10
-    },
-    {
-      "id": 2,
-      "thumbnail": "/src/assets/shop/product2.png",
-      "image": [
-        "/src/assets/shop/product2.png",
-        "/src/assets/shop/product2.png",
-        "/src/assets/shop/product2.png",
-        "/src/assets/shop/product2.png",
-        "/src/assets/shop/product2.png"
-      ],
-      "title": "Asgard Sofa",
-      "desc": "Ipsum nulla esse esse deserunt Lorem eu eiusmod ea in eiusmod. Aute do dolore duis aliquip eu dolor aliqua proident ea Lorem dolor. Sit nostrud exercitation do elit culpa voluptate non culpa Lorem do ut. Ipsum minim qui enim ad reprehenderit est. Duis ex ex tempor elit incididunt incididunt officia eu cupidatat non mollit ad quis. Ullamco proident nisi commodo eiusmod est aute.",
-      "price": 12500000,
-      "category": "Sofa",
-      "release_date": "2023-12-01",
-      "stock": 5
-    },
-    {
-      "id": 3,
-      "thumbnail": "/src/assets/shop/product3.png",
-      "image": [
-        "/src/assets/shop/product3.png",
-        "/src/assets/shop/product3.png",
-        "/src/assets/shop/product3.png",
-        "/src/assets/shop/product3.png",
-        "/src/assets/shop/product3.png"
-      ],
-      "title": "Potty",
-      "desc": "Quis consectetur qui fugiat cupidatat aliqua amet cupidatat Lorem aliqua mollit exercitation reprehenderit est. Ex elit fugiat cupidatat non. Labore nisi reprehenderit tempor eu amet eu magna cupidatat non ipsum adipisicing ea eu. Et fugiat sit occaecat et nulla nostrud do nulla dolore incididunt eiusmod eiusmod Lorem. Id cillum anim esse elit tempor occaecat dolore fugiat aliquip ad culpa excepteur velit. Dolor do nisi fugiat commodo nisi proident excepteur amet culpa mollit. Lorem veniam Lorem cillum velit incididunt reprehenderit ad consequat sint laboris dolor.",
-      "price": 250000,
-      "category": "Chair",
-      "release_date": "2023-11-02",
-      "stock": 2
-    },
-    {
       "id": 4,
       "thumbnail": "/src/assets/shop/product4.png",
       "image": [

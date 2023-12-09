@@ -105,11 +105,7 @@ function TableAdmin({ products }) {
       </table>
       {isModalDataOpen && <Overlay closeModal={closeModal} />}
       {isPromptDeleteOpen && (
-        <PromptDelete
-          isOpen={isPromptDeleteOpen}
-          onCancel={closePrompt}
-          onConfirm={handleConfirmDelete}
-        />
+        <PromptDelete onCancel={closePrompt} onConfirm={handleConfirmDelete} />
       )}
     </>
   );
