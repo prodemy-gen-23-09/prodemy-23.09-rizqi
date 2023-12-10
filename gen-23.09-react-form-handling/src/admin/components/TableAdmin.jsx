@@ -34,7 +34,7 @@ function TableAdmin({ products }) {
   const handleEditModal = (product) => {
     setSelectedProduct(product);
     setModalEditOpen(true);
-    console.log(product);
+    mutate("http://localhost:3000/products");
   };
 
   const handleConfirmDelete = () => {
@@ -117,7 +117,11 @@ function TableAdmin({ products }) {
         </tbody>
       </table>
       {isModalEditOpen && (
-        <ModalsEdit onCancel={closeModal} selectedProduct={selectedProduct} />
+        <ModalsEdit
+          onCancel={closeModal}
+          selectedProduct={selectedProduct}
+          closeModal={closeModal}
+        />
       )}
       {isPromptDeleteOpen && (
         <PromptDelete onCancel={closePrompt} onConfirm={handleConfirmDelete} />

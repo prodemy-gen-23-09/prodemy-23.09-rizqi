@@ -1,10 +1,13 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 import { useEffect } from "react";
 import Button from "./Button";
 import InputText from "./InputText";
 import { useForm } from "react-hook-form";
+import axios from "axios";
+import { mutate } from "swr";
 
-function ModalsEdit({ onCancel, closeModal, selectedProduct }) {
+function ModalsEdit({ onCancel, selectedProduct, closeModal }) {
   const { register, handleSubmit, setValue } = useForm();
   const { title, desc, price, stock, thumbnail, category, date } =
     selectedProduct || {};
@@ -30,8 +33,26 @@ function ModalsEdit({ onCancel, closeModal, selectedProduct }) {
     title,
   ]);
 
-  const submitForm = (data) => {
-    console.log(data);
+  const submitForm = async (data) => {
+    try {
+      const updatedProductData = {
+        title: data.title,
+        desc: data.desc,
+        price: parseFloat(data.price),
+        stock: parseInt(data.stock),
+        thumbnail: data.thumbnail,
+        category: data.category,
+        date: data.date,
+      };
+
+      const response = await axios.put(
+        `http://localhost:3000/products/${selectedProduct.id}`,
+        updatedProductData
+      );
+    } catch (error) {
+      console.error("Error updating product:", error);
+    }
+    mutate("http://localhost:3000/products");
     closeModal();
   };
   return (
@@ -58,7 +79,7 @@ function ModalsEdit({ onCancel, closeModal, selectedProduct }) {
               />
               <div className="flex-col flex justify-start gap-2">
                 <label className="form-control w-full">
-                  <span className="text-sm font-semibold text-left ml-1 mt-1">
+                  <span className="text-sm font-semibold text-left">
                     Description
                   </span>
                   <textarea
@@ -128,17 +149,6 @@ function ModalsEdit({ onCancel, closeModal, selectedProduct }) {
           </form>
         </div>
       </div>
-      {/* <div className="flex min-h-screen justify-center items-center promptdelete">
-        <div className="prompt-content bg-white p-10">
-          <p className="text-black">
-            Are you sure you want to delete this item?
-          </p>
-          <div className="flex prompt-buttons gap-10 justify-center mt-10">
-            <Button title="Cancel" onClick={onCancel} />
-            <Button title="Submit" onClick={onConfirm} />
-          </div>
-        </div>
-      </div> */}
     </>
   );
 }
