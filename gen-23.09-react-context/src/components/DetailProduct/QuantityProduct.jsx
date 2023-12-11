@@ -1,9 +1,12 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 import React, { useState } from "react";
+import { useCart } from "../../pages/User/Cart/CartUtils";
 import ButtonCart from "./ButtonCart";
 
-function QuantityProduct() {
-  const [count, setCount] = useState(0);
+function QuantityProduct({ productId, price, title, image }) {
+  const { addToCart } = useCart();
+  const [count, setCount] = React.useState(0);
 
   const increment = () => {
     setCount(count + 1);
@@ -13,6 +16,11 @@ function QuantityProduct() {
     if (count > 0) {
       setCount(count - 1);
     }
+  };
+
+  const handleAddToCart = () => {
+    addToCart({ id: productId, quantity: count, price, title, image });
+    console.log(productId, count, price, title, image);
   };
 
   return (
@@ -36,7 +44,7 @@ function QuantityProduct() {
             </span>
           </button>
         </div>
-        <ButtonCart count={count} />
+        <ButtonCart count={count} handleAddToCart={handleAddToCart} />
       </div>
     </>
   );

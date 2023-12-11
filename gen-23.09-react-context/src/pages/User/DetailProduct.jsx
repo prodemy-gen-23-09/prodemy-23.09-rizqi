@@ -29,7 +29,7 @@ function DetailProduct() {
   );
 
   useEffect(() => {
-    const detail = data.find((p) => p.id === parseInt(id));
+    const detail = data?.find((p) => p.id === parseInt(id));
     setDetailProducts(detail || null);
     setMainImage(detail?.thumbnail || "");
   }, [id, data]);
@@ -85,6 +85,9 @@ function DetailProduct() {
           desc={detailProducts.desc}
           category={detailProducts.category}
           date={detailProducts.release_date}
+          id={detailProducts.id}
+          priceproduct={detailProducts.price}
+          imageproduct={detailProducts.thumbnail}
         />
       </div>
       <hr />

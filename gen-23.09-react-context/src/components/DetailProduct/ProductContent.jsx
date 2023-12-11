@@ -9,7 +9,7 @@ function ProductContent(props) {
         {props.title}
       </h1>
       <p className="text-3xl text-gray-400" id="productPrice">
-        Rp. {props.price}
+        {props.price}
       </p>
       <div className="flex">
         <img
@@ -31,7 +31,12 @@ function ProductContent(props) {
         <button className="flex bg-color1_selected hover:opacity-60 w-10 h-10 rounded-full justify-center items-center"></button>
       </div>
 
-      <QuantityProduct />
+      <QuantityProduct
+        productId={props.id}
+        title={props.title}
+        price={props.priceproduct}
+        image={props.imageproduct}
+      />
 
       <hr />
       <div className="flex flex-col">

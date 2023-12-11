@@ -3,14 +3,16 @@
 import { useState } from "react";
 import OverlayProduct from "../Modals/OverlayProduct";
 
-function ButtonCart({ count }) {
+function ButtonCart({ count, handleAddToCart }) {
   const [isModalOpen, setModalOpen] = useState(false);
 
   const openModal = () => {
     if (count !== 0) {
+      handleAddToCart();
       setModalOpen(true);
     }
   };
+
   const closeModal = () => {
     setModalOpen(false);
   };
