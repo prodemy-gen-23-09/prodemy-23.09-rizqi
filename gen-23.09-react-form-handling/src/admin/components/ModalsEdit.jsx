@@ -131,6 +131,7 @@ function ModalsEdit({ onCancel, selectedProduct, closeModal }) {
                   <option value="Dining">Dining</option>
                   <option value="Kitchen">Kitchen</option>
                   <option value="Living">Living</option>
+                  <option value="Chair">Chair</option>
                 </select>
               </div>
               <InputText

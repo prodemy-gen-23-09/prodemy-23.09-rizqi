@@ -128,6 +128,7 @@ function Modals({ closeModal, title }) {
                 <option value="Dining">Dining</option>
                 <option value="Kitchen">Kitchen</option>
                 <option value="Living">Living</option>
+                <option value="Chair">Chair</option>
               </select>
             </div>
             <p className="error text-red-600">{errors.category?.message}</p>
