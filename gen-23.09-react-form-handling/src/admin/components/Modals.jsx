@@ -131,6 +131,7 @@ function Modals({ closeModal, title }) {
                 <option value="Living">Living</option>
               </select>
             </div>
+            <p className="error text-red-600">{errors.category?.message}</p>
             <InputText
               type="text"
               id="release_date"
@@ -139,7 +140,7 @@ function Modals({ closeModal, title }) {
               placeholder="Input date for release date of product"
               register={register}
             />
-            <p className="error text-red-600">{errors.date?.message}</p>
+            <p className="error text-red-600">{errors.release_date?.message}</p>
           </div>
           <div className="flex mt-10 justify-end">
             <Button type="submit" title="Submit" />
