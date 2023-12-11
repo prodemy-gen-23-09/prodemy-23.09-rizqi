@@ -8,9 +8,9 @@ import DetailProduct from "./pages/User/DetailProduct";
 import Cart from "./pages/User/Cart";
 import Wishlist from "./pages/User/Wishlist";
 import NotFound from "./pages/User/NotFound";
-import HeaderFooterAdmin from "./admin/layout/HeaderFooterAdmin";
-import HomeAdmin from "./admin/pages/HomeAdmin";
-import PromptDelete from "./admin/components/PromptDelete";
+import HeaderFooterAdmin from "./pages/Admin/layout/HeaderFooterAdmin";
+import HomeAdmin from "./pages/Admin/pages/HomeAdmin";
+import PromptDelete from "./pages/Admin/components/PromptDelete";
 
 export default function App() {
   return (

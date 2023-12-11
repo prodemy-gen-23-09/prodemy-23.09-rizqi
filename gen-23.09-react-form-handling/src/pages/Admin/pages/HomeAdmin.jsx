@@ -1,11 +1,11 @@
 /* eslint-disable no-unused-vars */
-import BannerImage from "../../components/BannerImage";
-import BannerService from "../../components/BannerService";
+import BannerImage from "../../../components/BannerImage";
+import BannerService from "../../../components/BannerService";
 import Button from "../components/Button";
 import Overlay from "../components/Overlay";
 import TableAdmin from "../components/TableAdmin";
 import { useState } from "react";
-import { addProduct, getAllProducts } from "../service/api";
+import { addProduct, getAllProducts } from "../service/api.js";
 import Modals from "../components/Modals";
 
 function HomeAdmin() {

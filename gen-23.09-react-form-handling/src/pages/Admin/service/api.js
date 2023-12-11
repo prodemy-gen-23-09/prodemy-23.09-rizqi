@@ -23,3 +23,14 @@ export const getAllProducts = () => {
     isError: error,
   };
 };
+
+export const addProduct = async (url, newProduct) => {
+  try {
+    const response = await axios.post(url, newProduct);
+    mutate("http://localhost:3000/products");
+    return response.data;
+  } catch (error) {
+    console.error("Error adding product", error);
+    throw error;
+  }
+};
