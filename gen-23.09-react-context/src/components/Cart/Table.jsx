@@ -1,12 +1,19 @@
 /* eslint-disable react/prop-types */
+import { useContext } from "react";
 import Button from "../../pages/Admin/components/Button";
+import { CartContext } from "../../pages/User/Cart/CartContext";
 
 function Table({ cartItems }) {
+  const { removeFromCart } = useContext(CartContext);
   const formatPrice = (price) => {
     return price.toLocaleString("id-ID", {
       style: "currency",
       currency: "IDR",
     });
+  };
+
+  const handleDelete = (itemId) => {
+    removeFromCart(itemId);
   };
   return (
     <>
@@ -18,6 +25,7 @@ function Table({ cartItems }) {
             <th>Product</th>
             <th>Price</th>
             <th>Quantity</th>
+            <th>Subtotal</th>
             <th>Action</th>
           </tr>
         </thead>
@@ -33,8 +41,9 @@ function Table({ cartItems }) {
               <td>{item.title}</td>
               <td>{formatPrice(item.price)}</td>
               <td>{item.quantity}</td>
+              <td>{formatPrice(item.quantity * item.price)}</td>
               <td>
-                <Button title="Delete " onClick={() => console.log("Delete")} />
+                <Button title="Delete " onClick={() => handleDelete(item.id)} />
               </td>
             </tr>
           ))}

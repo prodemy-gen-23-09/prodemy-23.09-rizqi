@@ -1,11 +1,11 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
-import React, { useState } from "react";
-import { useCart } from "../../pages/User/Cart/CartUtils";
+import React, { useContext } from "react";
 import ButtonCart from "./ButtonCart";
+import { CartContext } from "../../pages/User/Cart/CartContext";
 
 function QuantityProduct({ productId, price, title, image }) {
-  const { addToCart } = useCart();
+  const { addToCart } = useContext(CartContext);
   const [count, setCount] = React.useState(0);
 
   const increment = () => {

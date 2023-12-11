@@ -2,10 +2,11 @@ import { CiSearch, CiHeart } from "react-icons/ci";
 import { MdPerson } from "react-icons/md";
 import { IoCartSharp } from "react-icons/io5";
 import { Link, Outlet } from "react-router-dom";
-import { useCart } from "../pages/User/Cart/CartUtils";
+import { useContext } from "react";
+import { CartContext } from "../pages/User/Cart/CartContext";
 
 function Header() {
-  const { cartItems } = useCart();
+  const { cartItems } = useContext(CartContext);
   return (
     <div>
       <header>
