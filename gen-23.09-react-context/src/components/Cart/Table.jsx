@@ -34,13 +34,7 @@ function Table({ cartItems }) {
               <td>{formatPrice(item.price)}</td>
               <td>{item.quantity}</td>
               <td>
-                <div className="flex gap-10 justify-center">
-                  <Button title="Edit" onClick={() => console.log("Edit")} />
-                  <Button
-                    title="Delete "
-                    onClick={() => console.log("Delete")}
-                  />
-                </div>
+                <Button title="Delete " onClick={() => console.log("Delete")} />
               </td>
             </tr>
           ))}

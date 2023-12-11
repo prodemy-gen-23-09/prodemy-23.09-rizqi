@@ -40,9 +40,11 @@ function Header() {
               <CiHeart size={30} />
             </Link>
             <div className="relative">
-              <span className="absolute bottom-3 left-5 bg-red-500 text-white px-2 py-1 text-[9px] rounded-full">
-                {cartItems.length}
-              </span>
+              {cartItems.length > 0 && (
+                <span className="absolute bottom-3 left-5 bg-red-500 text-white px-2 py-1 text-[9px] rounded-full">
+                  {cartItems.length}
+                </span>
+              )}
               <Link to="cart" className="flex">
                 <IoCartSharp size={30} className="cursor-pointer" />
               </Link>
