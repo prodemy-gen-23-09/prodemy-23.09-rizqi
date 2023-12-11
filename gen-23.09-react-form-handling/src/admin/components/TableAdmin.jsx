@@ -64,7 +64,7 @@ function TableAdmin({ products }) {
             <th>Price</th>
             <th>Stock</th>
             <th>Thumbnail</th>
-            <th>Image</th>
+            {/* <th>Image</th> */}
             <th>Category</th>
             <th>Release Date</th>
             <th>Action</th>
@@ -86,7 +86,7 @@ function TableAdmin({ products }) {
                 <td>
                   <img src={product.thumbnail} />
                 </td>
-                <td>
+                {/* <td>
                   <div className="flex flex-wrap items-center justify-center gap-2">
                     {product?.image?.map((imageUrl, index) => (
                       <img
@@ -97,7 +97,7 @@ function TableAdmin({ products }) {
                       />
                     ))}
                   </div>
-                </td>
+                </td> */}
                 <td>{product.category}</td>
                 <td>{product.release_date}</td>
                 <td>

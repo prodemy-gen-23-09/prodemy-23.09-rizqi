@@ -19,7 +19,7 @@ function ModalsEdit({ onCancel, selectedProduct, closeModal }) {
     setValue("stock", stock || "");
     setValue("thumbnail", thumbnail || "");
     setValue("category", category || "");
-    setValue("date", release_date || "");
+    setValue("release_date", release_date || "");
   }, [
     selectedProduct,
     setValue,

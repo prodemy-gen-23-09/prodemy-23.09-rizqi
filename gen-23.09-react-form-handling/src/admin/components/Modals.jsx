@@ -44,7 +44,6 @@ function Modals({ closeModal, title }) {
         console.log("Success Add New Product!");
       })
       .catch((error) => console.log(error));
-    console.log(newProduct);
     closeModal();
   };
 
