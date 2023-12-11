@@ -94,6 +94,16 @@
       "category": "Kitchen",
       "release_date": "2020-10-12",
       "id": 9
+    },
+    {
+      "title": "Sofa Single",
+      "desc": "Sofa Single",
+      "price": 6000000,
+      "stock": "2",
+      "thumbnail": "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/MTA-13546871/livien_sofa_single-_livien-_single_sofa-_sofa_tamu_set-_sofa_minimalis-_sofa_modern-_willow_3_seater_livien_full01_bqar23jh.jpeg",
+      "category": "Living",
+      "release_date": "2020-10-20",
+      "id": 10
     }
   ],
   "cart": [
