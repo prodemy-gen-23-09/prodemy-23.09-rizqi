@@ -31,7 +31,7 @@ function Modals({ closeModal, title }) {
     const newProduct = {
       title: getValues("title"),
       desc: getValues("desc"),
-      price: getValues("price"),
+      price: parseInt(getValues("price")),
       stock: getValues("stock"),
       thumbnail: getValues("thumbnail"),
       category: getValues("category"),

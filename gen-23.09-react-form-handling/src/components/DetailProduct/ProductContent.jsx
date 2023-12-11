@@ -9,7 +9,7 @@ function ProductContent(props) {
         {props.title}
       </h1>
       <p className="text-3xl text-gray-400" id="productPrice">
-        {props.price}
+        Rp. {props.price}
       </p>
       <div className="flex">
         <img
