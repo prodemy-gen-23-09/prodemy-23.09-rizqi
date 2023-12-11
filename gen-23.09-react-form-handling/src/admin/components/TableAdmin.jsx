@@ -1,10 +1,8 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 import Button from "./Button";
-import { useState, useEffect } from "react";
-import Overlay from "./Overlay";
+import { useState } from "react";
 import { mutate } from "swr";
-import { deleteProduct } from "../service/api";
 import axios from "axios";
 import PromptDelete from "./PromptDelete";
 import ModalsEdit from "./ModalsEdit";
