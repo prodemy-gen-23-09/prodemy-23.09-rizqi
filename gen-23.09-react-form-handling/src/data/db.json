@@ -88,13 +88,15 @@
     {
       "title": "1234132",
       "desc": "1243214",
-      "price": "2134324",
-      "stock": "2134234",
+      "price": 2134324,
+      "stock": 2134234,
       "thumbnail": "/src/assets/shop/product6.png",
       "category": "Kitchen",
-      "date": "2010-12-10",
+      "release_date": "2020-10-12",
       "id": 9
     }
   ],
-  "cart": [{}]
+  "cart": [
+    {}
+  ]
 }
