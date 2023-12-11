@@ -1,6 +1,6 @@
-import BannerImage from "../components/BannerImage";
-import BannerService from "../components/BannerService";
-import Table from "../components/Cart/Table";
+import BannerImage from "../../components/BannerImage";
+import BannerService from "../../components/BannerService";
+import Table from "../../components/Cart/Table";
 
 function Cart() {
   const price = 12500000;

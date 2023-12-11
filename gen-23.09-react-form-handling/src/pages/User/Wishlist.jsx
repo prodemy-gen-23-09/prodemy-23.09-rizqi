@@ -1,4 +1,4 @@
-import BannerImage from "../components/BannerImage";
+import BannerImage from "../../components/BannerImage";
 
 function Wishlist() {
   return (

@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
-import BannerImageHome from "../components/BannerImageHome";
-import ListCategory from "../layout/ListCategory";
-import ListProductShop from "../layout/ListProductShop";
+import BannerImageHome from "../../components/BannerImageHome";
+import ListCategory from "../../layout/ListCategory";
+import ListProductShop from "../../layout/ListProductShop";
 import { Link } from "react-router-dom";
 import { PacmanLoader } from "react-spinners";
 import axios from "axios";
