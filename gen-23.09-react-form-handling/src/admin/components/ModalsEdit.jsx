@@ -9,23 +9,22 @@ import { mutate } from "swr";
 
 function ModalsEdit({ onCancel, selectedProduct, closeModal }) {
   const { register, handleSubmit, setValue } = useForm();
-  const { title, desc, price, stock, thumbnail, category, date } =
+  const { title, desc, price, stock, thumbnail, category, release_date } =
     selectedProduct || {};
 
   useEffect(() => {
-    console.log(selectedProduct);
     setValue("title", title || "");
     setValue("desc", desc || "");
     setValue("price", price || "");
     setValue("stock", stock || "");
     setValue("thumbnail", thumbnail || "");
     setValue("category", category || "");
-    setValue("date", date || "");
+    setValue("date", release_date || "");
   }, [
     selectedProduct,
     setValue,
     category,
-    date,
+    release_date,
     thumbnail,
     desc,
     stock,
@@ -38,14 +37,14 @@ function ModalsEdit({ onCancel, selectedProduct, closeModal }) {
       const updatedProductData = {
         title: data.title,
         desc: data.desc,
-        price: parseFloat(data.price),
+        price: parseInt(data.price),
         stock: parseInt(data.stock),
         thumbnail: data.thumbnail,
         category: data.category,
-        date: data.date,
+        release_date: data.release_date,
       };
 
-      const response = await axios.put(
+      await axios.put(
         `http://localhost:3000/products/${selectedProduct.id}`,
         updatedProductData
       );
@@ -136,8 +135,8 @@ function ModalsEdit({ onCancel, selectedProduct, closeModal }) {
               </div>
               <InputText
                 type="text"
-                id="date"
-                name="date"
+                id="release_date"
+                name="release_date"
                 title="Date"
                 placeholder="Input date for release date of product"
                 register={register}

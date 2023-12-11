@@ -15,7 +15,7 @@ function Modals({ closeModal, title }) {
     stock: yup.string().required("Stock is required"),
     thumbnail: yup.string().required("Thumbnail is required"),
     category: yup.string().required("Category is required"),
-    date: yup.string().required("Date is required"),
+    release_date: yup.string().required("Date is required"),
   });
 
   const {
@@ -35,7 +35,7 @@ function Modals({ closeModal, title }) {
       stock: getValues("stock"),
       thumbnail: getValues("thumbnail"),
       category: getValues("category"),
-      date: getValues("date"),
+      release_date: new Date(getValues("release_date")),
     };
 
     axios
