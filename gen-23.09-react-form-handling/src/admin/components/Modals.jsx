@@ -11,8 +11,8 @@ function Modals({ closeModal, title }) {
   const schema = yup.object().shape({
     title: yup.string().required("Title is required"),
     desc: yup.string().required("Description is required"),
-    price: yup.string().required("Price is required"),
-    stock: yup.string().required("Stock is required"),
+    price: yup.number().typeError("Price is required"),
+    stock: yup.number().typeError("Stock is required"),
     thumbnail: yup.string().required("Thumbnail is required"),
     category: yup.string().required("Category is required"),
     release_date: yup.string().required("Date is required"),
@@ -41,7 +41,7 @@ function Modals({ closeModal, title }) {
     axios
       .post("http://localhost:3000/products", newProduct)
       .then(() => {
-        console.log("Success Add New Product!");
+        alert("Success Add New Product!");
       })
       .catch((error) => console.log(error));
     closeModal();
@@ -49,7 +49,7 @@ function Modals({ closeModal, title }) {
 
   return (
     <>
-      <div className="modal-box p-8 h-[800px]">
+      <div className="modal-box p-8 h-[800px] rounded-lg">
         <form onSubmit={handleSubmit(submitForm)}>
           <button
             className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"

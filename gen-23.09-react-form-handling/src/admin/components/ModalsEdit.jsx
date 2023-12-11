@@ -7,7 +7,7 @@ import { useForm } from "react-hook-form";
 import axios from "axios";
 import { mutate } from "swr";
 
-function ModalsEdit({ onCancel, selectedProduct, closeModal }) {
+function ModalsEdit({ selectedProduct, closeModal }) {
   const { register, handleSubmit, setValue } = useForm();
   const { title, desc, price, stock, thumbnail, category, release_date } =
     selectedProduct || {};
@@ -44,10 +44,14 @@ function ModalsEdit({ onCancel, selectedProduct, closeModal }) {
         release_date: data.release_date,
       };
 
-      await axios.put(
-        `http://localhost:3000/products/${selectedProduct.id}`,
-        updatedProductData
-      );
+      await axios
+        .put(
+          `http://localhost:3000/products/${selectedProduct.id}`,
+          updatedProductData
+        )
+        .then(() => {
+          alert("Success Edit Product!");
+        });
     } catch (error) {
       console.error("Error updating product:", error);
     }
@@ -61,7 +65,7 @@ function ModalsEdit({ onCancel, selectedProduct, closeModal }) {
           <form onSubmit={handleSubmit(submitForm)}>
             <button
               className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
-              onClick={onCancel}
+              onClick={closeModal}
             >
               ✕
             </button>
