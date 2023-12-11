@@ -35,7 +35,7 @@ function Modals({ closeModal, title }) {
       stock: getValues("stock"),
       thumbnail: getValues("thumbnail"),
       category: getValues("category"),
-      release_date: new Date(getValues("release_date")),
+      release_date: getValues("release_date"),
     };
 
     axios
@@ -133,8 +133,8 @@ function Modals({ closeModal, title }) {
             </div>
             <InputText
               type="text"
-              id="date"
-              name="date"
+              id="release_date"
+              name="release_date"
               title="Date"
               placeholder="Input date for release date of product"
               register={register}
