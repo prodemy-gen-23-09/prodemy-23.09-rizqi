@@ -1,30 +1,36 @@
 /* eslint-disable no-unused-vars */
-import React, { useContext } from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import BannerImage from "../../../components/BannerImage";
 import Table from "../../../components/Cart/Table.jsx";
 import BannerService from "../../../components/BannerService";
-import { CartContext } from "./CartContext.jsx";
+import { useSelector, useDispatch } from "react-redux";
+import { getCartTotal } from "../../../store/actions/cartActions.js";
 
 function Cart() {
-  const { cartItems, getCartTotal } = useContext(CartContext);
+  const { items, cartTotal } = useSelector((state) => state.cart);
+  const dispatch = useDispatch();
   const formatPrice = (price) => {
-    return price.toLocaleString("id-ID", {
+    return new Intl.NumberFormat("id-ID", {
       style: "currency",
       currency: "IDR",
-    });
+    }).format(price);
   };
+
+  useEffect(() => {
+    dispatch(getCartTotal());
+  }, [dispatch, items]);
 
   return (
     <>
       <BannerImage title="Cart" />
       <div className="flex my-20 mx-[100px] justify-between">
-        <Table cartItems={cartItems} />
+        <Table cartItems={items} />
         <div className="flex flex-col bg-color_home w-[400px] h-[400px] p-8 rounded-sm shadow-lg ">
           <div className="flex flex-col justify-center items center">
             <p className="text-3xl font-bold mx-auto">Cart Totals</p>
             <p className="text-xl mt-32 mx-auto">
-              Total : {formatPrice(getCartTotal())}
+              Total : {formatPrice(cartTotal)}
             </p>
             <Link to="/checkout">
               <button className="flex bg-color1_selected hover:bg-color3 mt-24 rounded-md shadow-lg w-52 h-10 mx-auto text-white hover:text-black justify-center items-center">

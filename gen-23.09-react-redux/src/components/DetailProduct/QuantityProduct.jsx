@@ -1,13 +1,23 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
-import React, { useContext } from "react";
+import React from "react";
 import ButtonCart from "./ButtonCart";
-import { CartContext } from "../../pages/User/Cart/CartContext";
+import axios from "axios";
+import useSWR from "swr";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../../store/actions/cartActions";
+import { useNavigate, useParams } from "react-router-dom";
 
-function QuantityProduct({ productId, price, title, image }) {
-  const { addToCart } = useContext(CartContext);
+const fetcher = (url) => axios.get(url).then((response) => response.data);
+function QuantityProduct() {
+  const { id } = useParams();
   const [count, setCount] = React.useState(0);
-
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const { data, isLoading } = useSWR(
+    `http://localhost:3000/products/${id}`,
+    fetcher
+  );
   const increment = () => {
     setCount(count + 1);
   };
@@ -19,8 +29,13 @@ function QuantityProduct({ productId, price, title, image }) {
   };
 
   const handleAddToCart = () => {
-    addToCart({ id: productId, quantity: count, price, title, image });
-    console.log(productId, count, price, title, image);
+    const items = {
+      ...data,
+      count,
+    };
+    dispatch(addToCart(items));
+    console.log(items);
+    navigate("/cart");
   };
 
   return (

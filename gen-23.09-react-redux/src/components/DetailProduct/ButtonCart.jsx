@@ -8,8 +8,8 @@ function ButtonCart({ count, handleAddToCart }) {
 
   const openModal = () => {
     if (count !== 0) {
-      handleAddToCart();
       setModalOpen(true);
+      handleAddToCart();
     }
   };
 
