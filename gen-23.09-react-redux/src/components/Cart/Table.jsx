@@ -3,6 +3,7 @@
 import Button from "../../pages/Admin/components/Button";
 import { useDispatch } from "react-redux";
 import { removeFromCart } from "../../store/actions/cartActions";
+import { FaTrash } from "react-icons/fa";
 
 function Table({ cartItems }) {
   const dispatch = useDispatch();
@@ -44,7 +45,13 @@ function Table({ cartItems }) {
               <td>{item.count}</td>
               <td>{formatPrice(item.count * item.price)}</td>
               <td>
-                <Button title="Delete " onClick={() => handleDelete(item.id)} />
+                {/* <Button title="Delete " onClick={() => handleDelete(item.id)} /> */}
+                <button
+                  className="btn btn-sm btn-circle btn-ghost "
+                  onClick={() => handleDelete(item.id)}
+                >
+                  <FaTrash size={30} color="B88E2F" />
+                </button>
               </td>
             </tr>
           ))}

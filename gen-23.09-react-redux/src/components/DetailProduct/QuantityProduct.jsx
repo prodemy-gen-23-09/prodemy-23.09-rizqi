@@ -9,6 +9,7 @@ import { addToCart } from "../../store/actions/cartActions";
 import { useNavigate, useParams } from "react-router-dom";
 
 const fetcher = (url) => axios.get(url).then((response) => response.data);
+
 function QuantityProduct() {
   const { id } = useParams();
   const [count, setCount] = React.useState(0);
