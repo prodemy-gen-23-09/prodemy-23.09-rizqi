@@ -14,10 +14,7 @@ function QuantityProduct() {
   const [count, setCount] = React.useState(0);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { data, isLoading } = useSWR(
-    `http://localhost:3000/products/${id}`,
-    fetcher
-  );
+  const { data } = useSWR(`http://localhost:3000/products/${id}`, fetcher);
   const increment = () => {
     setCount(count + 1);
   };
@@ -34,7 +31,6 @@ function QuantityProduct() {
       count,
     };
     dispatch(addToCart(items));
-    console.log(items);
     navigate("/cart");
   };
 
