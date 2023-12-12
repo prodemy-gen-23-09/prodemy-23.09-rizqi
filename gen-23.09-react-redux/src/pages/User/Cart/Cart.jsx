@@ -24,8 +24,8 @@ function Cart() {
   };
 
   const closeModal = () => {
-    setModalCheckoutOpen(false);
     dispatch(clearCart());
+    setModalCheckoutOpen(false);
   };
   useEffect(() => {
     dispatch(getCartTotal());
