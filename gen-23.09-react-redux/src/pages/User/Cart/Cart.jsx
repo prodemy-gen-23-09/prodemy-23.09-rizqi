@@ -1,14 +1,16 @@
 /* eslint-disable no-unused-vars */
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import BannerImage from "../../../components/BannerImage";
 import Table from "../../../components/Cart/Table.jsx";
 import BannerService from "../../../components/BannerService";
 import { useSelector, useDispatch } from "react-redux";
 import { getCartTotal } from "../../../store/actions/cartActions.js";
+import ModalsCheckout from "../../../components/Cart/ModalsCheckout.jsx";
 
 function Cart() {
   const { items, cartTotal } = useSelector((state) => state.cart);
+  const [isModalCheckoutOpen, setModalCheckoutOpen] = useState(false);
   const dispatch = useDispatch();
   const formatPrice = (price) => {
     return new Intl.NumberFormat("id-ID", {
@@ -17,6 +19,13 @@ function Cart() {
     }).format(price);
   };
 
+  const openModal = () => {
+    setModalCheckoutOpen(true);
+  };
+
+  const closeModal = () => {
+    setModalCheckoutOpen(false);
+  };
   useEffect(() => {
     dispatch(getCartTotal());
   }, [dispatch, items]);
@@ -32,15 +41,17 @@ function Cart() {
             <p className="text-xl mt-32 mx-auto">
               Total : {formatPrice(cartTotal)}
             </p>
-            <Link to="/checkout">
-              <button className="flex bg-color1_selected hover:bg-color3 mt-24 rounded-md shadow-lg w-52 h-10 mx-auto text-white hover:text-black justify-center items-center">
-                Checkout
-              </button>
-            </Link>
+            <button
+              onClick={openModal}
+              className="flex bg-color1_selected hover:bg-color3 mt-24 rounded-md shadow-lg w-52 h-10 mx-auto text-white hover:text-black justify-center items-center"
+            >
+              Checkout
+            </button>
           </div>
         </div>
       </div>
       <BannerService />
+      {isModalCheckoutOpen && <ModalsCheckout onCancel={closeModal} />}
     </>
   );
 }

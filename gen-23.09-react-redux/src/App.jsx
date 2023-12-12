@@ -11,7 +11,6 @@ import NotFound from "./pages/User/NotFound";
 import HeaderFooterAdmin from "./pages/Admin/layout/HeaderFooterAdmin";
 import HomeAdmin from "./pages/Admin/pages/HomeAdmin";
 import PromptDelete from "./pages/Admin/components/PromptDelete";
-import ModalsCheckout from "./components/Cart/ModalsCheckout";
 
 export default function App() {
   return (
@@ -24,7 +23,6 @@ export default function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/wishlist" element={<Wishlist />} />
         <Route path="/cart" element={<Cart />} />
-        <Route path="/prompt" element={<ModalsCheckout />} />
         <Route path="*" element={<NotFound />} />
       </Route>
       <Route path="/admin" element={<HeaderFooterAdmin />}>
