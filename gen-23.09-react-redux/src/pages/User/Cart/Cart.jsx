@@ -5,7 +5,7 @@ import BannerImage from "../../../components/BannerImage";
 import Table from "../../../components/Cart/Table.jsx";
 import BannerService from "../../../components/BannerService";
 import { useSelector, useDispatch } from "react-redux";
-import { getCartTotal } from "../../../store/actions/cartActions.js";
+import { getCartTotal, clearCart } from "../../../store/actions/cartActions.js";
 import ModalsCheckout from "../../../components/Cart/ModalsCheckout.jsx";
 
 function Cart() {
@@ -25,6 +25,7 @@ function Cart() {
 
   const closeModal = () => {
     setModalCheckoutOpen(false);
+    dispatch(clearCart());
   };
   useEffect(() => {
     dispatch(getCartTotal());

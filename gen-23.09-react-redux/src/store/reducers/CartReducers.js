@@ -1,5 +1,5 @@
 /* eslint-disable no-case-declarations */
-import { ADD_TO_CART, REMOVECART, GET_CART_TOTAL } from "../types";
+import { ADD_TO_CART, REMOVECART, GET_CART_TOTAL, CLEAR_CART } from "../types";
 
 const initialState = {
   items: [],
@@ -55,6 +55,12 @@ const CartReducer = (state = initialState, action) => {
       return {
         ...state,
         cartTotal: total,
+      };
+
+    case CLEAR_CART:
+      return {
+        ...state,
+        items: [],
       };
     default:
       return state;
