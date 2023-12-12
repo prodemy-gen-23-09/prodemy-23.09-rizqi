@@ -2,8 +2,10 @@ import { CiSearch, CiHeart } from "react-icons/ci";
 import { MdPerson } from "react-icons/md";
 import { IoCartSharp } from "react-icons/io5";
 import { Link, Outlet } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 function Header() {
+  const { items } = useSelector((state) => state.cart);
   return (
     <div>
       <header>
@@ -37,9 +39,16 @@ function Header() {
             <Link to="wishlist">
               <CiHeart size={30} />
             </Link>
-            <Link to="cart" className="flex">
-              <IoCartSharp size={30} className="cursor-pointer" />
-            </Link>
+            <div className="relative">
+              {items.length > 0 && (
+                <span className="absolute bottom-3 left-5 bg-red-500 text-white px-2 py-1 text-[9px] rounded-full">
+                  {items.length}
+                </span>
+              )}
+              <Link to="cart" className="flex">
+                <IoCartSharp size={30} className="cursor-pointer" />
+              </Link>
+            </div>
           </div>
         </nav>
       </header>
