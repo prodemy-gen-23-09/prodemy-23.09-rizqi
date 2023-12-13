@@ -1,6 +1,5 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
-import Button from "../../pages/Admin/components/Button";
 import { useDispatch } from "react-redux";
 import { removeFromCart } from "../../store/actions/cartActions";
 import { FaTrash } from "react-icons/fa";
