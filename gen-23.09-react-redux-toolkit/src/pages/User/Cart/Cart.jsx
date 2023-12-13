@@ -5,8 +5,8 @@ import BannerImage from "../../../components/BannerImage";
 import Table from "../../../components/Cart/Table.jsx";
 import BannerService from "../../../components/BannerService";
 import { useSelector, useDispatch } from "react-redux";
-import { getCartTotal, clearCart } from "../../../store/actions/cartActions.js";
 import ModalsCheckout from "../../../components/Cart/ModalsCheckout.jsx";
+import { clearCart, getCartTotal } from "../../../store/reducers/CartSlice.js";
 
 function Cart() {
   const { items, cartTotal } = useSelector((state) => state.cart);
