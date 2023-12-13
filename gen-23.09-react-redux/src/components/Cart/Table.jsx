@@ -45,7 +45,6 @@ function Table({ cartItems }) {
               <td>{item.count}</td>
               <td>{formatPrice(item.count * item.price)}</td>
               <td>
-                {/* <Button title="Delete " onClick={() => handleDelete(item.id)} /> */}
                 <button
                   className="btn btn-sm btn-circle btn-ghost "
                   onClick={() => handleDelete(item.id)}
