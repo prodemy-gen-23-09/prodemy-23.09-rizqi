@@ -6,6 +6,7 @@ import { useSelector } from "react-redux";
 
 function Header() {
   const { items } = useSelector((state) => state.cart);
+  console.log(items);
   return (
     <div>
       <header>
