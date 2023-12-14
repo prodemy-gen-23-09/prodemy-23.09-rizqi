@@ -7,8 +7,6 @@ import TableAdmin from "../components/TableAdmin";
 import { useState } from "react";
 import { addProduct, getAllProducts } from "../service/api.js";
 import Modals from "../components/Modals";
-import { useSelector } from "react-redux";
-import { selectRoles } from "../../../store/reducers/authSlice.js";
 
 function HomeAdmin() {
   const [isModalDataOpen, setModalDataOpen] = useState(false);
