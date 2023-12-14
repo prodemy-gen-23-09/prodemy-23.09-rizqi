@@ -1,16 +1,9 @@
-import { Link, Outlet, useNavigate } from "react-router-dom";
-import Button from "../../components/Admin/Button";
-import { useDispatch } from "react-redux";
-import { resetAuthData } from "../../store/reducers/authSlice";
+import { Link, Outlet } from "react-router-dom";
+import { useSelector } from "react-redux";
+import DropdownAccount from "../User/DropdownAccount";
 
 export default function HeaderAdmin() {
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
-
-  const handleLogout = () => {
-    dispatch(resetAuthData());
-    navigate("/login");
-  };
+  const user = useSelector((state) => state.auth.user);
 
   return (
     <div>
@@ -33,7 +26,7 @@ export default function HeaderAdmin() {
               <div className="text-black hover:text-color1_selected">Users</div>
             </Link>
           </div>
-          <Button onClick={handleLogout} title="Log Out" />
+          <DropdownAccount title={user.username} />
         </nav>
       </header>
       <Outlet />

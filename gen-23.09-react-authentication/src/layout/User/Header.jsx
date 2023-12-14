@@ -2,21 +2,12 @@
 import { CiSearch, CiHeart } from "react-icons/ci";
 import { IoCartSharp } from "react-icons/io5";
 import { Link, Outlet } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
-import { resetAuthData } from "../../store/reducers/authSlice";
+import { useSelector } from "react-redux";
+import DropdownAccount from "./DropdownAccount";
 
 function Header() {
   const { items } = useSelector((state) => state.cart);
   const user = useSelector((state) => state.auth.user);
-
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
-
-  const handleLogout = () => {
-    dispatch(resetAuthData());
-    navigate("/login");
-  };
 
   return (
     <div>
@@ -61,33 +52,7 @@ function Header() {
                   <IoCartSharp size={30} className="cursor-pointer" />
                 </Link>
               </div>
-            </div>
-            <div className="drawer drawer-end">
-              <input
-                id="my-drawer-4"
-                type="checkbox"
-                className="drawer-toggle"
-              />
-              <div className="drawer-content">
-                <label htmlFor="my-drawer-4" className="">
-                  {user.username}
-                </label>
-              </div>
-              <div className="drawer-side">
-                <label
-                  htmlFor="my-drawer-4"
-                  aria-label="close sidebar"
-                  className="drawer-overlay"
-                ></label>
-                <ul className="menu p-4 w-80 min-h-full bg-base-200 text-base-content">
-                  <li>
-                    <a>Settings</a>
-                  </li>
-                  <li>
-                    <a onClick={handleLogout}>Log Out</a>
-                  </li>
-                </ul>
-              </div>
+              <DropdownAccount title={user.username} />
             </div>
           </div>
         </nav>

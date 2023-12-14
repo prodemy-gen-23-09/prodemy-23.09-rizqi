@@ -9,7 +9,7 @@ export default function CardProduct({
   onClick,
 }) {
   return (
-    <div>
+    <>
       <div
         className="hover:bg-color1_selected transition-all duration-1000 ease-out transform hover:opacity-80 text-center mx-16 mt-12 w-80 h-[450px] cursor-pointer rounded-md shadow-lg"
         id={id}
@@ -21,6 +21,6 @@ export default function CardProduct({
         <p className="mb-2">{desc}</p>
         <p className="mb-2">{price}</p>
       </div>
-    </div>
+    </>
   );
 }
