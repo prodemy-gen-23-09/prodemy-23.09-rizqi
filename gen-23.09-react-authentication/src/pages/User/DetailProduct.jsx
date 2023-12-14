@@ -1,11 +1,11 @@
 /* eslint-disable no-unused-vars */
-import Breadcrumb from "../../components/Shop/Breadcrumb";
+import Breadcrumb from "../../components/User/Shop/Breadcrumb";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
-import ImageThumbnail from "../../components/DetailProduct/ImageThumbnail";
-import ProductContent from "../../components/DetailProduct/ProductContent";
-import Information from "../../components/DetailProduct/Information";
-import OverlayImage from "../../components/Modals/OverlayImage";
+import ImageThumbnail from "../../components/User/DetailProduct/ImageThumbnail";
+import ProductContent from "../../components/User/DetailProduct/ProductContent";
+import Information from "../../components/User/DetailProduct/Information";
+import OverlayImage from "../../components/User/Modals/OverlayImage";
 import { PacmanLoader } from "react-spinners";
 import axios from "axios";
 import useSWR from "swr";

@@ -1,7 +1,7 @@
 import { Link, Outlet, useNavigate } from "react-router-dom";
-import Button from "../components/Button";
+import Button from "../../components/Admin/Button";
 import { useDispatch } from "react-redux";
-import { resetAuthData } from "../../../store/reducers/authSlice";
+import { resetAuthData } from "../../store/reducers/authSlice";
 
 export default function HeaderAdmin() {
   const dispatch = useDispatch();

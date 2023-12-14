@@ -4,7 +4,7 @@ import { IoCartSharp } from "react-icons/io5";
 import { Link, Outlet } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { resetAuthData } from "../store/reducers/authSlice";
+import { resetAuthData } from "../../store/reducers/authSlice";
 
 function Header() {
   const { items } = useSelector((state) => state.cart);

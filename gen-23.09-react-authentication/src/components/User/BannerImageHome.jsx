@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import ImageHome from "../assets/home/banner-home.png";
+import ImageHome from "../../assets/home/banner-home.png";
 
 export default function BannerImageHome() {
   return (

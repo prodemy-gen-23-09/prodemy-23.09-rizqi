@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import { useNavigate } from "react-router-dom";
-import CardProduct from "../components/CardProduct";
+import CardProduct from "../../components/User/CardProduct";
 
 function ListProductShop({ products }) {
   const formatPrice = (price) => {

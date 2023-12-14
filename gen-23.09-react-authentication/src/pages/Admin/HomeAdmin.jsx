@@ -1,12 +1,12 @@
 /* eslint-disable no-unused-vars */
-import BannerImage from "../../../components/BannerImage";
-import BannerService from "../../../components/BannerService";
-import Button from "../components/Button";
-import Overlay from "../components/Overlay";
-import TableAdmin from "../components/TableAdmin";
+import BannerImage from "../../components/User/BannerImage.jsx";
+import BannerService from "../../components/User/BannerService.jsx";
+import Button from "../../components/Admin/Button.jsx";
+import Overlay from "../../components/Admin/Overlay.jsx";
+import TableAdmin from "../../components/Admin/TableAdmin.jsx";
 import { useState } from "react";
-import { addProduct, getAllProducts } from "../service/api.js";
-import Modals from "../components/Modals";
+import { addProduct, getAllProducts } from "../../service/Admin/api.js";
+import Modals from "../../components/Admin/Modals.jsx";
 
 export default function HomeAdmin() {
   const [isModalDataOpen, setModalDataOpen] = useState(false);

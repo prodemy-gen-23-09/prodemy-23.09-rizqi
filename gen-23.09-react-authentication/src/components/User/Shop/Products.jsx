@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import { useState, useEffect } from "react";
 import Dropdown from "./Dropdown";
-import ListProductShop from "../../layout/ListProductShop";
+import ListProductShop from "../../../layout/User/ListProductShop";
 import { PacmanLoader } from "react-spinners";
 import axios from "axios";
 import useSWR from "swr";

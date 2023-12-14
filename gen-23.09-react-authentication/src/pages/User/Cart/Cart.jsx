@@ -1,10 +1,10 @@
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from "react";
-import BannerImage from "../../../components/BannerImage";
-import Table from "../../../components/Cart/Table.jsx";
-import BannerService from "../../../components/BannerService";
+import BannerImage from "../../../components/User/BannerImage.jsx";
+import Table from "../../../components/User/Cart/Table.jsx";
+import BannerService from "../../../components/User/BannerService";
 import { useSelector, useDispatch } from "react-redux";
-import ModalsCheckout from "../../../components/Cart/ModalsCheckout.jsx";
+import ModalsCheckout from "../../../components/User/Cart/ModalsCheckout.jsx";
 import { clearCart, getCartTotal } from "../../../store/reducers/CartSlice.js";
 
 export default function Cart() {

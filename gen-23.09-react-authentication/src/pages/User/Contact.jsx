@@ -1,5 +1,5 @@
-import BannerService from "../../components/BannerService";
-import BannerImage from "../../components/BannerImage";
+import BannerService from "../../components/User/BannerService";
+import BannerImage from "../../components/User/BannerImage";
 
 export default function Contact() {
   return (

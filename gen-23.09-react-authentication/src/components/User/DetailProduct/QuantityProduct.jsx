@@ -6,7 +6,7 @@ import axios from "axios";
 import useSWR from "swr";
 import { useDispatch } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
-import { addToCart } from "../../store/reducers/CartSlice";
+import { addToCart } from "../../../store/reducers/CartSlice";
 import ButtonWishlist from "./ButtonWishlist";
 
 const fetcher = (url) => axios.get(url).then((response) => response.data);

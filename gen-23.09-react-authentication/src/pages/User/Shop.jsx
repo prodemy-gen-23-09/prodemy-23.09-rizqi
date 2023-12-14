@@ -1,7 +1,7 @@
-import BannerImage from "../../components/BannerImage.jsx";
-import BannerService from "../../components/BannerService.jsx";
+import BannerImage from "../../components/User/BannerImage.jsx";
+import BannerService from "../../components/User/BannerService.jsx";
 
-import Products from "../../components/Shop/Products.jsx";
+import Products from "../../components/User/Shop/Products.jsx";
 
 export default function Shop() {
   return (

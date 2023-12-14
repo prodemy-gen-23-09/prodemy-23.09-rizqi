@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import Button from "../../pages/Admin/components/Button";
+import Button from "../../Admin/Button";
 export default function ModalsCheckout({ onCancel }) {
   return (
     <div className="flex min-h-screen justify-center items-center promptdelete ">

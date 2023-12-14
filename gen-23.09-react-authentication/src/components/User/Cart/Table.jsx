@@ -2,7 +2,7 @@
 /* eslint-disable react/prop-types */
 import { useDispatch } from "react-redux";
 import { FaTrash } from "react-icons/fa";
-import { removeCart } from "../../store/reducers/CartSlice";
+import { removeCart } from "../../../store/reducers/CartSlice";
 
 export default function Table({ cartItems }) {
   const dispatch = useDispatch();
