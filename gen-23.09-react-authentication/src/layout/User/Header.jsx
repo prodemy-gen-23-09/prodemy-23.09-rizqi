@@ -60,9 +60,33 @@ function Header() {
                 <IoCartSharp size={30} className="cursor-pointer" />
               </Link>
             </div>
-            <p onClick={handleLogout} className="cursor-pointer">
-              {user.username}
-            </p>
+            <div className="drawer drawer-end">
+              <input
+                id="my-drawer-4"
+                type="checkbox"
+                className="drawer-toggle"
+              />
+              <div className="drawer-content">
+                <label htmlFor="my-drawer-4" className="">
+                  {user.username}
+                </label>
+              </div>
+              <div className="drawer-side">
+                <label
+                  htmlFor="my-drawer-4"
+                  aria-label="close sidebar"
+                  className="drawer-overlay"
+                ></label>
+                <ul className="menu p-4 w-80 min-h-full bg-base-200 text-base-content">
+                  <li>
+                    <a>Settings</a>
+                  </li>
+                  <li>
+                    <a onClick={handleLogout}>Log Out</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
           </div>
         </nav>
       </header>

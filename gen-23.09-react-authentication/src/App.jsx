@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import Shop from "../src/pages/User/Shop";
 import Layout from "./pages/User/Layout";
 import Homepage from "./pages/User/Homepage";
@@ -21,8 +21,9 @@ export default function App() {
   return (
     <Routes>
       <Route element={<PrivateRoutes />}>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<Homepage />} />
+        <Route element={<Layout />}>
+          <Route path="/" element={<Navigate to="/home" />} />
+          <Route path="/home" element={<Homepage />} />
           <Route path="/shop" element={<Shop />} />
           <Route path="/detailproduct/:id/:name" element={<DetailProduct />} />
           <Route path="/about" element={<About />} />
