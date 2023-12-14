@@ -15,6 +15,7 @@ import Login from "./pages/Login";
 import GuestRoutes from "./routes/GuestRoutes";
 import PrivateRoutes from "./routes/PrivateRoutes";
 import AdminRoutes from "./routes/AdminRoutes";
+import Register from "./pages/Register";
 
 export default function App() {
   return (
@@ -39,6 +40,7 @@ export default function App() {
       <Route element={<GuestRoutes />}>
         <Route path="/login" element={<Login />} />
       </Route>
+      <Route path="/register" element={<Register />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
   );

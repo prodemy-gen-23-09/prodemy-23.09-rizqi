@@ -131,6 +131,13 @@
       "username": "admin",
       "roles": "admin",
       "id": 2
+    },
+    {
+      "email": "rizqisa@gmail.com",
+      "password": "$2a$10$hZHrID2WIFEDwikU9Fl/xOvbDFBwejNflYILklykNuuY0z/jkdXZm",
+      "username": "Rizqisa13",
+      "roles": "customer",
+      "id": 3
     }
   ]
 }
