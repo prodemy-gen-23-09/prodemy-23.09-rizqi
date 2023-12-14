@@ -62,6 +62,7 @@ function Login() {
                   className="input input-bordered w-full"
                   value={formData.email}
                   onChange={setInputValue}
+                  autoComplete="email"
                 />
               </label>
               <label className="form-control w-full">
@@ -77,6 +78,7 @@ function Login() {
                   className="input input-bordered w-full"
                   value={formData.password}
                   onChange={setInputValue}
+                  autoComplete="current-password"
                 />
               </label>
               <button className="bg-color1_selected hover:bg-color_home hover:text-color1_selected p-3 rounded-md text-color_home mt-2">
