@@ -14,6 +14,7 @@ import PromptDelete from "./pages/Admin/components/PromptDelete";
 import Login from "./pages/Login";
 import GuestRoutes from "./routes/GuestRoutes";
 import PrivateRoutes from "./routes/PrivateRoutes";
+import AdminRoutes from "./routes/AdminRoutes";
 
 export default function App() {
   return (
@@ -28,9 +29,11 @@ export default function App() {
           <Route path="/wishlist" element={<Wishlist />} />
           <Route path="/cart" element={<Cart />} />
         </Route>
-        <Route path="/admin" element={<HeaderFooterAdmin />}>
-          <Route index element={<HomeAdmin />} />
-          <Route path="delete" element={<PromptDelete />} />
+        <Route element={<AdminRoutes />}>
+          <Route path="/admin" element={<HeaderFooterAdmin />}>
+            <Route index element={<HomeAdmin />} />
+            <Route path="delete" element={<PromptDelete />} />
+          </Route>
         </Route>
       </Route>
       <Route element={<GuestRoutes />}>
