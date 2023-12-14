@@ -32,7 +32,6 @@ export default function Login() {
         const { accessToken, user } = res.data;
         dispatch(setToken(accessToken));
         dispatch(setUser(user));
-        navigate("/");
         reset();
       })
       .catch((error) => console.log(error));
