@@ -1,0 +1,112 @@
+{
+  "products": [
+    {
+      "id": 4,
+      "thumbnail": "/src/assets/shop/product4.png",
+      "image": [
+        "/src/assets/shop/product4.png",
+        "/src/assets/shop/product4.png",
+        "/src/assets/shop/product4.png",
+        "/src/assets/shop/product4.png",
+        "/src/assets/shop/product4.png"
+      ],
+      "title": "Respira",
+      "desc": "Ex in occaecat aute incididunt non. Laborum laborum ipsum ad consectetur amet. Elit laboris tempor do eiusmod mollit nulla et minim sint ullamco ut quis magna fugiat. Est proident officia minim ex. Enim excepteur consequat duis laborum consectetur sunt.",
+      "price": 500000,
+      "category": "Chair",
+      "release_date": "2023-11-01",
+      "stock": 8
+    },
+    {
+      "id": 5,
+      "thumbnail": "/src/assets/shop/product5.png",
+      "image": [
+        "/src/assets/shop/product5.png",
+        "/src/assets/shop/product5.png",
+        "/src/assets/shop/product5.png",
+        "/src/assets/shop/product5.png",
+        "/src/assets/shop/product5.png"
+      ],
+      "title": "Lolito",
+      "desc": "Sit culpa magna aliquip sit nulla nostrud consectetur dolore ut eu. Incididunt consectetur nisi enim ullamco deserunt reprehenderit esse dolor culpa ut. Reprehenderit aute culpa laborum eiusmod amet dolore excepteur consequat nisi ad anim amet.",
+      "price": 700000,
+      "category": "Chair",
+      "release_date": "2023-09-04",
+      "stock": 9
+    },
+    {
+      "id": 6,
+      "thumbnail": "/src/assets/shop/product6.png",
+      "image": [
+        "/src/assets/shop/product6.png",
+        "/src/assets/shop/product6.png",
+        "/src/assets/shop/product6.png",
+        "/src/assets/shop/product6.png",
+        "/src/assets/shop/product6.png"
+      ],
+      "title": "Leviosa",
+      "desc": "Laborum nisi ullamco in labore deserunt. In anim qui tempor commodo ullamco fugiat laborum do dolor ullamco. Aute et non ullamco culpa. Ea laborum commodo consectetur in excepteur nostrud dolor labore elit consequat excepteur. Amet quis veniam eiusmod irure aliqua eu consequat magna proident laboris laboris cillum tempor labore. Consequat mollit ad consequat aliquip in anim occaecat pariatur ad mollit. Adipisicing Lorem mollit esse labore mollit aute ea reprehenderit est sunt enim aliqua anim nisi.",
+      "price": 10500000,
+      "category": "Sofa",
+      "release_date": "2023-05-04",
+      "stock": 4
+    },
+    {
+      "id": 7,
+      "thumbnail": "/src/assets/shop/product7.png",
+      "image": [
+        "/src/assets/shop/product7.png",
+        "/src/assets/shop/product7.png",
+        "/src/assets/shop/product7.png",
+        "/src/assets/shop/product7.png",
+        "/src/assets/shop/product7.png"
+      ],
+      "title": "Flowy",
+      "desc": "Cillum et duis mollit aliquip. Nostrud aliqua ea excepteur dolore. Duis aliquip proident voluptate do duis est non non. Proident consequat est duis Lorem aliqua elit minim. Non ea officia anim nisi ipsum.",
+      "price": 450000,
+      "category": "Decoration",
+      "release_date": "2023-02-04",
+      "stock": 6
+    },
+    {
+      "id": 8,
+      "thumbnail": "/src/assets/shop/product8.png",
+      "image": [
+        "/src/assets/shop/product8.png",
+        "/src/assets/shop/product8.png",
+        "/src/assets/shop/product8.png",
+        "/src/assets/shop/product8.png",
+        "/src/assets/shop/product8.png"
+      ],
+      "title": "Muggo",
+      "desc": "Ad do cupidatat incididunt ullamco. Incididunt elit occaecat proident pariatur adipisicing. Nostrud in labore qui enim elit ut aliquip ex eu adiisicing sint.",
+      "price": 75000,
+      "category": "Kitchen",
+      "release_date": "2023-01-04",
+      "stock": 9
+    },
+    {
+      "title": "1234132",
+      "desc": "1243214",
+      "price": 2134324,
+      "stock": 2134234,
+      "thumbnail": "/src/assets/shop/product6.png",
+      "category": "Kitchen",
+      "release_date": "2020-10-12",
+      "id": 9
+    },
+    {
+      "title": "Sofa Single",
+      "desc": "Sofa Single",
+      "price": 6000000,
+      "stock": "2",
+      "thumbnail": "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/MTA-13546871/livien_sofa_single-_livien-_single_sofa-_sofa_tamu_set-_sofa_minimalis-_sofa_modern-_willow_3_seater_livien_full01_bqar23jh.jpeg",
+      "category": "Living",
+      "release_date": "2020-10-20",
+      "id": 10
+    }
+  ],
+  "cart": [
+    {}
+  ]
+}
