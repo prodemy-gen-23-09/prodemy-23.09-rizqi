@@ -2,12 +2,22 @@
 import { CiSearch, CiHeart } from "react-icons/ci";
 import { IoCartSharp } from "react-icons/io5";
 import { Link, Outlet } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { resetAuthData } from "../store/reducers/authSlice";
 
 function Header() {
   const { items } = useSelector((state) => state.cart);
   const user = useSelector((state) => state.auth.user);
   console.log(user);
+
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    dispatch(resetAuthData());
+    navigate("/login");
+  };
 
   return (
     <div>
@@ -51,7 +61,9 @@ function Header() {
                 <IoCartSharp size={30} className="cursor-pointer" />
               </Link>
             </div>
-            <p>{user.email}</p>
+            <p onClick={handleLogout} className="cursor-pointer">
+              {user.email}
+            </p>
           </div>
         </nav>
       </header>
