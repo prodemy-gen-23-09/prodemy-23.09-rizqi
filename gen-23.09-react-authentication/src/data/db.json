@@ -138,6 +138,13 @@
       "username": "Rizqisa13",
       "roles": "customer",
       "id": 3
+    },
+    {
+      "email": "admin@admin.com",
+      "password": "$2a$10$/Gs3DgeN8slKAN03puc8tuVWd1K0bH9oX5.fqqROgnD2XDgSMUFRS",
+      "username": "admin",
+      "roles": "customer",
+      "id": 4
     }
   ]
 }
