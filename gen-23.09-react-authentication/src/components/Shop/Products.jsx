@@ -6,7 +6,7 @@ import { PacmanLoader } from "react-spinners";
 import axios from "axios";
 import useSWR from "swr";
 
-function Products() {
+export default function Products() {
   const [sortOption, setSortOption] = useState("newest");
   const [products, setProducts] = useState([]);
   const [sortedProducts, setSortedProducts] = useState([]);
@@ -79,5 +79,3 @@ function Products() {
     </>
   );
 }
-
-export default Products;

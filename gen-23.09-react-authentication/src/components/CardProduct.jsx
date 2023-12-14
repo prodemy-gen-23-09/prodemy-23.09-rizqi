@@ -1,5 +1,13 @@
 /* eslint-disable react/prop-types */
-function CardProduct({ id, image, title, date, desc, price, onClick }) {
+export default function CardProduct({
+  id,
+  image,
+  title,
+  date,
+  desc,
+  price,
+  onClick,
+}) {
   return (
     <div>
       <div
@@ -16,5 +24,3 @@ function CardProduct({ id, image, title, date, desc, price, onClick }) {
     </div>
   );
 }
-
-export default CardProduct;

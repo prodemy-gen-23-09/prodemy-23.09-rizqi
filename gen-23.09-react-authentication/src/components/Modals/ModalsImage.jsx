@@ -1,9 +1,8 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
-import Overlay from "./OverlayProduct";
-import React, { useState } from "react";
+import React from "react";
 
-function ModalsImage({ closeModal, image }) {
+export default function ModalsImage({ closeModal, image }) {
   return (
     <>
       <button
@@ -16,5 +15,3 @@ function ModalsImage({ closeModal, image }) {
     </>
   );
 }
-
-export default ModalsImage;

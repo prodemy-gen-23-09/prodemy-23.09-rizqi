@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-function NotFound() {
+export default function NotFound() {
   return (
     <div className="flex flex-col min-h-screen justify-center items-center">
       <img src="/src/assets/404.png" width={800} />
@@ -12,5 +12,3 @@ function NotFound() {
     </div>
   );
 }
-
-export default NotFound;

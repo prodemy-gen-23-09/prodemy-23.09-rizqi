@@ -1,5 +1,12 @@
 /* eslint-disable react/prop-types */
-function InputText({ id, name, title, placeholder, register, type }) {
+export default function InputText({
+  id,
+  name,
+  title,
+  placeholder,
+  register,
+  type,
+}) {
   return (
     <>
       <label className="form-control w-full">
@@ -18,5 +25,3 @@ function InputText({ id, name, title, placeholder, register, type }) {
     </>
   );
 }
-
-export default InputText;

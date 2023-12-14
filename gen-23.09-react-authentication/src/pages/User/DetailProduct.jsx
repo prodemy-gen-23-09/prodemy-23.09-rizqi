@@ -10,7 +10,7 @@ import { PacmanLoader } from "react-spinners";
 import axios from "axios";
 import useSWR from "swr";
 
-function DetailProduct() {
+export default function DetailProduct() {
   const { id } = useParams();
   const [detailProducts, setDetailProducts] = useState(null);
   const [mainImage, setMainImage] = useState("");
@@ -102,5 +102,3 @@ function DetailProduct() {
     </>
   );
 }
-
-export default DetailProduct;

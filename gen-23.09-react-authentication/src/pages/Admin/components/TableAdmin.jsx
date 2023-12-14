@@ -7,7 +7,7 @@ import axios from "axios";
 import PromptDelete from "./PromptDelete";
 import ModalsEdit from "./ModalsEdit";
 
-function TableAdmin({ products }) {
+export default function TableAdmin({ products }) {
   const [isModalEditOpen, setModalEditOpen] = useState(false);
   const [isPromptDeleteOpen, setPromptDeleteOpen] = useState(false);
   const [deleteProductId, setDeleteProductId] = useState(null);
@@ -123,5 +123,3 @@ function TableAdmin({ products }) {
     </>
   );
 }
-
-export default TableAdmin;

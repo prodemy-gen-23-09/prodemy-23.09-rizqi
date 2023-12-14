@@ -1,6 +1,6 @@
 import BannerImage from "../../components/BannerImage";
 
-function About() {
+export default function About() {
   return (
     <div>
       <BannerImage title="About" />
@@ -8,4 +8,3 @@ function About() {
   );
 }
 
-export default About;

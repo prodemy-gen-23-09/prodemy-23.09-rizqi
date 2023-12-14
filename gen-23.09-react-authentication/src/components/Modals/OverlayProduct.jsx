@@ -3,7 +3,7 @@
 import { useState } from "react";
 import ModalsCart from "./ModalsCart";
 
-function OverlayProduct({ closeModal }) {
+export default function OverlayProduct({ closeModal }) {
   return (
     <>
       <div className="flex max-w-full min-h-screen justify-center items-center overlay">
@@ -12,5 +12,3 @@ function OverlayProduct({ closeModal }) {
     </>
   );
 }
-
-export default OverlayProduct;

@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
 /* eslint-disable react/prop-types */
-function Breadcrumb(props) {
+export default function Breadcrumb(props) {
   return (
     <div className="flex bg-color1 mt-2 items-center">
       <div className="flex justify-center items-center ml-20">
@@ -24,5 +24,3 @@ function Breadcrumb(props) {
     </div>
   );
 }
-
-export default Breadcrumb;

@@ -3,7 +3,7 @@
 import { useState } from "react";
 import OverlayProduct from "../Modals/OverlayProduct";
 
-function ButtonCart({ count, handleAddToCart }) {
+export default function ButtonCart({ count, handleAddToCart }) {
   const [isModalOpen, setModalOpen] = useState(false);
 
   const openModal = () => {
@@ -29,5 +29,3 @@ function ButtonCart({ count, handleAddToCart }) {
     </>
   );
 }
-
-export default ButtonCart;

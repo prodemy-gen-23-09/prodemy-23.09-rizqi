@@ -3,7 +3,7 @@ import BannerService from "../../components/BannerService.jsx";
 
 import Products from "../../components/Shop/Products.jsx";
 
-function Shop() {
+export default function Shop() {
   return (
     <>
       <BannerImage title="Shop" />
@@ -12,5 +12,3 @@ function Shop() {
     </>
   );
 }
-
-export default Shop;

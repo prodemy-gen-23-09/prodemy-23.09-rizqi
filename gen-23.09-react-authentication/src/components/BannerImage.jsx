@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-function BannerImage(props) {
+export default function BannerImage(props) {
   return (
     <div className="relative">
       <img className="w-full min-h-min" src="/src/assets/shop/imgshop.png" />
@@ -9,5 +9,3 @@ function BannerImage(props) {
     </div>
   );
 }
-
-export default BannerImage;

@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import ImageHome from "../assets/home/banner-home.png";
 
-function BannerImageHome() {
+export default function BannerImageHome() {
   return (
     <div>
       <div className="relative">
@@ -27,5 +27,3 @@ function BannerImageHome() {
     </div>
   );
 }
-
-export default BannerImageHome;

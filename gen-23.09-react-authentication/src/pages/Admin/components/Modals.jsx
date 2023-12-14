@@ -7,7 +7,7 @@ import axios from "axios";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 
-function Modals({ closeModal, title }) {
+export default function Modals({ closeModal, title }) {
   const schema = yup.object().shape({
     title: yup.string().required("Title is required"),
     desc: yup.string().required("Description is required"),
@@ -150,5 +150,3 @@ function Modals({ closeModal, title }) {
     </>
   );
 }
-
-export default Modals;

@@ -1,9 +1,8 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
-import Overlay from "./OverlayProduct";
-import React, { useState } from "react";
+import React from "react";
 
-function ModalsCart({ closeModal }) {
+export default function ModalsCart({ closeModal }) {
   return (
     <>
       <div className="modal-box">
@@ -21,5 +20,3 @@ function ModalsCart({ closeModal }) {
     </>
   );
 }
-
-export default ModalsCart;

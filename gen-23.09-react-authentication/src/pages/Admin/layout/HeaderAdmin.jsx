@@ -3,7 +3,7 @@ import Button from "../components/Button";
 import { useDispatch } from "react-redux";
 import { resetAuthData } from "../../../store/reducers/authSlice";
 
-function HeaderAdmin() {
+export default function HeaderAdmin() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -40,5 +40,3 @@ function HeaderAdmin() {
     </div>
   );
 }
-
-export default HeaderAdmin;

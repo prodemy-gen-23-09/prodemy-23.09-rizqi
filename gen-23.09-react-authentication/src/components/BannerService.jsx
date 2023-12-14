@@ -1,4 +1,4 @@
-function BannerService() {
+export default function BannerService() {
   return (
     <div>
       <div className="flex gap-40 bg-color1 justify-center items-center p-16">
@@ -52,5 +52,3 @@ function BannerService() {
     </div>
   );
 }
-
-export default BannerService;

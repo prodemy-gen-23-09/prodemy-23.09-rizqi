@@ -1,7 +1,7 @@
 import BannerService from "../../components/BannerService";
 import BannerImage from "../../components/BannerImage";
 
-function Contact() {
+export default function Contact() {
   return (
     <div>
       <BannerImage title="Contact" />
@@ -9,5 +9,3 @@ function Contact() {
     </div>
   );
 }
-
-export default Contact;

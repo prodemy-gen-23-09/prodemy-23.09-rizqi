@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-function ImageThumbnail({ image, onThumbnailClick }) {
+export default function ImageThumbnail({ image, onThumbnailClick }) {
   const handleThumbnailClick = (clickedImage) => {
     onThumbnailClick(clickedImage);
   };
@@ -23,5 +23,3 @@ function ImageThumbnail({ image, onThumbnailClick }) {
     </div>
   );
 }
-
-export default ImageThumbnail;

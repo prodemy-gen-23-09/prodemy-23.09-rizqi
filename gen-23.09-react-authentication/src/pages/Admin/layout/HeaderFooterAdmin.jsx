@@ -1,7 +1,7 @@
 import HeaderAdmin from "./HeaderAdmin";
 import FooterAdmin from "./FooterAdmin";
 
-function HeaderFooterAdmin() {
+export default function HeaderFooterAdmin() {
   return (
     <>
       <HeaderAdmin />
@@ -9,5 +9,3 @@ function HeaderFooterAdmin() {
     </>
   );
 }
-
-export default HeaderFooterAdmin;

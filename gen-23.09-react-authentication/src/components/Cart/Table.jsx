@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import { FaTrash } from "react-icons/fa";
 import { removeCart } from "../../store/reducers/CartSlice";
 
-function Table({ cartItems }) {
+export default function Table({ cartItems }) {
   const dispatch = useDispatch();
   const formatPrice = (price) => {
     return new Intl.NumberFormat("id-ID", {
@@ -58,5 +58,3 @@ function Table({ cartItems }) {
     </>
   );
 }
-
-export default Table;

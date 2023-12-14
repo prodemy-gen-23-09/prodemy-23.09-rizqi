@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-function CardCategory(props) {
+export default function CardCategory(props) {
   return (
     <div>
       <div
@@ -16,5 +16,3 @@ function CardCategory(props) {
     </div>
   );
 }
-
-export default CardCategory;

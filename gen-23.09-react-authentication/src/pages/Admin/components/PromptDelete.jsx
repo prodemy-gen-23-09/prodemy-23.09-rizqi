@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import Button from "./Button";
-function PromptDelete({ onCancel, onConfirm }) {
+export default function PromptDelete({ onCancel, onConfirm }) {
   return (
     <div className="flex min-h-screen justify-center items-center promptdelete rounded-lg">
       <div className="prompt-content bg-white p-10">
@@ -13,5 +13,3 @@ function PromptDelete({ onCancel, onConfirm }) {
     </div>
   );
 }
-
-export default PromptDelete;

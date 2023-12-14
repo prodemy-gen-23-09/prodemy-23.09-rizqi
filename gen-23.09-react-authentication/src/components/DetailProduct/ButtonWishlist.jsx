@@ -1,4 +1,4 @@
-function ButtonWishlist() {
+export default function ButtonWishlist() {
   return (
     <>
       <button
@@ -10,5 +10,3 @@ function ButtonWishlist() {
     </>
   );
 }
-
-export default ButtonWishlist;

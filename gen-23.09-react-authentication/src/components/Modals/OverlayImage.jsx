@@ -3,7 +3,7 @@
 import { useState } from "react";
 import ModalsImage from "./ModalsImage";
 
-function OverlayImage({ closeModal, image }) {
+export default function OverlayImage({ closeModal, image }) {
   return (
     <>
       <div className="flex max-w-full min-h-screen justify-center items-center overlay">
@@ -12,5 +12,3 @@ function OverlayImage({ closeModal, image }) {
     </>
   );
 }
-
-export default OverlayImage;

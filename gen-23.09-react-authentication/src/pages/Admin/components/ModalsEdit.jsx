@@ -7,7 +7,7 @@ import { useForm } from "react-hook-form";
 import axios from "axios";
 import { mutate } from "swr";
 
-function ModalsEdit({ selectedProduct, closeModal }) {
+export default function ModalsEdit({ selectedProduct, closeModal }) {
   const { register, handleSubmit, setValue } = useForm();
   const { title, desc, price, stock, thumbnail, category, release_date } =
     selectedProduct || {};
@@ -156,5 +156,3 @@ function ModalsEdit({ selectedProduct, closeModal }) {
     </>
   );
 }
-
-export default ModalsEdit;

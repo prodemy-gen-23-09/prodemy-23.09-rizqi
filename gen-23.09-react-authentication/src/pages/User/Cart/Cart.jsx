@@ -7,7 +7,7 @@ import { useSelector, useDispatch } from "react-redux";
 import ModalsCheckout from "../../../components/Cart/ModalsCheckout.jsx";
 import { clearCart, getCartTotal } from "../../../store/reducers/CartSlice.js";
 
-function Cart() {
+export default function Cart() {
   const { items, cartTotal } = useSelector((state) => state.cart);
   const [isModalCheckoutOpen, setModalCheckoutOpen] = useState(false);
   const dispatch = useDispatch();
@@ -55,5 +55,3 @@ function Cart() {
     </>
   );
 }
-
-export default Cart;

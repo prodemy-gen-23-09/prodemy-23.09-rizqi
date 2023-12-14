@@ -11,7 +11,7 @@ import ButtonWishlist from "./ButtonWishlist";
 
 const fetcher = (url) => axios.get(url).then((response) => response.data);
 
-function QuantityProduct() {
+export default function QuantityProduct() {
   const { id } = useParams();
   const [count, setCount] = React.useState(0);
   const dispatch = useDispatch();
@@ -63,5 +63,3 @@ function QuantityProduct() {
     </>
   );
 }
-
-export default QuantityProduct;

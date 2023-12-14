@@ -2,7 +2,7 @@ import ButtonSize from "./ButtonSize";
 import QuantityProduct from "./QuantityProduct";
 
 /* eslint-disable react/prop-types */
-function ProductContent(props) {
+export default function ProductContent(props) {
   return (
     <div className="flex flex-col gap-4 w-5/12">
       <h1 className="text-5xl font-semibold" id="productName">
@@ -49,5 +49,3 @@ function ProductContent(props) {
     </div>
   );
 }
-
-export default ProductContent;

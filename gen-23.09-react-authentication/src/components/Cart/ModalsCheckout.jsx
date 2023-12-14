@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import Button from "../../pages/Admin/components/Button";
-function ModalsCheckout({ onCancel }) {
+export default function ModalsCheckout({ onCancel }) {
   return (
     <div className="flex min-h-screen justify-center items-center promptdelete ">
       <div className="prompt-content bg-white p-10 rounded-lg ">
@@ -12,5 +12,3 @@ function ModalsCheckout({ onCancel }) {
     </div>
   );
 }
-
-export default ModalsCheckout;

@@ -8,7 +8,7 @@ import { useState } from "react";
 import { addProduct, getAllProducts } from "../service/api.js";
 import Modals from "../components/Modals";
 
-function HomeAdmin() {
+export default function HomeAdmin() {
   const [isModalDataOpen, setModalDataOpen] = useState(false);
   const { data, mutate } = getAllProducts();
 
@@ -56,5 +56,3 @@ function HomeAdmin() {
     </>
   );
 }
-
-export default HomeAdmin;

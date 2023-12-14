@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-function Dropdown({ onSort }) {
+export default function Dropdown({ onSort }) {
   const handleSortClick = (sortOption) => {
     onSort(sortOption);
   };
@@ -33,5 +33,3 @@ function Dropdown({ onSort }) {
     </div>
   );
 }
-
-export default Dropdown;

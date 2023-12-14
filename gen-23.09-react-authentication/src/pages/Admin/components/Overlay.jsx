@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import Modals from "./Modals";
 
-function Overlay({ closeModal }) {
+export default function Overlay({ closeModal }) {
   return (
     <>
       <div className="flex max-w-full min-h-screen justify-center items-center overlay">
@@ -10,5 +10,3 @@ function Overlay({ closeModal }) {
     </>
   );
 }
-
-export default Overlay;

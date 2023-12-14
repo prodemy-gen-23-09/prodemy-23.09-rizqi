@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-function Button({ onClick, title }) {
+export default function Button({ onClick, title }) {
   return (
     <>
       <button
@@ -11,5 +11,3 @@ function Button({ onClick, title }) {
     </>
   );
 }
-
-export default Button;

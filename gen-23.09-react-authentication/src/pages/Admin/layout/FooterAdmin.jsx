@@ -1,4 +1,4 @@
-function FooterAdmin() {
+export default function FooterAdmin() {
   return (
     <div>
       <div>
@@ -17,5 +17,3 @@ function FooterAdmin() {
     </div>
   );
 }
-
-export default FooterAdmin;
