@@ -116,7 +116,23 @@
       "id": 11
     }
   ],
-  "cart": [
-    {}
+  "cart": [{}],
+  "users": [
+    {
+      "id": 1,
+      "username": "rizqi",
+      "email": "rizqi@gmail.com",
+      "password": "admin123",
+      "role": "admin",
+      "createdAt": "2023-01-01T12:00:00Z"
+    },
+    {
+      "id": 2,
+      "username": "john",
+      "email": "john@egmail.com",
+      "password": "user123",
+      "role": "user",
+      "createdAt": "2023-01-01T12:00:00Z"
+    }
   ]
 }
