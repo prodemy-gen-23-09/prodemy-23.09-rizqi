@@ -23,20 +23,23 @@ function Login() {
   const handleLogin = (event) => {
     event.preventDefault();
     axios
-      .post("http://localhost:3001/login", formData)
+      .post("http://localhost:3000/login", formData)
       .then((res) => {
-        const accessToken = res.data.accessToken;
-        const user = res.data.user;
+        const { accessToken, user } = res.data;
         dispatch(setToken(accessToken));
         dispatch(setUser(user));
-        const destinationRoute = user.roles === "admin" ? "/admin" : "/";
+        const destinationRoute = user.roles !== "admin" ? "/" : "/admin";
+        console.log(user);
         navigate(destinationRoute);
       })
       .catch((err) => {
-        alert("Terjadi kesalahan");
-        console.error(err);
         console.error(err.response);
+        alert(err.response.data);
       });
+  };
+
+  const handleSignUp = () => {
+    navigate("/register");
   };
 
   return (
@@ -86,7 +89,10 @@ function Login() {
               </button>
             </div>
           </form>
-          <button className="bg-color_home hover:bg-color1_selected hover:text-color_home text-color1_selected mt-2 p-3 rounded-md">
+          <button
+            className="bg-color_home hover:bg-color1_selected hover:text-color_home text-color1_selected mt-2 p-3 rounded-md"
+            onClick={handleSignUp}
+          >
             Sign Up
           </button>
         </div>

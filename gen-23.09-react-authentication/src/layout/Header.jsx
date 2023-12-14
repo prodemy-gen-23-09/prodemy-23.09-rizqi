@@ -61,7 +61,7 @@ function Header() {
               </Link>
             </div>
             <p onClick={handleLogout} className="cursor-pointer">
-              {user.email}
+              {user.username}
             </p>
           </div>
         </nav>

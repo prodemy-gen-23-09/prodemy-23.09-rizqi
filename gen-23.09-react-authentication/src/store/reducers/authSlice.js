@@ -1,4 +1,4 @@
-import { createSlice, createSelector } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
 const initialState = {
@@ -12,19 +12,15 @@ const initialState = {
 };
 
 function getStoredAuthState() {
-  const storedToken = localStorage.getItem("token");
-  const storedUserString = localStorage.getItem("user");
+  const token = localStorage.getItem("token");
+  const userString = localStorage.getItem("user");
 
-  if (storedToken) {
-    axios.defaults.headers.common["Authorization"] = "Bearer " + storedToken;
+  if (token) {
+    // set header global
+    axios.defaults.headers.common["Authorization"] = "Bearer " + token;
     return {
-      token: storedToken,
-      user: JSON.parse(storedUserString) || {
-        id: "",
-        email: "",
-        username: "",
-        roles: "",
-      },
+      token,
+      user: JSON.parse(userString),
     };
   }
 
@@ -62,10 +58,5 @@ const authSlice = createSlice({
 });
 
 export const { setToken, setUser, resetAuthData } = authSlice.actions;
-export const selectAuth = (state) => state.auth;
-
-export const selectUser = createSelector(selectAuth, (auth) => auth.user);
-
-export const selectRoles = createSelector(selectUser, (user) => user.roles);
 
 export default authSlice.reducer;

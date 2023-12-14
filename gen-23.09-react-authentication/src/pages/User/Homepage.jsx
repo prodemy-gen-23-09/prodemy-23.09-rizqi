@@ -7,7 +7,7 @@ import { PacmanLoader } from "react-spinners";
 import axios from "axios";
 import useSWR from "swr";
 
-function Homepage() {
+export default function Homepage() {
   const getProduct = (url) =>
     axios
       .get(url, { headers: { "Cache-Control": "no-cache" } })
@@ -48,5 +48,3 @@ function Homepage() {
     </div>
   );
 }
-
-export default Homepage;

@@ -1,7 +1,8 @@
+/* eslint-disable react/prop-types */
 import Header from "../../layout/Header";
 import Footer from "../../layout/Footer";
 
-function HeaderFooter() {
+export default function Layout() {
   return (
     <>
       <Header />
@@ -9,5 +10,3 @@ function HeaderFooter() {
     </>
   );
 }
-
-export default HeaderFooter;
