@@ -48,27 +48,43 @@ function Login() {
             Login
           </p>
           <form onSubmit={handleLogin}>
-            <div>
-              Email: <br />
-              <input
-                type="email"
-                name="email"
-                value={formData.email}
-                onChange={setInputValue}
-              />
+            <div className="flex flex-col gap-4">
+              <label className="form-control w-full">
+                <div className="label">
+                  <span className="label-text text-md font-semibold">
+                    Email
+                  </span>
+                </div>
+                <input
+                  name="email"
+                  id="email"
+                  type="email"
+                  placeholder="Input an email"
+                  className="input input-bordered w-full"
+                  value={formData.email}
+                  onChange={setInputValue}
+                />
+              </label>
+              <label className="form-control w-full">
+                <div className="label">
+                  <span className="label-text text-md font-semibold">
+                    Password
+                  </span>
+                </div>
+                <input
+                  name="password"
+                  id="password"
+                  type="password"
+                  placeholder="Input password"
+                  className="input input-bordered w-full"
+                  value={formData.password}
+                  onChange={setInputValue}
+                />
+              </label>
+              <button className="bg-color1_selected hover:bg-color_home hover:text-color1_selected p-3 rounded-md text-color_home mt-2">
+                Login
+              </button>
             </div>
-            <br />
-            <div>
-              Password: <br />
-              <input
-                type="password"
-                name="password"
-                value={formData.password}
-                onChange={setInputValue}
-              />
-            </div>
-            <br />
-            <button>Login</button>
           </form>
         </div>
       </div>

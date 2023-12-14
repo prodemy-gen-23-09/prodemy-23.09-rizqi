@@ -9,7 +9,7 @@ function HeaderAdmin() {
 
   const handleLogout = () => {
     dispatch(resetAuthData());
-    navigate("/");
+    navigate("/login");
   };
 
   return (
