@@ -27,10 +27,10 @@ function Login() {
       .then((res) => {
         const accessToken = res.data.accessToken;
         const user = res.data.user;
-        console.log(user);
         dispatch(setToken(accessToken));
         dispatch(setUser(user));
-        navigate("/admin");
+        const destinationRoute = user.roles === "admin" ? "/admin" : "/";
+        navigate(destinationRoute);
       })
       .catch((err) => {
         alert("Terjadi kesalahan");

@@ -129,6 +129,12 @@
       "password": "$2a$10$ncA7ewr8QSEMA/VqW3/oE.8OMTW2J9ei06aazcFcWP4UEyX3UK8ZC",
       "roles": "admin",
       "id": 2
+    },
+    {
+      "email": "user@gmail.com",
+      "password": "$2a$10$DwkQ6rnvY4SqmVgy5vjPYexu.FEBg.3Vf9VGziqmx2S1YaUbKQLPm",
+      "roles": "customer",
+      "id": 3
     }
   ],
   "login": [

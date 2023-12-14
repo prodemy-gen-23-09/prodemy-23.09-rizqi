@@ -1,12 +1,14 @@
+/* eslint-disable react/prop-types */
 import { CiSearch, CiHeart } from "react-icons/ci";
-import { MdPerson } from "react-icons/md";
 import { IoCartSharp } from "react-icons/io5";
 import { Link, Outlet } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 function Header() {
   const { items } = useSelector((state) => state.cart);
-  console.log(items);
+  const user = useSelector((state) => state.auth.user);
+  console.log(user);
+
   return (
     <div>
       <header>
@@ -36,9 +38,6 @@ function Header() {
           </div>
           <div className="flex m-5 gap-5">
             <CiSearch size={30} />
-            <Link to="/login">
-              <MdPerson size={30} />
-            </Link>
             <Link to="wishlist">
               <CiHeart size={30} />
             </Link>
@@ -52,6 +51,7 @@ function Header() {
                 <IoCartSharp size={30} className="cursor-pointer" />
               </Link>
             </div>
+            <p>{user.email}</p>
           </div>
         </nav>
       </header>
