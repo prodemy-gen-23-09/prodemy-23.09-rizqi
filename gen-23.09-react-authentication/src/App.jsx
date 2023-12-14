@@ -12,6 +12,8 @@ import HeaderFooterAdmin from "./pages/Admin/layout/HeaderFooterAdmin";
 import HomeAdmin from "./pages/Admin/pages/HomeAdmin";
 import PromptDelete from "./pages/Admin/components/PromptDelete";
 import Login from "./pages/Login";
+import PrivateRoutes from "./routes/PrivateRoutes";
+import GuestRoutes from "./routes/GuestRoutes";
 
 export default function App() {
   return (
@@ -29,8 +31,17 @@ export default function App() {
         <Route index element={<HomeAdmin />} />
         <Route path="delete" element={<PromptDelete />} />
       </Route>
+      <Route element={<PrivateRoutes />}>
+        <Route path="/admin" element={<HeaderFooterAdmin />}>
+          <Route index element={<HomeAdmin />} />
+          <Route path="delete" element={<PromptDelete />} />
+        </Route>
+      </Route>
       <Route path="*" element={<NotFound />} />
       <Route path="/login" element={<Login />} />
+      <Route element={<GuestRoutes />}>
+        <Route path="/login" element={<Login />} />
+      </Route>
     </Routes>
   );
 }

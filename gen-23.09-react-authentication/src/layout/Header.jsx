@@ -9,7 +9,6 @@ import { resetAuthData } from "../store/reducers/authSlice";
 function Header() {
   const { items } = useSelector((state) => state.cart);
   const user = useSelector((state) => state.auth.user);
-  console.log(user);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();

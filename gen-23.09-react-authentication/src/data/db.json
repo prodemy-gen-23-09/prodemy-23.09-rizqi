@@ -119,29 +119,18 @@
   "cart": [],
   "users": [
     {
-      "email": "rizqi@gmail.com",
-      "password": "$2a$10$a8fTt9HnhePoMfD2EnQqsuBo0fgkmYj8NL1NjLApoJHfqSQErGjay",
-      "roles": "admin",
+      "email": "user@gmail.com",
+      "password": "$2a$10$HVI8Ar8Chd25h0P2aKN.qugYfs5ADKImxifQupMzElIK7aUkZq8Qy",
+      "username": "user",
+      "roles": "customer",
       "id": 1
     },
     {
-      "email": "rizqi13@gmail.com",
-      "password": "$2a$10$ncA7ewr8QSEMA/VqW3/oE.8OMTW2J9ei06aazcFcWP4UEyX3UK8ZC",
+      "email": "admin@gmail.com",
+      "password": "$2a$10$1N6QpzuTNKd6s9XQ.XK95uJwourG24H5T8EATivIgxQfwlt50SmlW",
+      "username": "admin",
       "roles": "admin",
       "id": 2
-    },
-    {
-      "email": "user@gmail.com",
-      "password": "$2a$10$DwkQ6rnvY4SqmVgy5vjPYexu.FEBg.3Vf9VGziqmx2S1YaUbKQLPm",
-      "roles": "customer",
-      "id": 3
-    }
-  ],
-  "login": [
-    {
-      "email": "rizqi13@gmail.com",
-      "password": "admin123",
-      "id": 1
     }
   ]
 }
