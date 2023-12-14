@@ -11,6 +11,7 @@ import NotFound from "./pages/User/NotFound";
 import HeaderFooterAdmin from "./pages/Admin/layout/HeaderFooterAdmin";
 import HomeAdmin from "./pages/Admin/pages/HomeAdmin";
 import PromptDelete from "./pages/Admin/components/PromptDelete";
+import Login from "./pages/Login";
 
 export default function App() {
   return (
@@ -29,6 +30,7 @@ export default function App() {
         <Route path="delete" element={<PromptDelete />} />
       </Route>
       <Route path="*" element={<NotFound />} />
+      <Route path="/login" element={<Login />} />
     </Routes>
   );
 }

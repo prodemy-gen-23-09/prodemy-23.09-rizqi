@@ -5,7 +5,7 @@ function BannerImageHome() {
   return (
     <div>
       <div className="relative">
-        <img className="w-full min-h-min" src={ImageHome} />
+        <img className="w-full min-h-screen" src={ImageHome} />
         <div className="absolute top-[553px] left-1/2 -translate-y-1/2 bg-color_home w-[643px]">
           <div className="flex flex-col gap-4 mx-10 my-10">
             <p className="font-semibold">New Arrival</p>
