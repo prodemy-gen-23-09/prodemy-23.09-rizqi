@@ -13,6 +13,16 @@ function HeaderAdmin() {
               className="m-5 w-52"
             />
           </Link>
+          <div className="flex gap-20 cursor-pointer mx-auto">
+            <Link to="/admin">
+              <div className="text-black hover:text-color1_selected">
+                Product
+              </div>
+            </Link>
+            <Link to="/admin/user">
+              <div className="text-black hover:text-color1_selected">Users</div>
+            </Link>
+          </div>
           <Button onClick={() => console.log("Log Out")} title="Log Out" />
         </nav>
       </header>

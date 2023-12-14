@@ -23,12 +23,12 @@ export default function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/wishlist" element={<Wishlist />} />
         <Route path="/cart" element={<Cart />} />
-        <Route path="*" element={<NotFound />} />
       </Route>
       <Route path="/admin" element={<HeaderFooterAdmin />}>
         <Route index element={<HomeAdmin />} />
         <Route path="delete" element={<PromptDelete />} />
       </Route>
+      <Route path="*" element={<NotFound />} />
     </Routes>
   );
 }
