@@ -1,8 +1,8 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 import { useDispatch } from "react-redux";
-import { removeFromCart } from "../../store/actions/cartActions";
 import { FaTrash } from "react-icons/fa";
+import { removeCart } from "../../store/reducers/CartSlice";
 
 function Table({ cartItems }) {
   const dispatch = useDispatch();
@@ -14,7 +14,7 @@ function Table({ cartItems }) {
   };
 
   const handleDelete = (itemId) => {
-    dispatch(removeFromCart(itemId));
+    dispatch(removeCart(itemId));
   };
   return (
     <>

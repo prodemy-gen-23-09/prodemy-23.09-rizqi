@@ -5,8 +5,9 @@ import ButtonCart from "./ButtonCart";
 import axios from "axios";
 import useSWR from "swr";
 import { useDispatch } from "react-redux";
-import { addToCart } from "../../store/actions/cartActions";
 import { useNavigate, useParams } from "react-router-dom";
+import { addToCart } from "../../store/reducers/CartSlice";
+import ButtonWishlist from "./ButtonWishlist";
 
 const fetcher = (url) => axios.get(url).then((response) => response.data);
 
@@ -56,6 +57,7 @@ function QuantityProduct() {
             </span>
           </button>
         </div>
+        <ButtonWishlist />
         <ButtonCart count={count} handleAddToCart={handleAddToCart} />
       </div>
     </>
