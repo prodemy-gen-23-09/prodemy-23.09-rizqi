@@ -59,7 +59,6 @@ function Login() {
                   name="email"
                   id="email"
                   type="email"
-                  placeholder="Input an email"
                   className="input input-bordered w-full"
                   value={formData.email}
                   onChange={setInputValue}
@@ -75,7 +74,6 @@ function Login() {
                   name="password"
                   id="password"
                   type="password"
-                  placeholder="Input password"
                   className="input input-bordered w-full"
                   value={formData.password}
                   onChange={setInputValue}
@@ -86,6 +84,9 @@ function Login() {
               </button>
             </div>
           </form>
+          <button className="bg-color_home hover:bg-color1_selected hover:text-color_home text-color1_selected mt-2 p-3 rounded-md">
+            Sign Up
+          </button>
         </div>
       </div>
     </div>
