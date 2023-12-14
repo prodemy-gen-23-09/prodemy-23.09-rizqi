@@ -116,24 +116,26 @@
       "id": 11
     }
   ],
-  "cart": [{}],
+  "cart": [],
   "users": [
     {
-      "id": 1,
-      "username": "rizqi",
       "email": "rizqi@gmail.com",
-      "password": "admin123",
-      "role": "admin",
-      "createdAt": "2023-01-01T12:00:00Z"
+      "password": "$2a$10$a8fTt9HnhePoMfD2EnQqsuBo0fgkmYj8NL1NjLApoJHfqSQErGjay",
+      "roles": "admin",
+      "id": 1
     },
     {
-      "id": 2,
-      "username": "john",
-      "email": "john@egmail.com",
-      "password": "user123",
-      "role": "user",
-      "createdAt": "2023-01-01T12:00:00Z"
+      "email": "rizqi13@gmail.com",
+      "password": "$2a$10$ncA7ewr8QSEMA/VqW3/oE.8OMTW2J9ei06aazcFcWP4UEyX3UK8ZC",
+      "roles": "admin",
+      "id": 2
     }
   ],
-  "login": []
+  "login": [
+    {
+      "email": "rizqi13@gmail.com",
+      "password": "admin123",
+      "id": 1
+    }
+  ]
 }

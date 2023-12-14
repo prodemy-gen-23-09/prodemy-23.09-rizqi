@@ -18,7 +18,7 @@ function getStoredAuthState() {
     axios.defaults.headers.common["Authorization"] = "Bearer " + storedToken;
     return {
       token: storedToken,
-      user: JSON.parse(storedUserString),
+      user: JSON.parse(storedUserString) || { id: "", email: "", username: "" },
     };
   }
 

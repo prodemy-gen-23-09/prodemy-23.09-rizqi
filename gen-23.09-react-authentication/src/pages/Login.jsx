@@ -1,32 +1,42 @@
 import ImageHome from "../assets/home/banner-home.png";
+import axios from "axios";
 import { useState } from "react";
-import { loginUser } from "../service/loginUser";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { setToken, setUser } from "../store/reducers/authSlice.js";
 
 function Login() {
-  const [credentials, setCredentials] = useState({
-    username: "",
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const [formData, setFormData] = useState({
+    email: "",
     password: "",
   });
 
-  const handleChange = (e) => {
-    setCredentials({
-      ...credentials,
-      [e.target.name]: e.target.value,
+  const setInputValue = (event) =>
+    setFormData({
+      ...formData,
+      [event.target.name]: event.target.value,
     });
-  };
 
-  const handleLogin = async () => {
-    try {
-      const response = await loginUser(credentials);
-
-      if (response.success) {
-        console.log("Login successful!");
-      } else {
-        console.log("Login failed:", response.message);
-      }
-    } catch (error) {
-      console.error("Error during login:", error.message);
-    }
+  const handleLogin = (event) => {
+    event.preventDefault();
+    axios
+      .post("http://localhost:3001/login", formData)
+      .then((res) => {
+        const accessToken = res.data.accessToken;
+        const user = res.data.user;
+        console.log(user);
+        dispatch(setToken(accessToken));
+        dispatch(setUser(user));
+        navigate("/admin");
+      })
+      .catch((err) => {
+        alert("Terjadi kesalahan");
+        console.error(err);
+        console.error(err.response);
+      });
   };
 
   return (
@@ -37,26 +47,29 @@ function Login() {
           <p className="font-semibold text-center text-3xl text-color1_selected">
             Login
           </p>
-          <input
-            type="text"
-            name="username"
-            value={credentials.username}
-            onChange={handleChange}
-            placeholder="Username"
-          />
-          <input
-            type="password"
-            name="password"
-            value={credentials.password}
-            onChange={handleChange}
-            placeholder="Password"
-          />
-          <button
-            className="bg-color1_selected hover:bg-color_home hover:text-color1_selected p-3 rounded-md text-color_home mt-8 w-full"
-            onClick={handleLogin}
-          >
-            Login
-          </button>
+          <form onSubmit={handleLogin}>
+            <div>
+              Email: <br />
+              <input
+                type="email"
+                name="email"
+                value={formData.email}
+                onChange={setInputValue}
+              />
+            </div>
+            <br />
+            <div>
+              Password: <br />
+              <input
+                type="password"
+                name="password"
+                value={formData.password}
+                onChange={setInputValue}
+              />
+            </div>
+            <br />
+            <button>Login</button>
+          </form>
         </div>
       </div>
     </div>

@@ -1,7 +1,17 @@
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet, useNavigate } from "react-router-dom";
 import Button from "../components/Button";
+import { useDispatch } from "react-redux";
+import { resetAuthData } from "../../../store/reducers/authSlice";
 
 function HeaderAdmin() {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    dispatch(resetAuthData());
+    navigate("/");
+  };
+
   return (
     <div>
       <header>
@@ -23,7 +33,7 @@ function HeaderAdmin() {
               <div className="text-black hover:text-color1_selected">Users</div>
             </Link>
           </div>
-          <Button onClick={() => console.log("Log Out")} title="Log Out" />
+          <Button onClick={handleLogout} title="Log Out" />
         </nav>
       </header>
       <Outlet />

@@ -36,7 +36,9 @@ function Header() {
           </div>
           <div className="flex m-5 gap-5">
             <CiSearch size={30} />
-            <MdPerson size={30} />
+            <Link to="/login">
+              <MdPerson size={30} />
+            </Link>
             <Link to="wishlist">
               <CiHeart size={30} />
             </Link>
