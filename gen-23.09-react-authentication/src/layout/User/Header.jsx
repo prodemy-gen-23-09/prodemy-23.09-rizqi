@@ -46,19 +46,21 @@ function Header() {
             </Link>
           </div>
           <div className="flex m-5 gap-5">
-            <CiSearch size={30} />
-            <Link to="wishlist">
-              <CiHeart size={30} />
-            </Link>
-            <div className="relative">
-              {items.length > 0 && (
-                <span className="absolute bottom-3 left-5 bg-red-500 text-white px-2 py-1 text-[9px] rounded-full">
-                  {items.length}
-                </span>
-              )}
-              <Link to="cart" className="flex">
-                <IoCartSharp size={30} className="cursor-pointer" />
+            <div className="flex gap-5">
+              <CiSearch size={30} />
+              <Link to="wishlist">
+                <CiHeart size={30} />
               </Link>
+              <div className="relative">
+                {items.length > 0 && (
+                  <span className="absolute bottom-3 left-5 bg-red-500 text-white px-2 py-1 text-[9px] rounded-full">
+                    {items.length}
+                  </span>
+                )}
+                <Link to="cart" className="flex">
+                  <IoCartSharp size={30} className="cursor-pointer" />
+                </Link>
+              </div>
             </div>
             <div className="drawer drawer-end">
               <input
