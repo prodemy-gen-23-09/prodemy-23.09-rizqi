@@ -1,6 +1,5 @@
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import BannerImage from "../../../components/BannerImage";
 import Table from "../../../components/Cart/Table.jsx";
 import BannerService from "../../../components/BannerService";
