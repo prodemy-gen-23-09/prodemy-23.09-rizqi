@@ -1,14 +1,11 @@
 import ImageHome from "../assets/home/banner-home.png";
 import axios from "axios";
-import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { setToken, setUser } from "../store/reducers/authSlice.js";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 
 export default function Register() {
-  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const schema = yup.object().shape({
@@ -48,14 +45,9 @@ export default function Register() {
         roles: roles,
       };
 
-      const response = await axios.post(
-        "http://localhost:3000/register",
-        requestBody
-      );
+      await axios.post("http://localhost:3000/register", requestBody);
 
-      const { accessToken, user } = response.data;
-      dispatch(setToken(accessToken));
-      dispatch(setUser(user));
+      alert("Account Created");
       navigate("/login");
       reset();
     } catch (error) {

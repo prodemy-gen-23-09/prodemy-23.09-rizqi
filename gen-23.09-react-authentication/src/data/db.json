@@ -120,17 +120,24 @@
   "users": [
     {
       "email": "admin@gmail.com",
-      "password": "$2a$10$nwfMQSLLnotmqajOfiJBu.pODSGZziL.0S4dEtXxkeEjA8IJhXJI.",
+      "password": "$2a$10$z.Hm3lUPXUyOjjaxqYOaf.H6VX5FF6sureqoLl8X4RvILLu8ug1vO",
       "username": "admin",
       "roles": "admin",
       "id": 1
     },
     {
       "email": "user@gmail.com",
-      "password": "$2a$10$DKY7LOz/kr8eYCHa7TLOYe0E1Gstok2wxve7Hyk3BAbWU8UqbZEVe",
+      "password": "$2a$10$dHfVcNtc4u.yI4IpsdqkTu3T9bCUoNgKpl08/yV27CBoZvrnK2dZi",
       "username": "user",
       "roles": "customer",
       "id": 2
+    },
+    {
+      "email": "rama@gmail.com",
+      "password": "$2a$10$YW1M6MAGvHC0vcQJu2107esVpo803DbyiERO4L2mFwZxjxOoUTj1y",
+      "username": "rama",
+      "roles": "customer",
+      "id": 3
     }
   ]
 }
