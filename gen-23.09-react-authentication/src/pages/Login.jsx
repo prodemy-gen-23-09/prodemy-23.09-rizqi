@@ -34,7 +34,7 @@ export default function Login() {
         dispatch(setUser(user));
         reset();
       })
-      .catch((error) => console.log(error));
+      .catch((error) => alert(error.response.data));
   };
 
   const handleSignUp = () => {

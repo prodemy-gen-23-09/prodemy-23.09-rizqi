@@ -26,24 +26,41 @@ export default function Register() {
     resolver: yupResolver(schema),
   });
 
-  const onSubmitForm = (data) => {
-    const requestBody = {
-      username: data.username,
-      email: data.email,
-      password: data.password,
-      roles: "customer",
-    };
+  const getLengthDataUsers = async () => {
+    try {
+      const response = await axios.get("http://localhost:3000/users");
+      return response.data.length;
+    } catch (error) {
+      console.log(error);
+      throw error;
+    }
+  };
 
-    axios
-      .post("http://localhost:3000/register", requestBody)
-      .then((res) => {
-        const { accessToken, user } = res.data;
-        dispatch(setToken(accessToken));
-        dispatch(setUser(user));
-        navigate("/login");
-        reset();
-      })
-      .catch((error) => console.log(error));
+  const onSubmitForm = async (data) => {
+    try {
+      const dataLength = await getLengthDataUsers();
+      const roles = dataLength === 0 ? "admin" : "customer";
+
+      const requestBody = {
+        username: data.username,
+        email: data.email,
+        password: data.password,
+        roles: roles,
+      };
+
+      const response = await axios.post(
+        "http://localhost:3000/register",
+        requestBody
+      );
+
+      const { accessToken, user } = response.data;
+      dispatch(setToken(accessToken));
+      dispatch(setUser(user));
+      navigate("/login");
+      reset();
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const handleLogin = () => {
