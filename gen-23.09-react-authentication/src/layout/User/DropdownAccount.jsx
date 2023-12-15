@@ -20,7 +20,7 @@ export default function DropdownAccount({ title }) {
     <>
       <div className="dropdown dropdown-end">
         <div tabIndex={0} role="button" className="m-1">
-          {title}
+          Hi, {title}
         </div>
         <ul
           tabIndex={0}

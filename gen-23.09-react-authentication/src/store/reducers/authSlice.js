@@ -16,7 +16,6 @@ function getStoredAuthState() {
   const userString = localStorage.getItem("user");
 
   if (token) {
-    // set header global
     axios.defaults.headers.common["Authorization"] = "Bearer " + token;
     return {
       token,
