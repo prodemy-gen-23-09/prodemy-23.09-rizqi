@@ -7,7 +7,6 @@ export default function DropdownAccount({ title }) {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const user = useSelector((state) => state.auth.user);
-  console.log(user);
 
   const handleLogout = () => {
     dispatch(resetAuthData());

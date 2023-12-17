@@ -116,7 +116,118 @@
       "id": 11
     }
   ],
-  "cart": [],
+  "cart": [
+    {
+      "cart_items": [
+        {
+          "id": 6,
+          "thumbnail": "/src/assets/shop/product6.png",
+          "image": [
+            "/src/assets/shop/product6.png",
+            "/src/assets/shop/product6.png",
+            "/src/assets/shop/product6.png",
+            "/src/assets/shop/product6.png",
+            "/src/assets/shop/product6.png"
+          ],
+          "title": "Leviosa",
+          "desc": "Laborum nisi ullamco in labore deserunt. In anim qui tempor commodo ullamco fugiat laborum do dolor ullamco. Aute et non ullamco culpa. Ea laborum commodo consectetur in excepteur nostrud dolor labore elit consequat excepteur. Amet quis veniam eiusmod irure aliqua eu consequat magna proident laboris laboris cillum tempor labore. Consequat mollit ad consequat aliquip in anim occaecat pariatur ad mollit. Adipisicing Lorem mollit esse labore mollit aute ea reprehenderit est sunt enim aliqua anim nisi.",
+          "price": 10500000,
+          "category": "Sofa",
+          "release_date": "2023-05-04",
+          "stock": 4,
+          "count": 6
+        }
+      ],
+      "userId": 1,
+      "username": "admin",
+      "email": "admin@gmail.com",
+      "date": "17/12/2023 23:32:09",
+      "id": 1
+    },
+    {
+      "cart_items": [
+        {
+          "id": 6,
+          "thumbnail": "/src/assets/shop/product6.png",
+          "image": [
+            "/src/assets/shop/product6.png",
+            "/src/assets/shop/product6.png",
+            "/src/assets/shop/product6.png",
+            "/src/assets/shop/product6.png",
+            "/src/assets/shop/product6.png"
+          ],
+          "title": "Leviosa",
+          "desc": "Laborum nisi ullamco in labore deserunt. In anim qui tempor commodo ullamco fugiat laborum do dolor ullamco. Aute et non ullamco culpa. Ea laborum commodo consectetur in excepteur nostrud dolor labore elit consequat excepteur. Amet quis veniam eiusmod irure aliqua eu consequat magna proident laboris laboris cillum tempor labore. Consequat mollit ad consequat aliquip in anim occaecat pariatur ad mollit. Adipisicing Lorem mollit esse labore mollit aute ea reprehenderit est sunt enim aliqua anim nisi.",
+          "price": 10500000,
+          "category": "Sofa",
+          "release_date": "2023-05-04",
+          "stock": 4,
+          "count": 5
+        }
+      ],
+      "userId": 2,
+      "username": "user",
+      "email": "user@gmail.com",
+      "date": "17/12/2023 23:49:32",
+      "id": 2
+    },
+    {
+      "cart_items": [
+        {
+          "id": 5,
+          "thumbnail": "/src/assets/shop/product5.png",
+          "image": [
+            "/src/assets/shop/product5.png",
+            "/src/assets/shop/product5.png",
+            "/src/assets/shop/product5.png",
+            "/src/assets/shop/product5.png",
+            "/src/assets/shop/product5.png"
+          ],
+          "title": "Lolito",
+          "desc": "Sit culpa magna aliquip sit nulla nostrud consectetur dolore ut eu. Incididunt consectetur nisi enim ullamco deserunt reprehenderit esse dolor culpa ut. Reprehenderit aute culpa laborum eiusmod amet dolore excepteur consequat nisi ad anim amet.",
+          "price": 700000,
+          "category": "Chair",
+          "release_date": "2023-09-04",
+          "stock": 9,
+          "count": 4
+        },
+        {
+          "id": 7,
+          "thumbnail": "/src/assets/shop/product7.png",
+          "image": [
+            "/src/assets/shop/product7.png",
+            "/src/assets/shop/product7.png",
+            "/src/assets/shop/product7.png",
+            "/src/assets/shop/product7.png",
+            "/src/assets/shop/product7.png"
+          ],
+          "title": "Flowy",
+          "desc": "Cillum et duis mollit aliquip. Nostrud aliqua ea excepteur dolore. Duis aliquip proident voluptate do duis est non non. Proident consequat est duis Lorem aliqua elit minim. Non ea officia anim nisi ipsum.",
+          "price": 450000,
+          "category": "Decoration",
+          "release_date": "2023-02-04",
+          "stock": 6,
+          "count": 5
+        },
+        {
+          "title": "1234132",
+          "desc": "1243214",
+          "price": 2134324,
+          "stock": 2134234,
+          "thumbnail": "/src/assets/shop/product6.png",
+          "category": "Kitchen",
+          "release_date": "2020-10-12",
+          "id": 9,
+          "count": 4
+        }
+      ],
+      "userId": 1,
+      "username": "admin",
+      "email": "admin@gmail.com",
+      "date": "18/12/2023 00:07:50",
+      "id": 3
+    }
+  ],
   "users": [
     {
       "email": "admin@gmail.com",

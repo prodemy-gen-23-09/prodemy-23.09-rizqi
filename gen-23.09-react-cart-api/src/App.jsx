@@ -16,6 +16,7 @@ import GuestRoutes from "./routes/GuestRoutes";
 import PrivateRoutes from "./routes/PrivateRoutes";
 import AdminRoutes from "./routes/AdminRoutes";
 import Register from "./pages/Register";
+import CartAdmin from "./pages/Admin/CartAdmin";
 
 export default function App() {
   return (
@@ -35,6 +36,7 @@ export default function App() {
           <Route path="/admin" element={<HeaderFooterAdmin />}>
             <Route index element={<HomeAdmin />} />
             <Route path="delete" element={<PromptDelete />} />
+            <Route path="cart" element={<CartAdmin />} />
           </Route>
         </Route>
       </Route>

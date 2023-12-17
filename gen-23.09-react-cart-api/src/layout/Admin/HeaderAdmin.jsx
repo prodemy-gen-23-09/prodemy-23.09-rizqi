@@ -25,6 +25,9 @@ export default function HeaderAdmin() {
             <Link to="/admin/user">
               <div className="text-black hover:text-color1_selected">Users</div>
             </Link>
+            <Link to="/admin/cart">
+              <div className="text-black hover:text-color1_selected">Cart</div>
+            </Link>
           </div>
           <DropdownAccount title={user.username} />
         </nav>

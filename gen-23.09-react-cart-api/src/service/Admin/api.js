@@ -10,6 +10,13 @@ export const fetchProducts = async (url) => {
   return data;
 };
 
+export const fetchCart = async (url) => {
+  const data = await axios
+    .get(url, { headers: { "Cache-Control": "no-cache" } })
+    .then((res) => res.data);
+  return data;
+};
+
 export const getAllProducts = () => {
   const { data, error } = useSWR(
     "http://localhost:3000/products",
@@ -33,4 +40,18 @@ export const addProduct = async (url, newProduct) => {
     console.error("Error adding product", error);
     throw error;
   }
+};
+
+export const getAllCart = () => {
+  const { data, error } = useSWR(
+    "http://localhost:3000/cart",
+    fetchCart,
+    mutate("http://localhost:3000/cart")
+  );
+
+  return {
+    data,
+    isLoading: !error && !data,
+    isError: error,
+  };
 };
