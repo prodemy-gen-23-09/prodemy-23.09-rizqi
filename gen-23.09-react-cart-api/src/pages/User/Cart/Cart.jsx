@@ -37,8 +37,6 @@ export default function Cart() {
     }
   }, [userCart, dispatch]);
 
-  console.log(cartTotal);
-
   return (
     <>
       <BannerImage title="Cart" />

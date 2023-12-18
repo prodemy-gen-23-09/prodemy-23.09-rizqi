@@ -1,12 +1,32 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 import { CiSearch, CiHeart } from "react-icons/ci";
 import { IoCartSharp } from "react-icons/io5";
 import { Link, Outlet } from "react-router-dom";
 import { useSelector } from "react-redux";
 import DropdownAccount from "./DropdownAccount";
+import axios from "axios";
+import { useState, useEffect } from "react";
 
 function Header() {
   const user = useSelector((state) => state.auth.user);
+  const [cartData, setCartData] = useState(0);
+
+  useEffect(() => {
+    const fetchCartData = async () => {
+      try {
+        const userId = user ? user.id : "";
+        const response = await axios.get(
+          `http://localhost:3000/cart?userId=${userId}`
+        );
+        setCartData(response.data.length);
+      } catch (error) {
+        console.error("Error fetching cart data:", error);
+      }
+    };
+
+    fetchCartData();
+  }, [user]);
 
   return (
     <div>
@@ -42,9 +62,9 @@ function Header() {
                 <CiHeart size={30} />
               </Link>
               <div className="relative">
-                {user.length > 0 && (
+                {cartData > 0 && (
                   <span className="absolute bottom-3 left-5 bg-red-500 text-white px-2 py-1 text-[9px] rounded-full">
-                    {user.length}
+                    {cartData}
                   </span>
                 )}
                 <Link to={`/cart/${user.id}`} className="flex">
