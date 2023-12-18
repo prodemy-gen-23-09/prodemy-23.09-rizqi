@@ -10,7 +10,7 @@ export default function TableUsers({ users }) {
             <th>No</th>
             <th>Username</th>
             <th>Email</th>
-            <th>Password</th>
+            <th>Roles</th>
             <th>Action</th>
           </tr>
         </thead>
@@ -21,7 +21,7 @@ export default function TableUsers({ users }) {
                 <td>{index + 1}</td>
                 <td>{users.username}</td>
                 <td>{users.email}</td>
-                <td>{users.password}</td>
+                <td>{users.roles}</td>
                 <td>
                   <div className="flex gap-10 justify-center">
                     <Button

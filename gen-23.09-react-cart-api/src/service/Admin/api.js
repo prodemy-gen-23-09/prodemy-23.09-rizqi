@@ -3,14 +3,7 @@
 import axios from "axios";
 import useSWR, { mutate } from "swr";
 
-export const fetchProducts = async (url) => {
-  const data = await axios
-    .get(url, { headers: { "Cache-Control": "no-cache" } })
-    .then((res) => res.data);
-  return data;
-};
-
-export const fetchCart = async (url) => {
+export const fetchData = async (url) => {
   const data = await axios
     .get(url, { headers: { "Cache-Control": "no-cache" } })
     .then((res) => res.data);
@@ -20,7 +13,7 @@ export const fetchCart = async (url) => {
 export const getAllProducts = () => {
   const { data, error } = useSWR(
     "http://localhost:3000/products",
-    fetchProducts,
+    fetchData,
     mutate("http://localhost:3000/products")
   );
 
@@ -45,8 +38,22 @@ export const addProduct = async (url, newProduct) => {
 export const getAllCart = () => {
   const { data, error } = useSWR(
     "http://localhost:3000/cart",
-    fetchCart,
+    fetchData,
     mutate("http://localhost:3000/cart")
+  );
+
+  return {
+    data,
+    isLoading: !error && !data,
+    isError: error,
+  };
+};
+
+export const getAllUsers = () => {
+  const { data, error } = useSWR(
+    "http://localhost:3000/users",
+    fetchData,
+    mutate("http://localhost:3000/users")
   );
 
   return {
