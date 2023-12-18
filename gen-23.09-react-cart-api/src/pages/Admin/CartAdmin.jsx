@@ -5,7 +5,6 @@ import { getAllCart } from "../../service/Admin/api.js";
 
 export default function CartAdmin() {
   const { data, mutate } = getAllCart();
-  console.log(data);
   return (
     <div>
       <BannerImage title="Admin" />
