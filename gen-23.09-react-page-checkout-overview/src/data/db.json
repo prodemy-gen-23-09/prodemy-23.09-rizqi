@@ -1,0 +1,184 @@
+{
+  "products": [
+    {
+      "id": 4,
+      "thumbnail": "/src/assets/shop/product4.png",
+      "image": [
+        "/src/assets/shop/product4.png",
+        "/src/assets/shop/product4.png",
+        "/src/assets/shop/product4.png",
+        "/src/assets/shop/product4.png",
+        "/src/assets/shop/product4.png"
+      ],
+      "title": "Respira",
+      "desc": "Ex in occaecat aute incididunt non. Laborum laborum ipsum ad consectetur amet. Elit laboris tempor do eiusmod mollit nulla et minim sint ullamco ut quis magna fugiat. Est proident officia minim ex. Enim excepteur consequat duis laborum consectetur sunt.",
+      "price": 500000,
+      "category": "Chair",
+      "release_date": "2023-11-01",
+      "stock": 8
+    },
+    {
+      "id": 5,
+      "thumbnail": "/src/assets/shop/product5.png",
+      "image": [
+        "/src/assets/shop/product5.png",
+        "/src/assets/shop/product5.png",
+        "/src/assets/shop/product5.png",
+        "/src/assets/shop/product5.png",
+        "/src/assets/shop/product5.png"
+      ],
+      "title": "Lolito",
+      "desc": "Sit culpa magna aliquip sit nulla nostrud consectetur dolore ut eu. Incididunt consectetur nisi enim ullamco deserunt reprehenderit esse dolor culpa ut. Reprehenderit aute culpa laborum eiusmod amet dolore excepteur consequat nisi ad anim amet.",
+      "price": 700000,
+      "category": "Chair",
+      "release_date": "2023-09-04",
+      "stock": 9
+    },
+    {
+      "id": 6,
+      "thumbnail": "/src/assets/shop/product6.png",
+      "image": [
+        "/src/assets/shop/product6.png",
+        "/src/assets/shop/product6.png",
+        "/src/assets/shop/product6.png",
+        "/src/assets/shop/product6.png",
+        "/src/assets/shop/product6.png"
+      ],
+      "title": "Leviosa",
+      "desc": "Laborum nisi ullamco in labore deserunt. In anim qui tempor commodo ullamco fugiat laborum do dolor ullamco. Aute et non ullamco culpa. Ea laborum commodo consectetur in excepteur nostrud dolor labore elit consequat excepteur. Amet quis veniam eiusmod irure aliqua eu consequat magna proident laboris laboris cillum tempor labore. Consequat mollit ad consequat aliquip in anim occaecat pariatur ad mollit. Adipisicing Lorem mollit esse labore mollit aute ea reprehenderit est sunt enim aliqua anim nisi.",
+      "price": 10500000,
+      "category": "Sofa",
+      "release_date": "2023-05-04",
+      "stock": 4
+    },
+    {
+      "id": 7,
+      "thumbnail": "/src/assets/shop/product7.png",
+      "image": [
+        "/src/assets/shop/product7.png",
+        "/src/assets/shop/product7.png",
+        "/src/assets/shop/product7.png",
+        "/src/assets/shop/product7.png",
+        "/src/assets/shop/product7.png"
+      ],
+      "title": "Flowy",
+      "desc": "Cillum et duis mollit aliquip. Nostrud aliqua ea excepteur dolore. Duis aliquip proident voluptate do duis est non non. Proident consequat est duis Lorem aliqua elit minim. Non ea officia anim nisi ipsum.",
+      "price": 450000,
+      "category": "Decoration",
+      "release_date": "2023-02-04",
+      "stock": 6
+    },
+    {
+      "id": 8,
+      "thumbnail": "/src/assets/shop/product8.png",
+      "image": [
+        "/src/assets/shop/product8.png",
+        "/src/assets/shop/product8.png",
+        "/src/assets/shop/product8.png",
+        "/src/assets/shop/product8.png",
+        "/src/assets/shop/product8.png"
+      ],
+      "title": "Muggo",
+      "desc": "Ad do cupidatat incididunt ullamco. Incididunt elit occaecat proident pariatur adipisicing. Nostrud in labore qui enim elit ut aliquip ex eu adiisicing sint.",
+      "price": 75000,
+      "category": "Kitchen",
+      "release_date": "2023-01-04",
+      "stock": 9
+    },
+    {
+      "title": "1234132",
+      "desc": "1243214",
+      "price": 2134324,
+      "stock": 2134234,
+      "thumbnail": "/src/assets/shop/product6.png",
+      "category": "Kitchen",
+      "release_date": "2020-10-12",
+      "id": 9
+    },
+    {
+      "title": "Sofa Single",
+      "desc": "Sofa Single",
+      "price": 6000000,
+      "stock": "2",
+      "thumbnail": "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/MTA-13546871/livien_sofa_single-_livien-_single_sofa-_sofa_tamu_set-_sofa_minimalis-_sofa_modern-_willow_3_seater_livien_full01_bqar23jh.jpeg",
+      "category": "Living",
+      "release_date": "2020-10-20",
+      "id": 10
+    },
+    {
+      "title": "Asgaard Sofa",
+      "desc": "Asgaard Sofa",
+      "price": 4500000,
+      "stock": 15,
+      "thumbnail": "data:image/jpeg;base64,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",
+      "category": "Living",
+      "release_date": "2020-10-12",
+      "id": 11
+    }
+  ],
+  "cart": [
+    {
+      "productId": "6",
+      "quantity": 5,
+      "userId": 1,
+      "username": "admin",
+      "email": "admin@gmail.com",
+      "id": 1
+    },
+    {
+      "productId": "7",
+      "quantity": 2,
+      "userId": 1,
+      "username": "admin",
+      "email": "admin@gmail.com",
+      "id": 2
+    },
+    {
+      "productId": "4",
+      "quantity": 1,
+      "userId": 1,
+      "username": "admin",
+      "email": "admin@gmail.com",
+      "id": 3
+    },
+    {
+      "productId": "11",
+      "quantity": 1,
+      "userId": 2,
+      "username": "user",
+      "email": "user@gmail.com",
+      "id": 4
+    },
+    {
+      "productId": "8",
+      "quantity": 1,
+      "userId": 2,
+      "username": "user",
+      "email": "user@gmail.com",
+      "id": 6
+    }
+  ],
+  "users": [
+    {
+      "email": "admin@gmail.com",
+      "password": "$2a$10$z.Hm3lUPXUyOjjaxqYOaf.H6VX5FF6sureqoLl8X4RvILLu8ug1vO",
+      "username": "admin",
+      "roles": "admin",
+      "id": 1
+    },
+    {
+      "email": "user@gmail.com",
+      "password": "$2a$10$dHfVcNtc4u.yI4IpsdqkTu3T9bCUoNgKpl08/yV27CBoZvrnK2dZi",
+      "username": "user",
+      "roles": "customer",
+      "id": 2
+    },
+    {
+      "email": "rama@gmail.com",
+      "password": "$2a$10$YW1M6MAGvHC0vcQJu2107esVpo803DbyiERO4L2mFwZxjxOoUTj1y",
+      "username": "rama",
+      "roles": "customer",
+      "id": 3
+    }
+  ]
+}
