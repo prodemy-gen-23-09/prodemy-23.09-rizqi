@@ -5,14 +5,17 @@ import Table from "../../../components/User/Cart/Table.jsx";
 import BannerService from "../../../components/User/BannerService";
 import { useSelector, useDispatch } from "react-redux";
 import ModalsCheckout from "../../../components/User/Cart/ModalsCheckout.jsx";
-import { clearCart, getCartTotal } from "../../../store/reducers/CartSlice.js";
+import { clearCart } from "../../../store/reducers/CartSlice.js";
 import axios from "axios";
+import { getAllCart } from "../../../service/Admin/api.js";
+import { setCartItems } from "../../../store/reducers/CartSlice.js";
 
 export default function Cart() {
   const { items, cartTotal } = useSelector((state) => state.cart);
   const [isModalCheckoutOpen, setModalCheckoutOpen] = useState(false);
   const dispatch = useDispatch();
   const user = useSelector((state) => state.auth.user);
+  const { data: userCart } = getAllCart(user.id);
   const formatPrice = (price) => {
     return new Intl.NumberFormat("id-ID", {
       style: "currency",
@@ -44,6 +47,11 @@ export default function Cart() {
     date
   ) => {
     try {
+      const cartItemsWithoutStock = cartItems.map((item) => {
+        const { stock, ...itemWithoutStock } = item;
+        return itemWithoutStock;
+      });
+
       const dateObject = new Date(date);
       const year = dateObject.getFullYear();
       const month = ("0" + (dateObject.getMonth() + 1)).slice(-2);
@@ -54,23 +62,26 @@ export default function Cart() {
 
       const formattedDate = `${day}/${month}/${year} ${hours}:${minutes}:${seconds}`;
 
-      const response = await axios.post(`http://localhost:3000/cart`, {
-        cart_items: cartItems,
-        userId: userId,
-        username: username,
-        email: email,
-        date: formattedDate,
-      });
+      const response = await axios.post(
+        `http://localhost:3000/cart?userId=${userId}`,
+        {
+          cart_items: cartItemsWithoutStock,
+          userId: userId,
+          username: username,
+          email: email,
+          date: formattedDate,
+        }
+      );
       console.log("Cart data sent to API:", response.data);
     } catch (error) {
       console.error("Error sending cart data to API:", error);
     }
   };
   useEffect(() => {
-    dispatch(getCartTotal());
-  }, [dispatch, items]);
-
-  console.log(user);
+    if (userCart) {
+      dispatch(setCartItems(userCart));
+    }
+  }, [userCart, dispatch]);
 
   return (
     <>

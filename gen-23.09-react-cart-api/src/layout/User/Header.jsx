@@ -48,7 +48,7 @@ function Header() {
                     {items.length}
                   </span>
                 )}
-                <Link to="cart" className="flex">
+                <Link to="cart/:userId" className="flex">
                   <IoCartSharp size={30} className="cursor-pointer" />
                 </Link>
               </div>
