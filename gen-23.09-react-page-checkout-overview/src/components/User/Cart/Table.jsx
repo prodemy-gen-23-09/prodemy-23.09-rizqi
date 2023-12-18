@@ -2,12 +2,12 @@
 /* eslint-disable react/prop-types */
 import { useDispatch, useSelector } from "react-redux";
 import { FaTrash } from "react-icons/fa";
-import { removeCart } from "../../../store/reducers/CartSlice";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 export default function Table() {
-  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [dataCart, setDataCart] = useState([]);
   const [productDetails, setProductDetails] = useState({});
   const [cartTotal, setCartTotal] = useState(0);
@@ -38,6 +38,23 @@ export default function Table() {
     });
     setDataCart(updatedDataCart);
   };
+
+  const handleDelete = async (itemId) => {
+    try {
+      await axios.delete(`http://localhost:3000/cart/${itemId}`);
+
+      const updatedDataCart = dataCart.filter((item) => item.id !== itemId);
+      setDataCart(updatedDataCart);
+    } catch (error) {
+      console.error("Error deleting item:", error);
+    }
+  };
+
+  const handleCheckout = () => {
+    const userId = user ? user.id : "";
+    navigate(`/checkout/${userId}`);
+  };
+
   useEffect(() => {
     const fetchCartData = async () => {
       try {
@@ -95,17 +112,6 @@ export default function Table() {
 
     calculateCartTotal();
   }, [dataCart, productDetails]);
-
-  const handleDelete = async (itemId) => {
-    try {
-      await axios.delete(`http://localhost:3000/cart/${itemId}`);
-
-      const updatedDataCart = dataCart.filter((item) => item.id !== itemId);
-      setDataCart(updatedDataCart);
-    } catch (error) {
-      console.error("Error deleting item:", error);
-    }
-  };
   return (
     <>
       <div className="flex my-20 mx-[100px] justify-between">
@@ -187,7 +193,10 @@ export default function Table() {
             <p className="text-xl mt-32 mx-auto">
               Total : {formatPrice(cartTotal)}
             </p>
-            <button className="flex bg-color1_selected hover:bg-color3 mt-24 rounded-md shadow-lg w-52 h-10 mx-auto text-white hover:text-black justify-center items-center">
+            <button
+              className="flex bg-color1_selected hover:bg-color3 mt-24 rounded-md shadow-lg w-52 h-10 mx-auto text-white hover:text-black justify-center items-center"
+              onClick={handleCheckout}
+            >
               Checkout
             </button>
           </div>

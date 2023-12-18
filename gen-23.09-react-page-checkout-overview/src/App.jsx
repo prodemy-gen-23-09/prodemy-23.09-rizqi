@@ -18,6 +18,7 @@ import AdminRoutes from "./routes/AdminRoutes";
 import Register from "./pages/Register";
 import CartAdmin from "./pages/Admin/CartAdmin";
 import Users from "./pages/Admin/Users";
+import Checkout from "./pages/Checkout";
 
 export default function App() {
   return (
@@ -32,6 +33,7 @@ export default function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/wishlist" element={<Wishlist />} />
           <Route path="/cart/:userId" element={<Cart />} />
+          <Route path="/checkout/:userId" element={<Checkout />} />
         </Route>
         <Route element={<AdminRoutes />}>
           <Route path="/admin" element={<HeaderFooterAdmin />}>

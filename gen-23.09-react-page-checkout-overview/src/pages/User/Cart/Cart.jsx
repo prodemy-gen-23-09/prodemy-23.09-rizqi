@@ -22,10 +22,6 @@ export default function Cart() {
     }).format(price);
   };
 
-  const openModal = () => {
-    setModalCheckoutOpen(true);
-  };
-
   const closeModal = async () => {
     dispatch(clearCart());
     setModalCheckoutOpen(false);
