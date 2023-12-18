@@ -31,7 +31,7 @@ export default function App() {
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/wishlist" element={<Wishlist />} />
-          <Route path="/cart" element={<Cart />} />
+          <Route path="/cart/:userId" element={<Cart />} />
         </Route>
         <Route element={<AdminRoutes />}>
           <Route path="/admin" element={<HeaderFooterAdmin />}>

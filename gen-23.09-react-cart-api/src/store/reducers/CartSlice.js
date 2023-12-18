@@ -10,7 +10,7 @@ const findItemIndexById = (items, id) => {
 };
 
 const calculateTotal = (items) => {
-  return items.reduce((total, item) => total + item.count * item.price, 0);
+  return items.reduce((total, item) => total + item.qty * item.price, 0);
 };
 
 const cartSlice = createSlice({
@@ -22,7 +22,7 @@ const cartSlice = createSlice({
       const existingItemIndex = findItemIndexById(state.items, newItem.id);
 
       if (existingItemIndex !== -1) {
-        state.items[existingItemIndex].count += newItem.count;
+        state.items[existingItemIndex].qty += newItem.qty;
       } else {
         state.items.push(newItem);
       }

@@ -3,37 +3,40 @@
 import React from "react";
 import ButtonCart from "./ButtonCart";
 import axios from "axios";
-import useSWR from "swr";
-import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
-import { addToCart } from "../../../store/reducers/CartSlice";
 import ButtonWishlist from "./ButtonWishlist";
-
-const fetcher = (url) => axios.get(url).then((response) => response.data);
 
 export default function QuantityProduct() {
   const { id } = useParams();
-  const [count, setCount] = React.useState(0);
-  const dispatch = useDispatch();
+  const [qty, setQty] = React.useState(1);
   const navigate = useNavigate();
-  const { data } = useSWR(`http://localhost:3000/products/${id}`, fetcher);
+
+  const user = useSelector((state) => state.auth.user);
   const increment = () => {
-    setCount(count + 1);
+    setQty(qty + 1);
   };
 
   const decrement = () => {
-    if (count > 0) {
-      setCount(count - 1);
+    if (qty > 0) {
+      setQty(qty - 1);
     }
   };
 
-  const handleAddToCart = () => {
-    const items = {
-      ...data,
-      count,
-    };
-    dispatch(addToCart(items));
-    navigate("/cart");
+  const handleAddToCart = async () => {
+    try {
+      await axios.post("http://localhost:3000/cart", {
+        productId: id,
+        quantity: qty,
+        userId: user.id,
+        username: user.username,
+        email: user.email,
+      });
+
+      navigate(`/cart/${user.id}`);
+    } catch (error) {
+      console.error("Error adding to cart:", error);
+    }
   };
 
   return (
@@ -49,7 +52,7 @@ export default function QuantityProduct() {
             </span>
           </button>
           <div className="justify-center w-full font-semibold text-md hover:text-black focus:text-black md:text-basecursor-default flex items-center text-gray-700 outline-none">
-            {count}
+            {qty}
           </div>
           <button className="h-full w-20 cursor-pointer" onClick={increment}>
             <span className="m-auto text-2xl font-thin text-black hover:text-color1_selected">
@@ -58,7 +61,7 @@ export default function QuantityProduct() {
           </button>
         </div>
         <ButtonWishlist />
-        <ButtonCart count={count} handleAddToCart={handleAddToCart} />
+        <ButtonCart count={qty} handleAddToCart={handleAddToCart} />
       </div>
     </>
   );

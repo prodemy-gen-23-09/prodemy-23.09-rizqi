@@ -6,7 +6,6 @@ import { useSelector } from "react-redux";
 import DropdownAccount from "./DropdownAccount";
 
 function Header() {
-  const { items } = useSelector((state) => state.cart);
   const user = useSelector((state) => state.auth.user);
 
   return (
@@ -43,12 +42,12 @@ function Header() {
                 <CiHeart size={30} />
               </Link>
               <div className="relative">
-                {items.length > 0 && (
+                {user.length > 0 && (
                   <span className="absolute bottom-3 left-5 bg-red-500 text-white px-2 py-1 text-[9px] rounded-full">
-                    {items.length}
+                    {user.length}
                   </span>
                 )}
-                <Link to="cart/:userId" className="flex">
+                <Link to={`/cart/${user.id}`} className="flex">
                   <IoCartSharp size={30} className="cursor-pointer" />
                 </Link>
               </div>
