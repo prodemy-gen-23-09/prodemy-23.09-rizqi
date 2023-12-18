@@ -116,16 +116,7 @@
       "id": 11
     }
   ],
-  "cart": [
-    {
-      "productId": "5",
-      "quantity": 1,
-      "userId": 2,
-      "username": "user",
-      "email": "user@gmail.com",
-      "id": 1
-    }
-  ],
+  "cart": [],
   "users": [
     {
       "email": "admin@gmail.com",

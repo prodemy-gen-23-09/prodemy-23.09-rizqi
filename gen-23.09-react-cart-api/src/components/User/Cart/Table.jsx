@@ -96,10 +96,16 @@ export default function Table() {
     calculateCartTotal();
   }, [dataCart, productDetails]);
 
-  const handleDelete = (itemId) => {
-    dispatch(removeCart(itemId));
-  };
+  const handleDelete = async (itemId) => {
+    try {
+      await axios.delete(`http://localhost:3000/cart/${itemId}`);
 
+      const updatedDataCart = dataCart.filter((item) => item.id !== itemId);
+      setDataCart(updatedDataCart);
+    } catch (error) {
+      console.error("Error deleting item:", error);
+    }
+  };
   return (
     <>
       <div className="flex my-20 mx-[100px] justify-between">
