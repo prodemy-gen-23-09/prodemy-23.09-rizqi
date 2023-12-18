@@ -22,7 +22,7 @@ export default function HeaderAdmin() {
                 Product
               </div>
             </Link>
-            <Link to="/admin/user">
+            <Link to="/admin/users">
               <div className="text-black hover:text-color1_selected">Users</div>
             </Link>
             <Link to="/admin/cart">
