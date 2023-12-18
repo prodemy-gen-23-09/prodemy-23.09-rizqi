@@ -5,20 +5,17 @@ import { IoCartSharp } from "react-icons/io5";
 import { Link, Outlet } from "react-router-dom";
 import { useSelector } from "react-redux";
 import DropdownAccount from "./DropdownAccount";
-import axios from "axios";
 import { useState, useEffect } from "react";
 import { getAllCart } from "../../service/Admin/api";
 
 function Header() {
   const user = useSelector((state) => state.auth.user);
   const { data } = getAllCart(user.id);
-  const [cartData, setCartData] = useState({});
+  const [cartData, setCartData] = useState(0);
 
   useEffect(() => {
-    setCartData(data.length);
-  }, [data.length]);
-
-  console.log(data);
+    setCartData(data?.length);
+  }, [data?.length]);
 
   return (
     <div>

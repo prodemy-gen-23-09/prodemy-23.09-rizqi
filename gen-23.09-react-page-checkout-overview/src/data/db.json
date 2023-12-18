@@ -164,6 +164,22 @@
       "username": "admin",
       "email": "admin@gmail.com",
       "id": 6
+    },
+    {
+      "productId": "7",
+      "quantity": 1,
+      "userId": 2,
+      "username": "user",
+      "email": "user@gmail.com",
+      "id": 7
+    },
+    {
+      "productId": "7",
+      "quantity": 1,
+      "userId": 1,
+      "username": "admin",
+      "email": "admin@gmail.com",
+      "id": 8
     }
   ],
   "users": [
