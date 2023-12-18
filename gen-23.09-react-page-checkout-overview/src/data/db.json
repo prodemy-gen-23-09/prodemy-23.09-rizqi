@@ -132,6 +132,38 @@
       "username": "user",
       "email": "user@gmail.com",
       "id": 2
+    },
+    {
+      "productId": "6",
+      "quantity": 1,
+      "userId": 1,
+      "username": "admin",
+      "email": "admin@gmail.com",
+      "id": 3
+    },
+    {
+      "productId": "6",
+      "quantity": 1,
+      "userId": 1,
+      "username": "admin",
+      "email": "admin@gmail.com",
+      "id": 4
+    },
+    {
+      "productId": "7",
+      "quantity": 1,
+      "userId": 1,
+      "username": "admin",
+      "email": "admin@gmail.com",
+      "id": 5
+    },
+    {
+      "productId": "4",
+      "quantity": 1,
+      "userId": 1,
+      "username": "admin",
+      "email": "admin@gmail.com",
+      "id": 6
     }
   ],
   "users": [

@@ -7,26 +7,18 @@ import { useSelector } from "react-redux";
 import DropdownAccount from "./DropdownAccount";
 import axios from "axios";
 import { useState, useEffect } from "react";
+import { getAllCart } from "../../service/Admin/api";
 
 function Header() {
   const user = useSelector((state) => state.auth.user);
-  const [cartData, setCartData] = useState(0);
+  const { data } = getAllCart(user.id);
+  const [cartData, setCartData] = useState({});
 
   useEffect(() => {
-    const fetchCartData = async () => {
-      try {
-        const userId = user ? user.id : "";
-        const response = await axios.get(
-          `http://localhost:3000/cart?userId=${userId}`
-        );
-        setCartData(response.data.length);
-      } catch (error) {
-        console.error("Error fetching cart data:", error);
-      }
-    };
+    setCartData(data.length);
+  }, [data.length]);
 
-    fetchCartData();
-  }, [user]);
+  console.log(data);
 
   return (
     <div>
