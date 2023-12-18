@@ -1,20 +1,78 @@
+/* eslint-disable no-unused-vars */
 import BannerImage from "../components/User/BannerImage";
 import BillingDetails from "./BillingDetails";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useSelector } from "react-redux";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
+
+const schema = yup.object().shape({
+  first_name: yup.string().required("First Name is required"),
+  last_name: yup.string().required("Last Name is required"),
+  address: yup.string().required("Street Address is required"),
+  city: yup.string().required("Town / City is required"),
+  province: yup.string().required("Province is required"),
+  zipcode: yup.string().required("ZIP Code is required"),
+  phone: yup.string().required("Phone is required"),
+  email: yup.string().email("Invalid email").required("Email is required"),
+});
 
 export default function Checkout() {
   const [dataCart, setDataCart] = useState([]);
   const [productDetails, setProductDetails] = useState({});
   const [cartTotal, setCartTotal] = useState(0);
   const user = useSelector((state) => state.auth.user);
+  const [deliveryService, setDeliveryService] = useState("Disabled");
+  const [deliveryCost, setDeliveryCost] = useState(0);
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm({
+    resolver: yupResolver(schema),
+  });
+
+  const onSubmit = (data) => {
+    console.log(data);
+  };
 
   const formatPrice = (price) => {
     return new Intl.NumberFormat("id-ID", {
       style: "currency",
       currency: "IDR",
     }).format(price);
+  };
+
+  const handleBillingDetailsSubmit = () => {
+    console.log("Billing Details submitted");
+  };
+
+  const handleDeliveryServiceChange = (event) => {
+    const selectedService = event.target.value;
+    setDeliveryService(selectedService);
+    let cost = 0;
+    switch (selectedService) {
+      case "Same Day":
+        cost = 50000;
+        break;
+      case "Next Day":
+        cost = 30000;
+        break;
+      case "Regular":
+        cost = 20000;
+        break;
+      case "Cargo":
+        cost = 100000;
+        break;
+      default:
+        cost = 0;
+    }
+
+    setDeliveryCost(cost);
   };
 
   useEffect(() => {
@@ -67,60 +125,260 @@ export default function Checkout() {
   useEffect(() => {
     const calculateCartTotal = () => {
       let total = 0;
+
       dataCart.forEach((cartItem) => {
         const productPrice =
           productDetails[cartItem.items[0]?.productId]?.price || 0;
         total += cartItem.items[0]?.quantity * productPrice;
       });
+      const deliveryServiceCost = getDeliveryServiceCost();
+      total += deliveryServiceCost;
+
       setCartTotal(total);
     };
 
+    const getDeliveryServiceCost = () => {
+      const selectedDeliveryService = deliveryService;
+      switch (selectedDeliveryService) {
+        case "Instant":
+          return 54000;
+        case "Next Day":
+          return 38000;
+        case "Regular":
+          return 24000;
+        case "Cargo":
+          return 16000;
+        default:
+          return 0;
+      }
+    };
+
     calculateCartTotal();
-  }, [dataCart, productDetails]);
+  }, [dataCart, productDetails, deliveryService]);
 
   return (
     <div>
       <BannerImage title="Checkout" />
-      <div className="flex">
-        <BillingDetails />
-        <div className="flex flex-col mx-[175px] my-[100px] w-[530px] gap-10">
-          <table>
-            <thead>
-              <tr>
-                <th className="text-left text-3xl">Product</th>
-                <th className="text-right text-lg">Subtotal</th>
-              </tr>
-            </thead>
-            <tbody>
-              {dataCart.map((cartItem) => (
-                <tr key={cartItem.id}>
-                  <td className="text-left">
-                    {productDetails[cartItem.items[0]?.productId]?.title} x{" "}
-                    {cartItem.items[0]?.quantity}
-                  </td>
-                  <td className="text-right">
-                    {formatPrice(
-                      productDetails[cartItem.items[0]?.productId]?.price || 0
-                    )}
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <div className="grid grid-cols-2">
+          <div className="flex flex-col">
+            <div className="flex flex-col mx-[175px] my-[100px] w-[530px] gap-10">
+              <h1 className="text-3xl font-bold">Billing Details</h1>
+              <div className="flex gap-8">
+                <label className="form-control w-[250px]">
+                  <div className="label">
+                    <span className="label-text text-md font-semibold">
+                      First Name
+                    </span>
+                  </div>
+                  <input
+                    name="first_name"
+                    id="first_name"
+                    type="text"
+                    className="input input-bordered w-full"
+                    autoComplete="first_name"
+                    {...register("first_name")}
+                  />
+                  <p className="error text-sm text-red-600">
+                    {errors.first_name?.message}
+                  </p>
+                </label>
+                <label className="form-control w-[250px]">
+                  <div className="label">
+                    <span className="label-text text-md font-semibold">
+                      Last Name
+                    </span>
+                  </div>
+                  <input
+                    name="last_name"
+                    id="last_name"
+                    type="text"
+                    className="input input-bordered w-full"
+                    autoComplete="last_name"
+                    {...register("last_name")}
+                  />
+                  <p className="error text-sm text-red-600">
+                    {errors.last_name?.message}
+                  </p>
+                </label>
+              </div>
+              <label className="form-control w-full">
+                <div className="label">
+                  <span className="label-text text-md font-semibold">
+                    Street Address
+                  </span>
+                </div>
+                <input
+                  name="address"
+                  id="address"
+                  type="text"
+                  className="input input-bordered w-full"
+                  autoComplete="address"
+                />
+              </label>
+              <label className="form-control w-full">
+                <div className="label">
+                  <span className="label-text text-md font-semibold">
+                    Town / City
+                  </span>
+                </div>
+                <input
+                  name="city"
+                  id="city"
+                  type="text"
+                  className="input input-bordered w-full"
+                  autoComplete="city"
+                />
+              </label>
+              <label className="form-control w-full">
+                <div className="label">
+                  <span className="label-text text-md font-semibold">
+                    Province
+                  </span>
+                </div>
+                <input
+                  name="province"
+                  id="province"
+                  type="text"
+                  className="input input-bordered w-full"
+                  autoComplete="province"
+                />
+              </label>
+              <label className="form-control w-full">
+                <div className="label">
+                  <span className="label-text text-md font-semibold">
+                    ZIP Code
+                  </span>
+                </div>
+                <input
+                  name="zipcode"
+                  id="zipcode"
+                  type="text"
+                  className="input input-bordered w-full"
+                  autoComplete="zipcode"
+                />
+              </label>
+              <label className="form-control w-full">
+                <div className="label">
+                  <span className="label-text text-md font-semibold">
+                    Phone
+                  </span>
+                </div>
+                <input
+                  name="phone"
+                  id="phone"
+                  type="number"
+                  className="input input-bordered w-full"
+                  autoComplete="phone"
+                />
+              </label>
+              <label className="form-control w-full">
+                <div className="label">
+                  <span className="label-text text-md font-semibold">
+                    Email Address
+                  </span>
+                </div>
+                <input
+                  name="email"
+                  id="email"
+                  type="email"
+                  className="input input-bordered w-full"
+                  autoComplete="email"
+                />
+              </label>
+            </div>
+          </div>
+          <div className="flex flex-col mx-[175px] my-[100px] w-[530px] gap-10">
+            <table>
+              <thead>
+                <tr>
+                  <th className="text-left text-3xl">Product</th>
+                  <th className="text-right text-lg">Subtotal</th>
+                </tr>
+              </thead>
+              <tbody>
+                {dataCart.map((cartItem) => (
+                  <tr key={cartItem.id}>
+                    <td className="text-left">
+                      {productDetails[cartItem.items[0]?.productId]?.title} x{" "}
+                      {cartItem.items[0]?.quantity}
+                    </td>
+                    <td className="text-right">
+                      {formatPrice(
+                        productDetails[cartItem.items[0]?.productId]?.price || 0
+                      )}
+                    </td>
+                  </tr>
+                ))}
+                <tr>
+                  <td className="font-semibold text-left">Subtotal </td>
+                  <td className="font-semibold text-right">
+                    {formatPrice(cartTotal)}
                   </td>
                 </tr>
-              ))}
-              <tr>
-                <td className="font-semibold text-left">Subtotal </td>
-                <td className="font-semibold text-right">
-                  {formatPrice(cartTotal)}
-                </td>
-              </tr>
-            </tbody>
-          </table>
-          <hr />
-          <div className="flex justify-center">
-            <button className="bg-color1_selected h-14 w-1/2 rounded-md hover:bg-color_home hover:text-black text-lg font-normal text-white ">
-              Place Order
-            </button>
+              </tbody>
+            </table>
+            <hr />
+            <label className="form-control w-full ">
+              <div className="label">
+                <span className="label-text text-md font-semibold">
+                  Delivery Service
+                </span>
+              </div>
+              <select
+                className="select select-bordered"
+                onChange={handleDeliveryServiceChange}
+                value={deliveryService}
+              >
+                <option value="Disabled" disabled>
+                  Pick delivery service
+                </option>
+                <option value="Instant">Instant</option>
+                <option value="Next Day">Next Day</option>
+                <option value="Regular">Regular</option>
+                <option value="Cargo">Cargo</option>
+              </select>
+            </label>
+            <label className="form-control w-full ">
+              <div className="label">
+                <span className="label-text text-md font-semibold">
+                  Payment Method
+                </span>
+              </div>
+              <select
+                className="select select-bordered"
+                onChange={handleDeliveryServiceChange}
+                value={deliveryService}
+              >
+                <option value="Disabled" disabled>
+                  Pick delivery service
+                </option>
+                <option value="Instant">Transfer</option>
+                <option value="Next Day">E-Wallet</option>
+              </select>
+            </label>
+
+            <div className="flex justify-between">
+              <div className="font-semibold text-2xl text-left">Total </div>
+              <div className="font-semibold text-2xl text-right text-color1_selected">
+                {formatPrice(cartTotal)}
+              </div>
+            </div>
+            <hr />
+
+            <div className="flex justify-center">
+              <button
+                className="bg-color1_selected h-14 w-1/2 rounded-md hover:bg-color_home hover:text-black text-lg font-normal text-white 
+            "
+                onClick={handleBillingDetailsSubmit}
+                type="submit"
+              >
+                Place Order
+              </button>
+            </div>
           </div>
         </div>
-      </div>
+      </form>
     </div>
   );
 }

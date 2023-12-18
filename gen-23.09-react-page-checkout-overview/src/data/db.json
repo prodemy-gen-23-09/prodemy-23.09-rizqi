@@ -118,7 +118,7 @@
   ],
   "cart": [
     {
-      "productId": "4",
+      "productId": "5",
       "quantity": 1,
       "userId": 2,
       "username": "user",
@@ -169,6 +169,16 @@
         }
       ],
       "id": 2
+    },
+    {
+      "userId": 2,
+      "items": [
+        {
+          "productId": "5",
+          "quantity": 1
+        }
+      ],
+      "id": 3
     }
   ]
 }
