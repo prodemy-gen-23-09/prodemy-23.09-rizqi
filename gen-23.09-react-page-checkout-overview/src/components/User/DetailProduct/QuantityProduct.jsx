@@ -1,14 +1,15 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
-import React from "react";
 import ButtonCart from "./ButtonCart";
 import axios from "axios";
 import { useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import ButtonWishlist from "./ButtonWishlist";
+import React, { useState } from "react";
 
 export default function QuantityProduct() {
   const { id } = useParams();
+  const [dataCart, setDataCart] = useState([]);
   const [qty, setQty] = React.useState(1);
   const navigate = useNavigate();
 
@@ -25,20 +26,37 @@ export default function QuantityProduct() {
 
   const handleAddToCart = async () => {
     try {
-      await axios.post("http://localhost:3000/cart", {
-        productId: id,
-        quantity: qty,
-        userId: user.id,
-        username: user.username,
-        email: user.email,
-      });
+      const existingCartItem = dataCart.find((item) => item.productId === id);
 
-      navigate(`/cart/${user.id}`);
+      if (existingCartItem) {
+        // If the product is already in the cart, update the quantity
+        const updatedDataCart = dataCart.map((item) =>
+          item.productId === id
+            ? { ...item, quantity: item.quantity + qty }
+            : item
+        );
+
+        setDataCart(updatedDataCart);
+      } else {
+        const userId = user.id;
+        const response = await axios.post(
+          `http://localhost:3000/cart?userId=${userId}`,
+          {
+            productId: id,
+            quantity: qty,
+            userId: user.id,
+            username: user.username,
+            email: user.email,
+          }
+        );
+
+        setDataCart((prevDataCart) => [...prevDataCart, response.data]);
+        navigate(`/cart/${user.id}`);
+      }
     } catch (error) {
       console.error("Error adding to cart:", error);
     }
   };
-
   return (
     <>
       <div className="flex gap-10 mt-20">

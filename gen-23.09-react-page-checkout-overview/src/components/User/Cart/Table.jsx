@@ -50,31 +50,27 @@ export default function Table() {
       console.error("Error deleting item:", error);
     }
   };
-
   const handleCheckout = async () => {
     const userId = user ? user.id : "";
 
+    if (dataCart.length === 0) {
+      alert("Cart is empty. Cannot proceed with checkout.");
+      return;
+    }
     try {
-      const cartResponse = await axios.get(
-        `http://localhost:3000/cart?userId=${userId}`
-      );
-      const cartItems = cartResponse.data;
-      const updatedCartItems = cartItems.map((item) => {
-        const updatedQuantity = calculateUpdatedQuantity(item.productId);
-        return { ...item, quantity: updatedQuantity };
-      });
-      await axios.patch(`http://localhost:3000/cart/${userId}`, {
-        items: updatedCartItems,
+      const checkoutData = dataCart.map((cartItem) => ({
+        productId: cartItem.productId,
+        quantity: cartItem.quantity,
+      }));
+
+      const response = await axios.post(`http://localhost:3000/checkout`, {
+        userId: userId,
+        items: checkoutData,
       });
       navigate(`/checkout/${userId}`);
     } catch (error) {
       console.error("Error during checkout:", error);
     }
-  };
-
-  const calculateUpdatedQuantity = (productId) => {
-    const currentItem = dataCart.find((item) => item.productId === productId);
-    return currentItem ? currentItem.quantity : 0;
   };
 
   useEffect(() => {
@@ -134,6 +130,7 @@ export default function Table() {
 
     calculateCartTotal();
   }, [dataCart, productDetails]);
+
   return (
     <>
       <div className="flex my-20 mx-[100px] justify-between">

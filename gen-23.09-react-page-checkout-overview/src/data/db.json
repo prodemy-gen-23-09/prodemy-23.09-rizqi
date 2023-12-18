@@ -116,7 +116,16 @@
       "id": 11
     }
   ],
-  "cart": [],
+  "cart": [
+    {
+      "productId": "4",
+      "quantity": 1,
+      "userId": 2,
+      "username": "user",
+      "email": "user@gmail.com",
+      "id": 1
+    }
+  ],
   "users": [
     {
       "email": "admin@gmail.com",
@@ -138,6 +147,28 @@
       "username": "rama",
       "roles": "customer",
       "id": 3
+    }
+  ],
+  "checkout": [
+    {
+      "userId": 2,
+      "items": [
+        {
+          "productId": "4",
+          "quantity": 1
+        }
+      ],
+      "id": 1
+    },
+    {
+      "userId": 2,
+      "items": [
+        {
+          "productId": "4",
+          "quantity": 5
+        }
+      ],
+      "id": 2
     }
   ]
 }

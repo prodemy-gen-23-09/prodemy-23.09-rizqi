@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import BannerImage from "../components/User/BannerImage";
 import BillingDetails from "./BillingDetails";
 import { useEffect, useState } from "react";
@@ -17,12 +16,13 @@ export default function Checkout() {
       currency: "IDR",
     }).format(price);
   };
+
   useEffect(() => {
     const fetchCartData = async () => {
       try {
         const userId = user ? user.id : "";
         const response = await axios.get(
-          `http://localhost:3000/cart?userId=${userId}`
+          `http://localhost:3000/checkout?userId=${userId}`
         );
         setDataCart(response.data);
       } catch (error) {
@@ -32,10 +32,13 @@ export default function Checkout() {
 
     fetchCartData();
   }, [user]);
+
   useEffect(() => {
     const fetchProductDetails = async () => {
       try {
-        const productIds = dataCart.map((cartItem) => cartItem.productId);
+        const productIds = dataCart.flatMap((cartItem) =>
+          cartItem.items.map((item) => item.productId)
+        );
         const uniqueProductIds = Array.from(new Set(productIds));
         const productDetailsPromises = uniqueProductIds.map((productId) =>
           axios.get(`http://localhost:3000/products/${productId}`)
@@ -60,20 +63,23 @@ export default function Checkout() {
       fetchProductDetails();
     }
   }, [dataCart]);
+
   useEffect(() => {
     const calculateCartTotal = () => {
       let total = 0;
       dataCart.forEach((cartItem) => {
-        const productPrice = productDetails[cartItem.productId]?.price || 0;
-        total += cartItem.quantity * productPrice;
+        const productPrice =
+          productDetails[cartItem.items[0]?.productId]?.price || 0;
+        total += cartItem.items[0]?.quantity * productPrice;
       });
       setCartTotal(total);
     };
 
     calculateCartTotal();
   }, [dataCart, productDetails]);
+
   return (
-    <>
+    <div>
       <BannerImage title="Checkout" />
       <div className="flex">
         <BillingDetails />
@@ -89,12 +95,12 @@ export default function Checkout() {
               {dataCart.map((cartItem) => (
                 <tr key={cartItem.id}>
                   <td className="text-left">
-                    {productDetails[cartItem.productId]?.title} x{" "}
-                    {cartItem.quantity}
+                    {productDetails[cartItem.items[0]?.productId]?.title} x{" "}
+                    {cartItem.items[0]?.quantity}
                   </td>
                   <td className="text-right">
                     {formatPrice(
-                      productDetails[cartItem.productId]?.price || 0
+                      productDetails[cartItem.items[0]?.productId]?.price || 0
                     )}
                   </td>
                 </tr>
@@ -107,8 +113,14 @@ export default function Checkout() {
               </tr>
             </tbody>
           </table>
+          <hr />
+          <div className="flex justify-center">
+            <button className="bg-color1_selected h-14 w-1/2 rounded-md hover:bg-color_home hover:text-black text-lg font-normal text-white ">
+              Place Order
+            </button>
+          </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }

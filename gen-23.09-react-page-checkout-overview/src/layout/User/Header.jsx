@@ -28,6 +28,8 @@ function Header() {
     fetchCartData();
   }, [user]);
 
+  console.log(cartData);
+
   return (
     <div>
       <header>
