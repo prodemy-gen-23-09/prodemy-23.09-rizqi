@@ -26,7 +26,7 @@ function Header() {
     };
 
     fetchCartData();
-  }, [user]);
+  }, [user, cartData]);
 
   return (
     <div>

@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { FaTrash } from "react-icons/fa";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
@@ -12,6 +12,7 @@ export default function Table() {
   const [productDetails, setProductDetails] = useState({});
   const [cartTotal, setCartTotal] = useState(0);
   const user = useSelector((state) => state.auth.user);
+
   const formatPrice = (price) => {
     return new Intl.NumberFormat("id-ID", {
       style: "currency",
@@ -50,9 +51,30 @@ export default function Table() {
     }
   };
 
-  const handleCheckout = () => {
+  const handleCheckout = async () => {
     const userId = user ? user.id : "";
-    navigate(`/checkout/${userId}`);
+
+    try {
+      const cartResponse = await axios.get(
+        `http://localhost:3000/cart?userId=${userId}`
+      );
+      const cartItems = cartResponse.data;
+      const updatedCartItems = cartItems.map((item) => {
+        const updatedQuantity = calculateUpdatedQuantity(item.productId);
+        return { ...item, quantity: updatedQuantity };
+      });
+      await axios.patch(`http://localhost:3000/cart/${userId}`, {
+        items: updatedCartItems,
+      });
+      navigate(`/checkout/${userId}`);
+    } catch (error) {
+      console.error("Error during checkout:", error);
+    }
+  };
+
+  const calculateUpdatedQuantity = (productId) => {
+    const currentItem = dataCart.find((item) => item.productId === productId);
+    return currentItem ? currentItem.quantity : 0;
   };
 
   useEffect(() => {

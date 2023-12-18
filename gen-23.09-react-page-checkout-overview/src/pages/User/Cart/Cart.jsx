@@ -10,17 +10,10 @@ import { getAllCart } from "../../../service/Admin/api.js";
 import { setCartItems } from "../../../store/reducers/CartSlice.js";
 
 export default function Cart() {
-  const { items, cartTotal } = useSelector((state) => state.cart);
   const [isModalCheckoutOpen, setModalCheckoutOpen] = useState(false);
   const dispatch = useDispatch();
   const user = useSelector((state) => state.auth.user);
   const { data: userCart } = getAllCart(user.id);
-  const formatPrice = (price) => {
-    return new Intl.NumberFormat("id-ID", {
-      style: "currency",
-      currency: "IDR",
-    }).format(price);
-  };
 
   const closeModal = async () => {
     dispatch(clearCart());
@@ -36,7 +29,7 @@ export default function Cart() {
   return (
     <>
       <BannerImage title="Cart" />
-      <Table cartItems={items} />
+      <Table />
       <BannerService />
       {isModalCheckoutOpen && <ModalsCheckout onCancel={closeModal} />}
     </>

@@ -11,11 +11,11 @@ export default function BillingDetails() {
               </span>
             </div>
             <input
-              name="email"
-              id="email"
-              type="email"
+              name="first_name"
+              id="first_name"
+              type="text"
               className="input input-bordered w-full"
-              autoComplete="email"
+              autoComplete="first_name"
             />
           </label>
           <label className="form-control w-[250px]">
@@ -25,11 +25,11 @@ export default function BillingDetails() {
               </span>
             </div>
             <input
-              name="email"
-              id="email"
-              type="email"
+              name="last_name"
+              id="last_name"
+              type="text"
               className="input input-bordered w-full"
-              autoComplete="email"
+              autoComplete="last_name"
             />
           </label>
         </div>
@@ -40,11 +40,11 @@ export default function BillingDetails() {
             </span>
           </div>
           <input
-            name="email"
-            id="email"
-            type="email"
+            name="address"
+            id="address"
+            type="text"
             className="input input-bordered w-full"
-            autoComplete="email"
+            autoComplete="address"
           />
         </label>
         <label className="form-control w-full">
@@ -54,11 +54,11 @@ export default function BillingDetails() {
             </span>
           </div>
           <input
-            name="email"
-            id="email"
-            type="email"
+            name="city"
+            id="city"
+            type="text"
             className="input input-bordered w-full"
-            autoComplete="email"
+            autoComplete="city"
           />
         </label>
         <label className="form-control w-full">
@@ -66,11 +66,11 @@ export default function BillingDetails() {
             <span className="label-text text-md font-semibold">Province</span>
           </div>
           <input
-            name="email"
-            id="email"
-            type="email"
+            name="province"
+            id="province"
+            type="text"
             className="input input-bordered w-full"
-            autoComplete="email"
+            autoComplete="province"
           />
         </label>
         <label className="form-control w-full">
@@ -78,11 +78,11 @@ export default function BillingDetails() {
             <span className="label-text text-md font-semibold">ZIP Code</span>
           </div>
           <input
-            name="email"
-            id="email"
-            type="email"
+            name="zipcode"
+            id="zipcode"
+            type="text"
             className="input input-bordered w-full"
-            autoComplete="email"
+            autoComplete="zipcode"
           />
         </label>
         <label className="form-control w-full">
@@ -90,11 +90,11 @@ export default function BillingDetails() {
             <span className="label-text text-md font-semibold">Phone</span>
           </div>
           <input
-            name="email"
-            id="email"
-            type="email"
+            name="phone"
+            id="phone"
+            type="number"
             className="input input-bordered w-full"
-            autoComplete="email"
+            autoComplete="phone"
           />
         </label>
         <label className="form-control w-full">
