@@ -124,6 +124,14 @@
       "username": "user",
       "email": "user@gmail.com",
       "id": 1
+    },
+    {
+      "productId": "6",
+      "quantity": 1,
+      "userId": 2,
+      "username": "user",
+      "email": "user@gmail.com",
+      "id": 2
     }
   ],
   "users": [
@@ -179,6 +187,54 @@
         }
       ],
       "id": 3
+    },
+    {
+      "userId": 2,
+      "items": [
+        {
+          "productId": "5",
+          "quantity": 1
+        }
+      ],
+      "id": 4
+    },
+    {
+      "userId": 2,
+      "items": [
+        {
+          "productId": "5",
+          "quantity": 1
+        }
+      ],
+      "id": 5
+    },
+    {
+      "userId": 2,
+      "items": [
+        {
+          "productId": "5",
+          "quantity": 1
+        },
+        {
+          "productId": "6",
+          "quantity": 1
+        }
+      ],
+      "id": 6
+    },
+    {
+      "userId": 2,
+      "items": [
+        {
+          "productId": "5",
+          "quantity": 1
+        },
+        {
+          "productId": "6",
+          "quantity": 1
+        }
+      ],
+      "id": 7
     }
   ]
 }

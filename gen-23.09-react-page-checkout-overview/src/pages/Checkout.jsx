@@ -1,12 +1,12 @@
 /* eslint-disable no-unused-vars */
 import BannerImage from "../components/User/BannerImage";
-import BillingDetails from "./BillingDetails";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useSelector } from "react-redux";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
+import { useNavigate } from "react-router-dom";
 
 const schema = yup.object().shape({
   first_name: yup.string().required("First Name is required"),
@@ -20,6 +20,7 @@ const schema = yup.object().shape({
 });
 
 export default function Checkout() {
+  const navigate = useNavigate();
   const [dataCart, setDataCart] = useState([]);
   const [productDetails, setProductDetails] = useState({});
   const [cartTotal, setCartTotal] = useState(0);
@@ -48,7 +49,7 @@ export default function Checkout() {
   };
 
   const handleBillingDetailsSubmit = () => {
-    console.log("Billing Details submitted");
+    navigate(`/overview`);
   };
 
   const handleDeliveryServiceChange = (event) => {
@@ -214,7 +215,11 @@ export default function Checkout() {
                   type="text"
                   className="input input-bordered w-full"
                   autoComplete="address"
+                  {...register("address")}
                 />
+                <p className="error text-sm text-red-600">
+                  {errors.address?.message}
+                </p>
               </label>
               <label className="form-control w-full">
                 <div className="label">
@@ -228,7 +233,11 @@ export default function Checkout() {
                   type="text"
                   className="input input-bordered w-full"
                   autoComplete="city"
+                  {...register("city")}
                 />
+                <p className="error text-sm text-red-600">
+                  {errors.city?.message}
+                </p>
               </label>
               <label className="form-control w-full">
                 <div className="label">
@@ -242,7 +251,11 @@ export default function Checkout() {
                   type="text"
                   className="input input-bordered w-full"
                   autoComplete="province"
+                  {...register("province")}
                 />
+                <p className="error text-sm text-red-600">
+                  {errors.province?.message}
+                </p>
               </label>
               <label className="form-control w-full">
                 <div className="label">
@@ -256,7 +269,11 @@ export default function Checkout() {
                   type="text"
                   className="input input-bordered w-full"
                   autoComplete="zipcode"
+                  {...register("zipcode")}
                 />
+                <p className="error text-sm text-red-600">
+                  {errors.zipcode?.message}
+                </p>
               </label>
               <label className="form-control w-full">
                 <div className="label">
@@ -270,7 +287,11 @@ export default function Checkout() {
                   type="number"
                   className="input input-bordered w-full"
                   autoComplete="phone"
+                  {...register("phone")}
                 />
+                <p className="error text-sm text-red-600">
+                  {errors.phone?.message}
+                </p>
               </label>
               <label className="form-control w-full">
                 <div className="label">
@@ -284,7 +305,11 @@ export default function Checkout() {
                   type="email"
                   className="input input-bordered w-full"
                   autoComplete="email"
+                  {...register("email")}
                 />
+                <p className="error text-sm text-red-600">
+                  {errors.email?.message}
+                </p>
               </label>
             </div>
           </div>

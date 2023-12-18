@@ -19,6 +19,7 @@ import Register from "./pages/Register";
 import CartAdmin from "./pages/Admin/CartAdmin";
 import Users from "./pages/Admin/Users";
 import Checkout from "./pages/Checkout";
+import Overview from "./pages/Overview";
 
 export default function App() {
   return (
@@ -48,6 +49,7 @@ export default function App() {
         <Route path="/login" element={<Login />} />
       </Route>
       <Route path="/register" element={<Register />} />
+      <Route path="/overview" element={<Overview />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
   );
