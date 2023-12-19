@@ -52,9 +52,9 @@ function Footer() {
           <h1 className="text-md">Newsletter</h1>
           <div className="flex gap-8 mt-20">
             <input
-              id="email_newsletter"
-              autoComplete="email_newsletter"
-              name="email_newsletter"
+              id="email"
+              autoComplete="email"
+              name="email"
               type="text"
               placeholder="Enter your email address"
               className="border-b-2 border-black"

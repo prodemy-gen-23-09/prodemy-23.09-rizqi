@@ -16,11 +16,6 @@ import GuestRoutes from "./routes/GuestRoutes";
 import PrivateRoutes from "./routes/PrivateRoutes";
 import AdminRoutes from "./routes/AdminRoutes";
 import Register from "./pages/Register";
-import CartAdmin from "./pages/Admin/CartAdmin";
-import Users from "./pages/Admin/Users";
-import Checkout from "./pages/Checkout";
-import Overview from "./pages/Overview";
-import Profile from "./pages/Profile";
 
 export default function App() {
   return (
@@ -34,16 +29,12 @@ export default function App() {
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/wishlist" element={<Wishlist />} />
-          <Route path="/cart/:userId" element={<Cart />} />
-          <Route path="/checkout/:userId" element={<Checkout />} />
-          <Route path="/profile" element={<Profile />} />
+          <Route path="/cart" element={<Cart />} />
         </Route>
         <Route element={<AdminRoutes />}>
           <Route path="/admin" element={<HeaderFooterAdmin />}>
             <Route index element={<HomeAdmin />} />
             <Route path="delete" element={<PromptDelete />} />
-            <Route path="users" element={<Users />} />
-            <Route path="cart" element={<CartAdmin />} />
           </Route>
         </Route>
       </Route>
@@ -51,7 +42,6 @@ export default function App() {
         <Route path="/login" element={<Login />} />
       </Route>
       <Route path="/register" element={<Register />} />
-      <Route path="/overview" element={<Overview />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
   );

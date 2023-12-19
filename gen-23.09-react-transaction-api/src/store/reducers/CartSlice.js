@@ -10,7 +10,7 @@ const findItemIndexById = (items, id) => {
 };
 
 const calculateTotal = (items) => {
-  return items.reduce((total, item) => total + item.qty * item.price, 0);
+  return items.reduce((total, item) => total + item.count * item.price, 0);
 };
 
 const cartSlice = createSlice({
@@ -22,7 +22,7 @@ const cartSlice = createSlice({
       const existingItemIndex = findItemIndexById(state.items, newItem.id);
 
       if (existingItemIndex !== -1) {
-        state.items[existingItemIndex].qty += newItem.qty;
+        state.items[existingItemIndex].count += newItem.count;
       } else {
         state.items.push(newItem);
       }
@@ -41,13 +41,10 @@ const cartSlice = createSlice({
     clearCart: (state) => {
       state.items = [];
     },
-    setCartItems: (state, action) => {
-      state.cartItems = action.payload;
-    },
   },
 });
 
-export const { addToCart, removeCart, getCartTotal, clearCart, setCartItems } =
+export const { addToCart, removeCart, getCartTotal, clearCart } =
   cartSlice.actions;
 
 export default cartSlice.reducer;

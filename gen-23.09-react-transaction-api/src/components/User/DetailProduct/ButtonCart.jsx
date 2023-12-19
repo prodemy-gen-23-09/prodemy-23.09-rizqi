@@ -3,13 +3,13 @@
 import { useState } from "react";
 import OverlayProduct from "../Modals/OverlayProduct";
 
-export default function ButtonCart({ qty, handleAddToCart }) {
+export default function ButtonCart({ count, handleAddToCart }) {
   const [isModalOpen, setModalOpen] = useState(false);
 
   const openModal = () => {
-    if (qty !== 0) {
-      handleAddToCart();
+    if (count !== 0) {
       setModalOpen(true);
+      handleAddToCart();
     }
   };
 

@@ -1,96 +1,41 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
+import React from "react";
 import ButtonCart from "./ButtonCart";
 import axios from "axios";
-import { useSelector } from "react-redux";
-import { useNavigate, useParams } from "react-router-dom";
-import ButtonWishlist from "./ButtonWishlist";
 import useSWR from "swr";
-import React, { useState, useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { useNavigate, useParams } from "react-router-dom";
+import { addToCart } from "../../../store/reducers/CartSlice";
+import ButtonWishlist from "./ButtonWishlist";
 
 const fetcher = (url) => axios.get(url).then((response) => response.data);
 
 export default function QuantityProduct() {
   const { id } = useParams();
-  const [dataCart, setDataCart] = useState([]);
-  const [qty, setQty] = useState(1);
+  const [count, setCount] = React.useState(0);
+  const dispatch = useDispatch();
   const navigate = useNavigate();
-  const user = useSelector((state) => state.auth.user);
-  const existingCartItem = dataCart.find((items) => items.productId === id);
-  const { data, isLoading } = useSWR(
-    `http://localhost:3000/products/${id}`,
-    fetcher
-  );
-
+  const { data } = useSWR(`http://localhost:3000/products/${id}`, fetcher);
   const increment = () => {
-    setQty(qty + 1);
+    setCount(count + 1);
   };
 
   const decrement = () => {
-    if (qty > 0) {
-      setQty(qty - 1);
+    if (count > 0) {
+      setCount(count - 1);
     }
   };
 
-  useEffect(() => {
-    const fetchCartData = async () => {
-      try {
-        const userId = user ? user.id : "";
-        const response = await axios.get(
-          `http://localhost:3000/cart?userId=${userId}`
-        );
-        setDataCart(response.data);
-      } catch (error) {
-        console.error("Error fetching cart data:", error);
-      }
+  const handleAddToCart = () => {
+    const items = {
+      ...data,
+      count,
     };
-
-    fetchCartData();
-  }, [user]);
-
-  console.log(dataCart);
-  const payload = {
-    items: [
-      ...(existingCartItem ? existingCartItem.items : []),
-      { productId: data?.id, quantity: qty },
-    ],
-    userId: user.id,
-    username: user.username,
-    email: user.email,
+    dispatch(addToCart(items));
+    navigate("/cart");
   };
 
-  const handleAddToCart = async () => {
-    try {
-      if (existingCartItem) {
-        const updatedQuantity = existingCartItem.quantity + qty;
-        const userId = user.id;
-
-        await axios.put(
-          `http://localhost:3000/cart/${existingCartItem.id}?userId=${userId}`,
-          { quantity: updatedQuantity }
-        );
-
-        setDataCart((prevDataCart) =>
-          prevDataCart.map((item) =>
-            item.productId === id
-              ? { ...item, quantity: updatedQuantity }
-              : item
-          )
-        );
-      } else {
-        const userId = user.id;
-        const response = await axios.post(
-          `http://localhost:3000/cart?userId=${userId}`,
-          payload
-        );
-
-        setDataCart((prevDataCart) => [...prevDataCart, response.data]);
-        navigate(`/cart/${user.id}`);
-      }
-    } catch (error) {
-      console.error("Error adding to cart:", error);
-    }
-  };
   return (
     <>
       <div className="flex gap-10 mt-20">
@@ -104,7 +49,7 @@ export default function QuantityProduct() {
             </span>
           </button>
           <div className="justify-center w-full font-semibold text-md hover:text-black focus:text-black md:text-basecursor-default flex items-center text-gray-700 outline-none">
-            {qty}
+            {count}
           </div>
           <button className="h-full w-20 cursor-pointer" onClick={increment}>
             <span className="m-auto text-2xl font-thin text-black hover:text-color1_selected">
@@ -113,7 +58,7 @@ export default function QuantityProduct() {
           </button>
         </div>
         <ButtonWishlist />
-        <ButtonCart count={qty} handleAddToCart={handleAddToCart} />
+        <ButtonCart count={count} handleAddToCart={handleAddToCart} />
       </div>
     </>
   );

@@ -1,21 +1,13 @@
-/* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 import { CiSearch, CiHeart } from "react-icons/ci";
 import { IoCartSharp } from "react-icons/io5";
 import { Link, Outlet } from "react-router-dom";
 import { useSelector } from "react-redux";
 import DropdownAccount from "./DropdownAccount";
-import { useState, useEffect } from "react";
-import { getAllCart } from "../../service/cart";
 
 function Header() {
+  const { items } = useSelector((state) => state.cart);
   const user = useSelector((state) => state.auth.user);
-  const { data } = getAllCart(user.id);
-  const [cartData, setCartData] = useState(0);
-
-  useEffect(() => {
-    setCartData(data?.length);
-  }, [data?.length]);
 
   return (
     <div>
@@ -51,12 +43,12 @@ function Header() {
                 <CiHeart size={30} />
               </Link>
               <div className="relative">
-                {cartData > 0 && (
+                {items.length > 0 && (
                   <span className="absolute bottom-3 left-5 bg-red-500 text-white px-2 py-1 text-[9px] rounded-full">
-                    {cartData}
+                    {items.length}
                   </span>
                 )}
-                <Link to={`/cart/${user.id}`} className="flex">
+                <Link to="cart" className="flex">
                   <IoCartSharp size={30} className="cursor-pointer" />
                 </Link>
               </div>

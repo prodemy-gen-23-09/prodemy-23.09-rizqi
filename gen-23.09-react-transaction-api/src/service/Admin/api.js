@@ -3,7 +3,7 @@
 import axios from "axios";
 import useSWR, { mutate } from "swr";
 
-export const fetchData = async (url) => {
+export const fetchProducts = async (url) => {
   const data = await axios
     .get(url, { headers: { "Cache-Control": "no-cache" } })
     .then((res) => res.data);
@@ -13,7 +13,7 @@ export const fetchData = async (url) => {
 export const getAllProducts = () => {
   const { data, error } = useSWR(
     "http://localhost:3000/products",
-    fetchData,
+    fetchProducts,
     mutate("http://localhost:3000/products")
   );
 
