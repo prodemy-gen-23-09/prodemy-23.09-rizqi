@@ -6,10 +6,17 @@ import { setToken, setUser } from "../store/reducers/authSlice.js";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
+import { useState } from "react";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 export default function Login() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const [showPassword, setShowPassword] = useState(false);
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
 
   const schema = yup.object().shape({
     email: yup.string().email().required("Email is required"),
@@ -75,14 +82,27 @@ export default function Login() {
                     Password
                   </span>
                 </div>
-                <input
-                  name="password"
-                  id="password"
-                  type="password"
-                  className="input input-bordered w-full"
-                  autoComplete="current-password"
-                  {...register("password")}
-                />
+                <div className="relative">
+                  <input
+                    name="password"
+                    id="password"
+                    type={showPassword ? "text" : "password"}
+                    className="input input-bordered w-full"
+                    autoComplete="current-password"
+                    {...register("password")}
+                  />
+                  <span
+                    className="absolute inset-y-0 right-0 pr-3 flex items-center cursor-pointer"
+                    onClick={togglePasswordVisibility}
+                  >
+                    {showPassword ? (
+                      // Ikon ketika password terlihat
+                      <FaEyeSlash />
+                    ) : (
+                      <FaEye />
+                    )}
+                  </span>
+                </div>
                 <p className="error text-sm text-red-600">
                   {errors.password?.message}
                 </p>

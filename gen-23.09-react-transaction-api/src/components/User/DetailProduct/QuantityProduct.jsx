@@ -32,7 +32,6 @@ export default function QuantityProduct() {
   const handleAddToCart = () => {
     const { id, thumbnail, title, price } = data;
     const items = {
-      id: id,
       thumbnail: thumbnail,
       title: title,
       price: price,

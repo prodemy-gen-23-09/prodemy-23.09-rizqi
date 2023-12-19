@@ -4,15 +4,19 @@ import { useSelector } from "react-redux";
 import Person from "../assets/home/banner-home.png";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import * as yup from "yup";
-import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import { mutate } from "swr";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 export default function Profile() {
   const user = useSelector((state) => state.auth.user);
   const { register, handleSubmit, setValue } = useForm();
   const [dataProfile, setDataProfile] = useState([]);
+
+  const [showPassword, setShowPassword] = useState(false);
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
 
   useEffect(() => {
     const fetchProfileData = async () => {
@@ -28,6 +32,8 @@ export default function Profile() {
         setValue("postalcode", userProfileData.postalcode);
         setValue("phone", userProfileData.phone);
         setValue("email", userProfileData.email);
+        setValue("password", userProfileData.password);
+        setValue("roles", userProfileData.roles);
 
         setDataProfile(userProfileData);
       } catch (error) {
@@ -38,21 +44,25 @@ export default function Profile() {
     fetchProfileData();
   }, [setValue, user]);
 
-  const { username, address, postalcode, phone, email } = dataProfile || {};
+  const { username, password, address, postalcode, phone, email, roles } =
+    dataProfile || {};
 
   useEffect(() => {
     setValue("username", username || "");
+    setValue("password", password || "");
     setValue("address", address || "");
     setValue("postalcode", postalcode || "");
     setValue("phone", phone || "");
     setValue("email", email || "");
-  }, [setValue, username, address, postalcode, phone, email]);
+    setValue("roles", roles || "");
+  }, [setValue, username, password, address, postalcode, phone, email, roles]);
 
   const submitForm = async (data) => {
     console.log(data);
     try {
       const updatedProductData = {
         username: data.username,
+        password: data.password,
         address: data.address,
         postalcode: data.postalcode,
         phone: data.phone,
@@ -90,7 +100,34 @@ export default function Profile() {
                   {...register("username")}
                 />
               </label>
-
+              <label className="form-control w-[450px]">
+                <div className="label">
+                  <span className="label-text text-md font-semibold">
+                    Password
+                  </span>
+                </div>
+                <div className="relative">
+                  <input
+                    name="password"
+                    id="password"
+                    type={showPassword ? "text" : "password"}
+                    className="input input-bordered w-full"
+                    autoComplete="current-password"
+                    {...register("password")}
+                  />
+                  <span
+                    className="absolute inset-y-0 right-0 pr-3 flex items-center cursor-pointer"
+                    onClick={togglePasswordVisibility}
+                  >
+                    {showPassword ? (
+                      // Ikon ketika password terlihat
+                      <FaEyeSlash />
+                    ) : (
+                      <FaEye />
+                    )}
+                  </span>
+                </div>
+              </label>
               <label className="form-control w-[450px]">
                 <div className="label">
                   <span className="label-text text-md font-semibold">
