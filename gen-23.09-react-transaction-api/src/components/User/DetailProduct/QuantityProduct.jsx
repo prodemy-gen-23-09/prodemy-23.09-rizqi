@@ -4,7 +4,7 @@ import React from "react";
 import ButtonCart from "./ButtonCart";
 import axios from "axios";
 import useSWR from "swr";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import { addToCart } from "../../../store/reducers/CartSlice";
 import ButtonWishlist from "./ButtonWishlist";
@@ -17,6 +17,8 @@ export default function QuantityProduct() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { data } = useSWR(`http://localhost:3000/products/${id}`, fetcher);
+  const { cart } = useSWR(`http://localhost:3000/cart`, fetcher);
+  const user = useSelector((state) => state.auth.user);
   const increment = () => {
     setCount(count + 1);
   };
@@ -29,12 +31,25 @@ export default function QuantityProduct() {
 
   const handleAddToCart = () => {
     const items = {
-      ...data,
-      count,
+      productsItems: { ...data },
+      quantity: count,
+      userId: user.id,
+      username: user.username,
+      email: user.email,
     };
-    dispatch(addToCart(items));
-    navigate("/cart");
+    axios
+      .post("http://localhost:3000/cart", items)
+      .then((response) => {
+        console.log("Item added to cart:", response.data);
+        dispatch(addToCart(items));
+        navigate(`/cart/${user.id}`);
+      })
+      .catch((error) => {
+        console.error("Error adding item to cart:", error);
+      });
   };
+
+  console.log(cart);
 
   return (
     <>

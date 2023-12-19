@@ -9,10 +9,6 @@ const findItemIndexById = (items, id) => {
   return items.findIndex((item) => item.id === id);
 };
 
-const calculateTotal = (items) => {
-  return items.reduce((total, item) => total + item.count * item.price, 0);
-};
-
 const cartSlice = createSlice({
   name: "cart",
   initialState,
@@ -35,8 +31,8 @@ const cartSlice = createSlice({
         state.items.splice(itemIndexToRemove, 1);
       }
     },
-    getCartTotal: (state) => {
-      state.cartTotal = calculateTotal(state.items);
+    getCartTotal: (state, action) => {
+      state.cartTotal = action.payload;
     },
     clearCart: (state) => {
       state.items = [];

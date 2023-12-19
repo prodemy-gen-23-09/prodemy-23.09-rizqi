@@ -1,13 +1,18 @@
 /* eslint-disable react/prop-types */
 import { CiSearch, CiHeart } from "react-icons/ci";
 import { IoCartSharp } from "react-icons/io5";
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import DropdownAccount from "./DropdownAccount";
 
 function Header() {
+  const navigate = useNavigate();
   const { items } = useSelector((state) => state.cart);
   const user = useSelector((state) => state.auth.user);
+
+  const handleCartButton = () => {
+    navigate(`/cart/${user.id}`);
+  };
 
   return (
     <div>
@@ -48,9 +53,11 @@ function Header() {
                     {items.length}
                   </span>
                 )}
-                <Link to="cart" className="flex">
-                  <IoCartSharp size={30} className="cursor-pointer" />
-                </Link>
+                <IoCartSharp
+                  size={30}
+                  className="cursor-pointer"
+                  onClick={handleCartButton}
+                />
               </div>
               <DropdownAccount title={user.username} />
             </div>
