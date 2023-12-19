@@ -4,15 +4,22 @@ import { IoCartSharp } from "react-icons/io5";
 import { Link, Outlet, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import DropdownAccount from "./DropdownAccount";
+import { useEffect, useState } from "react";
+import { getAllCart } from "../../service/cart";
 
 function Header() {
   const navigate = useNavigate();
-  const { items } = useSelector((state) => state.cart);
   const user = useSelector((state) => state.auth.user);
+  const { data } = getAllCart(user.id);
+  const [cartData, setCartData] = useState(0);
 
   const handleCartButton = () => {
     navigate(`/cart/${user.id}`);
   };
+
+  useEffect(() => {
+    setCartData(data?.length);
+  }, [data?.length]);
 
   return (
     <div>
@@ -48,9 +55,9 @@ function Header() {
                 <CiHeart size={30} />
               </Link>
               <div className="relative">
-                {items.length > 0 && (
+                {cartData > 0 && (
                   <span className="absolute bottom-3 left-5 bg-red-500 text-white px-2 py-1 text-[9px] rounded-full">
-                    {items.length}
+                    {cartData}
                   </span>
                 )}
                 <IoCartSharp

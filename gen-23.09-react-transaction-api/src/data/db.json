@@ -118,28 +118,24 @@
   ],
   "cart": [
     {
-      "productsItems": {
-        "id": 5,
-        "thumbnail": "/src/assets/shop/product5.png",
-        "image": [
-          "/src/assets/shop/product5.png",
-          "/src/assets/shop/product5.png",
-          "/src/assets/shop/product5.png",
-          "/src/assets/shop/product5.png",
-          "/src/assets/shop/product5.png"
-        ],
-        "title": "Lolito",
-        "desc": "Sit culpa magna aliquip sit nulla nostrud consectetur dolore ut eu. Incididunt consectetur nisi enim ullamco deserunt reprehenderit esse dolor culpa ut. Reprehenderit aute culpa laborum eiusmod amet dolore excepteur consequat nisi ad anim amet.",
-        "price": 700000,
-        "category": "Chair",
-        "release_date": "2023-09-04",
-        "stock": 9
-      },
+      "id": 4,
+      "thumbnail": "/src/assets/shop/product4.png",
+      "title": "Respira",
+      "price": 500000,
       "quantity": 5,
       "userId": 1,
       "username": "admin",
-      "email": "admin@gmail.com",
-      "id": 1
+      "email": "admin@gmail.com"
+    },
+    {
+      "id": 6,
+      "thumbnail": "/src/assets/shop/product6.png",
+      "title": "Leviosa",
+      "price": 10500000,
+      "quantity": 1,
+      "userId": 1,
+      "username": "admin",
+      "email": "admin@gmail.com"
     }
   ],
   "users": [

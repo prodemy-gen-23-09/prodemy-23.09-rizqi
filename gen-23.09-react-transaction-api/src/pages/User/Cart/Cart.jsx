@@ -9,19 +9,14 @@ import { useSelector, useDispatch } from "react-redux";
 import ModalsCheckout from "../../../components/User/Cart/ModalsCheckout.jsx";
 import { clearCart, getCartTotal } from "../../../store/reducers/CartSlice.js";
 import axios from "axios";
+import { formatPrice } from "../../../service/price.js";
 
 export default function Cart() {
-  const { items, cartTotal } = useSelector((state) => state.cart);
+  const { cartTotal } = useSelector((state) => state.cart);
   const user = useSelector((state) => state.auth.user);
   const [cartItems, setCartItems] = useState([]);
   const [isModalCheckoutOpen, setModalCheckoutOpen] = useState(false);
   const dispatch = useDispatch();
-  const formatPrice = (price) => {
-    return new Intl.NumberFormat("id-ID", {
-      style: "currency",
-      currency: "IDR",
-    }).format(price);
-  };
 
   const openModal = () => {
     setModalCheckoutOpen(true);
@@ -34,7 +29,7 @@ export default function Cart() {
 
   const increment = (productId) => {
     const updatedDataCart = cartItems.map((item) => {
-      if (item.productId === productId) {
+      if (item.id === productId) {
         return { ...item, quantity: item.quantity + 1 };
       }
       return item;
@@ -44,7 +39,7 @@ export default function Cart() {
 
   const decrement = (productId) => {
     const updatedDataCart = cartItems.map((item) => {
-      if (item.productId === productId && item.quantity > 0) {
+      if (item.id === productId && item.quantity > 0) {
         return { ...item, quantity: item.quantity - 1 };
       }
       return item;
@@ -62,28 +57,31 @@ export default function Cart() {
       console.error("Error deleting item:", error);
     }
   };
-
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
           `http://localhost:3000/cart?userId=${user.id}`
         );
-        const total = response.data.reduce((accumulator, item) => {
-          const subtotal = item.quantity * item.productsItems.price;
-          return accumulator + subtotal;
-        }, 0);
 
-        dispatch(getCartTotal(total));
-        setCartItems(response.data);
+        if (response.data) {
+          const total = response.data.reduce((accumulator, item) => {
+            const subtotal = item.quantity * item.price;
+            return accumulator + subtotal;
+          }, 0);
+
+          dispatch(getCartTotal(total));
+          setCartItems(response.data);
+        } else {
+          console.error("Error: productItems is undefined in the response.");
+        }
       } catch (error) {
         console.error("Error fetching data:", error);
       }
     };
-    dispatch(getCartTotal());
-    fetchData();
-  }, [dispatch, items, user.id]);
 
+    fetchData();
+  }, [dispatch, user.id]);
   console.log(cartItems);
 
   return (
@@ -103,26 +101,22 @@ export default function Cart() {
             </tr>
           </thead>
           <tbody>
-            {cartItems.map((item, index) => (
+            {cartItems?.map((item, index) => (
               <tr key={item.id || index} className="text-center">
                 <td>{index + 1}</td>
                 <td>
                   <div className="flex items-center justify-center gap-6">
-                    <img
-                      src={item.productsItems.thumbnail}
-                      width={120}
-                      alt={item.productsItems.title}
-                    />
+                    <img src={item.thumbnail} width={120} alt={item.title} />
                   </div>
                 </td>
-                <td>{item.productsItems.title}</td>
-                <td>{formatPrice(item.productsItems.price)}</td>
+                <td>{item.title}</td>
+                <td>{formatPrice(item.price)}</td>
                 <td>
                   <div className="flex justify-center items-center">
                     <div className="flex h-10 w-24 rounded-xl relative bg-transparent mt-1 border-2">
                       <button
                         className="h-full w-20 rounded-3xl cursor-pointer"
-                        onClick={() => decrement(item.productId)}
+                        onClick={() => decrement(item.id)}
                       >
                         <span className="m-auto text-2xl font-thin text-black hover:text-color1_selected">
                           -
@@ -133,7 +127,7 @@ export default function Cart() {
                       </div>
                       <button
                         className="h-full w-20 cursor-pointer"
-                        onClick={() => increment(item.productId)}
+                        onClick={() => increment(item.id)}
                       >
                         <span className="m-auto text-2xl font-thin text-black hover:text-color1_selected">
                           +
@@ -142,7 +136,7 @@ export default function Cart() {
                     </div>
                   </div>
                 </td>
-                <td>{formatPrice(item.quantity * item.productsItems.price)}</td>
+                <td>{formatPrice(item.quantity * item.price)}</td>
                 <td>
                   <button
                     className="btn btn-sm btn-circle btn-ghost"
