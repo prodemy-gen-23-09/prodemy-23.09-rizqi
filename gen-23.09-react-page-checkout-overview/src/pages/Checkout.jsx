@@ -6,7 +6,7 @@ import { useSelector } from "react-redux";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 const schema = yup.object().shape({
   first_name: yup.string().required("First Name is required"),
@@ -20,6 +20,7 @@ const schema = yup.object().shape({
 });
 
 export default function Checkout() {
+  const { id } = useParams();
   const navigate = useNavigate();
   const [dataCart, setDataCart] = useState([]);
   const [productDetails, setProductDetails] = useState({});
@@ -37,8 +38,22 @@ export default function Checkout() {
     resolver: yupResolver(schema),
   });
 
-  const onSubmit = (data) => {
-    console.log(data);
+  const deleteAllItemsByUserId = async (userId) => {
+    try {
+      const itemsToDelete = dataCart.filter((item) => item.userId === userId);
+      console.log(itemsToDelete);
+      for (const itemToDelete of itemsToDelete) {
+        await axios.delete(`http://localhost:3000/checkout/${itemToDelete.id}`);
+      }
+
+      console.log(`Items for userId ${userId} deleted successfully.`);
+    } catch (error) {
+      console.error("Error deleting items:", error);
+    }
+  };
+
+  const onSubmit = () => {
+    deleteAllItemsByUserId(user.id);
     navigate(`/overview`);
   };
 
