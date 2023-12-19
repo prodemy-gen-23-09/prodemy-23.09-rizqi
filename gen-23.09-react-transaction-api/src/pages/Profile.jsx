@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import BannerImage from "../components/User/BannerImage";
 import { useSelector } from "react-redux";
 import Person from "../assets/home/banner-home.png";
@@ -58,7 +59,6 @@ export default function Profile() {
 
   const onSubmitForm = async (data) => {
     try {
-      // Exclude the password field from the data
       const { password, ...updatedProfileData } = data;
 
       await axios
