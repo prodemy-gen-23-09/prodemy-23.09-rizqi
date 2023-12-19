@@ -17,10 +17,6 @@ export default function Cart() {
   const [cartItems, setCartItems] = useState([]);
   const dispatch = useDispatch();
 
-  const handleCheckout = () => {
-    navigate(`/checkout/${user.id}`);
-  };
-
   const increment = (productId) => {
     const updatedDataCart = cartItems.map((item) => {
       if (item.id === productId) {
@@ -76,7 +72,20 @@ export default function Cart() {
 
     fetchData();
   }, [dispatch, user.id]);
-  console.log(cartItems);
+
+  const handleCheckout = async () => {
+    try {
+      const response = await axios.post("http://localhost:3000/checkout", {
+        userId: user.id,
+        data: cartItems,
+      });
+
+      console.log("Checkout successful:", response.data);
+      navigate(`/checkout/${user.id}`);
+    } catch (error) {
+      console.error("Error during checkout:", error);
+    }
+  };
 
   return (
     <>

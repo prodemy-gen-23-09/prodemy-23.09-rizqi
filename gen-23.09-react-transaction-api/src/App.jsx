@@ -18,6 +18,7 @@ import AdminRoutes from "./routes/AdminRoutes";
 import Register from "./pages/Register";
 import Checkout from "./pages/Checkout";
 import Profile from "./pages/Profile";
+import Overview from "./pages/Overview";
 
 export default function App() {
   return (
@@ -46,6 +47,7 @@ export default function App() {
         <Route path="/login" element={<Login />} />
       </Route>
       <Route path="/register" element={<Register />} />
+      <Route path="/overview/:userId" element={<Overview />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
   );

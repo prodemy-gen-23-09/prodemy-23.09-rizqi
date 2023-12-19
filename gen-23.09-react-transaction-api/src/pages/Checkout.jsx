@@ -4,16 +4,13 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { useSelector } from "react-redux";
 import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
-import * as yup from "yup";
 import { useNavigate, useParams } from "react-router-dom";
 import { getAllUsers } from "../service/users";
+import { formatPrice } from "../service/price";
 
 export default function Checkout() {
-  const { id } = useParams();
   const navigate = useNavigate();
   const [dataCart, setDataCart] = useState([]);
-  const [productDetails, setProductDetails] = useState({});
   const [cartTotal, setCartTotal] = useState(0);
   const user = useSelector((state) => state.auth.user);
   const [deliveryService, setDeliveryService] = useState("Disabled");
@@ -21,32 +18,6 @@ export default function Checkout() {
   const [dataProfile, setDataProfile] = useState([]);
   const { mutate } = getAllUsers(user.id);
   const { handleSubmit } = useForm({});
-
-  const deleteAllItemsByUserId = async (userId) => {
-    try {
-      const itemsToDelete = dataCart.filter((item) => item.userId === userId);
-      console.log(itemsToDelete);
-      for (const itemToDelete of itemsToDelete) {
-        await axios.delete(`http://localhost:3000/checkout/${itemToDelete.id}`);
-      }
-
-      console.log(`Items for userId ${userId} deleted successfully.`);
-    } catch (error) {
-      console.error("Error deleting items:", error);
-    }
-  };
-
-  const onSubmit = () => {
-    deleteAllItemsByUserId(user.id);
-    navigate(`/overview`);
-  };
-
-  const formatPrice = (price) => {
-    return new Intl.NumberFormat("id-ID", {
-      style: "currency",
-      currency: "IDR",
-    }).format(price);
-  };
 
   const handleDeliveryServiceChange = (event) => {
     const selectedService = event.target.value;
@@ -96,7 +67,11 @@ export default function Checkout() {
         const response = await axios.get(
           `http://localhost:3000/checkout?userId=${userId}`
         );
-        setDataCart(response.data);
+        const responseData = response.data;
+
+        const mergedData = responseData.map((item) => item.data).flat();
+
+        setDataCart(mergedData);
       } catch (error) {
         console.error("Error fetching cart data:", error);
       }
@@ -105,72 +80,44 @@ export default function Checkout() {
     fetchCartData();
   }, [user]);
 
-  useEffect(() => {
-    const fetchProductDetails = async () => {
-      try {
-        const productIds = dataCart.flatMap((cartItem) =>
-          cartItem.items.map((item) => item.productId)
-        );
-        const uniqueProductIds = Array.from(new Set(productIds));
-        const productDetailsPromises = uniqueProductIds.map((productId) =>
-          axios.get(`http://localhost:3000/products/${productId}`)
-        );
-        const productDetailsResponses = await Promise.all(
-          productDetailsPromises
-        );
-        const productDetailsMap = productDetailsResponses.reduce(
-          (acc, response) => {
-            acc[response.data.id] = response.data;
-            return acc;
-          },
-          {}
-        );
-        setProductDetails(productDetailsMap);
-      } catch (error) {
-        console.error("Error fetching product details:", error);
-      }
-    };
+  const individualSubtotals = dataCart.map((cartItem) => {
+    return (cartItem.price || 0) * (cartItem.quantity || 0);
+  });
 
-    if (dataCart.length > 0) {
-      fetchProductDetails();
-    }
-  }, [dataCart]);
+  const subtotal = individualSubtotals.reduce(
+    (sum, individualSubtotal) => sum + individualSubtotal,
+    0
+  );
 
   useEffect(() => {
     const calculateCartTotal = () => {
-      let total = 0;
-
-      dataCart.forEach((cartItem) => {
-        const productPrice =
-          productDetails[cartItem.items[0]?.productId]?.price || 0;
-        total += cartItem.items[0]?.quantity * productPrice;
-      });
-      const deliveryServiceCost = getDeliveryServiceCost();
-      total += deliveryServiceCost;
-
+      const subtotal = individualSubtotals.reduce(
+        (sum, individualSubtotal) => sum + individualSubtotal,
+        0
+      );
+      const total = subtotal + deliveryCost;
       setCartTotal(total);
     };
-
-    const getDeliveryServiceCost = () => {
-      const selectedDeliveryService = deliveryService;
-      switch (selectedDeliveryService) {
-        case "Instant":
-          return 54000;
-        case "Next Day":
-          return 38000;
-        case "Regular":
-          return 24000;
-        case "Cargo":
-          return 16000;
-        default:
-          return 0;
-      }
-    };
-
     calculateCartTotal();
-  }, [dataCart, productDetails, deliveryService]);
+  }, [individualSubtotals, deliveryCost]);
 
-  console.log(dataProfile);
+  const addTransaction = async (dataProfile, checkoutData) => {
+    try {
+      const response = await axios.post("http://localhost:3000/transaction", {
+        dataProfile,
+        checkoutData: checkoutData,
+      });
+      console.log("Transaction added successfully:", response.data);
+    } catch (error) {
+      console.error("Error adding transaction:", error);
+    }
+  };
+
+  const onSubmit = () => {
+    addTransaction(dataProfile, dataCart);
+    navigate(`/overview/${user.id}`);
+  };
+
   return (
     <div>
       <BannerImage title="Checkout" />
@@ -212,23 +159,20 @@ export default function Checkout() {
                 </tr>
               </thead>
               <tbody>
-                {dataCart.map((cartItem) => (
-                  <tr key={cartItem.id}>
+                {dataCart.map((cartItem, index) => (
+                  <tr key={index}>
                     <td className="text-left">
-                      {productDetails[cartItem.items[0]?.productId]?.title} x{" "}
-                      {cartItem.items[0]?.quantity}
+                      {cartItem.title} x {cartItem.quantity}
                     </td>
                     <td className="text-right">
-                      {formatPrice(
-                        productDetails[cartItem.items[0]?.productId]?.price || 0
-                      )}
+                      {formatPrice(cartItem.price || 0)}
                     </td>
                   </tr>
                 ))}
                 <tr>
                   <td className="font-semibold text-left">Subtotal </td>
                   <td className="font-semibold text-right">
-                    {formatPrice(cartTotal)}
+                    {formatPrice(subtotal)}
                   </td>
                 </tr>
               </tbody>

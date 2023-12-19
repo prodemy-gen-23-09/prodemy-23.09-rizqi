@@ -67,6 +67,7 @@ export default function Profile() {
         postalcode: data.postalcode,
         phone: data.phone,
         email: data.email,
+        roles: data.roles,
       };
 
       await axios
@@ -190,6 +191,23 @@ export default function Profile() {
                   autoComplete="email"
                   defaultValue={dataProfile.email}
                   {...register("email")}
+                />
+              </label>
+              <label className="form-control w-[450px]">
+                <div className="label">
+                  <span className="label-text text-md font-semibold">
+                    Roles
+                  </span>
+                </div>
+                <input
+                  name="roles"
+                  id="roles"
+                  type="roles"
+                  className="input input-bordered w-full"
+                  autoComplete="roles"
+                  defaultValue={dataProfile.roles}
+                  disabled
+                  {...register("roles")}
                 />
               </label>
             </div>
