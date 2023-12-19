@@ -5,7 +5,7 @@ import axios from "axios";
 import { useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import ButtonWishlist from "./ButtonWishlist";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 export default function QuantityProduct() {
   const { id } = useParams();
@@ -24,19 +24,35 @@ export default function QuantityProduct() {
     }
   };
 
+  useEffect(() => {
+    const fetchCartData = async () => {
+      try {
+        const userId = user ? user.id : "";
+        const response = await axios.get(
+          `http://localhost:3000/cart?userId=${userId}`
+        );
+        setDataCart(response.data);
+      } catch (error) {
+        console.error("Error fetching cart data:", error);
+      }
+    };
+
+    fetchCartData();
+  }, [user]);
+
   const handleAddToCart = async () => {
     try {
       const existingCartItem = dataCart.find((item) => item.productId === id);
+      console.log(existingCartItem);
 
       if (existingCartItem) {
-        // If the product is already in the cart, update the quantity
-        const updatedDataCart = dataCart.map((item) =>
-          item.productId === id
-            ? { ...item, quantity: item.quantity + qty }
-            : item
+        setDataCart((prevDataCart) =>
+          prevDataCart.map((item) =>
+            item.productId === id
+              ? { ...item, quantity: item.quantity + qty }
+              : item
+          )
         );
-
-        setDataCart(updatedDataCart);
       } else {
         const userId = user.id;
         const response = await axios.post(

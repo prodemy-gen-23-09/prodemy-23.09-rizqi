@@ -8,8 +8,8 @@ export default function ButtonCart({ qty, handleAddToCart }) {
 
   const openModal = () => {
     if (qty !== 0) {
-      setModalOpen(true);
       handleAddToCart();
+      setModalOpen(true);
     }
   };
 

@@ -39,6 +39,7 @@ export default function Checkout() {
 
   const onSubmit = (data) => {
     console.log(data);
+    navigate(`/overview`);
   };
 
   const formatPrice = (price) => {
@@ -46,10 +47,6 @@ export default function Checkout() {
       style: "currency",
       currency: "IDR",
     }).format(price);
-  };
-
-  const handleBillingDetailsSubmit = () => {
-    navigate(`/overview`);
   };
 
   const handleDeliveryServiceChange = (event) => {
@@ -395,7 +392,6 @@ export default function Checkout() {
               <button
                 className="bg-color1_selected h-14 w-1/2 rounded-md hover:bg-color_home hover:text-black text-lg font-normal text-white 
             "
-                onClick={handleBillingDetailsSubmit}
                 type="submit"
               >
                 Place Order

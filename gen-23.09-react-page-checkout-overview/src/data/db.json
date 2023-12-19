@@ -118,22 +118,6 @@
   ],
   "cart": [
     {
-      "productId": "5",
-      "quantity": 1,
-      "userId": 2,
-      "username": "user",
-      "email": "user@gmail.com",
-      "id": 1
-    },
-    {
-      "productId": "6",
-      "quantity": 1,
-      "userId": 2,
-      "username": "user",
-      "email": "user@gmail.com",
-      "id": 2
-    },
-    {
       "productId": "6",
       "quantity": 1,
       "userId": 1,
@@ -164,14 +148,6 @@
       "username": "admin",
       "email": "admin@gmail.com",
       "id": 6
-    },
-    {
-      "productId": "7",
-      "quantity": 1,
-      "userId": 2,
-      "username": "user",
-      "email": "user@gmail.com",
-      "id": 7
     },
     {
       "productId": "7",
@@ -210,8 +186,8 @@
       "userId": 2,
       "items": [
         {
-          "productId": "4",
-          "quantity": 1
+          "productId": "5",
+          "quantity": 5
         }
       ],
       "id": 1
@@ -220,7 +196,15 @@
       "userId": 2,
       "items": [
         {
-          "productId": "4",
+          "productId": "5",
+          "quantity": 4
+        },
+        {
+          "productId": "6",
+          "quantity": 4
+        },
+        {
+          "productId": "7",
           "quantity": 5
         }
       ],
@@ -232,6 +216,14 @@
         {
           "productId": "5",
           "quantity": 1
+        },
+        {
+          "productId": "6",
+          "quantity": 1
+        },
+        {
+          "productId": "7",
+          "quantity": 1
         }
       ],
       "id": 3
@@ -240,49 +232,15 @@
       "userId": 2,
       "items": [
         {
-          "productId": "5",
+          "productId": "6",
+          "quantity": 1
+        },
+        {
+          "productId": "7",
           "quantity": 1
         }
       ],
       "id": 4
-    },
-    {
-      "userId": 2,
-      "items": [
-        {
-          "productId": "5",
-          "quantity": 1
-        }
-      ],
-      "id": 5
-    },
-    {
-      "userId": 2,
-      "items": [
-        {
-          "productId": "5",
-          "quantity": 1
-        },
-        {
-          "productId": "6",
-          "quantity": 1
-        }
-      ],
-      "id": 6
-    },
-    {
-      "userId": 2,
-      "items": [
-        {
-          "productId": "5",
-          "quantity": 1
-        },
-        {
-          "productId": "6",
-          "quantity": 1
-        }
-      ],
-      "id": 7
     }
   ]
 }
