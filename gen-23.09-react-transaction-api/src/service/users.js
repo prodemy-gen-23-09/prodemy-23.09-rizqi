@@ -1,4 +1,5 @@
 /* eslint-disable react-hooks/rules-of-hooks */
+/* eslint-disable no-undef */
 import axios from "axios";
 import useSWR, { mutate } from "swr";
 
@@ -9,11 +10,11 @@ export const fetchData = async (url) => {
   return data;
 };
 
-export const getCartLength = async (userId) => {
+export const getAllUsers = () => {
   const { data, error } = useSWR(
-    `http://localhost:3000/cart?userId=${userId}`,
+    "http://localhost:3000/users",
     fetchData,
-    mutate(`http://localhost:3000/cart?userId=${userId}`)
+    mutate("http://localhost:3000/users")
   );
 
   return {

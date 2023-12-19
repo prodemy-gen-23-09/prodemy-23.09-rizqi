@@ -1,6 +1,6 @@
 import TableUsers from "../../components/Admin/TableUsers";
 import BannerImage from "../../components/User/BannerImage";
-import { getAllUsers } from "../../service/Admin/api";
+import { getAllUsers } from "../../service/users";
 
 function Users() {
   const { data } = getAllUsers();

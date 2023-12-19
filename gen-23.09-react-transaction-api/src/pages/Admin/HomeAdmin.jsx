@@ -5,7 +5,7 @@ import Button from "../../components/Admin/Button.jsx";
 import Overlay from "../../components/Admin/Overlay.jsx";
 import TableAdmin from "../../components/Admin/TableAdmin.jsx";
 import { useState } from "react";
-import { addProduct, getAllProducts } from "../../service/Admin/api.js";
+import { addProduct, getAllProducts } from "../../service/product.js";
 import Modals from "../../components/Admin/Modals.jsx";
 
 export default function HomeAdmin() {

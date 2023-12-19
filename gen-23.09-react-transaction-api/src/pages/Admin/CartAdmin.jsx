@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import TableCart from "../../components/Admin/TableCart.jsx";
 import BannerImage from "../../components/User/BannerImage.jsx";
-import { getAllCart } from "../../service/Admin/api.js";
+import { getAllCart } from "../../service/cart.js";
 
 export default function CartAdmin() {
   const { data, mutate } = getAllCart();

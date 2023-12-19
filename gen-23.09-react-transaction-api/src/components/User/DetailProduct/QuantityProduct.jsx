@@ -5,15 +5,23 @@ import axios from "axios";
 import { useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import ButtonWishlist from "./ButtonWishlist";
+import useSWR from "swr";
 import React, { useState, useEffect } from "react";
+
+const fetcher = (url) => axios.get(url).then((response) => response.data);
 
 export default function QuantityProduct() {
   const { id } = useParams();
   const [dataCart, setDataCart] = useState([]);
   const [qty, setQty] = useState(1);
   const navigate = useNavigate();
-
   const user = useSelector((state) => state.auth.user);
+  const existingCartItem = dataCart.find((items) => items.productId === id);
+  const { data, isLoading } = useSWR(
+    `http://localhost:3000/products/${id}`,
+    fetcher
+  );
+
   const increment = () => {
     setQty(qty + 1);
   };
@@ -40,16 +48,32 @@ export default function QuantityProduct() {
     fetchCartData();
   }, [user]);
 
+  console.log(dataCart);
+  const payload = {
+    items: [
+      ...(existingCartItem ? existingCartItem.items : []),
+      { productId: data?.id, quantity: qty },
+    ],
+    userId: user.id,
+    username: user.username,
+    email: user.email,
+  };
+
   const handleAddToCart = async () => {
     try {
-      const existingCartItem = dataCart.find((item) => item.productId === id);
-      console.log(existingCartItem);
-
       if (existingCartItem) {
+        const updatedQuantity = existingCartItem.quantity + qty;
+        const userId = user.id;
+
+        await axios.put(
+          `http://localhost:3000/cart/${existingCartItem.id}?userId=${userId}`,
+          { quantity: updatedQuantity }
+        );
+
         setDataCart((prevDataCart) =>
           prevDataCart.map((item) =>
             item.productId === id
-              ? { ...item, quantity: item.quantity + qty }
+              ? { ...item, quantity: updatedQuantity }
               : item
           )
         );
@@ -57,13 +81,7 @@ export default function QuantityProduct() {
         const userId = user.id;
         const response = await axios.post(
           `http://localhost:3000/cart?userId=${userId}`,
-          {
-            productId: id,
-            quantity: qty,
-            userId: user.id,
-            username: user.username,
-            email: user.email,
-          }
+          payload
         );
 
         setDataCart((prevDataCart) => [...prevDataCart, response.data]);

@@ -6,7 +6,7 @@ import { Link, Outlet } from "react-router-dom";
 import { useSelector } from "react-redux";
 import DropdownAccount from "./DropdownAccount";
 import { useState, useEffect } from "react";
-import { getAllCart } from "../../service/Admin/api";
+import { getAllCart } from "../../service/cart";
 
 function Header() {
   const user = useSelector((state) => state.auth.user);

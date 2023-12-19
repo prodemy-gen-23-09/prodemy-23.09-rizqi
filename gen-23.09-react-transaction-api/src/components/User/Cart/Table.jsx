@@ -11,6 +11,7 @@ export default function Table() {
   const [dataCart, setDataCart] = useState([]);
   const [productDetails, setProductDetails] = useState({});
   const [cartTotal, setCartTotal] = useState(0);
+  const [checkedItems, setCheckedItems] = useState({});
   const user = useSelector((state) => state.auth.user);
 
   const formatPrice = (price) => {
@@ -21,23 +22,36 @@ export default function Table() {
   };
 
   const increment = (productId) => {
-    const updatedDataCart = dataCart.map((item) => {
-      if (item.productId === productId) {
-        return { ...item, quantity: item.quantity + 1 };
+    const updatedDataCart = dataCart.map((cart) => {
+      if (cart.items[0].productId === productId) {
+        return {
+          ...cart,
+          items: [{ ...cart.items[0], quantity: cart.items[0].quantity + 1 }],
+        };
       }
-      return item;
+      return cart;
     });
     setDataCart(updatedDataCart);
   };
 
   const decrement = (productId) => {
-    const updatedDataCart = dataCart.map((item) => {
-      if (item.productId === productId && item.quantity > 0) {
-        return { ...item, quantity: item.quantity - 1 };
+    const updatedDataCart = dataCart.map((cart) => {
+      if (cart.items[0].productId === productId && cart.items[0].quantity > 0) {
+        return {
+          ...cart,
+          items: [{ ...cart.items[0], quantity: cart.items[0].quantity - 1 }],
+        };
       }
-      return item;
+      return cart;
     });
     setDataCart(updatedDataCart);
+  };
+
+  const handleCheckboxChange = (index) => {
+    setCheckedItems((prev) => ({
+      ...prev,
+      [index]: !prev[index],
+    }));
   };
 
   const handleDelete = async (itemId) => {
@@ -50,20 +64,23 @@ export default function Table() {
       console.error("Error deleting item:", error);
     }
   };
+
   const handleCheckout = async () => {
     const userId = user ? user.id : "";
-
     if (dataCart.length === 0) {
       alert("Cart is empty. Cannot proceed with checkout.");
       return;
     }
-    try {
-      const checkoutData = dataCart.map((cartItem) => ({
-        productId: cartItem.productId,
-        quantity: cartItem.quantity,
-      }));
 
-      const response = await axios.post(`http://localhost:3000/checkout`, {
+    try {
+      const checkoutData = dataCart
+        .filter((cartItem, index) => checkedItems[index])
+        .map((cartItem) => ({
+          productId: cartItem.items[0].productId,
+          quantity: cartItem.items[0].quantity,
+        }));
+
+      await axios.post(`http://localhost:3000/checkout`, {
         userId: userId,
         items: checkoutData,
       });
@@ -90,46 +107,46 @@ export default function Table() {
   }, [user]);
 
   useEffect(() => {
-    const fetchProductDetails = async () => {
+    const fetchData = async () => {
       try {
-        const productIds = dataCart.map((cartItem) => cartItem.productId);
-        const uniqueProductIds = Array.from(new Set(productIds));
+        const productIds = dataCart.flatMap((cartItem) =>
+          cartItem.items.map((item) => item.productId)
+        );
+        const uniqueProductIds = [...new Set(productIds)];
         const productDetailsPromises = uniqueProductIds.map((productId) =>
           axios.get(`http://localhost:3000/products/${productId}`)
         );
-        const productDetailsResponses = await Promise.all(
-          productDetailsPromises
-        );
-        const productDetailsMap = productDetailsResponses.reduce(
-          (acc, response) => {
-            acc[response.data.id] = response.data;
-            return acc;
-          },
-          {}
-        );
+        const responses = await Promise.all(productDetailsPromises);
+        const productDetailsArray = responses.map((response) => response.data);
+        const productDetailsMap = productDetailsArray.reduce((acc, product) => {
+          acc[product.id] = product;
+          return acc;
+        }, {});
         setProductDetails(productDetailsMap);
       } catch (error) {
         console.error("Error fetching product details:", error);
       }
     };
-
     if (dataCart.length > 0) {
-      fetchProductDetails();
+      fetchData();
     }
   }, [dataCart]);
 
   useEffect(() => {
     const calculateCartTotal = () => {
       let total = 0;
-      dataCart.forEach((cartItem) => {
-        const productPrice = productDetails[cartItem.productId]?.price || 0;
-        total += cartItem.quantity * productPrice;
+      dataCart.forEach((cart, index) => {
+        const productPrice =
+          productDetails[cart.items[0].productId]?.price || 0;
+        if (checkedItems[index]) {
+          total += cart.items[0].quantity * productPrice;
+        }
       });
       setCartTotal(total);
     };
 
     calculateCartTotal();
-  }, [dataCart, productDetails]);
+  }, [dataCart, productDetails, checkedItems]);
 
   return (
     <>
@@ -137,7 +154,7 @@ export default function Table() {
         <table className="table-fixed w-[1200px] ml-10">
           <thead className="bg-color_home h-16">
             <tr>
-              <th>No</th>
+              <th></th>
               <th>Image</th>
               <th>Product</th>
               <th>Price</th>
@@ -147,39 +164,48 @@ export default function Table() {
             </tr>
           </thead>
           <tbody>
-            {dataCart.map((cartItem, index) => (
-              <tr key={cartItem.id || index} className="text-center">
-                <td>{index + 1}</td>
+            {dataCart.map((cart, index) => (
+              <tr key={cart.id || index} className="text-center">
+                <td>
+                  <input
+                    type="checkbox"
+                    id={`checkout-${index}`}
+                    checked={checkedItems[index] || false}
+                    onChange={() => handleCheckboxChange(index)}
+                  />
+                </td>
                 <td>
                   <div className="flex items-center justify-center gap-6">
                     <img
-                      src={productDetails[cartItem.productId]?.thumbnail}
+                      src={productDetails[cart.items[0].productId]?.thumbnail}
                       width={120}
-                      alt={productDetails[cartItem.productId]?.title}
+                      alt={productDetails[cart.items[0].productId]?.title}
                     />
                   </div>
                 </td>
-                <td>{productDetails[cartItem.productId]?.title}</td>
+                <td>{productDetails[cart.items[0].productId]?.title}</td>
                 <td>
-                  {formatPrice(productDetails[cartItem.productId]?.price || 0)}
+                  {formatPrice(
+                    productDetails[cart.items[0].productId]?.price || 0
+                  )}
                 </td>
                 <td>
                   <div className="flex justify-center items-center">
                     <div className="flex h-10 w-24 rounded-xl relative bg-transparent mt-1 border-2">
                       <button
                         className="h-full w-20 rounded-3xl cursor-pointer"
-                        onClick={() => decrement(cartItem.productId)}
+                        onClick={() => decrement(cart.items[0].productId)}
                       >
                         <span className="m-auto text-2xl font-thin text-black hover:text-color1_selected">
                           -
                         </span>
                       </button>
-                      <div className="justify-center w-full font-semibold text-md hover:text-black focus:text-black md:text-basecursor-default flex items-center text-gray-700 outline-none">
-                        {cartItem.quantity}
+                      <div className="justify-center w-full font-semibold text-md hover:text-black focus:text-black md:text-base cursor-default flex items-center text-gray-700 outline-none">
+                        {cart.items[0].quantity}
                       </div>
                       <button
                         className="h-full w-20 cursor-pointer"
-                        onClick={() => increment(cartItem.productId)}
+                        onClick={() => increment(cart.items[0].productId)}
                       >
                         <span className="m-auto text-2xl font-thin text-black hover:text-color1_selected">
                           +
@@ -190,24 +216,26 @@ export default function Table() {
                 </td>
                 <td>
                   {formatPrice(
-                    cartItem.quantity *
-                      (productDetails[cartItem.productId]?.price || 0)
+                    cart.items[0].quantity *
+                      (productDetails[cart.items[0].productId]?.price || 0)
                   )}
                 </td>
                 <td>
-                  <button
-                    className="btn btn-sm btn-circle btn-ghost"
-                    onClick={() => handleDelete(cartItem.id)}
-                  >
-                    <FaTrash size={30} color="B88E2F" />
-                  </button>
+                  <div className="flex justify-center w-full">
+                    <button
+                      className="btn btn-sm btn-circle btn-ghost"
+                      onClick={() => handleDelete(cart.id)}
+                    >
+                      <FaTrash size={30} color="B88E2F" />
+                    </button>
+                  </div>
                 </td>
               </tr>
             ))}
           </tbody>
         </table>
         <div className="flex flex-col bg-color_home w-[400px] h-[400px] p-8 rounded-sm shadow-lg ">
-          <div className="flex flex-col justify-center items center">
+          <div className="flex flex-col justify-center items-center">
             <p className="text-3xl font-bold mx-auto">Cart Totals</p>
             <p className="text-xl mt-32 mx-auto">
               Total : {formatPrice(cartTotal)}
@@ -215,6 +243,7 @@ export default function Table() {
             <button
               className="flex bg-color1_selected hover:bg-color3 mt-24 rounded-md shadow-lg w-52 h-10 mx-auto text-white hover:text-black justify-center items-center"
               onClick={handleCheckout}
+              disabled={!Object.values(checkedItems).some((value) => value)}
             >
               Checkout
             </button>

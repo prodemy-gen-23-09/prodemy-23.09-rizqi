@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { resetAuthData } from "../../store/reducers/authSlice";
 
 export default function DropdownAccount({ title }) {
@@ -25,9 +25,11 @@ export default function DropdownAccount({ title }) {
           tabIndex={0}
           className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
         >
-          <li>
-            <a>Settings</a>
-          </li>
+          <Link to="/profile">
+            <li>
+              <a>Settings</a>
+            </li>
+          </Link>
           <li>
             <a>Help</a>
           </li>

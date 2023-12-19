@@ -6,7 +6,7 @@ import BannerService from "../../../components/User/BannerService";
 import { useSelector, useDispatch } from "react-redux";
 import ModalsCheckout from "../../../components/User/Cart/ModalsCheckout.jsx";
 import { clearCart } from "../../../store/reducers/CartSlice.js";
-import { getAllCart } from "../../../service/Admin/api.js";
+import { getAllCart } from "../../../service/cart.js";
 import { setCartItems } from "../../../store/reducers/CartSlice.js";
 
 export default function Cart() {

@@ -7,6 +7,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { useNavigate, useParams } from "react-router-dom";
+import { formatPrice } from "../utils/formatPrice";
 
 const schema = yup.object().shape({
   first_name: yup.string().required("First Name is required"),
@@ -20,7 +21,6 @@ const schema = yup.object().shape({
 });
 
 export default function Checkout() {
-  const { id } = useParams();
   const navigate = useNavigate();
   const [dataCart, setDataCart] = useState([]);
   const [productDetails, setProductDetails] = useState({});
@@ -33,7 +33,6 @@ export default function Checkout() {
     register,
     handleSubmit,
     formState: { errors },
-    reset,
   } = useForm({
     resolver: yupResolver(schema),
   });
@@ -41,7 +40,6 @@ export default function Checkout() {
   const deleteAllItemsByUserId = async (userId) => {
     try {
       const itemsToDelete = dataCart.filter((item) => item.userId === userId);
-      console.log(itemsToDelete);
       for (const itemToDelete of itemsToDelete) {
         await axios.delete(`http://localhost:3000/checkout/${itemToDelete.id}`);
       }
@@ -55,13 +53,6 @@ export default function Checkout() {
   const onSubmit = () => {
     deleteAllItemsByUserId(user.id);
     navigate(`/overview`);
-  };
-
-  const formatPrice = (price) => {
-    return new Intl.NumberFormat("id-ID", {
-      style: "currency",
-      currency: "IDR",
-    }).format(price);
   };
 
   const handleDeliveryServiceChange = (event) => {
@@ -105,33 +96,29 @@ export default function Checkout() {
   }, [user]);
 
   useEffect(() => {
-    const fetchProductDetails = async () => {
+    const fetchData = async () => {
       try {
         const productIds = dataCart.flatMap((cartItem) =>
           cartItem.items.map((item) => item.productId)
         );
-        const uniqueProductIds = Array.from(new Set(productIds));
+        console.log(productIds);
+        const uniqueProductIds = [...new Set(productIds)];
         const productDetailsPromises = uniqueProductIds.map((productId) =>
           axios.get(`http://localhost:3000/products/${productId}`)
         );
-        const productDetailsResponses = await Promise.all(
-          productDetailsPromises
-        );
-        const productDetailsMap = productDetailsResponses.reduce(
-          (acc, response) => {
-            acc[response.data.id] = response.data;
-            return acc;
-          },
-          {}
-        );
+        const responses = await Promise.all(productDetailsPromises);
+        const productDetailsArray = responses.map((response) => response.data);
+        const productDetailsMap = productDetailsArray.reduce((acc, product) => {
+          acc[product.id] = product;
+          return acc;
+        }, {});
         setProductDetails(productDetailsMap);
       } catch (error) {
         console.error("Error fetching product details:", error);
       }
     };
-
     if (dataCart.length > 0) {
-      fetchProductDetails();
+      fetchData();
     }
   }, [dataCart]);
 
