@@ -10,7 +10,7 @@ import React, { useState, useEffect } from "react";
 export default function QuantityProduct() {
   const { id } = useParams();
   const [dataCart, setDataCart] = useState([]);
-  const [qty, setQty] = React.useState(1);
+  const [qty, setQty] = useState(1);
   const navigate = useNavigate();
 
   const user = useSelector((state) => state.auth.user);
