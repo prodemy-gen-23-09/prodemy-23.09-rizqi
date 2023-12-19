@@ -104,6 +104,7 @@ export default function Checkout() {
   const addTransaction = async (dataProfile, checkoutData) => {
     try {
       const response = await axios.post("http://localhost:3000/transaction", {
+        userId: user.id,
         dataProfile,
         checkoutData: checkoutData,
       });
