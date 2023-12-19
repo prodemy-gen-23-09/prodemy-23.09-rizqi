@@ -3,28 +3,22 @@
 import React, { useEffect, useState } from "react";
 import BannerImage from "../../../components/User/BannerImage.jsx";
 import { FaTrash } from "react-icons/fa";
-import { removeCart } from "../../../store/reducers/CartSlice";
 import BannerService from "../../../components/User/BannerService";
 import { useSelector, useDispatch } from "react-redux";
-import ModalsCheckout from "../../../components/User/Cart/ModalsCheckout.jsx";
-import { clearCart, getCartTotal } from "../../../store/reducers/CartSlice.js";
+import { getCartTotal } from "../../../store/reducers/CartSlice.js";
 import axios from "axios";
 import { formatPrice } from "../../../service/price.js";
+import { useNavigate } from "react-router-dom";
 
 export default function Cart() {
+  const navigate = useNavigate();
   const { cartTotal } = useSelector((state) => state.cart);
   const user = useSelector((state) => state.auth.user);
   const [cartItems, setCartItems] = useState([]);
-  const [isModalCheckoutOpen, setModalCheckoutOpen] = useState(false);
   const dispatch = useDispatch();
 
-  const openModal = () => {
-    setModalCheckoutOpen(true);
-  };
-
-  const closeModal = () => {
-    dispatch(clearCart());
-    setModalCheckoutOpen(false);
+  const handleCheckout = () => {
+    navigate(`/checkout/${user.id}`);
   };
 
   const increment = (productId) => {
@@ -156,7 +150,7 @@ export default function Cart() {
               Total : {formatPrice(cartTotal)}
             </p>
             <button
-              onClick={openModal}
+              onClick={handleCheckout}
               className="flex bg-color1_selected hover:bg-color3 mt-24 rounded-md shadow-lg w-52 h-10 mx-auto text-white hover:text-black justify-center items-center"
             >
               Checkout
@@ -165,7 +159,6 @@ export default function Cart() {
         </div>
       </div>
       <BannerService />
-      {isModalCheckoutOpen && <ModalsCheckout onCancel={closeModal} />}
     </>
   );
 }

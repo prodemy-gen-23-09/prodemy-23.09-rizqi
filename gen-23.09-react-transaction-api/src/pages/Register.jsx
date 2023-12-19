@@ -43,6 +43,10 @@ export default function Register() {
         email: data.email,
         password: data.password,
         roles: roles,
+        address: "",
+        postalcode: "",
+        phone: "",
+        photo: "",
       };
 
       await axios.post("http://localhost:3000/register", requestBody);

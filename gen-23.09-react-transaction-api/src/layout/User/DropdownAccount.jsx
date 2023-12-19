@@ -15,6 +15,9 @@ export default function DropdownAccount({ title }) {
   const handleAdmin = () => {
     navigate("/admin");
   };
+  const handleSettings = () => {
+    navigate(`/profile/${user.id}`);
+  };
   return (
     <>
       <div className="dropdown dropdown-end">
@@ -26,7 +29,7 @@ export default function DropdownAccount({ title }) {
           className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
         >
           <li>
-            <a>Settings</a>
+            <a onClick={handleSettings}>Settings</a>
           </li>
           <li>
             <a>Help</a>

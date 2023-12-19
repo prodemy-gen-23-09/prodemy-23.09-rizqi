@@ -159,6 +159,17 @@
       "username": "rama",
       "roles": "customer",
       "id": 3
+    },
+    {
+      "email": "admin@admin.com",
+      "password": "$2a$10$SDjLKDrlBlqe7GVm9wSoMOhVYvDPVldjML0KCJiRvJPv17IoyHwHC",
+      "username": "AdminAdmin",
+      "roles": "customer",
+      "address": "",
+      "postalcode": "",
+      "phone": "",
+      "photo": "",
+      "id": 4
     }
   ]
 }

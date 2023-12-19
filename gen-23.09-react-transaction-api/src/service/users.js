@@ -11,10 +11,10 @@ export const fetchData = async (url) => {
   return data;
 };
 
-export const getAllCart = (userId) => {
+export const getAllUsers = (userId) => {
   const { data, error } = useSWR(
     `http://localhost:3000/cart?userId=${userId}`,
-    () => fetchData(`http://localhost:3000/cart?userId=${userId}`)
+    () => fetchData(`http://localhost:3000/users/${userId}`)
   );
 
   return {

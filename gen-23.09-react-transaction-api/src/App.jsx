@@ -16,6 +16,8 @@ import GuestRoutes from "./routes/GuestRoutes";
 import PrivateRoutes from "./routes/PrivateRoutes";
 import AdminRoutes from "./routes/AdminRoutes";
 import Register from "./pages/Register";
+import Checkout from "./pages/Checkout";
+import Profile from "./pages/Profile";
 
 export default function App() {
   return (
@@ -30,6 +32,8 @@ export default function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/wishlist" element={<Wishlist />} />
           <Route path="/cart/:userId" element={<Cart />} />
+          <Route path="/checkout/:userId" element={<Checkout />} />
+          <Route path="/profile/:userId" element={<Profile />} />
         </Route>
         <Route element={<AdminRoutes />}>
           <Route path="/admin" element={<HeaderFooterAdmin />}>
