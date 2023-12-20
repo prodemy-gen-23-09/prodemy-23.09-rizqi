@@ -40,11 +40,8 @@ function Header() {
               <div className="text-black hover:text-color1_selected">Shop</div>
             </Link>
             <Link to="/about">
-              <div className="text-black hover:text-color1_selected">About</div>
-            </Link>
-            <Link to="/contact">
               <div className="text-black hover:text-color1_selected">
-                Contact
+                Transaction
               </div>
             </Link>
           </div>

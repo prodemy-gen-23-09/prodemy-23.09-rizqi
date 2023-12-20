@@ -108,6 +108,7 @@ export default function Checkout() {
         dataProfile,
         checkoutData: checkoutData,
         total: cartTotal,
+        date : new Date()
       });
       console.log("Transaction added successfully:", response.data);
     } catch (error) {
