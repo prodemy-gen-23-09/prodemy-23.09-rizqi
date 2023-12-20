@@ -61,7 +61,7 @@ export default function Checkout() {
   }, [user, mutate]);
 
   useEffect(() => {
-    const fetchCartData = async () => {
+    const fetchCheckoutData = async () => {
       try {
         const userId = user ? user.id : "";
         const response = await axios.get(
@@ -77,7 +77,7 @@ export default function Checkout() {
       }
     };
 
-    fetchCartData();
+    fetchCheckoutData();
   }, [user]);
 
   const individualSubtotals = dataCart.map((cartItem) => {
@@ -107,6 +107,7 @@ export default function Checkout() {
         userId: user.id,
         dataProfile,
         checkoutData: checkoutData,
+        total: cartTotal,
       });
       console.log("Transaction added successfully:", response.data);
     } catch (error) {

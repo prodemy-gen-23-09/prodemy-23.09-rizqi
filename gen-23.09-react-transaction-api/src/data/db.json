@@ -130,14 +130,13 @@
   ],
   "users": [
     {
-      "email": "admin@gmail.com",
-      "password": "$2a$10$wKEiQgn4uTSRGHjr4brOyuyL5g6bzBvOoZZ/bip5.bCPfnPo3UChi",
       "username": "Admin",
+      "password": "$2a$10$yr9gmpDA8ZqVBsCMfiDo2e6NUpFrxEKMAQ/lziZaj.djP5vm1daOC",
+      "address": "Address Admin",
+      "postalcode": "45231",
+      "phone": "09823154312",
+      "email": "admin@gmail.com",
       "roles": "admin",
-      "address": "",
-      "postalcode": "",
-      "phone": "",
-      "photo": "",
       "id": 1
     }
   ],
@@ -157,6 +156,38 @@
         }
       ],
       "id": 1
+    },
+    {
+      "userId": 1,
+      "data": [
+        {
+          "thumbnail": "/src/assets/shop/product5.png",
+          "title": "Lolito",
+          "price": 700000,
+          "quantity": 3,
+          "userId": 1,
+          "username": "Admin",
+          "email": "admin@gmail.com",
+          "id": 1
+        }
+      ],
+      "id": 2
+    },
+    {
+      "userId": 1,
+      "data": [
+        {
+          "thumbnail": "/src/assets/shop/product5.png",
+          "title": "Lolito",
+          "price": 700000,
+          "quantity": 2,
+          "userId": 1,
+          "username": "Admin",
+          "email": "admin@gmail.com",
+          "id": 1
+        }
+      ],
+      "id": 3
     }
   ],
   "transaction": [
@@ -186,6 +217,53 @@
         }
       ],
       "id": 1
+    },
+    {
+      "userId": 1,
+      "dataProfile": {
+        "username": "Admin",
+        "password": "$2a$10$yr9gmpDA8ZqVBsCMfiDo2e6NUpFrxEKMAQ/lziZaj.djP5vm1daOC",
+        "address": "Address Admin",
+        "postalcode": "45231",
+        "phone": "09823154312",
+        "email": "admin@gmail.com",
+        "roles": "admin",
+        "id": 1
+      },
+      "checkoutData": [
+        {
+          "thumbnail": "/src/assets/shop/product5.png",
+          "title": "Lolito",
+          "price": 700000,
+          "quantity": 2,
+          "userId": 1,
+          "username": "Admin",
+          "email": "admin@gmail.com",
+          "id": 1
+        },
+        {
+          "thumbnail": "/src/assets/shop/product5.png",
+          "title": "Lolito",
+          "price": 700000,
+          "quantity": 3,
+          "userId": 1,
+          "username": "Admin",
+          "email": "admin@gmail.com",
+          "id": 1
+        },
+        {
+          "thumbnail": "/src/assets/shop/product5.png",
+          "title": "Lolito",
+          "price": 700000,
+          "quantity": 2,
+          "userId": 1,
+          "username": "Admin",
+          "email": "admin@gmail.com",
+          "id": 1
+        }
+      ],
+      "total": 4930000,
+      "id": 2
     }
   ]
 }
