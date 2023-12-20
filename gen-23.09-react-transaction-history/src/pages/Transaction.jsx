@@ -98,7 +98,7 @@ export default function Transaction() {
                   <td>{index + 1}</td>
                   <td>{formatDate(row.date)}</td>
                   <td>{row.items.join(", ")}</td>
-                  <td>{formatPrice(row.total)}</td>
+                  <td>{formatPrice(row.total / row.items.length)}</td>
                   <td>{row.quantity}</td>
                   <td>{row.username}</td>
                   <td>

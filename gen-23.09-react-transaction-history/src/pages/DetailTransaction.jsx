@@ -56,7 +56,8 @@ export default function DetailTransaction() {
   }, [userId]);
 
   const totalAmount = detailDataTransaction.reduce(
-    (acc, transaction) => acc + transaction.total,
+    (acc, transaction) =>
+      acc + transaction.total / detailDataTransaction.length,
     0
   );
 
