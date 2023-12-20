@@ -39,7 +39,7 @@ function Header() {
             <Link to="/shop">
               <div className="text-black hover:text-color1_selected">Shop</div>
             </Link>
-            <Link to="/about">
+            <Link to="/transaction">
               <div className="text-black hover:text-color1_selected">
                 Transaction
               </div>

@@ -2,7 +2,6 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import Shop from "../src/pages/User/Shop";
 import Layout from "./pages/User/Layout";
 import Homepage from "./pages/User/Homepage";
-import About from "./pages/User/About";
 import Contact from "./pages/User/Contact";
 import DetailProduct from "./pages/User/DetailProduct";
 import Cart from "./pages/User/Cart/Cart";
@@ -19,6 +18,7 @@ import Register from "./pages/Register";
 import Checkout from "./pages/Checkout";
 import Profile from "./pages/Profile";
 import Overview from "./pages/Overview";
+import Transaction from "./pages/Transaction";
 
 export default function App() {
   return (
@@ -29,7 +29,7 @@ export default function App() {
           <Route path="/home" element={<Homepage />} />
           <Route path="/shop" element={<Shop />} />
           <Route path="/detailproduct/:id/:name" element={<DetailProduct />} />
-          <Route path="/about" element={<About />} />
+          <Route path="/transaction" element={<Transaction />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/wishlist" element={<Wishlist />} />
           <Route path="/cart/:userId" element={<Cart />} />

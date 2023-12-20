@@ -1,10 +1,10 @@
 /* eslint-disable no-unused-vars */
 import { useState, useEffect } from "react";
-import BannerImage from "../../components/User/BannerImage";
+import BannerImage from "../components/User/BannerImage";
 import axios from "axios";
 import { useSelector } from "react-redux";
 
-export default function About() {
+export default function Transaction() {
   const [dataTransaction, setDataTransaction] = useState([]);
   const user = useSelector((state) => state.auth.user);
 
