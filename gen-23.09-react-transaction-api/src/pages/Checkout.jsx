@@ -7,9 +7,12 @@ import { useForm } from "react-hook-form";
 import { useNavigate, useParams } from "react-router-dom";
 import { getAllUsers } from "../service/users";
 import { formatPrice } from "../service/price";
+import { useDispatch } from "react-redux";
+import { clearCheckoutAsync } from "../store/reducers/checkoutSlice";
 
 export default function Checkout() {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const [dataCart, setDataCart] = useState([]);
   const [cartTotal, setCartTotal] = useState(0);
   const user = useSelector((state) => state.auth.user);
@@ -110,6 +113,7 @@ export default function Checkout() {
         total: cartTotal,
         date: new Date(),
       });
+      dispatch(clearCheckoutAsync(user.id));
       console.log("Transaction added successfully:", response.data);
     } catch (error) {
       console.error("Error adding transaction:", error);

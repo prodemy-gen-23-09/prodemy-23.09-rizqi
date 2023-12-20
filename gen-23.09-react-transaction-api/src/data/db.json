@@ -140,337 +140,7 @@
       "id": 2
     }
   ],
-  "checkout": [
-    {
-      "userId": 1,
-      "data": [
-        {
-          "id": 1,
-          "productid": 4,
-          "thumbnail": "/src/assets/shop/product4.png",
-          "title": "Respira",
-          "price": 500000,
-          "quantity": 1,
-          "userId": 1,
-          "username": "Admin",
-          "email": "admin@gmail.com"
-        }
-      ],
-      "id": 1
-    },
-    {
-      "userId": 1,
-      "data": [
-        {
-          "id": 1,
-          "productid": 4,
-          "thumbnail": "/src/assets/shop/product4.png",
-          "title": "Respira",
-          "price": 500000,
-          "quantity": 1,
-          "userId": 1,
-          "username": "Admin",
-          "email": "admin@gmail.com"
-        }
-      ],
-      "id": 2
-    },
-    {
-      "userId": 1,
-      "data": [
-        {
-          "id": 1,
-          "productid": 6,
-          "thumbnail": "/src/assets/shop/product6.png",
-          "title": "Leviosa",
-          "price": 10500000,
-          "quantity": 4,
-          "userId": 1,
-          "username": "Admin",
-          "email": "admin@gmail.com"
-        }
-      ],
-      "id": 3
-    },
-    {
-      "userId": 1,
-      "data": [
-        {
-          "id": 1,
-          "productid": 6,
-          "thumbnail": "/src/assets/shop/product6.png",
-          "title": "Leviosa",
-          "price": 10500000,
-          "quantity": 4,
-          "userId": 1,
-          "username": "Admin",
-          "email": "admin@gmail.com"
-        }
-      ],
-      "id": 4
-    },
-    {
-      "userId": 1,
-      "data": [
-        {
-          "id": 1,
-          "productid": 6,
-          "thumbnail": "/src/assets/shop/product6.png",
-          "title": "Leviosa",
-          "price": 10500000,
-          "quantity": 4,
-          "userId": 1,
-          "username": "Admin",
-          "email": "admin@gmail.com"
-        }
-      ],
-      "id": 5
-    },
-    {
-      "userId": 1,
-      "data": [
-        {
-          "id": 1,
-          "productid": 4,
-          "thumbnail": "/src/assets/shop/product4.png",
-          "title": "Respira",
-          "price": 500000,
-          "quantity": 1,
-          "userId": 1,
-          "username": "Admin",
-          "email": "admin@gmail.com",
-          "checked": true
-        }
-      ],
-      "id": 6
-    },
-    {
-      "userId": 1,
-      "data": [
-        {
-          "id": 1,
-          "productid": 4,
-          "thumbnail": "/src/assets/shop/product4.png",
-          "title": "Respira",
-          "price": 500000,
-          "quantity": 1,
-          "userId": 1,
-          "username": "Admin",
-          "email": "admin@gmail.com",
-          "checked": true
-        }
-      ],
-      "id": 7
-    },
-    {
-      "userId": 1,
-      "data": [
-        {
-          "id": 1,
-          "productid": 4,
-          "thumbnail": "/src/assets/shop/product4.png",
-          "title": "Respira",
-          "price": 500000,
-          "quantity": 1,
-          "userId": 1,
-          "username": "Admin",
-          "email": "admin@gmail.com",
-          "checked": true
-        }
-      ],
-      "id": 8
-    },
-    {
-      "userId": 1,
-      "data": [
-        {
-          "id": 1,
-          "productid": 4,
-          "thumbnail": "/src/assets/shop/product4.png",
-          "title": "Respira",
-          "price": 500000,
-          "quantity": 1,
-          "userId": 1,
-          "username": "Admin",
-          "email": "admin@gmail.com",
-          "checked": true
-        }
-      ],
-      "id": 9
-    },
-    {
-      "userId": 1,
-      "data": [
-        {
-          "id": 1,
-          "productid": 4,
-          "thumbnail": "/src/assets/shop/product4.png",
-          "title": "Respira",
-          "price": 500000,
-          "quantity": 1,
-          "userId": 1,
-          "username": "Admin",
-          "email": "admin@gmail.com"
-        }
-      ],
-      "id": 10
-    },
-    {
-      "userId": 1,
-      "data": [
-        {
-          "id": 1,
-          "productid": 4,
-          "thumbnail": "/src/assets/shop/product4.png",
-          "title": "Respira",
-          "price": 500000,
-          "quantity": 1,
-          "userId": 1,
-          "username": "Admin",
-          "email": "admin@gmail.com",
-          "checked": true
-        }
-      ],
-      "id": 11
-    },
-    {
-      "userId": 1,
-      "data": [
-        {
-          "id": 1,
-          "productid": 4,
-          "thumbnail": "/src/assets/shop/product4.png",
-          "title": "Respira",
-          "price": 500000,
-          "quantity": 1,
-          "userId": 1,
-          "username": "Admin",
-          "email": "admin@gmail.com",
-          "checked": true
-        }
-      ],
-      "id": 12
-    },
-    {
-      "userId": 1,
-      "data": [
-        {
-          "id": 1,
-          "productid": 4,
-          "thumbnail": "/src/assets/shop/product4.png",
-          "title": "Respira",
-          "price": 500000,
-          "quantity": 1,
-          "userId": 1,
-          "username": "Admin",
-          "email": "admin@gmail.com",
-          "checked": true
-        }
-      ],
-      "id": 13
-    },
-    {
-      "userId": 1,
-      "data": [
-        {
-          "id": 1,
-          "productid": 4,
-          "thumbnail": "/src/assets/shop/product4.png",
-          "title": "Respira",
-          "price": 500000,
-          "quantity": 2,
-          "userId": 1,
-          "username": "Admin",
-          "email": "admin@gmail.com",
-          "checked": true
-        }
-      ],
-      "id": 14
-    },
-    {
-      "userId": 1,
-      "data": [
-        {
-          "id": 1,
-          "productid": 4,
-          "thumbnail": "/src/assets/shop/product4.png",
-          "title": "Respira",
-          "price": 500000,
-          "quantity": 1,
-          "userId": 1,
-          "username": "Admin",
-          "email": "admin@gmail.com"
-        },
-        {
-          "productid": 5,
-          "thumbnail": "/src/assets/shop/product5.png",
-          "title": "Lolito",
-          "price": 700000,
-          "quantity": 1,
-          "userId": 1,
-          "username": "Admin",
-          "email": "admin@gmail.com",
-          "id": 2
-        },
-        {
-          "productid": 6,
-          "thumbnail": "/src/assets/shop/product6.png",
-          "title": "Leviosa",
-          "price": 10500000,
-          "quantity": 1,
-          "userId": 1,
-          "username": "Admin",
-          "email": "admin@gmail.com",
-          "id": 3
-        }
-      ],
-      "id": 15
-    },
-    {
-      "userId": 1,
-      "data": [
-        {
-          "id": 1,
-          "productid": 4,
-          "thumbnail": "/src/assets/shop/product4.png",
-          "title": "Respira",
-          "price": 500000,
-          "quantity": 5,
-          "userId": 1,
-          "username": "Admin",
-          "email": "admin@gmail.com"
-        },
-        {
-          "productid": 5,
-          "thumbnail": "/src/assets/shop/product5.png",
-          "title": "Lolito",
-          "price": 700000,
-          "quantity": 3,
-          "userId": 1,
-          "username": "Admin",
-          "email": "admin@gmail.com",
-          "id": 2
-        },
-        {
-          "productid": 7,
-          "thumbnail": "/src/assets/shop/product7.png",
-          "title": "Flowy",
-          "price": 450000,
-          "quantity": 5,
-          "userId": 1,
-          "username": "Admin",
-          "email": "admin@gmail.com",
-          "id": 3
-        }
-      ],
-      "id": 16
-    },
-    {
-      "userId": 1,
-      "data": [],
-      "id": 17
-    }
-  ],
+  "checkout": [],
   "transaction": [
     {
       "userId": 1,
@@ -742,6 +412,405 @@
       "total": 1000000,
       "date": "2023-12-20T03:39:37.290Z",
       "id": 8
+    },
+    {
+      "userId": 1,
+      "dataProfile": {
+        "username": "Admin",
+        "password": "$2a$10$yr9gmpDA8ZqVBsCMfiDo2e6NUpFrxEKMAQ/lziZaj.djP5vm1daOC",
+        "address": "Address Admin",
+        "postalcode": "45231",
+        "phone": "09823154312",
+        "email": "admin@gmail.com",
+        "roles": "admin",
+        "id": 1
+      },
+      "checkoutData": [
+        {
+          "id": 1,
+          "productid": 4,
+          "thumbnail": "/src/assets/shop/product4.png",
+          "title": "Respira",
+          "price": 500000,
+          "quantity": 1,
+          "userId": 1,
+          "username": "Admin",
+          "email": "admin@gmail.com"
+        },
+        {
+          "id": 1,
+          "productid": 4,
+          "thumbnail": "/src/assets/shop/product4.png",
+          "title": "Respira",
+          "price": 500000,
+          "quantity": 1,
+          "userId": 1,
+          "username": "Admin",
+          "email": "admin@gmail.com"
+        },
+        {
+          "id": 1,
+          "productid": 6,
+          "thumbnail": "/src/assets/shop/product6.png",
+          "title": "Leviosa",
+          "price": 10500000,
+          "quantity": 4,
+          "userId": 1,
+          "username": "Admin",
+          "email": "admin@gmail.com"
+        },
+        {
+          "id": 1,
+          "productid": 6,
+          "thumbnail": "/src/assets/shop/product6.png",
+          "title": "Leviosa",
+          "price": 10500000,
+          "quantity": 4,
+          "userId": 1,
+          "username": "Admin",
+          "email": "admin@gmail.com"
+        },
+        {
+          "id": 1,
+          "productid": 6,
+          "thumbnail": "/src/assets/shop/product6.png",
+          "title": "Leviosa",
+          "price": 10500000,
+          "quantity": 4,
+          "userId": 1,
+          "username": "Admin",
+          "email": "admin@gmail.com"
+        },
+        {
+          "id": 1,
+          "productid": 4,
+          "thumbnail": "/src/assets/shop/product4.png",
+          "title": "Respira",
+          "price": 500000,
+          "quantity": 1,
+          "userId": 1,
+          "username": "Admin",
+          "email": "admin@gmail.com",
+          "checked": true
+        },
+        {
+          "id": 1,
+          "productid": 4,
+          "thumbnail": "/src/assets/shop/product4.png",
+          "title": "Respira",
+          "price": 500000,
+          "quantity": 1,
+          "userId": 1,
+          "username": "Admin",
+          "email": "admin@gmail.com",
+          "checked": true
+        },
+        {
+          "id": 1,
+          "productid": 4,
+          "thumbnail": "/src/assets/shop/product4.png",
+          "title": "Respira",
+          "price": 500000,
+          "quantity": 1,
+          "userId": 1,
+          "username": "Admin",
+          "email": "admin@gmail.com",
+          "checked": true
+        },
+        {
+          "id": 1,
+          "productid": 4,
+          "thumbnail": "/src/assets/shop/product4.png",
+          "title": "Respira",
+          "price": 500000,
+          "quantity": 1,
+          "userId": 1,
+          "username": "Admin",
+          "email": "admin@gmail.com",
+          "checked": true
+        },
+        {
+          "id": 1,
+          "productid": 4,
+          "thumbnail": "/src/assets/shop/product4.png",
+          "title": "Respira",
+          "price": 500000,
+          "quantity": 1,
+          "userId": 1,
+          "username": "Admin",
+          "email": "admin@gmail.com"
+        },
+        {
+          "id": 1,
+          "productid": 4,
+          "thumbnail": "/src/assets/shop/product4.png",
+          "title": "Respira",
+          "price": 500000,
+          "quantity": 1,
+          "userId": 1,
+          "username": "Admin",
+          "email": "admin@gmail.com",
+          "checked": true
+        },
+        {
+          "id": 1,
+          "productid": 4,
+          "thumbnail": "/src/assets/shop/product4.png",
+          "title": "Respira",
+          "price": 500000,
+          "quantity": 1,
+          "userId": 1,
+          "username": "Admin",
+          "email": "admin@gmail.com",
+          "checked": true
+        },
+        {
+          "id": 1,
+          "productid": 4,
+          "thumbnail": "/src/assets/shop/product4.png",
+          "title": "Respira",
+          "price": 500000,
+          "quantity": 1,
+          "userId": 1,
+          "username": "Admin",
+          "email": "admin@gmail.com",
+          "checked": true
+        },
+        {
+          "id": 1,
+          "productid": 4,
+          "thumbnail": "/src/assets/shop/product4.png",
+          "title": "Respira",
+          "price": 500000,
+          "quantity": 2,
+          "userId": 1,
+          "username": "Admin",
+          "email": "admin@gmail.com",
+          "checked": true
+        },
+        {
+          "id": 1,
+          "productid": 4,
+          "thumbnail": "/src/assets/shop/product4.png",
+          "title": "Respira",
+          "price": 500000,
+          "quantity": 1,
+          "userId": 1,
+          "username": "Admin",
+          "email": "admin@gmail.com"
+        },
+        {
+          "productid": 5,
+          "thumbnail": "/src/assets/shop/product5.png",
+          "title": "Lolito",
+          "price": 700000,
+          "quantity": 1,
+          "userId": 1,
+          "username": "Admin",
+          "email": "admin@gmail.com",
+          "id": 2
+        },
+        {
+          "productid": 6,
+          "thumbnail": "/src/assets/shop/product6.png",
+          "title": "Leviosa",
+          "price": 10500000,
+          "quantity": 1,
+          "userId": 1,
+          "username": "Admin",
+          "email": "admin@gmail.com",
+          "id": 3
+        },
+        {
+          "id": 1,
+          "productid": 4,
+          "thumbnail": "/src/assets/shop/product4.png",
+          "title": "Respira",
+          "price": 500000,
+          "quantity": 5,
+          "userId": 1,
+          "username": "Admin",
+          "email": "admin@gmail.com"
+        },
+        {
+          "productid": 5,
+          "thumbnail": "/src/assets/shop/product5.png",
+          "title": "Lolito",
+          "price": 700000,
+          "quantity": 3,
+          "userId": 1,
+          "username": "Admin",
+          "email": "admin@gmail.com",
+          "id": 2
+        },
+        {
+          "productid": 7,
+          "thumbnail": "/src/assets/shop/product7.png",
+          "title": "Flowy",
+          "price": 450000,
+          "quantity": 5,
+          "userId": 1,
+          "username": "Admin",
+          "email": "admin@gmail.com",
+          "id": 3
+        },
+        {
+          "id": 1,
+          "productid": 6,
+          "thumbnail": "/src/assets/shop/product6.png",
+          "title": "Leviosa",
+          "price": 10500000,
+          "quantity": 3,
+          "userId": 1,
+          "username": "Admin",
+          "email": "admin@gmail.com"
+        }
+      ],
+      "total": 182050000,
+      "date": "2023-12-20T08:01:18.862Z",
+      "id": 9
+    },
+    {
+      "userId": 1,
+      "dataProfile": {
+        "username": "Admin",
+        "password": "$2a$10$yr9gmpDA8ZqVBsCMfiDo2e6NUpFrxEKMAQ/lziZaj.djP5vm1daOC",
+        "address": "Address Admin",
+        "postalcode": "45231",
+        "phone": "09823154312",
+        "email": "admin@gmail.com",
+        "roles": "admin",
+        "id": 1
+      },
+      "checkoutData": [
+        {
+          "id": 1,
+          "productid": 4,
+          "thumbnail": "/src/assets/shop/product4.png",
+          "title": "Respira",
+          "price": 500000,
+          "quantity": 1,
+          "userId": 1,
+          "username": "Admin",
+          "email": "admin@gmail.com"
+        }
+      ],
+      "total": 500000,
+      "date": "2023-12-20T08:02:08.017Z",
+      "id": 10
+    },
+    {
+      "userId": 1,
+      "dataProfile": {
+        "username": "Admin",
+        "password": "$2a$10$yr9gmpDA8ZqVBsCMfiDo2e6NUpFrxEKMAQ/lziZaj.djP5vm1daOC",
+        "address": "Address Admin",
+        "postalcode": "45231",
+        "phone": "09823154312",
+        "email": "admin@gmail.com",
+        "roles": "admin",
+        "id": 1
+      },
+      "checkoutData": [
+        {
+          "id": 1,
+          "productid": 4,
+          "thumbnail": "/src/assets/shop/product4.png",
+          "title": "Respira",
+          "price": 500000,
+          "quantity": 1,
+          "userId": 1,
+          "username": "Admin",
+          "email": "admin@gmail.com"
+        },
+        {
+          "id": 1,
+          "productid": 5,
+          "thumbnail": "/src/assets/shop/product5.png",
+          "title": "Lolito",
+          "price": 700000,
+          "quantity": 1,
+          "userId": 1,
+          "username": "Admin",
+          "email": "admin@gmail.com"
+        }
+      ],
+      "total": 1200000,
+      "date": "2023-12-20T08:05:53.921Z",
+      "id": 11
+    },
+    {
+      "userId": 1,
+      "dataProfile": {
+        "username": "Admin",
+        "password": "$2a$10$yr9gmpDA8ZqVBsCMfiDo2e6NUpFrxEKMAQ/lziZaj.djP5vm1daOC",
+        "address": "Address Admin",
+        "postalcode": "45231",
+        "phone": "09823154312",
+        "email": "admin@gmail.com",
+        "roles": "admin",
+        "id": 1
+      },
+      "checkoutData": [
+        {
+          "id": 1,
+          "productid": 5,
+          "thumbnail": "/src/assets/shop/product5.png",
+          "title": "Lolito",
+          "price": 700000,
+          "quantity": 1,
+          "userId": 1,
+          "username": "Admin",
+          "email": "admin@gmail.com"
+        },
+        {
+          "id": 1,
+          "productid": 6,
+          "thumbnail": "/src/assets/shop/product6.png",
+          "title": "Leviosa",
+          "price": 10500000,
+          "quantity": 1,
+          "userId": 1,
+          "username": "Admin",
+          "email": "admin@gmail.com"
+        },
+        {
+          "productid": 7,
+          "thumbnail": "/src/assets/shop/product7.png",
+          "title": "Flowy",
+          "price": 450000,
+          "quantity": 1,
+          "userId": 1,
+          "username": "Admin",
+          "email": "admin@gmail.com",
+          "id": 2
+        },
+        {
+          "productid": 4,
+          "thumbnail": "/src/assets/shop/product4.png",
+          "title": "Respira",
+          "price": 500000,
+          "quantity": 1,
+          "userId": 1,
+          "username": "Admin",
+          "email": "admin@gmail.com",
+          "id": 3
+        },
+        {
+          "productid": 10,
+          "thumbnail": "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/MTA-13546871/livien_sofa_single-_livien-_single_sofa-_sofa_tamu_set-_sofa_minimalis-_sofa_modern-_willow_3_seater_livien_full01_bqar23jh.jpeg",
+          "title": "Sofa Single",
+          "price": 6000000,
+          "quantity": 1,
+          "userId": 1,
+          "username": "Admin",
+          "email": "admin@gmail.com",
+          "id": 4
+        }
+      ],
+      "total": 18150000,
+      "date": "2023-12-20T08:06:26.600Z",
+      "id": 12
     }
   ]
 }
