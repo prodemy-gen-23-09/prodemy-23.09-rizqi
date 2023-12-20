@@ -117,6 +117,11 @@ export default function Checkout() {
   };
 
   const onSubmit = () => {
+    if (dataCart.length === 0) {
+      alert("Your cart is empty. Add items before placing an order.");
+      return;
+    }
+
     addTransaction(dataProfile, dataCart);
     navigate(`/overview/${user.id}`);
   };
