@@ -47,6 +47,7 @@ export default function Cart() {
       console.error("Error deleting item:", error);
     }
   };
+
   useEffect(() => {
     const fetchData = async () => {
       try {

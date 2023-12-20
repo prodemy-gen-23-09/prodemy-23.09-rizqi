@@ -17,7 +17,6 @@ export default function QuantityProduct() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { data } = useSWR(`http://localhost:3000/products/${id}`, fetcher);
-  const { cart } = useSWR(`http://localhost:3000/cart`, fetcher);
   const user = useSelector((state) => state.auth.user);
   const increment = () => {
     setCount(count + 1);
@@ -29,30 +28,46 @@ export default function QuantityProduct() {
     }
   };
 
-  const handleAddToCart = () => {
-    const { thumbnail, title, price } = data;
-    const items = {
-      thumbnail: thumbnail,
-      title: title,
-      price: price,
-      quantity: count,
-      userId: user.id,
-      username: user.username,
-      email: user.email,
-    };
-    axios
-      .post("http://localhost:3000/cart", items)
-      .then((response) => {
-        console.log("Item added to cart:", response.data);
+  const handleAddToCart = async () => {
+    try {
+      const { thumbnail, title, price } = data;
+      const response = await axios.get("http://localhost:3000/cart");
+      const cartData = response.data;
+
+      if (cartData.length === 0) {
+        const items = {
+          id: user.id,
+          productid: parseInt(id),
+          thumbnail: thumbnail,
+          title: title,
+          price: price,
+          quantity: count,
+          userId: user.id,
+          username: user.username,
+          email: user.email,
+        };
+        await axios.post("http://localhost:3000/cart", items);
         dispatch(addToCart(items));
         navigate(`/cart/${user.id}`);
-      })
-      .catch((error) => {
-        console.error("Error adding item to cart:", error);
-      });
+      } else {
+        const itemsWithoutId = {
+          productid: parseInt(id),
+          thumbnail: thumbnail,
+          title: title,
+          price: price,
+          quantity: count,
+          userId: user.id,
+          username: user.username,
+          email: user.email,
+        };
+        await axios.post("http://localhost:3000/cart", itemsWithoutId);
+        dispatch(addToCart(itemsWithoutId));
+        navigate(`/cart/${user.id}`);
+      }
+    } catch (error) {
+      console.error("Error handling add to cart:", error);
+    }
   };
-
-  console.log(cart);
 
   return (
     <>

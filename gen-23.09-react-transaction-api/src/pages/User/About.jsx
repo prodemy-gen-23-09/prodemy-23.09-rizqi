@@ -3,7 +3,6 @@ import { useState, useEffect } from "react";
 import BannerImage from "../../components/User/BannerImage";
 import axios from "axios";
 import { useSelector } from "react-redux";
-import { Button } from "../../components/Admin/Button";
 
 export default function About() {
   const [dataTransaction, setDataTransaction] = useState([]);
@@ -95,7 +94,9 @@ export default function About() {
                   <td>{row.total}</td>
                   <td>{row.quantity}</td>
                   <td>
-                    <Button title="Detail" />
+                    <button className="bg-color1_selected hover:bg-color_home hover:text-color1_selected p-3 rounded-md text-color_home">
+                      Detail
+                    </button>
                   </td>
                 </tr>
               ))}
