@@ -118,15 +118,15 @@
   ],
   "cart": [
     {
-      "productid": 10,
-      "thumbnail": "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/MTA-13546871/livien_sofa_single-_livien-_single_sofa-_sofa_tamu_set-_sofa_minimalis-_sofa_modern-_willow_3_seater_livien_full01_bqar23jh.jpeg",
-      "title": "Sofa Single",
-      "price": 6000000,
+      "id": 1,
+      "productid": 4,
+      "thumbnail": "/src/assets/shop/product4.png",
+      "title": "Respira",
+      "price": 500000,
       "quantity": 1,
       "userId": 1,
       "username": "Admin",
-      "email": "admin@gmail.com",
-      "id": 2
+      "email": "admin@gmail.com"
     }
   ],
   "users": [
@@ -139,6 +139,17 @@
       "email": "admin@gmail.com",
       "roles": "admin",
       "id": 1
+    },
+    {
+      "email": "user@gmail.com",
+      "password": "$2a$10$3gBgWDWa.1r0QcuJjPAtxeLqAWxSfbK4NsRd42xVssRPUq575O2H2",
+      "username": "user",
+      "roles": "customer",
+      "address": "",
+      "postalcode": "",
+      "phone": "",
+      "photo": "",
+      "id": 2
     }
   ],
   "checkout": [
@@ -146,18 +157,35 @@
       "userId": 1,
       "data": [
         {
-          "productid": 10,
-          "thumbnail": "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/MTA-13546871/livien_sofa_single-_livien-_single_sofa-_sofa_tamu_set-_sofa_minimalis-_sofa_modern-_willow_3_seater_livien_full01_bqar23jh.jpeg",
-          "title": "Sofa Single",
-          "price": 6000000,
+          "id": 1,
+          "productid": 4,
+          "thumbnail": "/src/assets/shop/product4.png",
+          "title": "Respira",
+          "price": 500000,
           "quantity": 1,
           "userId": 1,
           "username": "Admin",
-          "email": "admin@gmail.com",
-          "id": 2
+          "email": "admin@gmail.com"
         }
       ],
       "id": 1
+    },
+    {
+      "userId": 1,
+      "data": [
+        {
+          "id": 1,
+          "productid": 4,
+          "thumbnail": "/src/assets/shop/product4.png",
+          "title": "Respira",
+          "price": 500000,
+          "quantity": 1,
+          "userId": 1,
+          "username": "Admin",
+          "email": "admin@gmail.com"
+        }
+      ],
+      "id": 2
     }
   ],
   "transaction": [
@@ -391,6 +419,46 @@
       "total": 21000000,
       "date": "2023-12-20T02:36:16.326Z",
       "id": 7
+    },
+    {
+      "userId": 1,
+      "dataProfile": {
+        "username": "Admin",
+        "password": "$2a$10$yr9gmpDA8ZqVBsCMfiDo2e6NUpFrxEKMAQ/lziZaj.djP5vm1daOC",
+        "address": "Address Admin",
+        "postalcode": "45231",
+        "phone": "09823154312",
+        "email": "admin@gmail.com",
+        "roles": "admin",
+        "id": 1
+      },
+      "checkoutData": [
+        {
+          "id": 1,
+          "productid": 4,
+          "thumbnail": "/src/assets/shop/product4.png",
+          "title": "Respira",
+          "price": 500000,
+          "quantity": 1,
+          "userId": 1,
+          "username": "Admin",
+          "email": "admin@gmail.com"
+        },
+        {
+          "id": 1,
+          "productid": 4,
+          "thumbnail": "/src/assets/shop/product4.png",
+          "title": "Respira",
+          "price": 500000,
+          "quantity": 1,
+          "userId": 1,
+          "username": "Admin",
+          "email": "admin@gmail.com"
+        }
+      ],
+      "total": 1000000,
+      "date": "2023-12-20T03:39:37.290Z",
+      "id": 8
     }
   ]
 }
