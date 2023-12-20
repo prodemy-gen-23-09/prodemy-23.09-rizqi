@@ -1,7 +1,13 @@
 import jsonServer from "json-server";
+import cors from "cors";
+
 const server = jsonServer.create();
 const router = jsonServer.router("db.json");
 const middlewares = jsonServer.defaults();
+
+server.use(cors());
+
+server.options("*", cors());
 
 server.get("/product", (req, res) => {
   const products = router.db.get("products").value();
@@ -25,8 +31,22 @@ server.get("/cart", (req, res) => {
 
 server.post("/cart", (req, res) => {
   const newCartItem = req.body;
-  const cart = router.db.get("cart").push(newCartItem).write();
-  res.jsonp(cart);
+  const existingCartItem = router.db
+    .get("cart")
+    .find({ userId: newCartItem.userId })
+    .value();
+
+  if (existingCartItem) {
+    const updatedCart = router.db
+      .get("cart")
+      .find({ userId: newCartItem.userId })
+      .assign(newCartItem)
+      .write();
+    res.json(updatedCart); // Use res.json() instead of res.jsonp()
+  } else {
+    const cart = router.db.get("cart").push(newCartItem).write();
+    res.json(cart); // Use res.json() instead of res.jsonp()
+  }
 });
 
 server.get("/checkout", (req, res) => {

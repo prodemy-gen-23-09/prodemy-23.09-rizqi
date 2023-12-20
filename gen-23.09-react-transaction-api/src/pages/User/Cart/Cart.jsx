@@ -5,7 +5,10 @@ import BannerImage from "../../../components/User/BannerImage.jsx";
 import { FaTrash } from "react-icons/fa";
 import BannerService from "../../../components/User/BannerService";
 import { useSelector, useDispatch } from "react-redux";
-import { getCartTotal } from "../../../store/reducers/CartSlice.js";
+import {
+  clearCartAsync,
+  getCartTotal,
+} from "../../../store/reducers/CartSlice.js";
 import axios from "axios";
 import { formatPrice } from "../../../service/price.js";
 import { useNavigate } from "react-router-dom";
@@ -37,17 +40,6 @@ export default function Cart() {
     setCartItems(updatedDataCart);
   };
 
-  const handleDelete = async (itemId) => {
-    try {
-      await axios.delete(`http://localhost:3000/cart/${itemId}`);
-
-      const updatedDataCart = cartItems.filter((item) => item.id !== itemId);
-      setCartItems(updatedDataCart);
-    } catch (error) {
-      console.error("Error deleting item:", error);
-    }
-  };
-
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -76,15 +68,32 @@ export default function Cart() {
 
   const handleCheckout = async () => {
     try {
+      if (cartItems.length === 0) {
+        alert("Empty Cart");
+        return;
+      }
       const response = await axios.post("http://localhost:3000/checkout", {
         userId: user.id,
         data: cartItems,
       });
 
       console.log("Checkout successful:", response.data);
+      dispatch(clearCartAsync(user.id));
       navigate(`/checkout/${user.id}`);
     } catch (error) {
       console.error("Error during checkout:", error);
+    }
+  };
+
+  const handleDelete = async (itemId) => {
+    try {
+      await axios.delete(`http://localhost:3000/cart/${itemId}`);
+
+      setCartItems((prevCartItems) =>
+        prevCartItems.filter((item) => item.id !== itemId)
+      );
+    } catch (error) {
+      console.error("Error deleting item:", error);
     }
   };
 
