@@ -338,6 +338,76 @@
       "total": 6575000,
       "date": "2023-12-21T01:18:18.218Z",
       "id": 3
+    },
+    {
+      "userId": 2,
+      "dataProfile": {
+        "email": "user@gmail.com",
+        "password": "$2a$10$3gBgWDWa.1r0QcuJjPAtxeLqAWxSfbK4NsRd42xVssRPUq575O2H2",
+        "username": "user",
+        "roles": "customer",
+        "address": "",
+        "postalcode": "",
+        "phone": "",
+        "photo": "",
+        "id": 2
+      },
+      "checkoutData": [
+        {
+          "productid": 4,
+          "thumbnail": "/src/assets/shop/product4.png",
+          "title": "Respira",
+          "price": 500000,
+          "quantity": 1,
+          "userId": 2,
+          "username": "user",
+          "email": "user@gmail.com",
+          "id": 8
+        },
+        {
+          "productid": 5,
+          "thumbnail": "/src/assets/shop/product5.png",
+          "title": "Lolito",
+          "price": 700000,
+          "quantity": 1,
+          "userId": 2,
+          "username": "user",
+          "email": "user@gmail.com",
+          "id": 9
+        }
+      ],
+      "total": 1200000,
+      "date": "2023-12-21T03:28:35.555Z",
+      "id": 4
+    },
+    {
+      "userId": 1,
+      "dataProfile": {
+        "username": "Admin",
+        "password": "$2a$10$yr9gmpDA8ZqVBsCMfiDo2e6NUpFrxEKMAQ/lziZaj.djP5vm1daOC",
+        "address": "Address Admin",
+        "postalcode": "45231",
+        "phone": "09823154312",
+        "email": "admin@gmail.com",
+        "roles": "admin",
+        "id": 1
+      },
+      "checkoutData": [
+        {
+          "productid": 4,
+          "thumbnail": "/src/assets/shop/product4.png",
+          "title": "Respira",
+          "price": 500000,
+          "quantity": 1,
+          "userId": 1,
+          "username": "Admin",
+          "email": "admin@gmail.com",
+          "id": 8
+        }
+      ],
+      "total": 500000,
+      "date": "2023-12-21T03:29:28.061Z",
+      "id": 5
     }
   ]
 }

@@ -25,7 +25,16 @@ export default function Transaction() {
     const fetchTransactionData = async () => {
       try {
         const userId = user ? user.id : "";
-        const response = await axios.get(`http://localhost:3000/transaction`);
+        let response;
+
+        if (user && user.roles === "admin") {
+          response = await axios.get(`http://localhost:3000/transaction`);
+        } else {
+          response = await axios.get(
+            `http://localhost:3000/transaction?userId=${userId}`
+          );
+        }
+
         const responseData = response.data;
         const mergedData = responseData
           .map((item) => {
@@ -40,14 +49,15 @@ export default function Transaction() {
             return flattenedCheckoutData;
           })
           .flat();
+
         setDataTransaction(mergedData);
       } catch (error) {
-        console.error("Error fetching cart data:", error);
+        console.error("Error fetching transaction data:", error);
       }
     };
 
     fetchTransactionData();
-  }, [user]);
+  }, [user, setDataTransaction]);
 
   const handleDetail = (userId) => {
     navigate(`/detailtransaction/${userId}`);
@@ -65,7 +75,7 @@ export default function Transaction() {
               <th>Items</th>
               <th>Total</th>
               <th>Quantity</th>
-              <th>Username</th>
+              {user && user.roles === "admin" && <th>Username</th>}
               <th>Action</th>
             </tr>
           </thead>
@@ -100,7 +110,7 @@ export default function Transaction() {
                   <td>{row.items.join(", ")}</td>
                   <td>{formatPrice(row.total / row.items.length)}</td>
                   <td>{row.quantity}</td>
-                  <td>{row.username}</td>
+                  {user && user.roles === "admin" && <td>{row.username}</td>}
                   <td>
                     <button
                       className="bg-color1_selected hover:bg-color_home hover:text-color1_selected p-3 rounded-md text-color_home"

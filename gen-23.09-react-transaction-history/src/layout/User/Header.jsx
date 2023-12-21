@@ -39,13 +39,11 @@ function Header() {
             <Link to="/shop">
               <div className="text-black hover:text-color1_selected">Shop</div>
             </Link>
-            {user && user.roles === "admin" && (
-              <Link to="/transaction">
-                <div className="text-black hover:text-color1_selected">
-                  Transaction
-                </div>
-              </Link>
-            )}
+            <Link to="/transaction">
+              <div className="text-black hover:text-color1_selected">
+                Transaction
+              </div>
+            </Link>
           </div>
           <div className="flex m-5 gap-5">
             <div className="flex gap-5">

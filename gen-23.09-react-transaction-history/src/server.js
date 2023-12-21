@@ -6,7 +6,6 @@ const router = jsonServer.router("db.json");
 const middlewares = jsonServer.defaults();
 
 server.use(cors());
-
 server.options("*", cors());
 
 server.get("/product", (req, res) => {
@@ -29,6 +28,7 @@ server.get("/cart", (req, res) => {
   res.jsonp(cart);
 });
 
+//'Redirect has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header'
 server.post("/cart", (req, res) => {
   const newCartItem = req.body;
   const existingCartItem = router.db
@@ -42,10 +42,10 @@ server.post("/cart", (req, res) => {
       .find({ userId: newCartItem.userId })
       .assign(newCartItem)
       .write();
-    res.json(updatedCart); // Use res.json() instead of res.jsonp()
+    res.json(updatedCart);
   } else {
     const cart = router.db.get("cart").push(newCartItem).write();
-    res.json(cart); // Use res.json() instead of res.jsonp()
+    res.json(cart);
   }
 });
 
