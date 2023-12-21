@@ -116,7 +116,41 @@
       "id": 11
     }
   ],
-  "cart": [],
+  "cart": [
+    {
+      "id": 5,
+      "productid": 4,
+      "thumbnail": "/src/assets/shop/product4.png",
+      "title": "Respira",
+      "price": 500000,
+      "quantity": 1,
+      "userId": 5,
+      "username": "test",
+      "email": "test@test.com"
+    },
+    {
+      "productid": 5,
+      "thumbnail": "/src/assets/shop/product5.png",
+      "title": "Lolito",
+      "price": 700000,
+      "quantity": 1,
+      "userId": 5,
+      "username": "test",
+      "email": "test@test.com",
+      "id": 6
+    },
+    {
+      "productid": 7,
+      "thumbnail": "/src/assets/shop/product7.png",
+      "title": "Flowy",
+      "price": 450000,
+      "quantity": 1,
+      "userId": 5,
+      "username": "test",
+      "email": "test@test.com",
+      "id": 7
+    }
+  ],
   "users": [
     {
       "username": "Admin",
@@ -149,6 +183,26 @@
       "phone": "",
       "photo": "",
       "id": 3
+    },
+    {
+      "username": "rama",
+      "password": "$2a$10$QPXkpA5KM7hOLR3NeM49LeNBzsDQshVUzt91UtsddUX7peukGE4lC",
+      "address": "\nfreestar\n\nfreestar\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Donec condimentum leo non purus finibus, vitae mollis dolor varius. Aenean ultricies neque gravida, commodo ex interdum, semper nulla. Vivamus sodales orci cursus justo tincidunt, ut posuere turpis scelerisque. Aenean sit amet tortor ac lacus efficitur suscipit posuere vitae risus.",
+      "postalcode": "32212",
+      "phone": "0984628190",
+      "email": "rama@gmail.com",
+      "roles": "customer",
+      "id": 4
+    },
+    {
+      "username": "test",
+      "password": "$2a$10$TuO9eEExWcNHVHlPFYjrzO3o67S255TSBd2IoM/NTFZDqu/c/Z8/C",
+      "address": "\nfreestar\n\nfreestar\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Donec condimentum leo non purus finibus, vitae mollis dolor varius. Aenean ultricies neque gravida, commodo ex interdum, semper nulla. Vivamus sodales orci cursus justo tincidunt, ut posuere turpis scelerisque. Aenean sit amet tortor ac lacus efficitur suscipit posuere vitae risus.",
+      "postalcode": "243213",
+      "phone": "123412341234",
+      "email": "test@test.com",
+      "roles": "customer",
+      "id": 5
     }
   ],
   "checkout": [],
@@ -233,6 +287,57 @@
       "total": 5000000,
       "date": "2023-12-20T11:32:12.030Z",
       "id": 2
+    },
+    {
+      "userId": 4,
+      "dataProfile": {
+        "username": "rama",
+        "password": "$2a$10$QPXkpA5KM7hOLR3NeM49LeNBzsDQshVUzt91UtsddUX7peukGE4lC",
+        "address": "\nfreestar\n\nfreestar\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Donec condimentum leo non purus finibus, vitae mollis dolor varius. Aenean ultricies neque gravida, commodo ex interdum, semper nulla. Vivamus sodales orci cursus justo tincidunt, ut posuere turpis scelerisque. Aenean sit amet tortor ac lacus efficitur suscipit posuere vitae risus.",
+        "postalcode": "32212",
+        "phone": "0984628190",
+        "email": "rama@gmail.com",
+        "roles": "customer",
+        "id": 4
+      },
+      "checkoutData": [
+        {
+          "id": 4,
+          "productid": 4,
+          "thumbnail": "/src/assets/shop/product4.png",
+          "title": "Respira",
+          "price": 500000,
+          "quantity": 1,
+          "userId": 4,
+          "username": "rama",
+          "email": "rama@gmail.com"
+        },
+        {
+          "productid": 10,
+          "thumbnail": "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/MTA-13546871/livien_sofa_single-_livien-_single_sofa-_sofa_tamu_set-_sofa_minimalis-_sofa_modern-_willow_3_seater_livien_full01_bqar23jh.jpeg",
+          "title": "Sofa Single",
+          "price": 6000000,
+          "quantity": 1,
+          "userId": 4,
+          "username": "rama",
+          "email": "rama@gmail.com",
+          "id": 5
+        },
+        {
+          "productid": 8,
+          "thumbnail": "/src/assets/shop/product8.png",
+          "title": "Muggo",
+          "price": 75000,
+          "quantity": 1,
+          "userId": 4,
+          "username": "rama",
+          "email": "rama@gmail.com",
+          "id": 6
+        }
+      ],
+      "total": 6575000,
+      "date": "2023-12-21T01:18:18.218Z",
+      "id": 3
     }
   ]
 }

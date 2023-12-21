@@ -64,16 +64,16 @@ export default function DetailTransaction() {
   return (
     <div>
       <BannerImage title="Detail Transactions" />
-      <div className="flex p-10">
-        <div className="flex flex-col">
-          <div className="flex flex-col mx-[175px] my-[100px] w-full gap-2">
+      <div className="flex gap-40">
+        <div className="flex flex-col w-1/2">
+          <div className="flex flex-col ml-[175px] my-[100px] w-3/4 gap-2">
             <h1 className="text-3xl font-bold">User Details</h1>
             <div className="flex flex-col gap-6 mt-8">
               <div className="flex justify-between">
                 <h1 className="text-xl font-semibold">Name</h1>
                 <p className="w-8/12">{dataProfile.username}</p>
               </div>
-              <div className="flex justify-between mb-4">
+              <div className="flex justify-between">
                 <h1 className="text-xl font-semibold">Address</h1>
                 <p className="w-8/12 text-justify">{dataProfile.address}</p>
               </div>
@@ -96,7 +96,7 @@ export default function DetailTransaction() {
             </div>
           </div>
         </div>
-        <div className="flex flex-col rounded-md ml-96 my-[100px]">
+        <div className="flex flex-col rounded-md my-[100px]">
           {detailDataTransaction &&
             detailDataTransaction.map((transaction, index) => (
               <div key={index}>
